@@ -1,0 +1,15 @@
+---
+import { AccordionDemo } from '@/components/shipbasee'
+import { AccordionDemo as AccordioinDemoS } from '@/components/shadcn'
+import SiteLayout from '@/layouts/site-layout.astro'
+import { getEntry } from 'astro:content'
+
+const entry = await getEntry('docs', 'index')
+const { Content } = await entry.render()
+---
+
+<SiteLayout>
+  <AccordionDemo client:load />
+
+  <AccordioinDemoS client:load />
+</SiteLayout>
