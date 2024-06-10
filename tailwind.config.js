@@ -1,9 +1,13 @@
+import animate from 'tailwindcss-animate'
+
 /** @type {import('tailwindcss').Config} */
-const Config = {
+export default {
   darkMode: ['class'],
   content: [
-    './src/**/*.{astro,md,mdx,svelte,ts,tsx,vue}',
-    './src/**/*.stories.tsx',
+    './pages/**/*.{ts,tsx}',
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
   prefix: '',
   theme: {
@@ -59,12 +63,12 @@ const Config = {
         'accordion-down': {
           from: { height: '0' },
           to: {
-            height: 'var(--radix-accordion-content-height, var(--height))',
+            height: 'var(--height)',
           },
         },
         'accordion-up': {
           from: {
-            height: 'var(--radix-accordion-content-height, var(--height))',
+            height: 'var(--height)',
           },
           to: { height: '0' },
         },
@@ -75,7 +79,5 @@ const Config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate')],
+  plugins: [animate],
 }
-
-export default Config

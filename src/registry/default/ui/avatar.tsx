@@ -1,5 +1,5 @@
-import * as React from 'react'
 import { Avatar as AvatarPrimitive } from '@ark-ui/react/avatar'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -45,4 +45,4 @@ const AvatarFallback = React.forwardRef<
 ))
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName
 
-export { Avatar, AvatarImage, AvatarFallback }
+export { Avatar, AvatarFallback, AvatarImage }

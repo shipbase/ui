@@ -1,5 +1,6 @@
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath } from 'node:url'
 import type { StorybookConfig } from '@storybook/react-vite'
+import viteTsconfigPaths from 'vite-tsconfig-paths'
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
@@ -18,17 +19,16 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
   },
-  viteFinal: (config) => {
-    config.resolve = {
-      ...config.resolve,
-      alias: {
-        ...config.resolve?.alias,
-        '@': fileURLToPath(new URL('../src', import.meta.url))
-      },
-    }
-    console.log(config);
-    
-    return config
+  typescript: {
+    reactDocgen: false,
+  },
+  viteFinal: async (config) => {
+    const { mergeConfig } = await import('vite')
+
+    return mergeConfig(config, {
+      plugins: [viteTsconfigPaths({ root: '../' })],
+    })
   },
 }
+
 export default config

@@ -1,6 +1,6 @@
-import * as React from 'react'
 import { Accordion as AccordionPrimitive } from '@ark-ui/react/accordion'
 import { ChevronDown } from 'lucide-react'
+import * as React from 'react'
 
 import { cn } from '@/lib/utils'
 
@@ -55,7 +55,7 @@ export {
   Accordion,
   AccordionContext,
   AccordionItem,
+  AccordionItemContent,
   AccordionItemContext,
   AccordionItemTrigger,
-  AccordionItemContent,
 }
