@@ -1,9 +1,10 @@
-import type { Meta } from "@storybook/react";
-import { Checkbox, CheckboxTrigger, CheckboxLabel } from "../ui/checkbox";
+import type { Meta } from "@storybook/react"
+
+import { Checkbox, CheckboxLabel, CheckboxTrigger } from "../ui/checkbox"
 
 export default {
   title: "Components/Checkbox",
-} satisfies Meta;
+} satisfies Meta
 
 export function Basic() {
   return (
@@ -15,5 +16,5 @@ export function Basic() {
         </CheckboxLabel>
       </Checkbox>
     </>
-  );
+  )
 }

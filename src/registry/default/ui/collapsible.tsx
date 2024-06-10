@@ -1,14 +1,15 @@
-"use client";
-import * as React from "react";
+"use client"
 
-import { Collapsible as CollapsiblePrimitive } from "@ark-ui/react/collapsible";
-import { cn } from "@/lib/utils";
+import * as React from "react"
+import { Collapsible as CollapsiblePrimitive } from "@ark-ui/react/collapsible"
 
-const Collapsible = CollapsiblePrimitive.Root;
+import { cn } from "@/lib/utils"
 
-const CollapsibleContext = CollapsiblePrimitive.Context;
+const Collapsible = CollapsiblePrimitive.Root
 
-const CollapsibleTrigger = CollapsiblePrimitive.Trigger;
+const CollapsibleContext = CollapsiblePrimitive.Context
+
+const CollapsibleTrigger = CollapsiblePrimitive.Trigger
 
 const CollapsibleContent = React.forwardRef<
   React.ElementRef<typeof CollapsiblePrimitive.Content>,
@@ -17,16 +18,16 @@ const CollapsibleContent = React.forwardRef<
   <CollapsiblePrimitive.Content
     ref={ref}
     className={cn(
-      "data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down overflow-hidden transition-all",
-      className,
+      "data-[state=closed]:animate-collapse-out data-[state=open]:animate-collapse-in overflow-hidden transition-all",
+      className
     )}
     {...props}
   />
-));
+))
 
 export {
   Collapsible,
   CollapsibleContent,
   CollapsibleContext,
   CollapsibleTrigger,
-};
+}

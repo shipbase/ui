@@ -1,24 +1,25 @@
-import type { Meta } from '@storybook/react'
+import type { Meta } from "@storybook/react"
+
 import {
   Accordion,
   AccordionItem,
-  AccordionItemTrigger,
   AccordionItemContent,
-} from '../ui/accordion'
+  AccordionItemTrigger,
+} from "../ui/accordion"
 
 export default {
-  title: 'Components/Accordion',
+  title: "Components/Accordion",
 } satisfies Meta
 
 export function Basic() {
   return (
-    <Accordion collapsible defaultValue={['React']} className="w-full">
+    <Accordion collapsible defaultValue={["React"]} className="w-full">
       <AccordionItem value="item-1">
         <AccordionItemTrigger>Is it accessible?</AccordionItemTrigger>
         <AccordionItemContent>
           Yes. It adheres to the WAI-ARIA design pattern.
         </AccordionItemContent>
-      </AccordionItem>{' '}
+      </AccordionItem>{" "}
       <AccordionItem value="item-2">
         <AccordionItemTrigger>Is it styled?</AccordionItemTrigger>
         <AccordionItemContent>

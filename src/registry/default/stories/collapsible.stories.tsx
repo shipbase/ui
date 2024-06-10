@@ -1,19 +1,20 @@
-import type { Meta } from "@storybook/react";
-import { ChevronsUpDown } from "lucide-react";
-import * as React from "react";
-import { Button } from "../ui/button";
+import * as React from "react"
+import type { Meta } from "@storybook/react"
+import { ChevronsUpDown } from "lucide-react"
+
+import { Button } from "../ui/button"
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../ui/collapsible";
+} from "../ui/collapsible"
 
 export default {
   title: "Components/Collapsible",
-} satisfies Meta;
+} satisfies Meta
 
 export function Basic() {
-  const [isOpen, setIsOpen] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(true)
 
   return (
     <Collapsible
@@ -44,5 +45,5 @@ export function Basic() {
         </div>
       </CollapsibleContent>
     </Collapsible>
-  );
+  )
 }

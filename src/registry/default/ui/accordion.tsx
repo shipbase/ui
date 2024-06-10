@@ -1,12 +1,14 @@
-import { Accordion as AccordionPrimitive } from "@ark-ui/react/accordion";
-import { ChevronDown } from "lucide-react";
-import * as React from "react";
+import * as React from "react"
+import { Accordion as AccordionPrimitive } from "@ark-ui/react/accordion"
+import { ChevronDown } from "lucide-react"
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
-const Accordion = AccordionPrimitive.Root;
-const AccordionContext = AccordionPrimitive.Context;
-const AccordionItemContext = AccordionPrimitive.ItemContext;
+const Accordion = AccordionPrimitive.Root
+
+const AccordionContext = AccordionPrimitive.Context
+
+const AccordionItemContext = AccordionPrimitive.ItemContext
 
 const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
@@ -17,8 +19,8 @@ const AccordionItem = React.forwardRef<
     className={cn("border-b", className)}
     {...props}
   />
-));
-AccordionItem.displayName = "AccordionItem";
+))
+AccordionItem.displayName = "AccordionItem"
 
 const AccordionItemTrigger = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.ItemTrigger>,
@@ -28,7 +30,7 @@ const AccordionItemTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "data[-state=open]:rotate-180 flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline",
-      className,
+      className
     )}
     {...props}
   >
@@ -37,7 +39,7 @@ const AccordionItemTrigger = React.forwardRef<
       <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
     </AccordionPrimitive.ItemIndicator>
   </AccordionPrimitive.ItemTrigger>
-));
+))
 
 const AccordionItemContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.ItemContent>,
@@ -50,7 +52,7 @@ const AccordionItemContent = React.forwardRef<
   >
     <div className={cn("pb-4 pt-0", className)}>{children}</div>
   </AccordionPrimitive.ItemContent>
-));
+))
 
 export {
   Accordion,
@@ -59,4 +61,4 @@ export {
   AccordionItemContent,
   AccordionItemContext,
   AccordionItemTrigger,
-};
+}
