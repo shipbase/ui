@@ -1,3 +1,5 @@
+"use client"
+
 import * as React from "react"
 import { ark } from "@ark-ui/react/factory"
 import { cva, type VariantProps } from "class-variance-authority"

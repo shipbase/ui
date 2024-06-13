@@ -13,7 +13,6 @@ const preview: Preview = {
       },
       defaultTheme: "light",
     }),
-    (Story) => Story(),
   ],
 }
 
