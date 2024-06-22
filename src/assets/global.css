@@ -33,6 +33,9 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+
+    --arrow-size: 1rem;
+    --arrow-background: hsl(0 0% 100%);
   }
 
   .dark {
@@ -63,6 +66,8 @@
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 212.7 26.8% 83.9%;
+
+    --arrow-background: hsl(222.2 84% 4.9%);
   }
 }
 
