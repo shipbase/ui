@@ -4,7 +4,14 @@ import type { Preview } from "@storybook/react"
 import "../src/assets/global.css"
 
 const preview: Preview = {
-  parameters: {},
+  parameters: {
+    options: {
+      storySort: {
+        method: "alphabetical",
+      },
+    },
+    layout: "padded",
+  },
   decorators: [
     withThemeByClassName({
       themes: {
