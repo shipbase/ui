@@ -1,7 +1,6 @@
 import { useState } from "react"
 import {
   Combobox as ArkCombobox,
-  Portal,
   type ComboboxInputValueChangeDetails,
 } from "@ark-ui/react"
 import type { Meta } from "@storybook/react"
