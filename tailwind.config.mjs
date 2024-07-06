@@ -5,10 +5,10 @@ import { fontFamily } from "tailwindcss/defaultTheme"
 export default {
   darkMode: ["class"],
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
+    "src/pages/**/*.{ts,tsx,astro}",
+    "src/components/**/*.{ts,tsx,astro}",
+    "src/layouts/**/*.{ts,tsx,astro}",
+    "src/registry/**/*.{ts,tsx,astro}"
   ],
   prefix: "",
   theme: {

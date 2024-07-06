@@ -1,14 +1,15 @@
 ---
-import { Icons } from '@/components/icons'
-import ThemeToggle from '@/components/theme-toggle.astro'
-import { siteConfig } from '@/config/site'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from '@/registry/default/ui/button'
-import MainNav from './main-nav.astro'
+import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+import { Icons } from "@/components/icons"
+import ThemeToggle from "@/components/theme-toggle.astro"
+import { buttonVariants } from "@/registry/default/ui/button"
+
+import MainNav from "./main-nav.astro"
 ---
 
 <header
-  class="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+  class="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
   <div class="container flex h-14 max-w-screen-2xl items-center">
     <MainNav />
@@ -24,9 +25,9 @@ import MainNav from './main-nav.astro'
           <div
             class={cn(
               buttonVariants({
-                variant: 'ghost',
+                variant: "ghost",
               }),
-              'w-9 px-0'
+              "w-9 px-0"
             )}
           >
             <Icons.gitHub className="h-4 w-4" />
@@ -37,9 +38,9 @@ import MainNav from './main-nav.astro'
           <div
             class={cn(
               buttonVariants({
-                variant: 'ghost',
+                variant: "ghost",
               }),
-              'w-9 px-0'
+              "w-9 px-0"
             )}
           >
             <Icons.twitter className="h-3 w-3 fill-current" />

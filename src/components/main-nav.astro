@@ -1,0 +1,23 @@
+---
+import { siteConfig } from "@/config/site"
+---
+
+<div class="mr-4 hidden md:flex">
+  <a href="/" class="mr-6 text-sm font-medium text-muted-foreground">
+    <!-- Logo -->
+    <span class="hidden sm:inline-block font-bold text-primary"
+      >{siteConfig.name}</span
+    >
+  </a>
+  <nav class="flex items-center gap-4 text-sm lg:gap-6">
+    <a href="/docs" class="transition-colors hover:text-foreground/80">
+      Docs
+    </a>
+    <a
+      href="/docs/components"
+      class="transition-colors hover:text-foreground/80"
+    >
+      Components
+    </a>
+  </nav>
+</div>

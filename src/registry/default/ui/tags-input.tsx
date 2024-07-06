@@ -1,6 +1,6 @@
 import * as React from "react"
 import { TagsInput as TagsInputPrimitive } from "@ark-ui/react/tags-input"
-import { Tags, X } from "lucide-react"
+import { X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -76,10 +76,10 @@ const TagsInputClearTrigger = TagsInputPrimitive.ClearTrigger
 
 export {
   TagsInput,
-  TagsInputContext,
-  TagsInputLabel,
-  TagsInputControl,
-  TagsInputItem,
-  TagsInputInput,
   TagsInputClearTrigger,
+  TagsInputContext,
+  TagsInputControl,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputLabel,
 }

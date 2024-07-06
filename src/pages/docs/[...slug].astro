@@ -1,0 +1,131 @@
+---
+import Layout from "@/layouts/layout.astro"
+import type { GetStaticPaths } from "astro"
+import { getCollection, type ContentEntryMap } from "astro:content"
+import { ChevronRightIcon } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+export const getStaticPaths = (async () => {
+  const overview = await getCollection("overview")
+  const components = await getCollection("components")
+
+  const genSlug = (collection: keyof ContentEntryMap, slug: string) =>
+    collection === "overview" ? slug : `${collection}/${slug}`
+
+  const overviewSidebarNav = overview
+    .filter((c) => c.data.sidebar !== false)
+    .map(({ slug, data }) => ({
+      title: data.title,
+      href: `/docs/${genSlug("overview", slug)}`,
+    }))
+  const componentsSidebarNav = components.map(({ slug, data }) => ({
+    title: data.title,
+    href: `/docs/components/${slug}`,
+  }))
+
+  return [...overview, ...components].map(
+    ({ slug, collection, render, data }) => {
+      return {
+        params: {
+          slug: genSlug(collection, slug),
+        },
+        props: {
+          doc: { render, data },
+          sidebar: {
+            overview: overviewSidebarNav,
+            components: componentsSidebarNav,
+          },
+        },
+      }
+    }
+  )
+}) satisfies GetStaticPaths
+
+const { pathname } = Astro.url
+const { doc, sidebar } = Astro.props
+const { Content } = await doc.render()
+---
+
+<Layout>
+  <div
+    class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
+  >
+    <aside
+      class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+    >
+      <div class="relative overflow-hidden h-full py-6 pr-6 lg:py-8">
+        <div class="w-full">
+          <div class="pb-4">
+            <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
+              Getting Started
+            </h4>
+            <div class="flex flex-col text-sm">
+              {
+                sidebar.overview.map((item) => (
+                  <a
+                    href={item.href}
+                    class={cn(
+                      "hover:underline px-2 py-1",
+                      pathname === item.href
+                        ? "font-medium text-foreground"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {item.title}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+          <div class="pb-4">
+            <h4 class="mb-1 px-2 py-1 text-sm font-semibold">Components</h4>
+            <div class="flex flex-col text-sm">
+              {
+                sidebar.components.map((item) => (
+                  <a
+                    href={item.href}
+                    class={cn(
+                      "hover:underline px-2 py-1",
+                      pathname === item.href
+                        ? "font-medium text-foreground"
+                        : "text-muted-foreground"
+                    )}
+                  >
+                    {item.title}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <main
+      class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]"
+    >
+      <div class="mx-auto w-full min-w-0">
+        <div
+          class="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground"
+        >
+          <div class="truncate">Docs</div>
+          <ChevronRightIcon className="h-3.5 w-3.5" />
+          <div class="text-foreground">{doc.data.title}</div>
+        </div>
+        <div class="space-y-2">
+          <h1 class={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
+            {doc.data.title}
+          </h1>
+          {
+            doc.data.description && (
+              <p class="text-base text-muted-foreground">
+                {doc.data.description}
+              </p>
+            )
+          }
+        </div>
+        <div class="pt-8 pb-12"><Content /></div>
+      </div>
+    </main>
+  </div>
+</Layout>

@@ -24,6 +24,9 @@
     // react
     "jsx": "preserve",
     "jsxImportSource": "react",
+
+    // base
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }

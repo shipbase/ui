@@ -1,0 +1,16 @@
+---
+import fs from "node:fs"
+import { Code } from "astro:components"
+
+import { ComponentPlayground } from "./component-playground.tsx"
+
+const component = Astro.params["slug"]!.split("/").pop()
+
+const code = fs.readFileSync(
+  `./src/registry/default/examples/${component}.tsx`,
+  "utf-8"
+)
+---
+
+<ComponentPlayground component={component!} client:load />
+<Code code={code} />
