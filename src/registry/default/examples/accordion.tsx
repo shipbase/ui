@@ -5,7 +5,7 @@ import {
   AccordionItemTrigger,
 } from "../ui/accordion"
 
-export function Demo() {
+export default function Demo() {
   return (
     <Accordion collapsible defaultValue={["React"]} className="w-full">
       <AccordionItem value="item-1">

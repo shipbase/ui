@@ -1,0 +1,30 @@
+---
+import fs from "node:fs"
+
+import Code from "./code.astro"
+import { Preview } from "./preview"
+import { Tabs } from "./tabs"
+
+const component = Astro.params["slug"]!.split("/").pop()
+const codeString = (() => {
+  try {
+    return fs.readFileSync(
+      `./src/registry/default/examples/${component}.tsx`,
+      "utf-8"
+    )
+  } catch (e) {
+    console.error(e)
+    return "Not yet available"
+  }
+})()
+---
+
+<Tabs client:load>
+  <Preview
+    slot="preview"
+    component={component}
+    codeString={codeString}
+    client:load
+  />
+  <Code slot="code" codeString={codeString} />
+</Tabs>
