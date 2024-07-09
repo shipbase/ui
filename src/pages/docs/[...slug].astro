@@ -42,7 +42,7 @@ export const getStaticPaths = (async () => {
   )
 }) satisfies GetStaticPaths
 
-const { pathname } = Astro.url
+const pathname = Astro.url.pathname.replace(/\/$/, "")
 const { doc, sidebar } = Astro.props
 const { Content } = await doc.render()
 ---
@@ -85,6 +85,8 @@ const { Content } = await doc.render()
                 sidebar.components.map((item) => (
                   <a
                     href={item.href}
+                    data-pathname={pathname}
+                    data-href={item.href}
                     class={cn(
                       "hover:underline px-2 py-1",
                       pathname === item.href
