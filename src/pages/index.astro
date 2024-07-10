@@ -1,13 +1,31 @@
 ---
 import Layout from "@/layouts/layout.astro"
+
+import { Icons } from "@/components/icons"
+import { Button } from "@/registry/default/ui/button"
 ---
 
 <Layout>
-  <div class="container">
-    <h1>Welcome to Shipbase UI</h1>
-    <p>
-      Shipbase UI is a collection of UI components and utilities for building
-      applications with Tailwind CSS.
-    </p>
+  <div class="container relative">
+    <section
+      class="mx-auto flex justify-center flex-col gap-2 items-center py-4 lg:py-24 md:py-12"
+    >
+      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter">
+        Build your component library
+      </h1>
+      <span class="text-foreground text-lg max-w-[500px] text-center">
+        Beautifully designed components that you can copy and paste into your
+        apps.
+      </span>
+      <div class="flex w-full items-center justify-center py-4 md:pb-10 gap-4">
+        <a href="/docs/introduction">
+          <Button size="sm"> Get Started </Button>
+        </a>
+        <Button size="sm" variant="outline">
+          <Icons.gitHub className="h-4 w-4 mr-2" />
+          Github
+        </Button>
+      </div>
+    </section>
   </div>
 </Layout>

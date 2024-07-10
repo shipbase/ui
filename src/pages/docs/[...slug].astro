@@ -13,8 +13,13 @@ export const getStaticPaths = (async () => {
   const genSlug = (collection: keyof ContentEntryMap, slug: string) =>
     collection === "overview" ? slug : `${collection}/${slug}`
 
+  const overviewPriority = ["introduction", "installation", "about"]
   const overviewSidebarNav = overview
     .filter((c) => c.data.sidebar !== false)
+    .sort(
+      (a, b) =>
+        overviewPriority.indexOf(a.slug) - overviewPriority.indexOf(b.slug)
+    )
     .map(({ slug, data }) => ({
       title: data.title,
       href: `/docs/${genSlug("overview", slug)}`,
