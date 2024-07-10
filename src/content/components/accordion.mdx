@@ -1,13 +1,22 @@
 ---
 title: Accordion
 description: A vertically stacked set of interactive headings that each reveal a section of content.
-component: true
 ---
 
-import ComponentPreview from "@/components/component-preview"
+import ComponentPreview from "@/components/content/component-preview"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/default/ui/tabs"
+
+<ComponentPreview />
 
 ## Installation
 
-install
-
-<ComponentPreview />
+<Tabs>
+<TabsList>
+<TabsTrigger />
+</TabsList>
+</Tabs>

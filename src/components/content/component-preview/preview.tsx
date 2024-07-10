@@ -4,7 +4,7 @@ import { capitalize, cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import * as Examples from "@/registry/default/examples"
 
-import { CopyButton } from "../copy-button"
+import { CopyButton } from "../../copy-button"
 
 interface Props {
   component?: string
