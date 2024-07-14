@@ -1,10 +1,13 @@
 ---
 import Layout from "@/layouts/layout.astro"
 import type { GetStaticPaths } from "astro"
+import { Code } from "astro:components"
 import { getCollection, type ContentEntryMap } from "astro:content"
 import { ChevronRightIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { ComponentPreview, Step, Steps } from "@/components/content"
+import H2 from "@/components/content/h2.astro"
 
 export const getStaticPaths = (async () => {
   const overview = await getCollection("overview")
@@ -131,7 +134,17 @@ const { Content } = await doc.render()
             )
           }
         </div>
-        <div class="pt-8 pb-12"><Content /></div>
+        <div class="pt-8 pb-12">
+          <Content
+            components={{
+              h2: H2,
+              Steps,
+              Step,
+              Code,
+              ComponentPreview,
+            }}
+          />
+        </div>
       </div>
     </main>
   </div>

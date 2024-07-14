@@ -19,12 +19,12 @@ const codeString = (() => {
 })()
 ---
 
-<Tabs client:load>
+<Tabs client:visible>
   <Preview
     slot="preview"
     component={component}
     codeString={codeString}
-    client:load
+    client:visible
   />
   <Code slot="code" codeString={codeString} />
 </Tabs>
