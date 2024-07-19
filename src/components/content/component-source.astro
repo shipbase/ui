@@ -1,0 +1,29 @@
+---
+import fs from "node:fs"
+import { Code } from "astro:components"
+
+export interface Props {
+  name: string
+}
+
+const { name } = Astro.props
+
+const codeString = (() => {
+  try {
+    return fs.readFileSync(
+      `./src/registry/default/examples/${name}.tsx`,
+      "utf-8"
+    )
+  } catch (e) {
+    console.error(e)
+    return "Not yet available"
+  }
+})()
+---
+
+<Code
+  code={codeString}
+  lang="tsx"
+  theme="github-dark-default"
+  class="px-4 max-h-[350px] overflow-x-auto rounded-lg text-sm border py-4"
+/>

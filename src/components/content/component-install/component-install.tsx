@@ -13,7 +13,7 @@ interface Props {
 
 export const ComponentInstall = ({ manual, cli }: Props) => {
   return (
-    <Tabs defaultValue="manual" className="w-full">
+    <Tabs defaultValue="manual" className="relative mt-6 w-full">
       <TabsList className="mb-5 flex h-8 justify-start rounded-none border-b bg-transparent p-0">
         <TabsTrigger
           value="manual"

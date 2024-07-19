@@ -9,6 +9,12 @@ export default defineConfig({
   vite: {
     plugins: [Inspect()],
   },
+  markdown: {
+    shikiConfig: {
+      theme: "github-dark-default",
+      wrap: false,
+    },
+  },
   redirects: {
     "/docs": "/docs/introduction",
     "/docs/components": "/docs/components/button",
