@@ -4,16 +4,13 @@ import tailwind from "@astrojs/tailwind"
 import { defineConfig } from "astro/config"
 import Inspect from "vite-plugin-inspect"
 
+import { shikiConfig } from "./src/config/shiki"
+
+// https://astro.build/config
 export default defineConfig({
-  integrations: [mdx(), react(), tailwind()],
+  integrations: [mdx({ shikiConfig }), react(), tailwind()],
   vite: {
     plugins: [Inspect()],
-  },
-  markdown: {
-    shikiConfig: {
-      theme: "github-dark-default",
-      wrap: false,
-    },
   },
   redirects: {
     "/docs": "/docs/introduction",

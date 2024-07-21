@@ -1,6 +1,6 @@
 import { default as p } from "./a.astro"
 import { default as blockquote } from "./blockquote.astro"
-import { default as code } from "./code.astro"
+// import { default as code } from "./code.astro"
 import { default as h1 } from "./h1.astro"
 import { default as h2 } from "./h2.astro"
 import { default as h3 } from "./h3.astro"
@@ -10,7 +10,7 @@ import { default as h6 } from "./h6.astro"
 import { default as hr } from "./hr.astro"
 import { default as li } from "./li.astro"
 import { default as ol } from "./ol.astro"
-import { default as pre } from "./pre.astro"
+// import { default as pre } from "./pre.astro"
 import { default as table } from "./table.astro"
 import { default as td } from "./td.astro"
 import { default as th } from "./th.astro"
@@ -20,7 +20,7 @@ import { default as ul } from "./ul.astro"
 export default {
   p,
   blockquote,
-  code,
+  // code,
   h1,
   h2,
   h3,
@@ -30,7 +30,7 @@ export default {
   hr,
   li,
   ol,
-  pre,
+  // pre,
   table,
   td,
   th,

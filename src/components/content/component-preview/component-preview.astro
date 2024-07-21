@@ -1,7 +1,7 @@
 ---
 import fs from "node:fs"
 
-import Code from "./code.astro"
+import CodeWrapper from "../code-wrapper.astro"
 import { Preview } from "./preview"
 import { Tabs } from "./tabs"
 
@@ -26,5 +26,5 @@ const codeString = (() => {
     codeString={codeString}
     client:visible
   />
-  <Code slot="code" codeString={codeString} />
+  <CodeWrapper slot="code" src={codeString} />
 </Tabs>

@@ -1,9 +1,10 @@
 ---
 import Layout from "@/layouts/layout.astro"
 import type { GetStaticPaths } from "astro"
-import { Code } from "astro:components"
 import { getCollection, type ContentEntryMap } from "astro:content"
 import { ChevronRightIcon } from "lucide-react"
+
+import "@/styles/mdx.css"
 
 import { cn } from "@/lib/utils"
 import { MDXComponents } from "@/components/content"
