@@ -31,6 +31,7 @@ export const Preview = ({ component, codeString }: Props) => {
   return (
     <div className="relative rounded-md border">
       <div className="flex items-center justify-between p-4">
+        <div></div>
         <CopyButton
           value={codeString}
           variant="outline"

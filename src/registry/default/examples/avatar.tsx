@@ -3,10 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 export default function Basic() {
   return (
     <Avatar>
-      <AvatarImage
-        src="https://avatars.githubusercontent.com/u/54212428?s=80&v=4"
-        alt="zigjs"
-      />
+      <AvatarImage src="https://github.com/iamdin.png" alt="@shipbase" />
       <AvatarFallback>zigjs</AvatarFallback>
     </Avatar>
   )
