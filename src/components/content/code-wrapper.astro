@@ -1,0 +1,30 @@
+---
+import { Code } from "astro/components"
+
+import theme from "@/lib/highlighter-theme.json"
+import { normalizeTheme } from "shiki";
+import { CopyButton } from "@/components/copy-button"
+
+interface Props {
+  slot?: string
+  src?: string
+}
+
+const { src, slot } = Astro.props
+---
+
+<div class="code-wrapper relative">
+  <CopyButton
+    client:visible
+    className="absolute top-4 right-4"
+    value={src || ""}
+  />
+  {
+    slot ? (
+      // @ts-ignore
+      <Code lang="tsx" wrap={false} theme={normalizeTheme(theme)} code={src || ""} />
+    ) : (
+      <slot />
+    )
+  }
+</div>

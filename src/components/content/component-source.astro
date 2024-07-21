@@ -1,6 +1,7 @@
 ---
 import fs from "node:fs"
-import { Code } from "astro:components"
+
+import CodeWrapper from "./code-wrapper.astro"
 
 export interface Props {
   name: string
@@ -10,10 +11,7 @@ const { name } = Astro.props
 
 const codeString = (() => {
   try {
-    return fs.readFileSync(
-      `./src/registry/default/examples/${name}.tsx`,
-      "utf-8"
-    )
+    return fs.readFileSync(`./src/registry/default/ui/${name}.tsx`, "utf-8")
   } catch (e) {
     console.error(e)
     return "Not yet available"
@@ -21,9 +19,4 @@ const codeString = (() => {
 })()
 ---
 
-<Code
-  code={codeString}
-  lang="tsx"
-  theme="github-dark-default"
-  class="px-4 max-h-[350px] overflow-x-auto rounded-lg text-sm border py-4"
-/>
+<CodeWrapper slot="code" src={codeString} />
