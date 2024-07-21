@@ -1,6 +1,6 @@
 import * as React from "react"
 
-import { capitalize, cn } from "@/lib/utils"
+import { cn } from "@/lib/utils"
 import { CopyButton } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
 import * as Examples from "@/registry/default/examples"
@@ -13,7 +13,7 @@ interface Props {
 
 export const Preview = ({ component, codeString }: Props) => {
   // @ts-expect-error
-  const Example = Examples[capitalize(component)]
+  const Example = Examples[component]
 
   if (!Example) {
     return (
