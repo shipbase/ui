@@ -1,16 +1,9 @@
 import type { ShikiConfig } from "@astrojs/markdown-remark"
 import { transformerMetaHighlight } from "@shikijs/transformers"
-import { normalizeTheme } from "shiki"
-
-import theme from "../lib/highlighter-theme.json"
 
 export const shikiConfig = {
-  // @ts-ignore
-  theme: normalizeTheme(theme),
+  theme: "vesper",
   transformers: [
-    /**
-     * @type {import('shiki').ShikiTransformer}
-     */
     {
       // @ts-ignore
       root(tree) {

@@ -1,0 +1,18 @@
+---
+import { loadFileSource } from "@/lib/utils"
+
+import CodeWrapper from "../code-wrapper.astro"
+import { Preview } from "./preview"
+import { Tabs } from "./tabs"
+
+interface Props {
+  name?: string
+}
+const { name } = Astro.props
+const source = await loadFileSource(`registry/default/examples/${name}.tsx`)
+---
+
+<Tabs client:visible>
+  <Preview slot="preview" component={name} codeString={source} client:visible />
+  <CodeWrapper slot="code" lang="tsx" src={source} />
+</Tabs>

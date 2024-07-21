@@ -1,22 +1,17 @@
 ---
-import fs from "node:fs"
+import { loadFileSource } from "@/lib/utils"
 
 import CodeWrapper from "./code-wrapper.astro"
 
 export interface Props {
-  name: string
+  path: string
 }
+const props = Astro.props
 
-const { name } = Astro.props
+const source = await loadFileSource(props.path)
+console.log("source", props.path, source)
 
-const codeString = (() => {
-  try {
-    return fs.readFileSync(`./src/registry/default/ui/${name}.tsx`, "utf-8")
-  } catch (e) {
-    console.error(e)
-    return "Not yet available"
-  }
-})()
+const lang = props.path?.split(".").pop() as any
 ---
 
-<CodeWrapper slot="code" src={codeString} />
+<CodeWrapper lang={lang || "plantext"} src={source} />

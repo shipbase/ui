@@ -1,10 +1,9 @@
 import * as React from "react"
 
 import { capitalize, cn } from "@/lib/utils"
+import { CopyButton } from "@/components/copy-button"
 import { Icons } from "@/components/icons"
 import * as Examples from "@/registry/default/examples"
-
-import { CopyButton } from "../../copy-button"
 
 interface Props {
   component?: string
