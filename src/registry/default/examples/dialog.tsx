@@ -1,5 +1,3 @@
-import type { Meta } from "@storybook/react"
-
 import { Button } from "../ui/button"
 import {
   Dialog,
@@ -13,31 +11,7 @@ import {
 } from "../ui/dialog"
 import { Input } from "../ui/input"
 
-export default {
-  title: "Components/Dialog",
-} satisfies Meta
-
-export function Usage() {
-  return (
-    <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
-          </DialogDescription>
-        </DialogHeader>
-        <DialogFooter>
-          <DialogCloseTrigger>Close</DialogCloseTrigger>
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-  )
-}
-
-export const Basic = () => {
+export default function DialogDemo() {
   return (
     <Dialog>
       <DialogTrigger asChild>

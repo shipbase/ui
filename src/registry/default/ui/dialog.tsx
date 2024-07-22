@@ -7,6 +7,8 @@ import { cn } from "@/lib/utils"
 
 const Dialog = DialogPrimitive.Root
 
+const DialogContext = DialogPrimitive.Context
+
 const DialogTrigger = DialogPrimitive.Trigger
 
 const DialogCloseTrigger = DialogPrimitive.CloseTrigger
@@ -113,10 +115,10 @@ export {
   Dialog,
   DialogCloseTrigger,
   DialogContent,
+  DialogContext,
   DialogDescription,
   DialogFooter,
   DialogHeader,
-  DialogPortal,
   DialogTitle,
   DialogTrigger,
 }

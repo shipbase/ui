@@ -1,0 +1,59 @@
+---
+title: Dialog
+description: A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.
+---
+
+<ComponentPreview name="dialog" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/dialog.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  Dialog,
+  DialogCloseTrigger,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+```
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you absolutely sure?</DialogTitle>
+      <DialogDescription>
+        This action cannot be undone. This will permanently delete your account
+        and remove your data from our servers.
+      </DialogDescription>
+    </DialogHeader>
+    <DialogFooter>
+      <DialogCloseTrigger>Close</DialogCloseTrigger>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
