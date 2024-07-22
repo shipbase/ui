@@ -1,0 +1,76 @@
+---
+title: Combobox
+description: Autocomplete input and command palette with a list of suggestions.
+---
+
+<ComponentPreview name="combobox" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/combobox.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  Combobox,
+  ComboboxClearTrigger,
+  ComboboxContent,
+  ComboboxControl,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxItemGroup,
+  ComboboxItemGroupLabel,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxPortal,
+  ComboboxTrigger,
+} from "@/components/ui/combobox"
+```
+
+```tsx
+<Combobox items={["React", "Vue"]}>
+  <ComboboxLabel>Framework</ComboboxLabel>
+  <ComboboxControl>
+    <ComboboxInput placeholder="Select a framework" />
+    <ComboboxTrigger>
+      <ChevronsUpDown />
+    </ComboboxTrigger>
+  </ComboboxControl>
+  <ComboboxPortal>
+    <ComboboxContent>
+      <ComboboxList>
+        <ComboboxItemGroup>
+          <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
+          {["React", "Vue"].map((item) => (
+            <ComboboxItem key={item} item={item}>
+              <ComboboxItemText>{item}</ComboboxItemText>
+              <ComboboxItemIndicator>
+                <Check />
+              </ComboboxItemIndicator>
+            </ComboboxItem>
+          ))}
+        </ComboboxItemGroup>
+      </ComboboxList>
+    </ComboboxContent>
+  </ComboboxPortal>
+</Combobox>
+```

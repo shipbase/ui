@@ -1,8 +1,4 @@
 import { useState } from "react"
-import {
-  Combobox as ArkCombobox,
-  type ComboboxInputValueChangeDetails,
-} from "@ark-ui/react"
 import type { Meta } from "@storybook/react"
 import { Check, ChevronsUpDown } from "lucide-react"
 
@@ -10,49 +6,58 @@ import { cn } from "@/lib/utils"
 
 import {
   Combobox,
+  ComboboxClearTrigger,
   ComboboxContent,
   ComboboxControl,
   ComboboxInput,
   ComboboxItem,
   ComboboxItemGroup,
   ComboboxItemGroupLabel,
+  ComboboxItemIndicator,
+  ComboboxItemText,
   ComboboxLabel,
+  ComboboxList,
   ComboboxPortal,
   ComboboxTrigger,
+  type ComboboxInputValueChangeDetails,
 } from "../ui/combobox"
 
 export default {
   title: "Components/Combobox",
 } satisfies Meta
 
-export const Basic = () => {
-  const items = ["React", "Solid", "Vue"]
+export function Usage() {
   return (
-    <ArkCombobox.Root items={items} lazyMount unmountOnExit open>
-      <ArkCombobox.Label>Framework</ArkCombobox.Label>
-      <ArkCombobox.Control>
-        <ArkCombobox.Input />
-        <ArkCombobox.Trigger>Open</ArkCombobox.Trigger>
-        <ArkCombobox.ClearTrigger>Clear</ArkCombobox.ClearTrigger>
-      </ArkCombobox.Control>
+    <Combobox items={["React", "Vue"]}>
+      <ComboboxLabel>Framework</ComboboxLabel>
+      <ComboboxControl>
+        <ComboboxInput placeholder="Select a framework" />
+        <ComboboxTrigger>
+          <ChevronsUpDown />
+        </ComboboxTrigger>
+      </ComboboxControl>
       <ComboboxPortal>
-        <ArkCombobox.Content>
-          <ArkCombobox.ItemGroup>
-            <ArkCombobox.ItemGroupLabel>Frameworks</ArkCombobox.ItemGroupLabel>
-            {items.map((item) => (
-              <ArkCombobox.Item key={item} item={item}>
-                <ArkCombobox.ItemText>{item}</ArkCombobox.ItemText>
-                <ArkCombobox.ItemIndicator>✓</ArkCombobox.ItemIndicator>
-              </ArkCombobox.Item>
-            ))}
-          </ArkCombobox.ItemGroup>
-        </ArkCombobox.Content>
+        <ComboboxContent>
+          <ComboboxList>
+            <ComboboxItemGroup>
+              <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
+              {["React", "Vue"].map((item) => (
+                <ComboboxItem key={item} item={item}>
+                  <ComboboxItemText>{item}</ComboboxItemText>
+                  <ComboboxItemIndicator>
+                    <Check />
+                  </ComboboxItemIndicator>
+                </ComboboxItem>
+              ))}
+            </ComboboxItemGroup>
+          </ComboboxList>
+        </ComboboxContent>
       </ComboboxPortal>
-    </ArkCombobox.Root>
+    </Combobox>
   )
 }
 
-export function UI() {
+export function ComboboxDemo() {
   const frameworks = [
     {
       value: "next.js",
@@ -106,17 +111,19 @@ export function UI() {
       </ComboboxControl>
       <ComboboxPortal>
         <ComboboxContent>
-          <ComboboxItemGroup>
-            <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
-            {items.map((item) => (
-              <ComboboxItem key={item.value} item={item}>
-                <ArkCombobox.ItemText>{item.label}</ArkCombobox.ItemText>
-                <ArkCombobox.ItemIndicator>
-                  <Check className={cn("ml-2 h-4 w-4")} />
-                </ArkCombobox.ItemIndicator>
-              </ComboboxItem>
-            ))}
-          </ComboboxItemGroup>
+          <ComboboxList>
+            <ComboboxItemGroup>
+              <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
+              {items.map((item) => (
+                <ComboboxItem key={item.value} item={item}>
+                  <ComboboxItemText>{item.label}</ComboboxItemText>
+                  <ComboboxItemIndicator>
+                    <Check className={cn("ml-2 h-4 w-4")} />
+                  </ComboboxItemIndicator>
+                </ComboboxItem>
+              ))}
+            </ComboboxItemGroup>
+          </ComboboxList>
         </ComboboxContent>
       </ComboboxPortal>
     </Combobox>

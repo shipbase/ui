@@ -6,6 +6,22 @@ import { Portal } from "@ark-ui/react/portal"
 
 import { cn } from "@/lib/utils"
 
+const ComboboxContext = ComboboxPrimitive.Context
+
+const ComboboxItemContext = ComboboxPrimitive.ItemContext
+
+const ComboboxControl = ComboboxPrimitive.Control
+
+const ComboboxItemText = ComboboxPrimitive.ItemText
+
+const ComboboxItemIndicator = ComboboxPrimitive.ItemIndicator
+
+const ComboboxTrigger = ComboboxPrimitive.Trigger
+
+const ComboboxClearTrigger = ComboboxPrimitive.ClearTrigger
+
+const ComboboxList = ComboboxPrimitive.List
+
 const Combobox = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Root>
@@ -17,10 +33,6 @@ const Combobox = React.forwardRef<
   />
 ))
 Combobox.displayName = "Combobox"
-
-const ComboboxContext = ComboboxPrimitive.Context
-
-const ComboboxControl = ComboboxPrimitive.Control
 
 const ComboboxInput = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Input>,
@@ -49,10 +61,6 @@ const ComboboxLabel = React.forwardRef<
     {...props}
   />
 ))
-
-const ComboboxTrigger = ComboboxPrimitive.Trigger
-
-const ComboboxClearTrigger = ComboboxPrimitive.ClearTrigger
 
 const ComboboxPortal = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Positioner>,
@@ -119,14 +127,18 @@ const ComboboxItem = React.forwardRef<
 export {
   Combobox,
   ComboboxClearTrigger,
-  ComboboxLabel,
   ComboboxContent,
   ComboboxContext,
   ComboboxControl,
   ComboboxInput,
   ComboboxItem,
+  ComboboxItemContext,
   ComboboxItemGroup,
   ComboboxItemGroupLabel,
+  ComboboxItemIndicator,
+  ComboboxItemText,
+  ComboboxLabel,
+  ComboboxList,
   ComboboxPortal,
   ComboboxTrigger,
 }
