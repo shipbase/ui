@@ -9,7 +9,6 @@ export interface Props {
 const props = Astro.props
 
 const source = await loadFileSource(props.path)
-console.log("source", props.path, source)
 
 const lang = props.path?.split(".").pop() as any
 ---
