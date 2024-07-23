@@ -13,7 +13,7 @@ interface Props {
 
 const PreviewTabs = ({ preview, code }: Props) => {
   return (
-    <Tabs defaultValue="preview" className="my-4 w-full">
+    <Tabs defaultValue="preview" className="w-full">
       <TabsList className="mb-5 flex h-8 justify-start rounded-none border-b bg-transparent p-0">
         <TabsTrigger
           value="preview"

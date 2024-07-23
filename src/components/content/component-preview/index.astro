@@ -1,5 +1,5 @@
 ---
-import { loadFileSource } from "@/lib/utils"
+import { cn, loadFileSource } from "@/lib/utils"
 
 import CodeWrapper from "../code-wrapper.astro"
 import { Preview } from "./preview"
@@ -7,12 +7,23 @@ import { Tabs } from "./tabs"
 
 interface Props {
   name?: string
+  className?: string
 }
-const { name } = Astro.props
+const { name, className, ...props } = Astro.props
 const source = await loadFileSource(`registry/default/examples/${name}.tsx`)
 ---
 
-<Tabs client:visible>
-  <Preview slot="preview" component={name} codeString={source} client:visible />
-  <CodeWrapper slot="code" lang="tsx" src={source} />
-</Tabs>
+<div
+  class={cn("group relative my-4 flex flex-col space-y-2", className)}
+  {...props}
+>
+  <Tabs client:visible>
+    <Preview
+      slot="preview"
+      component={name}
+      codeString={source}
+      client:visible
+    />
+    <CodeWrapper slot="code" lang="tsx" src={source} />
+  </Tabs>
+</div>
