@@ -1,6 +1,5 @@
 import * as React from "react"
-import type { Meta } from "@storybook/react"
-import { Minus, Plus } from "lucide-react"
+import { MinusIcon, PlusIcon } from "lucide-react"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
 import { Button } from "../ui/button"
@@ -14,10 +13,6 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from "../ui/drawer"
-
-export default {
-  title: "Components/Drawer",
-} satisfies Meta
 
 const data = [
   {
@@ -61,27 +56,7 @@ const data = [
   },
 ]
 
-export function Usage() {
-  return (
-    <Drawer>
-      <DrawerTrigger>Open</DrawerTrigger>
-      <DrawerContent>
-        <DrawerHeader>
-          <DrawerTitle>Are you absolutely sure?</DrawerTitle>
-          <DrawerDescription>This action cannot be undone.</DrawerDescription>
-        </DrawerHeader>
-        <DrawerFooter>
-          <Button>Submit</Button>
-          <DrawerCloseTrigger>
-            <Button variant="outline">Cancel</Button>
-          </DrawerCloseTrigger>
-        </DrawerFooter>
-      </DrawerContent>
-    </Drawer>
-  )
-}
-
-export function Basic() {
+export default function DrawerDemo() {
   const [goal, setGoal] = React.useState(350)
 
   function onClick(adjustment: number) {
@@ -108,7 +83,7 @@ export function Basic() {
                 onClick={() => onClick(-10)}
                 disabled={goal <= 200}
               >
-                <Minus className="h-4 w-4" />
+                <MinusIcon className="h-4 w-4" />
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
@@ -126,7 +101,7 @@ export function Basic() {
                 onClick={() => onClick(10)}
                 disabled={goal >= 400}
               >
-                <Plus className="h-4 w-4" />
+                <PlusIcon className="h-4 w-4" />
                 <span className="sr-only">Increase</span>
               </Button>
             </div>

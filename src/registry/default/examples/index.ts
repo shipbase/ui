@@ -12,3 +12,5 @@ export const Dialog = React.lazy(() => import("./dialog"))
 export const DialogCloseButton = React.lazy(
   () => import("./dialog-close-button")
 )
+export const Drawer = React.lazy(() => import("./drawer"))
+export const DrawerDialog = React.lazy(() => import("./drawer-dialog"))

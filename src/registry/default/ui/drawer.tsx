@@ -12,7 +12,7 @@ const DrawerTrigger = DrawerPrimitive.Trigger
 
 const DrawerPortal = Portal
 
-const DrawerClose = DrawerPrimitive.CloseTrigger
+const DrawerCloseTrigger = DrawerPrimitive.CloseTrigger
 
 const DrawerBackdrop = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Backdrop>,
@@ -101,7 +101,7 @@ export {
   DrawerPortal,
   DrawerBackdrop,
   DrawerTrigger,
-  DrawerClose,
+  DrawerCloseTrigger,
   DrawerContent,
   DrawerHeader,
   DrawerFooter,
