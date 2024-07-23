@@ -35,6 +35,7 @@ export function Usage() {
         <ComboboxTrigger>
           <ChevronsUpDown />
         </ComboboxTrigger>
+        <ComboboxClearTrigger>Close</ComboboxClearTrigger>
       </ComboboxControl>
       <ComboboxPortal>
         <ComboboxContent>
