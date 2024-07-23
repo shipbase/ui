@@ -9,3 +9,6 @@ export const CheckboxDisabled = React.lazy(() => import("./checkbox-disabled"))
 export const Collapsible = React.lazy(() => import("./collapsible"))
 export const Combobox = React.lazy(() => import("./combobox"))
 export const Dialog = React.lazy(() => import("./dialog"))
+export const DialogCloseButton = React.lazy(
+  () => import("./dialog-close-button")
+)
