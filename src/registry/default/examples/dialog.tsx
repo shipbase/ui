@@ -47,7 +47,7 @@ export default function DialogDemo() {
           </div>
         </div>
         <DialogFooter>
-          <DialogCloseTrigger>
+          <DialogCloseTrigger asChild>
             <Button type="submit">Save changes</Button>
           </DialogCloseTrigger>
         </DialogFooter>
