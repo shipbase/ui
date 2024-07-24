@@ -3,7 +3,6 @@ import * as React from "react"
 import { Button } from "../ui/button"
 import {
   Menu,
-  MenuArrow,
   MenuContent,
   MenuItemGroup,
   MenuItemGroupLabel,
