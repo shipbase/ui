@@ -30,3 +30,8 @@ export const InputWithLabel = React.lazy(() => import("./input-with-label"))
 export const InputWithButton = React.lazy(() => import("./input-with-button"))
 
 export const Label = React.lazy(() => import("./label"))
+
+export const Menu = React.lazy(() => import("./menu"))
+export const MenuCheckboxes = React.lazy(() => import("./menu-checkboxes"))
+export const MenuRadioGroup = React.lazy(() => import("./menu-radio-group"))
+export const ContextMenu = React.lazy(() => import("./context-menu"))
