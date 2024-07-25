@@ -1,5 +1,5 @@
 import * as React from "react"
-import { NumberInput as NumberInputPrimitive } from "@ark-ui/react"
+import { NumberInput as NumberInputPrimitive } from "@ark-ui/react/number-input"
 import { ChevronDown, ChevronUp } from "lucide-react"
 
 import { cn } from "@/lib/utils"
