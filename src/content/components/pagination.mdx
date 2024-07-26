@@ -1,0 +1,59 @@
+---
+title: Pagination
+description: Pagination with page navigation, next and previous links.
+---
+
+<ComponentPreview name="pagination" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/pagination.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  Pagination,
+  PaginationContext,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationNextTrigger,
+  PaginationPrevTrigger,
+} from "@/components/ui/pagination"
+```
+
+```tsx
+<Pagination count={100}>
+  <PaginationPrevTrigger />
+  <PaginationContext>
+    {(context) =>
+      context.pages.map((page, index) =>
+        page.type === "page" ? (
+          <PaginationItem key={index} {...page}>
+            {page.value}
+          </PaginationItem>
+        ) : (
+          <PaginationEllipsis key={index} index={index} />
+        )
+      )
+    }
+  </PaginationContext>
+  <PaginationNextTrigger />
+</Pagination>
+```
