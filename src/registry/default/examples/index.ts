@@ -37,3 +37,14 @@ export const MenuRadioGroup = React.lazy(() => import("./menu-radio-group"))
 export const ContextMenu = React.lazy(() => import("./context-menu"))
 
 export const NumberInput = React.lazy(() => import("./number-input"))
+
+export const Pagination = React.lazy(() => import("./pagination"))
+
+export const PinInput = React.lazy(() => import("./pin-input"))
+export const PinInputPattern = React.lazy(() => import("./pin-input-pattern"))
+export const PinInputWithSeparator = React.lazy(
+  () => import("./pin-input-with-separator")
+)
+export const PinInputControlled = React.lazy(
+  () => import("./pin-input-controlled")
+)

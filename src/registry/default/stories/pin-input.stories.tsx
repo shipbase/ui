@@ -3,9 +3,9 @@ import type { Meta } from "@storybook/react"
 import {
   PinInput,
   PinInputControl,
-  PinInputHiddenInput,
   PinInputInput,
   PinInputLabel,
+  PinInputSeparator,
 } from "../ui/pin-input"
 
 export default {
@@ -13,26 +13,19 @@ export default {
 } satisfies Meta
 
 export const Basic = () => (
-  <PinInput>
+  <PinInput className="space-y-2">
     <PinInputLabel>Label</PinInputLabel>
-    <PinInputControl className="relative flex items-center gap-2">
-      <PinInputInput
-        className="size-10 rounded-md border border-input text-center transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
-        index={0}
-      />
-      <PinInputInput
-        className="size-10 rounded border border-input text-center"
-        index={1}
-      />
-      <PinInputInput
-        className="size-10 rounded border border-input text-center"
-        index={2}
-      />
-      <PinInputInput
-        className="size-10 rounded border border-input text-center"
-        index={3}
-      />
-    </PinInputControl>
-    <PinInputHiddenInput />
+    <div className="flex items-center gap-2">
+      <PinInputControl>
+        <PinInputInput index={0} />
+        <PinInputInput index={1} />
+        <PinInputInput index={2} />
+      </PinInputControl>
+      <PinInputSeparator />
+      <PinInputControl>
+        <PinInputInput index={3} />
+        <PinInputInput index={4} />
+      </PinInputControl>
+    </div>
   </PinInput>
 )
