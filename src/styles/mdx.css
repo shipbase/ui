@@ -11,6 +11,6 @@ pre[data-language] code {
 }
 
 pre[data-language] .line--highlighted {
-  @apply -mx-4 inline-block bg-zinc-700/50;
+  @apply -mx-4 inline-block bg-zinc-700/50 px-4;
   width: calc(100% + 2rem);
 }
