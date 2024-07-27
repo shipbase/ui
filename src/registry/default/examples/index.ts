@@ -56,3 +56,7 @@ export const ProgressWithLabelValue = React.lazy(
   () => import("./progress-with-label-value")
 )
 export const ProgressCircular = React.lazy(() => import("./progress-circular"))
+
+export const RadioGroup = React.lazy(() => import("./radio-group"))
+
+export const RatingGroup = React.lazy(() => import("./rating-group"))

@@ -1,0 +1,50 @@
+---
+title: Radio Group
+description: A set of checkable buttons—known as radio buttons—where no more than one of the buttons can be checked at a time.
+---
+
+<ComponentPreview name="radio-group" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/radio-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  RadioGroup,
+  RadioGroupItem,
+  RadioGroupItemControl,
+  RadioGroupItemText,
+} from "@/components/ui/radio-group"
+```
+
+```tsx
+<RadioGroup defaultValue="option-one">
+  <RadioGroupItem value="option-one">
+    <RadioGroupItemControl />
+    <RadioGroupItemText>Option One</RadioGroupItemText>
+  </RadioGroupItem>
+  <RadioGroupItem value="option-two">
+    <RadioGroupItemControl />
+    <RadioGroupItemText>Option Two</RadioGroupItemText>
+  </RadioGroupItem>
+</RadioGroup>
+```

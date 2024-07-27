@@ -1,0 +1,50 @@
+---
+title: Rating Group
+description: A user interface element that allows users to provide a rating or evaluation for something.
+---
+
+<ComponentPreview name="rating-group" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/rating-group.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  RatingGroup,
+  RatingGroupControl,
+  RatingGroupItem,
+  RatingGroupLabel,
+} from "@/components/ui/rating-group"
+```
+
+```tsx
+<RatingGroup count={5} defaultValue={3}>
+  <RatingGroupLabel>Label</RatingGroupLabel>
+  <RatingGroupControl>
+    <RatingGroupItem index={1} />
+    <RatingGroupItem index={2} />
+    <RatingGroupItem index={3} />
+    <RatingGroupItem index={4} />
+    <RatingGroupItem index={5} />
+  </RatingGroupControl>
+</RatingGroup>
+```
