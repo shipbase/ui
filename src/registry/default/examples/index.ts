@@ -62,3 +62,6 @@ export const RadioGroup = React.lazy(() => import("./radio-group"))
 export const RatingGroup = React.lazy(() => import("./rating-group"))
 
 export const Select = React.lazy(() => import("./select"))
+
+export const Sheet = React.lazy(() => import("./sheet"))
+export const SheetSide = React.lazy(() => import("./sheet-side"))
