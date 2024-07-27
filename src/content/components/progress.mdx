@@ -1,0 +1,54 @@
+---
+title: Progress
+description: Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.
+---
+
+<ComponentPreview name="progress" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/progress.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  Progress,
+  ProgressRange,
+  ProgressTrack,
+} from "@/components/ui/progress"
+```
+
+```tsx
+<Progress value={66}>
+  <ProgressTrack>
+    <ProgressRange />
+  </ProgressTrack>
+</Progress>
+```
+
+## Examples
+
+### With label and value
+
+<ComponentPreview name="progress-with-label-value" />
+
+### Circular
+
+<ComponentPreview name="progress-circular" />

@@ -48,3 +48,11 @@ export const PinInputWithSeparator = React.lazy(
 export const PinInputControlled = React.lazy(
   () => import("./pin-input-controlled")
 )
+
+export const Popover = React.lazy(() => import("./popover"))
+
+export const Progress = React.lazy(() => import("./progress"))
+export const ProgressWithLabelValue = React.lazy(
+  () => import("./progress-with-label-value")
+)
+export const ProgressCircular = React.lazy(() => import("./progress-circular"))
