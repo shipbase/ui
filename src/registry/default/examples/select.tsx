@@ -47,7 +47,9 @@ export default function SelectDemo() {
         <SelectItemGroup>
           <SelectItemGroupLabel>Fruits</SelectItemGroupLabel>
           {fruits.map((fruit) => (
-            <SelectItem item={fruit.value}>{fruit.label}</SelectItem>
+            <SelectItem item={fruit.value} key={fruit.value}>
+              {fruit.label}
+            </SelectItem>
           ))}
         </SelectItemGroup>
       </SelectContent>
