@@ -1,0 +1,65 @@
+---
+title: Select
+description: Displays a list of options for the user to pick from—triggered by a button.
+---
+
+<ComponentPreview name="select" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/select.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectControl,
+  SelectItem,
+  SelectItemGroup,
+  SelectItemGroupLabel,
+  SelectLabel,
+  SelectTrigger,
+  SelectValueText,
+} from "@/components/ui/select"
+```
+
+```tsx
+<Select
+  className="w-64"
+  positioning={{ sameWidth: true }}
+  items={[{ label: "A", value: "a" }]}
+>
+  <SelectLabel>Framework</SelectLabel>
+  <SelectControl>
+    <SelectTrigger className="h-full">
+      <SelectValueText placeholder="Select a framework" className="pr-6" />
+    </SelectTrigger>
+  </SelectControl>
+  <SelectContent>
+    <SelectItemGroup>
+      <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
+      {[{ label: "A", value: "a" }].map((item) => (
+        <SelectItem item={item.value}>{item.label}</SelectItem>
+      ))}
+    </SelectItemGroup>
+  </SelectContent>
+</Select>
+```

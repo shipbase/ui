@@ -1,5 +1,3 @@
-import type { Meta } from "@storybook/react"
-
 import {
   Select,
   SelectContent,
@@ -12,12 +10,8 @@ import {
   SelectValueText,
 } from "../ui/select"
 
-export default {
-  title: "Components/Select",
-} satisfies Meta
-
-export function Basic() {
-  const frameworks = [
+export default function SelectDemo() {
+  const fruits = [
     {
       value: "apple",
       label: "Apple",
@@ -42,22 +36,18 @@ export function Basic() {
   ]
 
   return (
-    <Select
-      className="w-64"
-      positioning={{ sameWidth: true }}
-      items={frameworks}
-    >
+    <Select className="w-64" positioning={{ sameWidth: true }} items={fruits}>
       <SelectLabel>Framework</SelectLabel>
       <SelectControl>
         <SelectTrigger className="h-full">
-          <SelectValueText placeholder="Select a framework" />
+          <SelectValueText placeholder="Select a framework" className="pr-6" />
         </SelectTrigger>
       </SelectControl>
       <SelectContent>
         <SelectItemGroup>
-          <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
-          {frameworks.map((framework) => (
-            <SelectItem item={framework.value}>{framework.label}</SelectItem>
+          <SelectItemGroupLabel>Fruits</SelectItemGroupLabel>
+          {fruits.map((fruit) => (
+            <SelectItem item={fruit.value}>{fruit.label}</SelectItem>
           ))}
         </SelectItemGroup>
       </SelectContent>

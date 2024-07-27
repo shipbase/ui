@@ -23,6 +23,10 @@ const SelectContext = SelectPrimitive.Context
 
 const SelectControl = SelectPrimitive.Control
 
+const SelectValueText = SelectPrimitive.ValueText
+
+const SelectClearTrigger = SelectPrimitive.ClearTrigger
+
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
@@ -41,8 +45,6 @@ const SelectTrigger = React.forwardRef<
 ))
 SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
-const SelectClearTrigger = SelectPrimitive.ClearTrigger
-
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
@@ -54,20 +56,6 @@ const SelectLabel = React.forwardRef<
   />
 ))
 SelectLabel.displayName = SelectPrimitive.Label.displayName
-
-const SelectValueText = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ValueText>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ValueText>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.ValueText
-    ref={ref}
-    className={cn(
-      "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50",
-      className
-    )}
-    {...props}
-  />
-))
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
