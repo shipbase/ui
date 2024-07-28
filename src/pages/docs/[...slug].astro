@@ -1,58 +1,30 @@
 ---
 import Layout from "@/layouts/layout.astro"
 import type { GetStaticPaths } from "astro"
-import { getCollection, type ContentEntryMap } from "astro:content"
+import { getCollection } from "astro:content"
 import { ChevronRightIcon } from "lucide-react"
 
-import "@/styles/mdx.css"
-
+import { getCollectionEntrySlug, getDocsSidebarGroup } from "@/lib/docs"
 import { cn } from "@/lib/utils"
 import { MDXComponents } from "@/components/content"
+
+import "@/styles/mdx.css"
 
 export const getStaticPaths = (async () => {
   const overview = await getCollection("overview")
   const components = await getCollection("components")
 
-  const genSlug = (collection: keyof ContentEntryMap, slug: string) =>
-    collection === "overview" ? slug : `${collection}/${slug}`
-
-  const overviewPriority = ["introduction", "installation", "about"]
-  const overviewSidebarNav = overview
-    .filter((c) => c.data.sidebar !== false)
-    .sort(
-      (a, b) =>
-        overviewPriority.indexOf(a.slug) - overviewPriority.indexOf(b.slug)
-    )
-    .map(({ slug, data }) => ({
-      title: data.title,
-      href: `/docs/${genSlug("overview", slug)}`,
-    }))
-  const componentsSidebarNav = components.map(({ slug, data }) => ({
-    title: data.title,
-    href: `/docs/components/${slug}`,
+  return [...overview, ...components].map((entry) => ({
+    params: { slug: getCollectionEntrySlug(entry) },
+    props: { entry },
   }))
-
-  return [...overview, ...components].map(
-    ({ slug, collection, render, data }) => {
-      return {
-        params: {
-          slug: genSlug(collection, slug),
-        },
-        props: {
-          doc: { render, data },
-          sidebar: {
-            overview: overviewSidebarNav,
-            components: componentsSidebarNav,
-          },
-        },
-      }
-    }
-  )
 }) satisfies GetStaticPaths
 
-const pathname = Astro.url.pathname.replace(/\/$/, "")
-const { doc, sidebar } = Astro.props
-const { Content } = await doc.render()
+const sidebarGroup = await getDocsSidebarGroup()
+
+const pathname = Astro.url.pathname
+const { entry } = Astro.props
+const { Content } = await entry.render()
 ---
 
 <Layout>
@@ -64,50 +36,30 @@ const { Content } = await doc.render()
     >
       <div class="relative overflow-y-auto h-full py-6 pr-6 lg:py-8">
         <div class="w-full">
-          <div class="pb-4">
-            <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
-              Getting Started
-            </h4>
-            <div class="flex flex-col text-sm">
-              {
-                sidebar.overview.map((item) => (
-                  <a
-                    href={item.href}
-                    class={cn(
-                      "hover:underline px-2 py-1",
-                      pathname === item.href
-                        ? "font-medium text-foreground"
-                        : "text-muted-foreground"
-                    )}
-                  >
-                    {item.title}
-                  </a>
-                ))
-              }
-            </div>
-          </div>
-          <div class="pb-4">
-            <h4 class="mb-1 px-2 py-1 text-sm font-semibold">Components</h4>
-            <div class="flex flex-col text-sm">
-              {
-                sidebar.components.map((item) => (
-                  <a
-                    href={item.href}
-                    data-pathname={pathname}
-                    data-href={item.href}
-                    class={cn(
-                      "hover:underline px-2 py-1",
-                      pathname === item.href
-                        ? "font-medium text-foreground"
-                        : "text-muted-foreground"
-                    )}
-                  >
-                    {item.title}
-                  </a>
-                ))
-              }
-            </div>
-          </div>
+          {
+            sidebarGroup.map((group) => (
+              <div class="pb-4">
+                <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
+                  {group.title}
+                </h4>
+                <div class="flex flex-col text-sm">
+                  {group.items.map((item) => (
+                    <a
+                      href={item.href}
+                      class={cn(
+                        "hover:underline px-2 py-1",
+                        pathname === item.href
+                          ? "font-medium text-foreground"
+                          : "text-muted-foreground"
+                      )}
+                    >
+                      {item.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </aside>
@@ -120,16 +72,16 @@ const { Content } = await doc.render()
         >
           <div class="truncate">Docs</div>
           <ChevronRightIcon className="h-3.5 w-3.5" />
-          <div class="text-foreground">{doc.data.title}</div>
+          <div class="text-foreground">{entry.data.title}</div>
         </div>
         <div class="space-y-2">
           <h1 class={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
-            {doc.data.title}
+            {entry.data.title}
           </h1>
           {
-            doc.data.description && (
+            entry.data.description && (
               <p class="text-base text-muted-foreground">
-                {doc.data.description}
+                {entry.data.description}
               </p>
             )
           }

@@ -1,12 +1,15 @@
 ---
 import { docsConfig } from "@/config/docs"
 import { siteConfig } from "@/config/site"
+import { getDocsSidebarGroup } from "@/lib/docs"
 import { cn } from "@/lib/utils"
 
 import { Icons } from "../icons"
 import { MobileNavSheet } from "./sheet"
 
-const pathname = Astro.url.pathname.replace(/\/$/, "")
+const sidebarGroup = await getDocsSidebarGroup()
+
+const pathname = Astro.url.pathname
 ---
 
 <MobileNavSheet client:visible>
@@ -15,7 +18,7 @@ const pathname = Astro.url.pathname.replace(/\/$/, "")
       <Icons.logo className="mr-2 h-4 w-4" />
       <span class="font-bold">{siteConfig.name}</span>
     </a>
-    <nav class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6">
+    <nav class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6 overflow-y-auto">
       <div class="flex flex-col space-y-3">
         {
           docsConfig.mainNav?.map((item) => (
@@ -29,6 +32,27 @@ const pathname = Astro.url.pathname.replace(/\/$/, "")
             >
               {item.title}
             </a>
+          ))
+        }
+      </div>
+      <div class="flex flex-col space-y-3">
+        {
+          sidebarGroup.map((item) => (
+            <div class="flex flex-col space-y-3 pt-6">
+              <h4 class="font-medium">{item.title}</h4>
+              {item.items.map((subitem) => (
+                <a
+                  href={subitem.href}
+                  class={cn(
+                    pathname === subitem.href
+                      ? "font-medium text-foreground"
+                      : "text-muted-foreground"
+                  )}
+                >
+                  {subitem.title}
+                </a>
+              ))}
+            </div>
           ))
         }
       </div>
