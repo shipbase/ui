@@ -65,3 +65,10 @@ export const Select = React.lazy(() => import("./select"))
 
 export const Sheet = React.lazy(() => import("./sheet"))
 export const SheetSide = React.lazy(() => import("./sheet-side"))
+
+export const Slider = React.lazy(() => import("./slider"))
+export const SliderWithLabelValue = React.lazy(
+  () => import("./slider-with-label-value")
+)
+export const SliderRange = React.lazy(() => import("./slider-range"))
+export const SliderMark = React.lazy(() => import("./slider-mark"))
