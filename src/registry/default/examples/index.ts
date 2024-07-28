@@ -72,3 +72,5 @@ export const SliderWithLabelValue = React.lazy(
 )
 export const SliderRange = React.lazy(() => import("./slider-range"))
 export const SliderMark = React.lazy(() => import("./slider-mark"))
+
+export const Switch = React.lazy(() => import("./switch"))

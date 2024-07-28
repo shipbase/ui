@@ -1,0 +1,39 @@
+---
+title: Switch
+description: A control that allows the user to toggle between checked and not checked.
+---
+
+<ComponentPreview name="switch" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/switch.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import { Switch, SwitchControl, SwitchLabel } from "@/components/ui/switch"
+```
+
+```tsx
+<Switch>
+  <SwitchControl />
+  <SwitchLabel>Airplane Mode</SwitchLabel>
+</Switch>
+```
