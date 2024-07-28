@@ -1,0 +1,64 @@
+---
+title: Toast
+description: A succinct message that is displayed temporarily.
+---
+
+<ComponentPreview name="toast" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/toast.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  createToaster,
+  Toast,
+  ToastActionTrigger,
+  ToastCloseTrigger,
+  ToastDescription,
+  Toaster,
+  ToastTitle,
+} from "@/components/ui/toast"
+```
+
+```tsx
+export function ToastDemo() {
+  const toaster = createToaster({
+    placement: "bottom-end",
+    overlap: true,
+  })
+
+  return (
+    <Toaster toaster={toaster}>
+      {({ id, title, description }) => (
+        <Toast key={id} className="min-w-max">
+          <div className="grid gap-1">
+            {title && <ToastTitle>{title}</ToastTitle>}
+            {description && <ToastDescription>{description}</ToastDescription>}
+          </div>
+          <ToastActionTrigger>Undo</ToastActionTrigger>
+          <ToastCloseTrigger />
+        </Toast>
+      )}
+    </Toaster>
+  )
+}
+```

@@ -80,3 +80,5 @@ export const Tabs = React.lazy(() => import("./tabs"))
 export const TagsInput = React.lazy(() => import("./tags-input"))
 
 export const Textarea = React.lazy(() => import("./textarea"))
+
+export const Toast = React.lazy(() => import("./toast"))
