@@ -4,7 +4,7 @@ import { ViewTransitions } from "astro:transitions"
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
 
-import '@fontsource-variable/inter';
+import "@fontsource-variable/inter"
 import "@/styles/global.css"
 ---
 
@@ -35,7 +35,7 @@ import "@/styles/global.css"
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <SiteHeader />
-    <main class="flex-1">
+    <main class="flex-1 border-b">
       <slot />
     </main>
     <SiteFooter />
