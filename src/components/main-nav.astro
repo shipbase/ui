@@ -1,21 +1,43 @@
 ---
 import { siteConfig } from "@/config/site"
+import { cn } from "@/lib/utils"
+
+import { Icons } from "./icons"
+
+const pathname = Astro.url.pathname.replace(/\/$/, "")
+console.log("pathname", pathname)
 ---
 
 <div class="mr-4 hidden md:flex">
-  <a href="/" class="mr-6 text-sm font-medium text-muted-foreground">
-    <!-- Logo -->
-    <span class="hidden sm:inline-block font-bold text-primary"
-      >{siteConfig.name}</span
-    >
+  <a
+    href="/"
+    class="mr-4 flex items-center space-x-2 lg:mr-6 text-sm font-medium text-muted-foreground"
+  >
+    <Icons.logo className="h-6 w-6" />
+    <span class="hidden font-bold lg:inline-block text-primary">
+      {siteConfig.name}
+    </span>
   </a>
   <nav class="flex items-center gap-4 text-sm lg:gap-6">
-    <a href="/docs" class="transition-colors hover:text-foreground/80">
+    <a
+      href="/docs"
+      class={cn(
+        "transition-colors hover:text-foreground/80",
+        pathname?.startsWith("/docs/introduction")
+          ? "text-foreground"
+          : "text-foreground/60"
+      )}
+    >
       Docs
     </a>
     <a
       href="/docs/components"
-      class="transition-colors hover:text-foreground/80"
+      class={cn(
+        "transition-colors hover:text-foreground/80",
+        pathname?.startsWith("/docs/components")
+          ? "text-foreground"
+          : "text-foreground/60"
+      )}
     >
       Components
     </a>

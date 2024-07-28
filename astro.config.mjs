@@ -12,8 +12,9 @@ export default defineConfig({
   vite: {
     plugins: [Inspect()],
   },
+  trailingSlash: "never",
   redirects: {
     "/docs": "/docs/introduction",
-    "/docs/components": "/docs/components/button",
+    "/docs/components": "/docs/components/accordion",
   },
 })

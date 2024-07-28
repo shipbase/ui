@@ -1,11 +1,11 @@
 ---
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
 import { Icons } from "@/components/icons"
 import ThemeToggle from "@/components/theme-toggle.astro"
-import { buttonVariants } from "@/registry/default/ui/button"
+import { Button } from "@/registry/default/ui/button"
 
 import MainNav from "./main-nav.astro"
+import MobileNav from "./mobile-nav/index.astro"
 ---
 
 <header
@@ -13,7 +13,7 @@ import MainNav from "./main-nav.astro"
 >
   <div class="container flex h-14 max-w-screen-2xl items-center">
     <MainNav />
-    <!-- <MobileNav /> -->
+    <MobileNav />
     <div
       class="flex flex-1 items-center justify-between space-x-2 md:justify-end"
     >
@@ -22,30 +22,16 @@ import MainNav from "./main-nav.astro"
       </div>
       <nav class="flex items-center">
         <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
-          <div
-            class={cn(
-              buttonVariants({
-                variant: "ghost",
-              }),
-              "w-9 px-0"
-            )}
-          >
+          <Button variant="ghost" className="size-8 p-0">
             <Icons.gitHub className="h-4 w-4" />
             <span class="sr-only">GitHub</span>
-          </div>
+          </Button>
         </a>
         <a href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
-          <div
-            class={cn(
-              buttonVariants({
-                variant: "ghost",
-              }),
-              "w-9 px-0"
-            )}
-          >
+          <Button variant="ghost" className="size-8 p-0">
             <Icons.twitter className="h-3 w-3 fill-current" />
             <span class="sr-only">Twitter</span>
-          </div>
+          </Button>
         </a>
         <ThemeToggle />
       </nav>

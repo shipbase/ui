@@ -3,34 +3,32 @@ import { ViewTransitions } from "astro:transitions"
 
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
+import TailwindIndicator from "@/components/tailwind-indicator.astro"
 
-import "@fontsource-variable/inter"
 import "@/styles/global.css"
+import "@fontsource-variable/inter"
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
     <title>shipbase/ui</title>
+
     <!-- <meta name="description" content={description} /> -->
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="keywords"
       content="ShipbaseUI,Tailwind,CSS,Ark UI,Components,Library,React,Solid,Vue"
     />
-    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <link rel="sitemap" href="/sitemap.xml" />
 
-    <!-- Icons -->
-    <link rel="icon" href="/icon.svg" type="image/svg+xml" sizes="any" />
-    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32" />
-    <link
-      rel="apple-touch-icon"
-      href="/apple-icon.png"
-      type="image/png"
-      sizes="180x180"
-    />
     <ViewTransitions />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
@@ -39,5 +37,6 @@ import "@/styles/global.css"
       <slot />
     </main>
     <SiteFooter />
+    <TailwindIndicator />
   </body>
 </html>
