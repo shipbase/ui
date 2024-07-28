@@ -82,3 +82,7 @@ export const TagsInput = React.lazy(() => import("./tags-input"))
 export const Textarea = React.lazy(() => import("./textarea"))
 
 export const Toast = React.lazy(() => import("./toast"))
+
+export const ToggleGroup = React.lazy(() => import("./toggle-group"))
+
+export const Tooltip = React.lazy(() => import("./tooltip"))
