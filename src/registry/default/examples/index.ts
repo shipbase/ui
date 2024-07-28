@@ -74,3 +74,7 @@ export const SliderRange = React.lazy(() => import("./slider-range"))
 export const SliderMark = React.lazy(() => import("./slider-mark"))
 
 export const Switch = React.lazy(() => import("./switch"))
+
+export const Tabs = React.lazy(() => import("./tabs"))
+
+export const TagsInput = React.lazy(() => import("./tags-input"))

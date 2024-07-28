@@ -1,0 +1,51 @@
+---
+title: Tags Input
+description: A component that allows users to add tags to an input field.
+---
+
+<ComponentPreview name="tags-input" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/tags-input.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  TagsInput,
+  TagsInputClearTrigger,
+  TagsInputContext,
+  TagsInputControl,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputLabel,
+} from "@/components/ui/tags-input"
+```
+
+```tsx
+<TagsInput className="w-[60%] space-y-2">
+  <TagsInputLabel>Frameworks</TagsInputLabel>
+  <TagsInputControl>
+    <TagsInputItem index={1} value={1} />
+    <TagsInputInput placeholder="Add Framework" />
+  </TagsInputControl>
+  <TagsInputClearTrigger>Clear</TagsInputClearTrigger>
+</TagsInput>
+```
