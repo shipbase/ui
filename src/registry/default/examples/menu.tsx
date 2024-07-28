@@ -1,7 +1,6 @@
 import {
   Cloud,
   CreditCard,
-  Github,
   Keyboard,
   LifeBuoy,
   LogOut,
@@ -14,6 +13,8 @@ import {
   UserPlus,
   Users,
 } from "lucide-react"
+
+import { Icons } from "@/components/icons"
 
 import { Button } from "../ui/button"
 import {
@@ -88,7 +89,7 @@ export default function MenuDemo() {
         </MenuItemGroup>
         <MenuSeparator />
         <MenuItem value="GitHub">
-          <Github className="mr-2 h-4 w-4" />
+          <Icons.gitHub className="mr-2 h-4 w-4" />
           <span>GitHub</span>
         </MenuItem>
         <MenuItem value="Support">

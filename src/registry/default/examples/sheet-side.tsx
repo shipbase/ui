@@ -18,11 +18,11 @@ export default function SheetSideDemo() {
   return (
     <div className="grid grid-cols-2 gap-2">
       {SHEET_SIDES.map((side) => (
-        <Sheet key={side}>
+        <Sheet key={side} side={side}>
           <SheetTrigger asChild>
             <Button variant="outline">{side}</Button>
           </SheetTrigger>
-          <SheetContent side={side}>
+          <SheetContent>
             <SheetHeader>
               <SheetTitle>Edit profile</SheetTitle>
               <SheetDescription>
