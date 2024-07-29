@@ -24,7 +24,7 @@ const sidebarGroup = await getDocsSidebarGroup()
 
 const pathname = Astro.url.pathname
 const { entry } = Astro.props
-const { Content } = await entry.render()
+const { Content, headings } = await entry.render()
 ---
 
 <Layout>
@@ -86,10 +86,65 @@ const { Content } = await entry.render()
             )
           }
         </div>
-        <div class="pt-8 pb-12">
+        <div class="pt-8 pb-12" id="content-container">
           <Content components={MDXComponents} />
+        </div>
+      </div>
+      <div class="hidden text-sm xl:block">
+        <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
+          <div class="space-y-4">
+            <p class="font-medium">On This Page</p>
+            <ul class="space-y-2" id="toc">
+              {
+                headings.map((heading) => (
+                  <li>
+                    <a
+                      href={`#${heading.slug}`}
+                      data-id={heading.slug}
+                      data-depth={heading.depth}
+                      class={cn(
+                        "inline-block no-underline transition-colors hover:text-foreground text-muted-foreground data-[active]:font-medium data-[active]:text-foreground"
+                      )}
+                      style={{ paddingLeft: `${heading.depth - 2}rem` }}
+                    >
+                      {heading.text}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
         </div>
       </div>
     </main>
   </div>
 </Layout>
+
+<script is:inline>
+  const toc = document.getElementById("toc")
+
+  let activeId = null
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && entry.target.id) {
+          if (activeId) {
+            toc
+              .querySelector(`li > a[data-id="${activeId}"]`)
+              .removeAttribute("data-active")
+          }
+          activeId = entry.target.id
+          toc
+            .querySelector(`[data-id="${activeId}"]`)
+            .setAttribute("data-active", "")
+        }
+      })
+    },
+    { rootMargin: `0% 0% -80% 0%` }
+  )
+
+  const contentContainer = document.getElementById("content-container")
+  contentContainer.querySelectorAll("h2, h3, h4").forEach((heading) => {
+    observer.observe(heading)
+  })
+</script>
