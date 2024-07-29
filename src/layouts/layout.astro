@@ -37,6 +37,6 @@ import "@fontsource-variable/inter"
       <slot />
     </main>
     <SiteFooter />
-    <TailwindIndicator />
+    {import.meta.env.DEV ? <TailwindIndicator /> : null}
   </body>
 </html>
