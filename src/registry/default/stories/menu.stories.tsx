@@ -3,7 +3,6 @@ import type { Meta } from "@storybook/react"
 import {
   Cloud,
   CreditCard,
-  Github,
   Keyboard,
   LifeBuoy,
   LogOut,
@@ -98,7 +97,7 @@ export const Basic = () => (
       </MenuItemGroup>
       <MenuSeparator />
       <MenuItem value="GitHub">
-        <Github className="mr-2 h-4 w-4" />
+        {/* <Github className="mr-2 h-4 w-4" /> */}
         <span>GitHub</span>
       </MenuItem>
       <MenuItem value="Support">

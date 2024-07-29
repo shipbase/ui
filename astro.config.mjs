@@ -10,7 +10,17 @@ import { shikiConfig } from "./src/config/shiki"
 export default defineConfig({
   integrations: [mdx({ shikiConfig }), react(), tailwind()],
   vite: {
-    plugins: [Inspect()],
+    plugins: [],
+    build: {
+      rollupOptions: {
+        onLog(level, log, handler) {
+          if (log.code === "SOURCEMAP_ERROR") {
+            return
+          }
+          handler(level, log)
+        },
+      },
+    },
   },
   trailingSlash: "never",
   redirects: {
