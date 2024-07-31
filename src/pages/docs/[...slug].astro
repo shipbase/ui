@@ -10,6 +10,8 @@ import { MDXComponents } from "@/components/content"
 
 import "@/styles/mdx.css"
 
+import { generateToC } from "@/lib/toc"
+
 export const getStaticPaths = (async () => {
   const overview = await getCollection("overview")
   const components = await getCollection("components")
@@ -25,6 +27,15 @@ const sidebarGroup = await getDocsSidebarGroup()
 const pathname = Astro.url.pathname
 const { entry } = Astro.props
 const { Content, headings } = await entry.render()
+
+console.log(
+  "toc",
+  JSON.stringify(
+    generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 }),
+    null,
+    2
+  )
+)
 ---
 
 <Layout>
