@@ -11,9 +11,9 @@ export function Basic() {
     <Avatar>
       <AvatarImage
         src="https://avatars.githubusercontent.com/u/54212428?s=80&v=4"
-        alt="zigjs"
+        alt="shipbase"
       />
-      <AvatarFallback>zigjs</AvatarFallback>
+      <AvatarFallback>shipbase</AvatarFallback>
     </Avatar>
   )
 }

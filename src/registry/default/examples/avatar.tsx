@@ -4,7 +4,7 @@ export default function Basic() {
   return (
     <Avatar>
       <AvatarImage src="https://github.com/iamdin.png" alt="@shipbase" />
-      <AvatarFallback>zigjs</AvatarFallback>
+      <AvatarFallback>shipbase</AvatarFallback>
     </Avatar>
   )
 }
