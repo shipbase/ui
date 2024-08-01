@@ -1,0 +1,65 @@
+---
+title: TreeView
+description: A component lets users navigate hierarchical lists of data with nested levels that can be expanded and collapsed.
+---
+
+<ComponentPreview name="tree-view" />
+
+## Installation
+
+<ComponentInstall>
+
+<Fragment slot="manual">
+
+<Steps>
+
+<Step>Copy and paste the following code into your project.</Step>
+
+<ComponentSource path="registry/default/ui/tree-view.tsx" />
+
+<Step>Update the import paths to match your project setup.</Step>
+
+</Steps>
+
+</Fragment>
+
+</ComponentInstall>
+
+## Usage
+
+```tsx
+import {
+  TreeView,
+  TreeViewBranch,
+  TreeViewBranchContent,
+  TreeViewBranchControl,
+  TreeViewBranchIndicator,
+  TreeViewBranchText,
+  TreeViewItem,
+  TreeViewItemText,
+  TreeViewLabel,
+  TreeViewTree,
+} from "@/components/ui/tree-view"
+```
+
+```tsx
+<TreeView>
+  <TreeViewLabel>Tree View</TreeViewLabel>
+  <TreeViewTree>
+    <TreeViewBranch value="1">
+      <TreeViewBranchControl>
+        <TreeViewBranchIndicator>></TreeViewBranchIndicator>
+        <TreeViewBranchText>Item 1</TreeViewBranchText>
+      </TreeViewBranchControl>
+      <TreeViewBranchContent>
+        <TreeViewItem value="1.1">
+          <TreeViewItemText>Item 1.1</TreeViewItemText>
+        </TreeViewItem>
+      </TreeViewBranchContent>
+    </TreeViewBranch>
+    <TreeViewItem value="2">
+      <TreeViewItemText>Item 2</TreeViewItemText>
+    </TreeViewItem>
+  </TreeViewTree>
+</TreeView>
+```
