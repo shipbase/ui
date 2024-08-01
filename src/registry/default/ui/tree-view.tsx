@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils"
 
 const TreeView = TreeViewPrimitive.Root
 
-const TreeViewLabel = TreeViewPrimitive.Label
+const TreeViewContext = TreeViewPrimitive.Context
 
 const TreeViewTree = TreeViewPrimitive.Tree
 
@@ -15,9 +15,32 @@ const TreeViewBranchIndicator = TreeViewPrimitive.BranchIndicator
 
 const TreeViewBranchText = TreeViewPrimitive.BranchText
 
-const TreeViewBranchContent = TreeViewPrimitive.BranchContent
-
 const TreeViewItemText = TreeViewPrimitive.ItemText
+
+const TreeViewLabel = React.forwardRef<
+  React.ElementRef<typeof TreeViewPrimitive.Label>,
+  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Label>
+>(({ className, ...props }, ref) => (
+  <TreeViewPrimitive.Label
+    ref={ref}
+    className={cn("text-sm font-medium leading-none", className)}
+    {...props}
+  />
+))
+
+const TreeViewBranchContent = React.forwardRef<
+  React.ElementRef<typeof TreeViewPrimitive.BranchContent>,
+  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchContent>
+>(({ className, ...props }, ref) => (
+  <TreeViewPrimitive.BranchContent
+    ref={ref}
+    className={cn(
+      "relative [--indent:calc(var(--depth)*1rem+(var(--depth)-1)*0.5rem)] before:absolute before:left-[var(--indent)] before:h-full before:w-0.5 before:rounded before:bg-border before:content-['']",
+      className
+    )}
+    {...props}
+  />
+))
 
 const TreeViewBranchControl = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
@@ -48,14 +71,15 @@ const TreeViewItem = React.forwardRef<
 ))
 
 export {
-  TreeViewLabel,
-  TreeViewItemText,
   TreeView,
   TreeViewBranch,
   TreeViewBranchContent,
   TreeViewBranchControl,
-  TreeViewBranchText,
   TreeViewBranchIndicator,
+  TreeViewBranchText,
+  TreeViewContext,
   TreeViewItem,
+  TreeViewItemText,
+  TreeViewLabel,
   TreeViewTree,
 }

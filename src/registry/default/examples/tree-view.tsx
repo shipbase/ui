@@ -13,14 +13,10 @@ import {
   TreeViewTree,
 } from "../ui/tree-view"
 
-export default {
-  title: "Components/TreeView",
-}
-
-export const Basic = () => {
+export default function TreeViewDemo() {
   return (
-    <TreeView className="w-full">
-      <TreeViewLabel>Tree View</TreeViewLabel>
+    <TreeView className="w-[40%]">
+      <TreeViewLabel>Label</TreeViewLabel>
       <TreeViewTree>
         <TreeViewBranch value="1">
           <TreeViewBranchControl>
@@ -32,7 +28,7 @@ export const Basic = () => {
             </TreeViewBranchIndicator>
             <TreeViewBranchText>Item 1</TreeViewBranchText>
           </TreeViewBranchControl>
-          <TreeViewBranchContent>
+          <TreeViewBranchContent className="">
             <TreeViewItem value="1.1">
               <File className="h-4 w-4 shrink-0" />
               <TreeViewItemText>Item 1.1</TreeViewItemText>

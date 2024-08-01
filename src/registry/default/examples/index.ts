@@ -86,3 +86,5 @@ export const Toast = React.lazy(() => import("./toast"))
 export const ToggleGroup = React.lazy(() => import("./toggle-group"))
 
 export const Tooltip = React.lazy(() => import("./tooltip"))
+
+export const TreeView = React.lazy(() => import("./tree-view"))
