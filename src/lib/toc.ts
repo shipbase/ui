@@ -4,6 +4,8 @@ export interface TocItem extends MarkdownHeading {
   children: TocItem[]
 }
 
+export type ToC = TocItem[]
+
 interface TocOpts {
   minHeadingLevel: number
   maxHeadingLevel: number

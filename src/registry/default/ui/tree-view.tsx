@@ -3,11 +3,18 @@ import { TreeView as TreeViewPrimitive } from "@ark-ui/react/tree-view"
 
 import { cn } from "@/lib/utils"
 
-const TreeView = TreeViewPrimitive.Root
+const TreeView = React.forwardRef<
+  React.ElementRef<typeof TreeViewPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <TreeViewPrimitive.Root
+    ref={ref}
+    className={cn("w-full [--pl:0.5rem]", className)}
+    {...props}
+  />
+))
 
 const TreeViewContext = TreeViewPrimitive.Context
-
-const TreeViewTree = TreeViewPrimitive.Tree
 
 const TreeViewBranch = TreeViewPrimitive.Branch
 
@@ -17,6 +24,8 @@ const TreeViewBranchText = TreeViewPrimitive.BranchText
 
 const TreeViewItemText = TreeViewPrimitive.ItemText
 
+const TreeViewTree = TreeViewPrimitive.Tree
+
 const TreeViewLabel = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Label>
@@ -24,6 +33,20 @@ const TreeViewLabel = React.forwardRef<
   <TreeViewPrimitive.Label
     ref={ref}
     className={cn("text-sm font-medium leading-none", className)}
+    {...props}
+  />
+))
+
+const TreeViewBranchControl = React.forwardRef<
+  React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
+  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchControl>
+>(({ className, ...props }, ref) => (
+  <TreeViewPrimitive.BranchControl
+    ref={ref}
+    className={cn(
+      "flex w-full items-center gap-2 rounded-md px-2 py-1 pl-[calc(var(--indent)+var(--pl))] text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
+      className
+    )}
     {...props}
   />
 ))
@@ -42,20 +65,6 @@ const TreeViewBranchContent = React.forwardRef<
   />
 ))
 
-const TreeViewBranchControl = React.forwardRef<
-  React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchControl>
->(({ className, ...props }, ref) => (
-  <TreeViewPrimitive.BranchControl
-    ref={ref}
-    className={cn(
-      "flex items-center gap-2 rounded-md px-2 py-1 pl-[calc(var(--indent)+0.5rem)] text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
-      className
-    )}
-    {...props}
-  />
-))
-
 const TreeViewItem = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Item>
@@ -63,7 +72,7 @@ const TreeViewItem = React.forwardRef<
   <TreeViewPrimitive.Item
     ref={ref}
     className={cn(
-      "ml-[var(--indent)] flex items-center gap-2 rounded-md px-2 py-1 text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
+      "ml-[var(--indent)] flex w-full items-center gap-2 rounded-md px-2 py-1 text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
       className
     )}
     {...props}

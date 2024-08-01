@@ -7,6 +7,7 @@ import { ChevronRightIcon } from "lucide-react"
 import { getCollectionEntrySlug, getDocsSidebarGroup } from "@/lib/docs"
 import { cn } from "@/lib/utils"
 import { MDXComponents } from "@/components/content"
+import { TableOfContent } from "@/components/table-of-content"
 
 import "@/styles/mdx.css"
 
@@ -27,15 +28,7 @@ const sidebarGroup = await getDocsSidebarGroup()
 const pathname = Astro.url.pathname
 const { entry } = Astro.props
 const { Content, headings } = await entry.render()
-
-console.log(
-  "toc",
-  JSON.stringify(
-    generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 }),
-    null,
-    2
-  )
-)
+const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
 ---
 
 <Layout>
@@ -103,28 +96,7 @@ console.log(
       </div>
       <div class="hidden text-sm xl:block">
         <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
-          <div class="space-y-4">
-            <p class="font-medium">On This Page</p>
-            <ul class="space-y-2" id="toc">
-              {
-                headings.map((heading) => (
-                  <li>
-                    <a
-                      href={`#${heading.slug}`}
-                      data-id={heading.slug}
-                      data-depth={heading.depth}
-                      class={cn(
-                        "inline-block no-underline transition-colors hover:text-foreground text-muted-foreground data-[active]:font-medium data-[active]:text-foreground"
-                      )}
-                      style={{ paddingLeft: `${heading.depth - 2}rem` }}
-                    >
-                      {heading.text}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
-          </div>
+          <TableOfContent id="toc" toc={toc} headings={headings} />
         </div>
       </div>
     </main>
@@ -132,7 +104,7 @@ console.log(
 </Layout>
 
 <script is:inline>
-  const toc = document.getElementById("toc")
+  const toc = document.getElementById("tree-root:toc")
 
   let activeId = null
   const observer = new IntersectionObserver(
@@ -141,12 +113,16 @@ console.log(
         if (entry.isIntersecting && entry.target.id) {
           if (activeId) {
             toc
-              .querySelector(`li > a[data-id="${activeId}"]`)
+              .querySelector(
+                `[data-part="branch-control"][data-branch="${activeId}"], [data-part="item"][data-item="${activeId}"]`
+              )
               .removeAttribute("data-active")
           }
           activeId = entry.target.id
           toc
-            .querySelector(`[data-id="${activeId}"]`)
+            .querySelector(
+              `[data-part="branch-control"][data-branch="${activeId}"], [data-part="item"][data-item="${activeId}"]`
+            )
             .setAttribute("data-active", "")
         }
       })
