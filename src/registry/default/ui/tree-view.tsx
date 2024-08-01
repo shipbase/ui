@@ -1,10 +1,23 @@
 import * as React from "react"
 import { TreeView as TreeViewPrimitive } from "@ark-ui/react/tree-view"
-import { ChevronRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
 const TreeView = TreeViewPrimitive.Root
+
+const TreeViewLabel = TreeViewPrimitive.Label
+
+const TreeViewTree = TreeViewPrimitive.Tree
+
+const TreeViewBranch = TreeViewPrimitive.Branch
+
+const TreeViewBranchIndicator = TreeViewPrimitive.BranchIndicator
+
+const TreeViewBranchText = TreeViewPrimitive.BranchText
+
+const TreeViewBranchContent = TreeViewPrimitive.BranchContent
+
+const TreeViewItemText = TreeViewPrimitive.ItemText
 
 const TreeViewBranchControl = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
@@ -13,27 +26,11 @@ const TreeViewBranchControl = React.forwardRef<
   <TreeViewPrimitive.BranchControl
     ref={ref}
     className={cn(
-      "flex items-center gap-2 rounded-md p-1.5 ps-[var(--ps)] font-medium text-muted-foreground [--ps:calc((var(--depth)-1)*1rem)] hover:bg-muted hover:text-primary data-[depth='1']:text-primary",
+      "flex items-center gap-2 rounded-md px-2 py-1 pl-[calc(var(--indent)+0.5rem)] text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
       className
     )}
     {...props}
   />
-))
-
-const TreeViewBranchIndicator = React.forwardRef<
-  React.ElementRef<typeof TreeViewPrimitive.BranchIndicator>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchIndicator>
->(({ className, ...props }, ref) => (
-  <TreeViewPrimitive.BranchIndicator
-    ref={ref}
-    className={cn(
-      "transition-all [&[data-state=open]>svg]:rotate-90",
-      className
-    )}
-    {...props}
-  >
-    <ChevronRight className="h-4 w-4 shrink-0 transition-transform duration-200" />
-  </TreeViewPrimitive.BranchIndicator>
 ))
 
 const TreeViewItem = React.forwardRef<
@@ -43,7 +40,7 @@ const TreeViewItem = React.forwardRef<
   <TreeViewPrimitive.Item
     ref={ref}
     className={cn(
-      "hover:text-primary-background rounded-md p-1.5 ps-[var(--ps)] font-medium text-muted-foreground [--ps:calc((var(--depth)-1)*1rem+1.5rem)] hover:bg-muted hover:text-primary",
+      "ml-[var(--indent)] flex items-center gap-2 rounded-md px-2 py-1 text-primary [--indent:calc((var(--depth)-1)*1rem+(var(--depth)-1)*0.5rem)] hover:bg-muted",
       className
     )}
     {...props}
@@ -51,8 +48,14 @@ const TreeViewItem = React.forwardRef<
 ))
 
 export {
+  TreeViewLabel,
+  TreeViewItemText,
   TreeView,
+  TreeViewBranch,
+  TreeViewBranchContent,
   TreeViewBranchControl,
+  TreeViewBranchText,
   TreeViewBranchIndicator,
   TreeViewItem,
+  TreeViewTree,
 }
