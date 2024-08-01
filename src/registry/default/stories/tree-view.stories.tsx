@@ -1,10 +1,16 @@
-import { TreeView } from "@ark-ui/react/tree-view"
+import { File, FolderClosed, FolderOpen } from "lucide-react"
 
-import { Button } from "../ui/button"
 import {
+  TreeView,
+  TreeViewBranch,
+  TreeViewBranchContent,
   TreeViewBranchControl,
   TreeViewBranchIndicator,
+  TreeViewBranchText,
   TreeViewItem,
+  TreeViewItemText,
+  TreeViewLabel,
+  TreeViewTree,
 } from "../ui/tree-view"
 
 export default {
@@ -13,51 +19,116 @@ export default {
 
 export const Basic = () => {
   return (
-    <TreeView.Root className="w-full">
-      <TreeView.Tree className="flex flex-col gap-2">
-        <TreeView.Branch value="1">
+    <TreeView className="w-full">
+      <TreeViewLabel>Tree View</TreeViewLabel>
+      <TreeViewTree>
+        <TreeViewBranch value="1">
           <TreeViewBranchControl>
-            <TreeViewBranchIndicator />
-            <TreeView.BranchText>Item 1</TreeView.BranchText>
+            <TreeViewBranchIndicator className="data-[state=open]:hidden">
+              <FolderClosed className="h-4 w-4 shrink-0" />
+            </TreeViewBranchIndicator>
+            <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+              <FolderOpen className="h-4 w-4 shrink-0" />
+            </TreeViewBranchIndicator>
+            <TreeViewBranchText>Item 1</TreeViewBranchText>
           </TreeViewBranchControl>
-          <TreeView.BranchContent className="relative">
+          <TreeViewBranchContent className="relative">
             <TreeViewItem value="1.1">
-              <TreeView.ItemText>Item 1.1</TreeView.ItemText>
+              <File className="h-4 w-4 shrink-0" />
+              <TreeViewItemText>Item 1.1</TreeViewItemText>
             </TreeViewItem>
-            <TreeView.Branch value="1.2">
+            <TreeViewBranch value="1.2">
               <TreeViewBranchControl>
-                <TreeViewBranchIndicator />
-                <TreeView.BranchText>Item 1.2</TreeView.BranchText>
+                <TreeViewBranchIndicator className="data-[state=open]:hidden">
+                  <FolderClosed className="h-4 w-4 shrink-0" />
+                </TreeViewBranchIndicator>
+                <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+                  <FolderOpen className="h-4 w-4 shrink-0" />
+                </TreeViewBranchIndicator>
+                <TreeViewBranchText>Item 1.2</TreeViewBranchText>
               </TreeViewBranchControl>
-              <TreeView.BranchContent className="relative">
+              <TreeViewBranchContent className="relative">
                 <TreeViewItem value="1.2.1">
-                  <TreeView.ItemText>Item 1.2.1</TreeView.ItemText>
+                  <File className="h-4 w-4 shrink-0" />
+                  <TreeViewItemText>Item 1.2.1</TreeViewItemText>
                 </TreeViewItem>
-                <TreeViewItem value="1.2.2">
-                  <TreeView.ItemText>Item 1.2.2</TreeView.ItemText>
+                <TreeViewBranch value="1.2.2">
+                  <TreeViewBranchControl>
+                    <TreeViewBranchIndicator className="data-[state=open]:hidden">
+                      <FolderClosed className="h-4 w-4 shrink-0" />
+                    </TreeViewBranchIndicator>
+                    <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+                      <FolderOpen className="h-4 w-4 shrink-0" />
+                    </TreeViewBranchIndicator>
+                    <TreeViewBranchText>Item 1.2.2</TreeViewBranchText>
+                  </TreeViewBranchControl>
+                  <TreeViewBranchContent className="relative">
+                    <TreeViewItem value="1.2.2.1">
+                      <File className="h-4 w-4 shrink-0" />
+                      <TreeViewItemText>Item 1.2.2.1</TreeViewItemText>
+                    </TreeViewItem>
+                  </TreeViewBranchContent>
+                </TreeViewBranch>
+                <TreeViewItem value="1.2.3">
+                  <File className="h-4 w-4 shrink-0" />
+                  <TreeViewItemText>Item 1.2.3</TreeViewItemText>
                 </TreeViewItem>
-              </TreeView.BranchContent>
-            </TreeView.Branch>
-          </TreeView.BranchContent>
-        </TreeView.Branch>
-        <TreeView.Branch value="2">
+              </TreeViewBranchContent>
+            </TreeViewBranch>
+          </TreeViewBranchContent>
+        </TreeViewBranch>
+        <TreeViewBranch value="2">
           <TreeViewBranchControl>
-            <TreeViewBranchIndicator />
-            <TreeView.BranchText>Item 2</TreeView.BranchText>
+            <TreeViewBranchIndicator className="data-[state=open]:hidden">
+              <FolderClosed className="h-4 w-4 shrink-0" />
+            </TreeViewBranchIndicator>
+            <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+              <FolderOpen className="h-4 w-4 shrink-0" />
+            </TreeViewBranchIndicator>
+            <TreeViewBranchText>Item 2</TreeViewBranchText>
           </TreeViewBranchControl>
-          <TreeView.BranchContent className="relative">
-            <TreeViewItem value="2.1">
-              <TreeView.ItemText>Item 2.1</TreeView.ItemText>
-            </TreeViewItem>
+          <TreeViewBranchContent className="relative">
+            <TreeViewBranch value="2.1">
+              <TreeViewBranchControl>
+                <TreeViewBranchIndicator className="data-[state=open]:hidden">
+                  <FolderClosed className="h-4 w-4 shrink-0" />
+                </TreeViewBranchIndicator>
+                <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+                  <FolderOpen className="h-4 w-4 shrink-0" />
+                </TreeViewBranchIndicator>
+                <TreeViewBranchText>Item 2.1</TreeViewBranchText>
+              </TreeViewBranchControl>
+              <TreeViewBranchContent className="relative">
+                <TreeViewBranch value="2.1.1">
+                  <TreeViewBranchControl>
+                    <TreeViewBranchIndicator className="data-[state=open]:hidden">
+                      <FolderClosed className="h-4 w-4 shrink-0" />
+                    </TreeViewBranchIndicator>
+                    <TreeViewBranchIndicator className="data-[state=closed]:hidden">
+                      <FolderOpen className="h-4 w-4 shrink-0" />
+                    </TreeViewBranchIndicator>
+                    <TreeViewBranchText>Item 2.1.1</TreeViewBranchText>
+                  </TreeViewBranchControl>
+                  <TreeViewBranchContent className="relative">
+                    <TreeViewItem value="2.1.1.1">
+                      <File className="h-4 w-4 shrink-0" />
+                      <TreeViewItemText>Item 2.1.1.1</TreeViewItemText>
+                    </TreeViewItem>
+                  </TreeViewBranchContent>
+                </TreeViewBranch>
+              </TreeViewBranchContent>
+            </TreeViewBranch>
             <TreeViewItem value="2.2">
-              <TreeView.ItemText>Item 2.2</TreeView.ItemText>
+              <File className="h-4 w-4 shrink-0" />
+              <TreeViewItemText>Item 2.2</TreeViewItemText>
             </TreeViewItem>
-          </TreeView.BranchContent>
-        </TreeView.Branch>
+          </TreeViewBranchContent>
+        </TreeViewBranch>
         <TreeViewItem value="3">
-          <TreeView.ItemText>Item 3</TreeView.ItemText>
+          <File className="h-4 w-4 shrink-0" />
+          <TreeViewItemText>Item 3</TreeViewItemText>
         </TreeViewItem>
-      </TreeView.Tree>
-    </TreeView.Root>
+      </TreeViewTree>
+    </TreeView>
   )
 }
