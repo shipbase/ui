@@ -96,42 +96,9 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
       </div>
       <div class="hidden text-sm xl:block">
         <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
-          <TableOfContent id="toc" toc={toc} headings={headings} />
+          <TableOfContent id="toc" toc={toc} headings={headings} client:load />
         </div>
       </div>
     </main>
   </div>
 </Layout>
-
-<script is:inline>
-  const toc = document.getElementById("tree-root:toc")
-
-  let activeId = null
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting && entry.target.id) {
-          if (activeId) {
-            toc
-              .querySelector(
-                `[data-part="branch-control"][data-branch="${activeId}"], [data-part="item"][data-item="${activeId}"]`
-              )
-              .removeAttribute("data-active")
-          }
-          activeId = entry.target.id
-          toc
-            .querySelector(
-              `[data-part="branch-control"][data-branch="${activeId}"], [data-part="item"][data-item="${activeId}"]`
-            )
-            .setAttribute("data-active", "")
-        }
-      })
-    },
-    { rootMargin: `0% 0% -80% 0%` }
-  )
-
-  const contentContainer = document.getElementById("content-container")
-  contentContainer.querySelectorAll("h2, h3, h4").forEach((heading) => {
-    observer.observe(heading)
-  })
-</script>
