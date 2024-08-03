@@ -8,7 +8,7 @@ export default {
     "src/pages/**/*.{ts,tsx,astro}",
     "src/components/**/*.{ts,tsx,astro}",
     "src/layouts/**/*.{ts,tsx,astro}",
-    "src/registry/**/*.{ts,tsx,astro}"
+    "src/registry/**/*.{ts,tsx,astro}",
   ],
   prefix: "",
   theme: {
@@ -56,8 +56,8 @@ export default {
         },
       },
       borderRadius: {
-        lg: `var(--radius)`,
-        md: `calc(var(--radius) - 2px)`,
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {

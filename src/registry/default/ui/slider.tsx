@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Slider as SliderPrimitive } from "@ark-ui/react/slider"
+import * as React from "react"
 
 const Slider = SliderPrimitive.Root
 
@@ -15,7 +15,7 @@ const SliderMark = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Marker
     ref={ref}
-    className="text-sm text-muted-foreground before:relative before:-top-1.5 before:left-1/2 before:block before:size-1 before:-translate-x-1/2 before:rounded-full before:bg-background before:content-[''] dark:before:bg-foreground dark:before:data-[state='under-value']:bg-background"
+    className="before:-top-1.5 before:-translate-x-1/2 text-muted-foreground text-sm before:relative before:left-1/2 before:block before:size-1 before:rounded-full before:bg-background before:content-[''] dark:before:bg-foreground dark:before:data-[state='under-value']:bg-background"
     {...props}
   />
 ))
@@ -27,10 +27,10 @@ const SliderControl = () => (
     </SliderPrimitive.Track>
     <SliderPrimitive.Context>
       {(context) =>
-        context.value.map((_, index) => (
+        context.value.map((value, index) => (
           <SliderPrimitive.Thumb
             index={index}
-            key={index}
+            key={value}
             className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
           >
             <SliderPrimitive.HiddenInput />

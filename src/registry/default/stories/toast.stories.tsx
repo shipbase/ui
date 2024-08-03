@@ -2,13 +2,13 @@ import type { Meta } from "@storybook/react"
 
 import { Button } from "../ui/button"
 import {
-  createToaster,
   Toast,
   ToastActionTrigger,
   ToastCloseTrigger,
   ToastDescription,
-  Toaster,
   ToastTitle,
+  Toaster,
+  createToaster,
 } from "../ui/toast"
 
 export default {

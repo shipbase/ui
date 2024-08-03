@@ -21,7 +21,7 @@ export const Basic = () => {
         {(context) =>
           context.pages.map((page, index) =>
             page.type === "page" ? (
-              <PaginationItem key={index} {...page}>
+              <PaginationItem key={page.value} {...page}>
                 {page.value}
               </PaginationItem>
             ) : (

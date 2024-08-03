@@ -1,6 +1,6 @@
-import * as React from "react"
 import { PinInput as PinInputPrimitive } from "@ark-ui/react/pin-input"
 import { Dot } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -26,7 +26,7 @@ const PinInputLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <PinInputPrimitive.Label
     className={cn(
-      "text-sm font-medium leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
+      "font-medium text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
       className
     )}
     ref={ref}
@@ -51,7 +51,7 @@ const PinInputInput = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <PinInputPrimitive.Input
     className={cn(
-      "size-10 h-10 w-10 border-y border-r border-input text-center text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
+      "size-10 h-10 w-10 border-input border-y border-r text-center text-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50",
       className
     )}
     ref={ref}
@@ -63,7 +63,7 @@ const PinInputSeparator = React.forwardRef<
   React.ElementRef<"div">,
   React.ComponentPropsWithoutRef<"div">
 >(({ ...props }, ref) => (
-  <div ref={ref} role="separator" {...props}>
+  <div ref={ref} {...props}>
     <Dot />
   </div>
 ))

@@ -57,7 +57,9 @@ export function Basic() {
         <SelectItemGroup>
           <SelectItemGroupLabel>Frameworks</SelectItemGroupLabel>
           {frameworks.map((framework) => (
-            <SelectItem item={framework.value}>{framework.label}</SelectItem>
+            <SelectItem item={framework.value} key={framework.value}>
+              {framework.label}
+            </SelectItem>
           ))}
         </SelectItemGroup>
       </SelectContent>

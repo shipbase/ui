@@ -1,5 +1,5 @@
-import * as React from "react"
 import { ark } from "@ark-ui/react/factory"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -37,7 +37,7 @@ const CardTitle = React.forwardRef<
   <ark.h3
     ref={ref}
     className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
+      "font-semibold text-2xl leading-none tracking-tight",
       className
     )}
     {...props}
@@ -51,7 +51,7 @@ const CardDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ark.p
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-muted-foreground text-sm", className)}
     {...props}
   />
 ))

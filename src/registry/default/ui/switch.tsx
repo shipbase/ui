@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Switch as SwitchPrimitive } from "@ark-ui/react/switch"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -40,7 +40,7 @@ const SwitchLabel = React.forwardRef<
   <SwitchPrimitive.Label
     ref={ref}
     className={cn(
-      "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      "font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
       className
     )}
     {...props}

@@ -10,8 +10,8 @@ export function Basic() {
   return (
     <>
       <Checkbox className="flex items-center space-x-2">
-        <CheckboxTrigger></CheckboxTrigger>
-        <CheckboxLabel className="text-sm font-medium leading-none">
+        <CheckboxTrigger />
+        <CheckboxLabel className="font-medium text-sm leading-none">
           Accept terms and conditions
         </CheckboxLabel>
       </Checkbox>

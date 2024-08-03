@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { Accordion as AccordionPrimitive } from "@ark-ui/react/accordion"
 import { ChevronDown } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -31,7 +31,7 @@ const AccordionItemTrigger = React.forwardRef<
   <AccordionPrimitive.ItemTrigger
     ref={ref}
     className={cn(
-      "data[-state=open]:rotate-180 flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline",
+      "flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline data[-state=open]:rotate-180",
       className
     )}
     {...props}
@@ -52,7 +52,7 @@ const AccordionItemContent = React.forwardRef<
     className="overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down"
     {...props}
   >
-    <div className={cn("pb-4 pt-0", className)}>{children}</div>
+    <div className={cn("pt-0 pb-4", className)}>{children}</div>
   </AccordionPrimitive.ItemContent>
 ))
 

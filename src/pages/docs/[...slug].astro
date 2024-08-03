@@ -1,13 +1,13 @@
 ---
+import { getCollection } from "astro:content"
 import Layout from "@/layouts/layout.astro"
 import type { GetStaticPaths } from "astro"
-import { getCollection } from "astro:content"
 import { ChevronRightIcon } from "lucide-react"
 
-import { getCollectionEntrySlug, getDocsSidebarGroup } from "@/lib/docs"
-import { cn } from "@/lib/utils"
 import { MDXComponents } from "@/components/content"
 import { TableOfContent } from "@/components/table-of-content"
+import { getCollectionEntrySlug, getDocsSidebarGroup } from "@/lib/docs"
+import { cn } from "@/lib/utils"
 
 import "@/styles/mdx.css"
 

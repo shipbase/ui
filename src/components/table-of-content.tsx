@@ -1,5 +1,5 @@
-import * as React from "react"
 import type { MarkdownHeading } from "astro"
+import * as React from "react"
 
 import type { ToC } from "@/lib/toc"
 import { cn } from "@/lib/utils"

@@ -1,6 +1,6 @@
-import * as React from "react"
 import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Progress as ProgressPrimitive } from "@ark-ui/react/progress"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -20,7 +20,7 @@ const ProgressLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.Label
     ref={ref}
-    className={cn("text-sm font-medium leading-none", className)}
+    className={cn("font-medium text-sm leading-none", className)}
     {...props}
   />
 ))
@@ -59,7 +59,7 @@ const ProgressValueText = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.ValueText
     ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
+    className={cn("text-muted-foreground text-sm", className)}
     {...props}
   />
 ))

@@ -17,7 +17,7 @@ const HoverCardArrow = React.forwardRef<
   <HoverCardPrimitive.Arrow>
     <HoverCardPrimitive.ArrowTip
       ref={ref}
-      className={cn("border-l-[1px] border-t-[1px]", className)}
+      className={cn("border-t-[1px] border-l-[1px]", className)}
       {...props}
     />
   </HoverCardPrimitive.Arrow>
@@ -33,7 +33,7 @@ const HoverCardContent = React.forwardRef<
       <HoverCardPrimitive.Content
         ref={ref}
         className={cn(
-          "relative z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 relative z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=closed]:animate-out data-[state=open]:animate-in",
           className
         )}
         {...props}

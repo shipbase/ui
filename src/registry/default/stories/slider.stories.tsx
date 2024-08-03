@@ -18,7 +18,7 @@ export const SliderDemo = () => {
     <Slider defaultValue={[10]}>
       <SliderLabel>Label</SliderLabel>
       <SliderValueText />
-      <SliderControl></SliderControl>
+      <SliderControl />
     </Slider>
   )
 }
@@ -28,7 +28,7 @@ export const SliderRangeDemo = () => {
     <Slider defaultValue={[10, 20]}>
       <SliderLabel>Label</SliderLabel>
       <SliderValueText />
-      <SliderControl></SliderControl>
+      <SliderControl />
     </Slider>
   )
 }

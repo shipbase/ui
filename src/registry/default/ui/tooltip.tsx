@@ -1,5 +1,5 @@
-import * as React from "react"
 import { Tooltip as TooltipPrimitive } from "@ark-ui/react/tooltip"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -18,7 +18,7 @@ const TooltipArrow = React.forwardRef<
   <TooltipPrimitive.Arrow>
     <TooltipPrimitive.ArrowTip
       ref={ref}
-      className={cn("border-l-[1px] border-t-[1px]", className)}
+      className={cn("border-t-[1px] border-l-[1px]", className)}
       {...props}
     />
   </TooltipPrimitive.Arrow>
@@ -33,7 +33,7 @@ const TooltipContent = React.forwardRef<
     <TooltipPrimitive.Content
       ref={ref}
       className={cn(
-        "z-50 overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-sm text-popover-foreground shadow-md animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95",
+        "fade-in-0 zoom-in-95 data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 z-50 animate-in overflow-hidden rounded-md border bg-popover px-3 py-1.5 text-popover-foreground text-sm shadow-md data-[state=closed]:animate-out",
         className
       )}
       {...props}

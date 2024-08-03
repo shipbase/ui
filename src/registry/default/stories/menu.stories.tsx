@@ -1,4 +1,3 @@
-import * as React from "react"
 import type { Meta } from "@storybook/react"
 import {
   Cloud,
@@ -15,6 +14,7 @@ import {
   UserPlus,
   Users,
 } from "lucide-react"
+import * as React from "react"
 
 import { Button } from "../ui/button"
 import {

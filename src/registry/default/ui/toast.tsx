@@ -1,11 +1,11 @@
-import * as React from "react"
 import {
-  createToaster,
-  Toaster as ToasterPrimitive,
   Toast as ToastPrimitive,
+  Toaster as ToasterPrimitive,
+  createToaster,
 } from "@ark-ui/react/toast"
-import { cva, type VariantProps } from "class-variance-authority"
+import { type VariantProps, cva } from "class-variance-authority"
 import { X } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -31,7 +31,7 @@ const Toaster = React.forwardRef<
 >(({ ...props }, ref) => (
   <ToasterPrimitive
     ref={ref}
-    className="w-[calc(100%-var(--gap)*4)] max-h-screen flex-col-reverse p-4 sm:flex-col md:max-w-[420px]"
+    className="max-h-screen w-[calc(100%-var(--gap)*4)] flex-col-reverse p-4 sm:flex-col md:max-w-[420px]"
     {...props}
   />
 ))
@@ -54,7 +54,7 @@ const ToastTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Title
     ref={ref}
-    className={cn("text-sm font-semibold", className)}
+    className={cn("font-semibold text-sm", className)}
     {...props}
   />
 ))
@@ -77,7 +77,7 @@ const ToastActionTrigger = React.forwardRef<
   <ToastPrimitive.ActionTrigger
     ref={ref}
     className={cn(
-      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 text-sm font-medium ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground group-[.destructive]:focus:ring-destructive",
+      "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 font-medium text-sm ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:focus:ring-destructive group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground",
       className
     )}
     {...props}
@@ -91,7 +91,7 @@ const ToastCloseTrigger = React.forwardRef<
   <ToastPrimitive.CloseTrigger
     ref={ref}
     className={cn(
-      "absolute right-2 top-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:hover:text-red-50 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600",
+      "absolute top-2 right-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600 group-[.destructive]:hover:text-red-50",
       className
     )}
     {...props}
