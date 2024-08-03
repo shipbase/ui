@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "check": "biome check --write ./src",
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview"

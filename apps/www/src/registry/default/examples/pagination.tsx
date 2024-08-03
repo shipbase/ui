@@ -5,7 +5,7 @@ import {
   PaginationItem,
   PaginationNextTrigger,
   PaginationPrevTrigger,
-} from '../ui/pagination'
+} from "../ui/pagination"
 
 export default function PaginationDemo() {
   return (
@@ -14,7 +14,7 @@ export default function PaginationDemo() {
       <PaginationContext>
         {(context) =>
           context.pages.map((page, index) =>
-            page.type === 'page' ? (
+            page.type === "page" ? (
               <PaginationItem key={page.value} {...page}>
                 {page.value}
               </PaginationItem>
