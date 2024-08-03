@@ -4,4 +4,5 @@ export default {
   title: "Components/Accordion",
 } satisfies Meta
 
-export { Demo } from "@/components/examples/accordion"
+export { default as Usage } from "./usage"
+export { default as Demo } from "./demo"
