@@ -9,7 +9,7 @@ import { shikiConfig } from "./src/config/shiki"
 export default defineConfig({
   integrations: [mdx({ shikiConfig }), react(), tailwind()],
   vite: {
-    plugins: [],
+    plugins: [Inspect()],
     build: {
       rollupOptions: {
         onLog(level, log, handler) {
