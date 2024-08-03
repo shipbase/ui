@@ -5,7 +5,5 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
-  "[astro]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  }
+  "prettier.enable": false
 }

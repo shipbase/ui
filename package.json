@@ -3,15 +3,13 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "check": "biome check --write --unsafe ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "chromatic --exit-zero-on-changes"
   },
-  "dependencies": {},
   "devDependencies": {
+    "@biomejs/biome": "1.8.3",
     "typescript": "^5.4.5"
-
   },
   "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35"
 }
