@@ -1,6 +1,6 @@
-import * as React from "react"
 import type { Meta } from "@storybook/react"
 import { Minus, Plus } from "lucide-react"
+import * as React from "react"
 import { Bar, BarChart, ResponsiveContainer } from "recharts"
 
 import { Button } from "../ui/button"
@@ -112,10 +112,10 @@ export function Basic() {
                 <span className="sr-only">Decrease</span>
               </Button>
               <div className="flex-1 text-center">
-                <div className="text-7xl font-bold tracking-tighter">
+                <div className="font-bold text-7xl tracking-tighter">
                   {goal}
                 </div>
-                <div className="text-[0.70rem] uppercase text-muted-foreground">
+                <div className="text-[0.70rem] text-muted-foreground uppercase">
                   Calories/day
                 </div>
               </div>

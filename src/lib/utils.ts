@@ -1,6 +1,6 @@
 import fs from "node:fs"
 import path from "node:path"
-import { clsx, type ClassValue } from "clsx"
+import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 export function cn(...inputs: ClassValue[]) {

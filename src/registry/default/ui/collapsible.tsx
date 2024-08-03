@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Collapsible as CollapsiblePrimitive } from "@ark-ui/react/collapsible"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -18,7 +18,7 @@ const CollapsibleContent = React.forwardRef<
   <CollapsiblePrimitive.Content
     ref={ref}
     className={cn(
-      "data-[state=closed]:animate-collapse-out data-[state=open]:animate-collapse-in overflow-hidden transition-all",
+      "overflow-hidden transition-all data-[state=closed]:animate-collapse-out data-[state=open]:animate-collapse-in",
       className
     )}
     {...props}

@@ -5,7 +5,7 @@ export default function CheckboxDemo() {
     <>
       <Checkbox className="flex items-center space-x-2">
         <CheckboxTrigger />
-        <CheckboxLabel className="text-sm font-medium leading-none">
+        <CheckboxLabel className="font-medium text-sm leading-none">
           Accept terms and conditions
         </CheckboxLabel>
       </Checkbox>

@@ -1,7 +1,7 @@
 "use client"
 
-import * as React from "react"
 import { Avatar as AvatarPrimitive } from "@ark-ui/react/avatar"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

@@ -1,5 +1,5 @@
-import * as React from "react"
 import { CheckIcon, ClipboardIcon } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 import { Button, type ButtonProps } from "@/registry/default/ui/button"
@@ -26,7 +26,7 @@ export function CopyButton({
     setTimeout(() => {
       setHasCopied(false)
     }, 2000)
-  }, [hasCopied])
+  }, [])
 
   return (
     <Button

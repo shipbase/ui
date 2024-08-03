@@ -1,9 +1,9 @@
 "use client"
 
-import * as React from "react"
 import { Menu as MenuPrimitive } from "@ark-ui/react/menu"
 import { Portal } from "@ark-ui/react/portal"
 import { Check, ChevronRight, Circle } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -51,7 +51,7 @@ const MenuContent = React.forwardRef<
       <MenuPrimitive.Content
         ref={ref}
         className={cn(
-          "z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in-80 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+          "fade-in-80 data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 z-50 min-w-[8rem] animate-in overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md data-[state=closed]:animate-out data-[state=open]:animate-in",
           className
         )}
         {...props}
@@ -86,7 +86,7 @@ const MenuCheckboxItem = React.forwardRef<
   <MenuPrimitive.CheckboxItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
       className
     )}
     checked={checked}
@@ -109,7 +109,7 @@ const MenuRadioItem = React.forwardRef<
   <MenuPrimitive.RadioItem
     ref={ref}
     className={cn(
-      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
+      "relative flex cursor-default select-none items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none transition-colors data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50",
       className
     )}
     {...props}
@@ -133,7 +133,7 @@ const MenuItemGroupLabel = React.forwardRef<
   <MenuPrimitive.ItemGroupLabel
     ref={ref}
     className={cn(
-      "px-2 py-1.5 text-sm font-semibold",
+      "px-2 py-1.5 font-semibold text-sm",
       inset && "pl-8",
       className
     )}
@@ -161,7 +161,7 @@ const MenuArrow = React.forwardRef<
   <MenuPrimitive.Arrow>
     <MenuPrimitive.ArrowTip
       ref={ref}
-      className={cn("border-l-[1px] border-t-[1px]", className)}
+      className={cn("border-t-[1px] border-l-[1px]", className)}
       {...props}
     />
   </MenuPrimitive.Arrow>

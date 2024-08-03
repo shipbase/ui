@@ -1,8 +1,8 @@
 "use client"
 
-import * as React from "react"
 import { Combobox as ComboboxPrimitive } from "@ark-ui/react/combobox"
 import { Portal } from "@ark-ui/react/portal"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -55,7 +55,7 @@ const ComboboxLabel = React.forwardRef<
   <ComboboxPrimitive.Label
     ref={ref}
     className={cn(
-      "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      "font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
       className
     )}
     {...props}
@@ -78,7 +78,7 @@ const ComboboxContent = React.forwardRef<
   <ComboboxPrimitive.Content
     ref={ref}
     className={cn(
-      "z-50 rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95",
+      "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 z-50 rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none data-[state=closed]:animate-out data-[state=open]:animate-in",
       className
     )}
     {...props}
@@ -103,7 +103,7 @@ const ComboboxItemGroupLabel = React.forwardRef<
   <ComboboxPrimitive.ItemGroupLabel
     ref={ref}
     className={cn(
-      "px-2 py-1.5 text-xs font-medium text-muted-foreground",
+      "px-2 py-1.5 font-medium text-muted-foreground text-xs",
       className
     )}
     {...props}

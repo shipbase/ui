@@ -1,4 +1,4 @@
-import { getCollection, type CollectionEntry } from "astro:content"
+import { type CollectionEntry, getCollection } from "astro:content"
 
 export const getCollectionEntrySlug = (
   entry: CollectionEntry<"overview" | "components">

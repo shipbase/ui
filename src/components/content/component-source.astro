@@ -10,7 +10,7 @@ const props = Astro.props
 
 const source = await loadFileSource(props.path)
 
-const lang = props.path?.split(".").pop() as any
+const lang = props.path?.split(".").pop() as "tsx"
 ---
 
 <CodeWrapper lang={lang || "plantext"} src={source} />

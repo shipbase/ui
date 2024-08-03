@@ -1,9 +1,9 @@
-import * as React from "react"
 import {
   Combobox as ArkCombobox,
   type ComboboxInputValueChangeDetails,
 } from "@ark-ui/react"
 import { Check, ChevronsUpDown } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -75,7 +75,7 @@ export default function ComboboxDemo() {
       <ComboboxLabel>Framework</ComboboxLabel>
       <ComboboxControl className="relative">
         <ComboboxInput placeholder="Select a framework" className="pr-6" />
-        <ComboboxTrigger className="absolute right-2 top-0 h-full">
+        <ComboboxTrigger className="absolute top-0 right-2 h-full">
           <ChevronsUpDown className="h-4 w-4 shrink-0 opacity-50" />
         </ComboboxTrigger>
       </ComboboxControl>

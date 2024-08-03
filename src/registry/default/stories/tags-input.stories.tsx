@@ -23,7 +23,7 @@ export const Basic = () => {
         <TagsInputContext>
           {(context) =>
             context.value.map((value, index) => (
-              <TagsInputItem key={index} index={index} value={value} />
+              <TagsInputItem key={value} index={index} value={value} />
             ))
           }
         </TagsInputContext>

@@ -1,6 +1,6 @@
-import { useState } from "react"
 import type { Meta } from "@storybook/react"
 import { Check, ChevronsUpDown } from "lucide-react"
+import { useState } from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -10,6 +10,7 @@ import {
   ComboboxContent,
   ComboboxControl,
   ComboboxInput,
+  type ComboboxInputValueChangeDetails,
   ComboboxItem,
   ComboboxItemGroup,
   ComboboxItemGroupLabel,
@@ -19,7 +20,6 @@ import {
   ComboboxList,
   ComboboxPortal,
   ComboboxTrigger,
-  type ComboboxInputValueChangeDetails,
 } from "../ui/combobox"
 
 export default {
@@ -106,7 +106,7 @@ export function ComboboxDemo() {
       <ComboboxLabel>Framework</ComboboxLabel>
       <ComboboxControl className="relative">
         <ComboboxInput placeholder="Select a framework" className="pr-6" />
-        <ComboboxTrigger className="absolute right-2 top-0 h-full">
+        <ComboboxTrigger className="absolute top-0 right-2 h-full">
           <ChevronsUpDown className="h-4 w-4 shrink-0 opacity-50" />
         </ComboboxTrigger>
       </ComboboxControl>

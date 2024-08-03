@@ -1,6 +1,6 @@
-import * as React from "react"
 import { TagsInput as TagsInputPrimitive } from "@ark-ui/react/tags-input"
 import { X } from "lucide-react"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
@@ -14,7 +14,7 @@ const TagsInputLabel = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TagsInputPrimitive.Label
     ref={ref}
-    className={cn("text-sm font-semibold", className)}
+    className={cn("font-semibold text-sm", className)}
     {...props}
   />
 ))
@@ -43,7 +43,7 @@ const TagsInputItem = React.forwardRef<
     <TagsInputPrimitive.ItemPreview
       ref={ref}
       className={cn(
-        "[hidden]:hidden inline-flex h-6 items-center gap-1 rounded-sm border border-input pl-2 pr-1",
+        "inline-flex h-6 items-center gap-1 rounded-sm border border-input pr-1 pl-2 [hidden]:hidden",
         className
       )}
     >
@@ -64,7 +64,7 @@ const TagsInputInput = React.forwardRef<
   <TagsInputPrimitive.Input
     ref={ref}
     className={cn(
-      "text-md flex-1 bg-transparent px-1 placeholder:text-muted-foreground focus:outline-none",
+      "flex-1 bg-transparent px-1 text-md placeholder:text-muted-foreground focus:outline-none",
       className
     )}
     {...props}

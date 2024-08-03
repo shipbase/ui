@@ -1,6 +1,6 @@
-import * as React from "react"
 import { ToggleGroup as ToggleGroupPrimitive } from "@ark-ui/react/toggle-group"
-import { cva, type VariantProps } from "class-variance-authority"
+import { type VariantProps, cva } from "class-variance-authority"
+import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
