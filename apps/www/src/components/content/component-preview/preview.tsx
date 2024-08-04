@@ -15,20 +15,8 @@ const ComponentLoader = ({ component, name }: Props) =>
       )
   )
 
-export const Preview = ({ component, name }: Props) => {
+export default function Preview({ component, name }: Props) {
   const Component = ComponentLoader({ component, name })
-
-  if (!Component) {
-    return (
-      <p className="text-muted-foreground text-sm">
-        Component
-        <code className="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-          {component}
-        </code>
-        not found in registry.
-      </p>
-    )
-  }
 
   return (
     <Suspense

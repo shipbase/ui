@@ -1,0 +1,13 @@
+---
+interface Props {
+  component: string;
+}
+
+const { component } = Astro.props;
+---
+
+<p class="text-muted-foreground text-sm">
+  Component
+  <code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">{component}</code>
+  not found in registry.
+</p>

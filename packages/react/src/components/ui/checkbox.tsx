@@ -2,7 +2,7 @@
 
 import * as React from "react"
 
-import { Checkbox as CheckboxPrimitive } from "@ark-ui/react"
+import { Checkbox as CheckboxPrimitive } from "@ark-ui/react/checkbox"
 import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"

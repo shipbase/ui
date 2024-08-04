@@ -5,6 +5,8 @@ import { fontFamily } from "tailwindcss/defaultTheme"
 export default {
   darkMode: ["class"],
   content: [
+    "node_modules/@ui/react/dist/**/*.js",
+    "node_modules/@ui/vue/dist/**/*.js",
     "src/pages/**/*.{ts,tsx,astro}",
     "src/components/**/*.{ts,tsx,astro}",
     "src/layouts/**/*.{ts,tsx,astro}",

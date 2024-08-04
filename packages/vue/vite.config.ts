@@ -11,11 +11,14 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: globbySync("src/examples/**/*.{ts,tsx}"),
+      entry: globbySync("src/examples/**/*.{ts,tsx,vue}"),
       formats: ["es"],
-      fileName: (_, entryName) => `${entryName}.js`,
+      fileName: (_, entryName) => {
+        if (entryName.endsWith(".vue"))
+          return entryName.replace(/\.vue$/, ".js")
+        return `${entryName}.js`
+      },
     },
-    emptyOutDir: false,
     rollupOptions: {
       external: [
         /@ark-ui/,

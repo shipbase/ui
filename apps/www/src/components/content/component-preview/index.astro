@@ -1,42 +1,106 @@
 ---
-import fs from "node:fs"
-import path from "node:path"
-import { CopyButton } from "@/components/copy-button"
-import CodeWrapper from "../code-wrapper.astro"
-import { Preview } from "./preview"
-import { Tabs } from "./tabs"
+import fs from "node:fs";
+import { CopyButton } from "@/components/copy-button";
+import CodeWrapper from "../code-wrapper.astro";
+import { FrameworkSwitcher } from "./framework";
+import NotFound from "./not-found.astro";
+import Preview from "./preview";
+import PreviewVue from "./preview.vue";
+import { Tabs } from "./tabs";
 
 interface Props {
-  component: string
-  name?: string
+  component: string;
+  name?: string;
 }
-const { component, name } = Astro.props
+const { component, name } = Astro.props;
 
-const source = fs.readFileSync(
-  path.resolve(
-    `node_modules/@ui/react/src/examples/${component}/${name || component}.tsx`
-  ),
-  "utf-8"
-)
+const readFileSyncSafe = (path: string) => {
+  try {
+    return fs.readFileSync(path, "utf-8");
+  } catch (error) {
+    return false;
+  }
+};
+
+const source = readFileSyncSafe(
+  `node_modules/@ui/react/src/examples/${component}/${name || component}.tsx`
+);
+const sourceVue = readFileSyncSafe(
+  `node_modules/@ui/vue/src/examples/${component}/${name || component}.vue`
+);
 ---
 
 <div class="group relative my-4 flex flex-col space-y-2">
   <Tabs client:visible>
     <div slot="preview" class="relative rounded-md border">
       <div class="flex items-center justify-between p-4">
+        <FrameworkSwitcher client:load />
         <CopyButton
           client:visible
-          value={source}
+          value={source || ""}
           variant="outline"
           className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
         />
       </div>
       <div
         class="preview flex min-h-[350px] w-full items-center justify-center p-10"
+        data-framework="react"
       >
-        <Preview client:visible component={component} name={name} />
+        {
+          source ? (
+            <Preview client:visible component={component} name={name} />
+          ) : (
+            <NotFound component={component} />
+          )
+        }
+      </div>
+      <div
+        class="preview flex min-h-[350px] w-full items-center justify-center p-10"
+        hidden
+        data-framework="vue"
+      >
+        {
+          sourceVue ? (
+            <PreviewVue client:visible component={component} name={name} />
+          ) : (
+            <NotFound component={component} />
+          )
+        }
       </div>
     </div>
-    <CodeWrapper slot="code" lang="tsx" src={source} />
+    <Fragment slot="code">
+      <div data-framework="react">
+        <CodeWrapper lang="tsx" src={source || ""} />
+      </div>
+      <div data-framework="vue" hidden>
+        <CodeWrapper lang="vue" src={sourceVue || ""} />
+      </div>
+    </Fragment>
   </Tabs>
 </div>
+
+<script>
+  import { $framework } from "@/atoms/framework";
+
+  let unsubscribe: () => void;
+
+  document.addEventListener("astro:page-load", () => {
+    const previewReact = document.querySelectorAll(`[data-framework="react"]`);
+    const previewVue = document.querySelectorAll(`[data-framework="vue"]`);
+
+    if (typeof unsubscribe === "function") {
+      unsubscribe();
+    }
+
+    unsubscribe = $framework.subscribe((value) => {
+      previewReact.forEach((el) => {
+        // @ts-ignore
+        el.hidden = value !== "react";
+      });
+      previewVue.forEach((el) => {
+        // @ts-ignore
+        el.hidden = value !== "vue";
+      });
+    });
+  });
+</script>
