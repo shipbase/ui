@@ -10,7 +10,7 @@ export const Checkbox = React.lazy(() => import("./checkbox"))
 export const CheckboxWithText = React.lazy(() => import("./checkbox-with-text"))
 export const CheckboxDisabled = React.lazy(() => import("./checkbox-disabled"))
 
-export const Collapsible = React.lazy(() => import("./collapsible"))
+export const Collapsible = React.lazy(() => import("@ui/react/examples/collapsible.jsx"))
 
 export const Combobox = React.lazy(() => import("./combobox"))
 

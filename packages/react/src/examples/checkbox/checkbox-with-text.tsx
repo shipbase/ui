@@ -1,6 +1,6 @@
 "use client"
 
-import { Checkbox, CheckboxLabel, CheckboxTrigger } from "../ui/checkbox"
+import { Checkbox, CheckboxLabel, CheckboxTrigger } from "@/components/ui/checkbox"
 
 export default function CheckboxWithText() {
   return (
