@@ -35,6 +35,7 @@ const sourceVue = readFileSyncSafe(
     <div slot="preview" class="relative rounded-md border">
       <div class="flex items-center justify-between p-4">
         <FrameworkSwitcher client:load />
+        <!-- FIXME: framework copy code -->
         <CopyButton
           client:visible
           value={source || ""}
