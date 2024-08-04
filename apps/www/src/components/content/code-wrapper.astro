@@ -4,8 +4,8 @@ import { Code } from "astro/components"
 import { CopyButton } from "@/components/copy-button"
 
 interface Props {
-  lang?: "tsx" | "vue" | "ts"
-  src?: string
+  lang?: "tsx"
+  src: string
 }
 
 const { src, lang } = Astro.props
@@ -20,9 +20,5 @@ const html = Astro.slots.render("default")
       <Fragment set:html={html} />
     )
   }
-  <CopyButton
-    client:visible
-    className="absolute top-4 right-4"
-    value={src || ""}
-  />
+  <CopyButton client:visible className="absolute top-4 right-4" value={src} />
 </div>

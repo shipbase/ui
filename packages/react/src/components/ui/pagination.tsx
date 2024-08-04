@@ -1,10 +1,12 @@
-import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination"
-import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
+"use client"
+
 import * as React from "react"
 
-import { cn } from "@/lib/utils"
+import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination"
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 
-import { buttonVariants } from "./button"
+import { buttonVariants } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 const PaginationContext = PaginationPrimitive.Context
 

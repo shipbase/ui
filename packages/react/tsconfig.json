@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     // Enable latest features
-    "lib": ["ESNext"],
+    "lib": ["ESNext", "DOM"],
     "target": "ESNext",
     "module": "ESNext",
     "moduleDetection": "force",
@@ -9,9 +9,9 @@
 
     // Bundler mode
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    // "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
-    "noEmit": true,
+    // "noEmit": true,
 
     // Best practices
     "strict": true,
@@ -22,6 +22,8 @@
     "noUnusedParameters": true,
     "strictNullChecks": true,
 
+    "esModuleInterop": true,
+
     // react
     "jsx": "preserve",
     "jsxImportSource": "react",
@@ -30,6 +32,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    "outDir": "dist",
   }
 }

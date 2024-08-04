@@ -1,7 +1,8 @@
 "use client"
 
-import { Collapsible as CollapsiblePrimitive } from "@ark-ui/react/collapsible"
 import * as React from "react"
+
+import { Collapsible as CollapsiblePrimitive } from "@ark-ui/react/collapsible"
 
 import { cn } from "@/lib/utils"
 

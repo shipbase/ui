@@ -1,5 +1,5 @@
-import { Button } from "@/registry/default/ui/button"
-import { Sheet, SheetContent, SheetTrigger } from "@/registry/default/ui/sheet"
+import { Button } from "@/components/ui/button"
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 
 import { Icons } from "../icons"
 

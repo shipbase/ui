@@ -1,16 +1,18 @@
 ---
-import { loadFileSource } from "@/lib/utils"
+import fs from "node:fs"
+import path from "node:path"
 
 import CodeWrapper from "./code-wrapper.astro"
 
 export interface Props {
-  path: string
+  component: string
 }
-const props = Astro.props
+const { component } = Astro.props
 
-const source = await loadFileSource(props.path)
-
-const lang = props.path?.split(".").pop() as "tsx"
+const source = fs.readFileSync(
+  path.resolve(`node_modules/@ui/react/src/components/ui/${component}.tsx`),
+  "utf-8"
+)
 ---
 
-<CodeWrapper lang={lang || "plantext"} src={source} />
+<CodeWrapper lang="tsx" src={source} />

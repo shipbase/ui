@@ -1,29 +1,42 @@
 ---
-import { cn, loadFileSource } from "@/lib/utils"
-
+import fs from "node:fs"
+import path from "node:path"
+import { CopyButton } from "@/components/copy-button"
 import CodeWrapper from "../code-wrapper.astro"
 import { Preview } from "./preview"
 import { Tabs } from "./tabs"
 
 interface Props {
+  component: string
   name?: string
-  className?: string
 }
-const { name, className, ...props } = Astro.props
-const source = await loadFileSource(`registry/default/examples/${name}.tsx`)
+const { component, name } = Astro.props
+
+const source = fs.readFileSync(
+  path.resolve(
+    `node_modules/@ui/react/src/examples/${component}/${name || component}.tsx`
+  ),
+  "utf-8"
+)
 ---
 
-<div
-  class={cn("group relative my-4 flex flex-col space-y-2", className)}
-  {...props}
->
+<div class="group relative my-4 flex flex-col space-y-2">
   <Tabs client:visible>
-    <Preview
-      slot="preview"
-      component={name}
-      codeString={source}
-      client:visible
-    />
+    <div slot="preview" class="relative rounded-md border">
+      <div class="flex items-center justify-between p-4">
+        <CopyButton
+          client:visible
+          value={source}
+          variant="outline"
+          className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
+        />
+      </div>
+      <div
+        class="preview flex min-h-[350px] w-full items-center justify-center p-10"
+      >
+        <Preview client:visible component={component} name={name} />
+      </div>
+    </div>
     <CodeWrapper slot="code" lang="tsx" src={source} />
   </Tabs>
 </div>

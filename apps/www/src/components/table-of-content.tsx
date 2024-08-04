@@ -1,8 +1,6 @@
 import type { MarkdownHeading } from "astro"
 import * as React from "react"
 
-import type { ToC } from "@/lib/toc"
-import { cn } from "@/lib/utils"
 import {
   TreeView,
   TreeViewBranch,
@@ -13,7 +11,9 @@ import {
   TreeViewItemText,
   TreeViewLabel,
   TreeViewTree,
-} from "@/registry/default/ui/tree-view"
+} from "@/components/ui/tree-view"
+import type { ToC } from "@/lib/toc"
+import { cn } from "@/lib/utils"
 
 interface Props {
   id?: string

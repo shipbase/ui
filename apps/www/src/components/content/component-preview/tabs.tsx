@@ -4,7 +4,7 @@ import {
   TabsIndicator,
   TabsList,
   TabsTrigger,
-} from "@/registry/default/ui/tabs"
+} from "@/components/ui/tabs"
 
 interface Props {
   preview?: React.ReactNode

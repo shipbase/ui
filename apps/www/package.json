@@ -16,6 +16,7 @@
     "@astrojs/react": "^3.6.1",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/inter": "^5.0.19",
+    "@ui/react": "workspace:*",
     "astro": "^4.13.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -24,8 +25,7 @@
     "react-dom": "^18.3.1",
     "recharts": "^2.12.7",
     "sharp": "^0.32.5",
-    "tailwind-merge": "^2.3.0",
-    "@ui/react": "workspace:*"
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^5.2.0",
@@ -33,6 +33,7 @@
     "@types/node": "^20.14.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
     "shiki": "^1.12.1",
