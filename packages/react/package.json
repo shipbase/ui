@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\"",
+    "build": "vite build",
     "check": "biome check --write ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
