@@ -1,5 +1,8 @@
-import { Progress as ProgressPrimitive } from "@ark-ui/react/progress"
+"use client"
+
 import * as React from "react"
+
+import { Progress as ProgressPrimitive } from "@ark-ui/react/progress"
 
 import { cn } from "@/lib/utils"
 

@@ -3,7 +3,7 @@ title: Input
 description: Displays a form input field or a component that looks like an input field.
 ---
 
-<ComponentPreview name="input" />
+<ComponentPreview component="input" />
 
 ## Installation
 
@@ -15,7 +15,7 @@ description: Displays a form input field or a component that looks like an input
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource path="registry/default/ui/input.tsx" />
+<ComponentSource component="input" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -39,11 +39,12 @@ import { Input } from "@/components/ui/input"
 
 ### Default
 
-<ComponentPreview name="input" className="[&_input]:max-w-xs" />
+<ComponentPreview component="input" name="input" className="[&_input]:max-w-xs" />
 
 ### File
 
 <ComponentPreview
+  component="input"
   name="input-file"
   className="[&_input]:max-w-xs"
   description="A file input component."
@@ -52,6 +53,7 @@ import { Input } from "@/components/ui/input"
 ### Disabled
 
 <ComponentPreview
+  component="input"
   name="input-disabled"
   className="[&_input]:max-w-xs"
   description="A disabled input component."
@@ -60,6 +62,7 @@ import { Input } from "@/components/ui/input"
 ### With Label
 
 <ComponentPreview
+  component="input"
   name="input-with-label"
   className="[&_input]:max-w-xs"
   description="An input component with a label."
@@ -68,6 +71,7 @@ import { Input } from "@/components/ui/input"
 ### With Button
 
 <ComponentPreview
+  component="input"
   name="input-with-button"
   className="[&_input]:max-w-xs"
   description="An input component with a button."

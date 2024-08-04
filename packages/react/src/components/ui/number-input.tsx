@@ -1,6 +1,9 @@
+"use client"
+
+import * as React from "react"
+
 import { NumberInput as NumberInputPrimitive } from "@ark-ui/react/number-input"
 import { ChevronDown, ChevronUp } from "lucide-react"
-import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

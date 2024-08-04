@@ -1,5 +1,8 @@
-import { Switch as SwitchPrimitive } from "@ark-ui/react/switch"
+"use client"
+
 import * as React from "react"
+
+import { Switch as SwitchPrimitive } from "@ark-ui/react/switch"
 
 import { cn } from "@/lib/utils"
 

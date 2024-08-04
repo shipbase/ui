@@ -3,7 +3,7 @@ title: Pin Input
 description: Accessible one-time password component with copy paste functionality.
 ---
 
-<ComponentPreview name="pin-input" />
+<ComponentPreview component="pin-input" />
 
 ## Installation
 
@@ -15,7 +15,7 @@ description: Accessible one-time password component with copy paste functionalit
 
 <Step>Copy and paste the following code into your project.</Step>
 
-<ComponentSource path="registry/default/ui/pin-input.tsx" />
+<ComponentSource component="pin-input" />
 
 <Step>Update the import paths to match your project setup.</Step>
 
@@ -61,13 +61,13 @@ import {
 
 Use the `pattern` prop to define a custom pattern for the OTP input.
 
-<ComponentPreview name="pin-input-pattern" />
+<ComponentPreview component="pin-input" name="pin-input-pattern" />
 
 ### Separator
 
 You can use the `<PinInputSeparator />` component to add a separator between the input groups.
 
-<ComponentPreview name="pin-input-with-separator" />
+<ComponentPreview component="pin-input" name="pin-input-with-separator" />
 
 ```tsx {6,19}
 import {
@@ -101,4 +101,4 @@ import {
 
 You can use the `value` and `onValueChange` props to control the input value.
 
-<ComponentPreview name="pin-input-Controlled" />
+<ComponentPreview component="pin-input" name="pin-input-controlled" />

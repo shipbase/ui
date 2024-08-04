@@ -1,5 +1,8 @@
-import { Slider as SliderPrimitive } from "@ark-ui/react/slider"
+"use client"
+
 import * as React from "react"
+
+import { Slider as SliderPrimitive } from "@ark-ui/react/slider"
 
 const Slider = SliderPrimitive.Root
 

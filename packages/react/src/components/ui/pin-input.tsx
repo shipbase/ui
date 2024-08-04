@@ -1,6 +1,9 @@
+"use client"
+
+import * as React from "react"
+
 import { PinInput as PinInputPrimitive } from "@ark-ui/react/pin-input"
 import { Dot } from "lucide-react"
-import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

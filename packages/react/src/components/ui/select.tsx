@@ -1,9 +1,10 @@
 "use client"
 
+import * as React from "react"
+
 import { Portal } from "@ark-ui/react/portal"
 import { Select as SelectPrimitive } from "@ark-ui/react/select"
 import { Check, ChevronDown } from "lucide-react"
-import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

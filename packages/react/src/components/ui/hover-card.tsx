@@ -1,8 +1,9 @@
 "use client"
 
+import * as React from "react"
+
 import { HoverCard as HoverCardPrimitive } from "@ark-ui/react/hover-card"
 import { Portal } from "@ark-ui/react/portal"
-import * as React from "react"
 
 import { cn } from "@/lib/utils"
 

@@ -1,15 +1,15 @@
 ---
-import { Code } from "astro/components";
+import { Code } from "astro/components"
 
-import { CopyButton } from "@/components/copy-button";
+import { CopyButton } from "@/components/copy-button"
 
 interface Props {
-  lang?: "tsx";
-  src: string;
+  lang?: "tsx"
+  src: string
 }
 
-const { src, lang } = Astro.props;
-const html = Astro.slots.render("default");
+const { src, lang } = Astro.props
+const html = Astro.slots.render("default")
 ---
 
 <div class="code-wrapper relative">

@@ -1,5 +1,8 @@
-import { Tooltip as TooltipPrimitive } from "@ark-ui/react/tooltip"
+"use client"
+
 import * as React from "react"
+
+import { Tooltip as TooltipPrimitive } from "@ark-ui/react/tooltip"
 
 import { cn } from "@/lib/utils"
 

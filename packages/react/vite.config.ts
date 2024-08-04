@@ -14,18 +14,20 @@ export default defineConfig({
       formats: ["es"],
       fileName: (_, entryName) => `${entryName}.js`,
     },
+    emptyOutDir: false,
     rollupOptions: {
-      watch: {
-        include: "src/examples/**",
-      },
       external: [
         /@ark-ui/,
         "react/jsx-runtime",
-        ...Object.keys(pkg.dependencies ?? {}),
+        // ...Object.keys(pkg.dependencies ?? {}),
         ...Object.keys(pkg.peerDependencies ?? {}),
       ],
       output: {
         preserveModules: true,
+      },
+      onLog(level, log, handler) {
+        if (log.code === "SOURCEMAP_ERROR") return
+        handler(level, log)
       },
     },
   },

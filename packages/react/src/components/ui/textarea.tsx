@@ -1,5 +1,8 @@
-import { ark } from "@ark-ui/react/factory"
+"use client"
+
 import * as React from "react"
+
+import { ark } from "@ark-ui/react/factory"
 
 import { cn } from "@/lib/utils"
 
