@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "check": "biome check --write ./src",
     "dev": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview"
+    "build": "astro build",
+    "preview": "astro preview",
+    "check-types": "astro check",
+    "check": "biome check --write ./src"
   },
   "dependencies": {
     "@ark-ui/react": "^3.6.2",

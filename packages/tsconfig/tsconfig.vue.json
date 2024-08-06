@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Vue",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "lib": [
+      "ESNext",
+
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "isolatedModules": true,
+    "moduleDetection": "force"
+  }
+}

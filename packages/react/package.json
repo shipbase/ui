@@ -2,6 +2,10 @@
   "name": "@ui/react",
   "version": "0.0.0",
   "type": "module",
+  "private": true,
+  "exports": {
+    "./examples/*": "./dist/examples/*"
+  },
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\"",
     "build": "vite build",

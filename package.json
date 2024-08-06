@@ -1,14 +1,16 @@
 {
   "name": "ui",
   "type": "module",
+  "private": true,
   "version": "0.0.0",
   "scripts": {
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "chromatic": "chromatic --exit-zero-on-changes"
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "turbo": "^2.0.11",
     "typescript": "^5.4.5"
   },
   "packageManager": "pnpm@9.6.0+sha256.dae0f7e822c56b20979bb5965e3b73b8bdabb6b8b8ef121da6d857508599ca35"

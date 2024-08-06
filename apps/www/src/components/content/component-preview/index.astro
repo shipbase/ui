@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import { CopyButton } from "@/components/copy-button";
 import CodeWrapper from "../code-wrapper.astro";
-import { FrameworkSwitcher } from "./framework";
+import { FrameworkSwitcher } from "./framework-switcher";
 import NotFound from "./not-found.astro";
 import Preview from "./preview";
 import PreviewVue from "./preview.vue";
@@ -49,7 +49,11 @@ const sourceVue = readFileSyncSafe(
       >
         {
           source ? (
-            <Preview client:visible component={component} name={name} />
+            <Preview
+              client:visible
+              component={component}
+              name={name || component}
+            />
           ) : (
             <NotFound component={component} />
           )
@@ -62,7 +66,11 @@ const sourceVue = readFileSyncSafe(
       >
         {
           sourceVue ? (
-            <PreviewVue client:visible component={component} name={name} />
+            <PreviewVue
+              client:visible
+              component={component}
+              name={name || component}
+            />
           ) : (
             <NotFound component={component} />
           )
