@@ -9,7 +9,6 @@
       "DOM",
       "DOM.Iterable"
     ],
-    "isolatedModules": true,
     "moduleDetection": "force"
   }
 }

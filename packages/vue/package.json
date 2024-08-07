@@ -7,7 +7,7 @@
     "./examples/*": "./dist/examples/*"
   },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\"",
+    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
     "build": "vite build",
     "check-types": "vue-tsc",
     "check": "biome check --write ./src",

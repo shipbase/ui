@@ -4,9 +4,10 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "turbo run build",
     "dev": "turbo run dev",
-    "lint": "turbo run lint"
+    "check": "turbo run check",
+    "build": "turbo run build",
+    "check-types": "turbo run check-types"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",

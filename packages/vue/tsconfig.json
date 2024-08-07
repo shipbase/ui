@@ -2,15 +2,14 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "extends": "@ui/tsconfig/tsconfig.vue.json",
   "compilerOptions": {
-    "baseUrl": ".",
+    "rootDir": "src",
     "outDir": "dist",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
     "allowJs": true,
     "resolveJsonModule": true,
-    "sourceMap": true,
-    "declaration": false
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
