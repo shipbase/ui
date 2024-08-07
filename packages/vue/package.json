@@ -2,13 +2,19 @@
   "name": "@ui/vue",
   "version": "0.0.0",
   "type": "module",
+  "private": true,
+  "exports": {
+    "./examples/*": "./dist/examples/*"
+  },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\"",
+    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
     "build": "vite build",
+    "check-types": "vue-tsc",
     "check": "biome check --write ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "files": ["dist", "src"],
   "dependencies": {
     "vue": "^3.4.35"
   },
@@ -24,6 +30,7 @@
     "@storybook/test": "^8.2.7",
     "@storybook/vue3": "^8.2.7",
     "@storybook/vue3-vite": "^8.2.7",
+    "@ui/tsconfig": "workspace:*",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vitejs/plugin-vue-jsx": "^4.0.0",
     "autoprefixer": "^10.4.20",
@@ -36,7 +43,8 @@
     "tailwind": "^4.0.0",
     "tailwind-merge": "^2.4.0",
     "vite": "^5.3.5",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^4.3.2",
+    "vue-tsc": "^2.0.29"
   },
   "peerDependencies": {
     "@ark-ui/vue": "^3.7.2",

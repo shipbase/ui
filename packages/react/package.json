@@ -2,9 +2,14 @@
   "name": "@ui/react",
   "version": "0.0.0",
   "type": "module",
+  "private": true,
+  "exports": {
+    "./examples/*": "./dist/examples/*"
+  },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\"",
+    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
     "build": "vite build",
+    "check-types": "tsc",
     "check": "biome check --write ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

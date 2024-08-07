@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Default",
+  "compilerOptions": {
+    // Enable latest features
+    "lib": ["ESNext"],
+    "target": "ESNext",
+    "module": "ESNext",
+
+    // Bundler mode
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "verbatimModuleSyntax": true,
+
+    // Best practices
+    "strict": true,
+    "strictNullChecks": true,
+    "noImplicitThis": true,
+
+    // Recommended
+    "composite": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
+}

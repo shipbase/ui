@@ -4,14 +4,14 @@ import { Icons } from "@/components/icons"
 
 interface Props {
   component: string
-  name?: string
+  name: string
 }
 
 const ComponentLoader = ({ component, name }: Props) =>
   lazy(
     () =>
       import(
-        `../../../../node_modules/@ui/react/dist/examples/${component}/${name || component}.js`
+        `../../../../node_modules/@ui/react/dist/examples/${component}/${name}.js`
       )
   )
 
