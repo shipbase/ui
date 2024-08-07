@@ -1,9 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "React",
-  "extends": ["./base.json"],
+  "extends": ["./tsconfig.json"],
   "compilerOptions": {
-    // Required in Vue projects
+    "lib": [
+      "ESNext",
+
+      "DOM",
+      "DOM.Iterable"
+    ],
     "jsx": "preserve",
     "jsxImportSource": "react"
   }
