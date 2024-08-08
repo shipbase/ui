@@ -25,6 +25,7 @@ export const Basic = () => {
                 {page.value}
               </PaginationItem>
             ) : (
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
               <PaginationEllipsis key={index} index={index} />
             )
           )

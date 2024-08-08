@@ -11,9 +11,6 @@
     },
     "check-types": {
       "dependsOn": ["^check-types"]
-    },
-    "check": {
-      "dependsOn": ["check"]
     }
   },
   "ui": "tui"

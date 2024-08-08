@@ -1,33 +1,33 @@
 ---
-import fs from "node:fs";
-import { CopyButton } from "@/components/copy-button";
-import CodeWrapper from "../code-wrapper.astro";
-import { FrameworkSwitcher } from "./framework-switcher";
-import NotFound from "./not-found.astro";
-import Preview from "./preview";
-import PreviewVue from "./preview.vue";
-import { Tabs } from "./tabs";
+import fs from "node:fs"
+import { CopyButton } from "@/components/copy-button"
+import CodeWrapper from "../code-wrapper.astro"
+import { FrameworkSwitcher } from "./framework-switcher"
+import NotFound from "./not-found.astro"
+import Preview from "./preview"
+import PreviewVue from "./preview.vue"
+import { Tabs } from "./tabs"
 
 interface Props {
-  component: string;
-  name?: string;
+  component: string
+  name?: string
 }
-const { component, name } = Astro.props;
+const { component, name } = Astro.props
 
 const readFileSyncSafe = (path: string) => {
   try {
-    return fs.readFileSync(path, "utf-8");
+    return fs.readFileSync(path, "utf-8")
   } catch (error) {
-    return false;
+    return false
   }
-};
+}
 
 const source = readFileSyncSafe(
   `node_modules/@ui/react/src/examples/${component}/${name || component}.tsx`
-);
+)
 const sourceVue = readFileSyncSafe(
   `node_modules/@ui/vue/src/examples/${component}/${name || component}.vue`
-);
+)
 ---
 
 <div class="group relative my-4 flex flex-col space-y-2">

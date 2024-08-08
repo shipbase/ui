@@ -1,16 +1,16 @@
 ---
-import { Code } from "astro/components";
+import { Code } from "astro/components"
 
-import { CopyButton } from "@/components/copy-button";
+import { CopyButton } from "@/components/copy-button"
 
 interface Props {
-  lang?: "tsx" | "vue";
-  src: string;
-  hidden?: boolean;
+  lang?: "tsx" | "vue"
+  src: string
+  hidden?: boolean
 }
 
-const { src, lang, hidden } = Astro.props;
-const html = Astro.slots.render("default");
+const { src, lang, hidden } = Astro.props
+const html = Astro.slots.render("default")
 ---
 
 <div class="code-wrapper relative" hidden={hidden}>

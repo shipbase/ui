@@ -10,7 +10,6 @@
     "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
     "build": "vite build",
     "check-types": "tsc",
-    "check": "biome check --write ./src",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

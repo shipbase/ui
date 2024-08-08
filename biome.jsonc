@@ -27,5 +27,9 @@
       "semicolons": "asNeeded",
       "trailingCommas": "es5"
     }
+  },
+
+  "files": {
+    "ignore": ["dist", ".turbo", ".vercel", ".astro", "public"]
   }
 }
