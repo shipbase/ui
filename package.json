@@ -5,8 +5,8 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "turbo run dev",
-    "check": "biome check .",
-    "check:fix": "biome check . --write",
+    "check": "biome check",
+    "check:write": "biome check --write",
     "build": "turbo run build",
     "check-types": "turbo run check-types"
   },
