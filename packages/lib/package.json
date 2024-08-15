@@ -1,0 +1,21 @@
+{
+  "name": "@ui/lib",
+  "private": true,
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "exports": {
+    "./ai": {
+      "types": "./ai/index.ts",
+      "default": "./ai/index.ts"
+    }
+  },
+  "devDependencies": {
+    "@ui/tsconfig": "workspace:*"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^0.0.41",
+    "@ai-sdk/openai": "^0.0.46"
+  }
+}

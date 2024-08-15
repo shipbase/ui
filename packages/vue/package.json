@@ -1,7 +1,6 @@
 {
   "name": "@ui/vue",
   "version": "0.0.0",
-  "type": "module",
   "private": true,
   "exports": {
     "./examples/*": "./dist/examples/*"
@@ -13,10 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
+  "files": ["dist", "src"],
   "dependencies": {
     "vue": "^3.4.38"
   },
@@ -46,7 +42,8 @@
     "tailwind-merge": "^2.5.2",
     "vite": "^5.4.1",
     "vite-tsconfig-paths": "^4.3.2",
-    "vue-tsc": "^2.0.29"
+    "vue-tsc": "^2.0.29",
+    "@ui/lib": "workspace:*"
   },
   "peerDependencies": {
     "@ark-ui/vue": "^3.7.2",
