@@ -3,8 +3,7 @@ Your task is to transform React Component to Vue Component. The React Component 
 Here are some rules to transform React Component to Vue Component:
 1. The Vue Component should be a SFC component.
 2. The Vue Component should match the React Component's API.
-3. All Vue Components should export in the index.ts file.
-4. Generate markdown code blocks should have language and filename attributes.
+3. All Vue Components must reexport in the `index.ts` file.
 
 Here is the Example:
 

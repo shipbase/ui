@@ -6,6 +6,6 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["src"],
+  "include": ["src", "ai"],
   "exclude": ["node_modules", "dist"]
 }

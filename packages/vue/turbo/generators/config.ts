@@ -1,4 +1,4 @@
-import fs from "node:fs"
+import fs from "node:fs/promises"
 import path from "node:path"
 import type { PlopTypes } from "@turbo/gen"
 import { openai } from "@ui/lib/ai"
@@ -33,16 +33,20 @@ async function generateAction(
   if (!plop) throw new Error("No plop")
   const { component } = answers as Answers
 
-  const system = fs.readFileSync(
-    path.join(__dirname, "./prompts/react_vue.md"),
+  const destBasePath = plop.getDestBasePath()
+  const plopfilePath = plop.getPlopfilePath()
+
+  const destPath = path.resolve(destBasePath, `src/components/ui/${component}`)
+  const systemPrompt = await fs.readFile(
+    path.resolve(plopfilePath, "prompts/component.md"),
     "utf-8"
   )
-  const reactComponentContent = fs.readFileSync(
-    path.join(__dirname, `../../../react/src/components/ui/${component}.tsx`),
+  const reactComponentCode = await fs.readFile(
+    path.resolve(destBasePath, `../react/src/components/ui/${component}.tsx`),
     "utf-8"
   )
 
-  console.log("generating...")
+  console.log("generating to ", destPath)
 
   const { object } = await generateObject({
     model: openai("gpt-4o-2024-08-06"),
@@ -56,20 +60,15 @@ async function generateAction(
         })
       ),
     }),
-    system,
-    prompt: `translate the following react component to vue component: 
-${reactComponentContent}`,
+    system: systemPrompt,
+    prompt: `translate the following react component to vue component: \n ${reactComponentCode}`,
   })
 
   for (const file of object.files) {
     console.log("writing file", file.file)
-    console.log(file.content)
-    const filePath = path.join(
-      __dirname,
-      `../../src/components/ui/${component}/${file.file}`
-    )
-    fs.mkdirSync(path.dirname(filePath), { recursive: true })
-    fs.writeFileSync(filePath, file.content)
+    const filePath = path.join(destPath, file.file)
+    await fs.mkdir(path.dirname(filePath), { recursive: true })
+    await fs.writeFile(filePath, file.content)
   }
 
   return "Success!"
