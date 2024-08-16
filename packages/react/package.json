@@ -4,7 +4,8 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./examples/*": "./dist/examples/*"
+    "./examples/*": "./dist/examples/*",
+    "./accordion": "./src/components/ui/accordion.tsx"
   },
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\" --initial",

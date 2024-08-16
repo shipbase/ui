@@ -8,6 +8,8 @@ import { cn } from "@/lib/utils"
 
 const Accordion = AccordionPrimitive.Root
 
+const AccordionRootProvider = AccordionPrimitive.RootProvider
+
 const AccordionContext = AccordionPrimitive.Context
 
 const AccordionItemContext = AccordionPrimitive.ItemContext
@@ -63,4 +65,5 @@ export {
   AccordionItemContent,
   AccordionItemContext,
   AccordionItemTrigger,
+  AccordionRootProvider,
 }

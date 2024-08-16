@@ -11,6 +11,7 @@ export default {
     "src/components/**/*.{ts,tsx,astro}",
     "src/layouts/**/*.{ts,tsx,astro}",
     "src/registry/**/*.{ts,tsx,astro}",
+    "src/content/**/*.{md,mdx}",
   ],
   prefix: "",
   theme: {

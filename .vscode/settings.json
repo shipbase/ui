@@ -5,5 +5,8 @@
     "quickfix.biome": "always",
     "source.organizeImports.biome": "always"
   },
-  "prettier.enable": false
+  "prettier.enable": false,
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+  }
 }
