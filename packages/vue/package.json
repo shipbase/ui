@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
     "build": "vite build",
-    "check-types": "vue-tsc -p tsconfig.check.json",
+    "check-types": "vue-tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
