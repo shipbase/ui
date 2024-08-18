@@ -10,7 +10,7 @@ import {
   SelectItemGroup,
   SelectTrigger,
   SelectValueText,
-} from "@/components/ui/select"
+} from "@ui/react/select"
 
 const frameworks = [
   {

@@ -5,7 +5,12 @@
   "private": true,
   "exports": {
     "./examples/*": "./dist/examples/*",
-    "./accordion": "./src/components/ui/accordion.tsx"
+    "./accordion": "./src/components/ui/accordion.tsx",
+    "./button": "./src/components/ui/button.tsx",
+    "./tabs": "./src/components/ui/tabs.tsx",
+    "./select": "./src/components/ui/select.tsx",
+    "./sheet": "./src/components/ui/sheet.tsx",
+    "./tree-view": "./src/components/ui/tree-view.tsx"
   },
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
