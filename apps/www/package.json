@@ -7,8 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check-types": "astro check",
-    "check": "biome check --write ./src"
+    "check-types": "astro check"
   },
   "dependencies": {
     "@ark-ui/react": "^3.7.0",
