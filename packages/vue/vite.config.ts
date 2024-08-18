@@ -11,7 +11,9 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: globbySync("src/examples/**/*.{ts,tsx,vue}"),
+      entry: globbySync("src/examples/**/*.{ts,tsx,vue}", {
+        ignore: ["**/*.stories.ts"],
+      }),
       formats: ["es"],
       fileName: (_, entryName) => {
         if (entryName.endsWith(".vue"))
