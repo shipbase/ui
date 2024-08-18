@@ -23,7 +23,7 @@ const frameworks = [
   },
   {
     value: "solid",
-    label: "Solid",
+    label: "Solid (WIP)",
     disabled: true,
   },
 ]

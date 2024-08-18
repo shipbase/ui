@@ -16,7 +16,10 @@ export default function (props: AccordionProps) {
   )
 
   const rest = Object.fromEntries(
-    Object.entries(props).filter(([key]) => !key.startsWith("item-trigger"))
+    Object.entries(props).filter(
+      ([key]) =>
+        !key.startsWith("item-trigger") && !key.startsWith("item-content")
+    )
   )
 
   return (
