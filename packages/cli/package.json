@@ -1,0 +1,34 @@
+{
+  "name": "@shipbase/ui",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Add components to your apps.",
+  "exports": "./dist/index.js",
+  "bin": "./dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shadcn/ui.git",
+    "directory": "packages/cli"
+  },
+  "author": "@shipbase",
+  "license": "MIT",
+  "files": ["dist"],
+  "keywords": ["components", "ui", "tailwind", "ark-ui", "shipbase"],
+  "scripts": {
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@ui/tsconfig": "workspace:*",
+    "commander": "^12.1.0",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "^2.0.5"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "preferred-pm": "^4.0.0",
+    "zod": "^3.23.8"
+  }
+}
