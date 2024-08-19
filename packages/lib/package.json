@@ -22,6 +22,10 @@
     "@ai-sdk/anthropic": "^0.0.51",
     "@ai-sdk/openai": "^0.0.66",
     "ai": "catalog:",
+    "mlly": "^1.7.2",
+    "@ui/tsconfig": "workspace:*"
+  },
+  "peerDependencies": {
     "mlly": "^1.7.2"
   }
 }
