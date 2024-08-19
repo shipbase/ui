@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./examples/*": "./dist/examples/*"
+    "./examples/*": "./src/examples/*"
   },
   "scripts": {
     "dev": "chokidar \"src/**\" -c \"vite build\" --initial",

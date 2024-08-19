@@ -123,6 +123,9 @@ importers:
       autoprefixer:
         specifier: ^10.4.20
         version: 10.4.20(postcss@8.4.41)
+      mlly:
+        specifier: ^1.7.1
+        version: 1.7.1
       postcss:
         specifier: ^8.4.41
         version: 8.4.41
