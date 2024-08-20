@@ -1,16 +1,16 @@
 ---
-import fs from "node:fs";
-import { resolvePath } from "mlly";
+import fs from "node:fs"
+import { resolvePath } from "mlly"
 
-import CodeWrapper from "./code-wrapper.astro";
+import CodeWrapper from "./code-wrapper.astro"
 
 export interface Props {
-  component: string;
+  component: string
 }
-const { component } = Astro.props;
+const { component } = Astro.props
 
-const filePath = await resolvePath(`@ui/react/${component}`);
-const source = fs.readFileSync(filePath, "utf-8");
+const filePath = await resolvePath(`@ui/react/${component}`)
+const source = fs.readFileSync(filePath, "utf-8")
 ---
 
 <CodeWrapper lang="tsx" src={source} />
