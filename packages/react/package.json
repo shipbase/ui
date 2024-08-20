@@ -5,41 +5,133 @@
   "private": true,
   "exports": {
     "./examples/*": "./src/examples/*",
-    "./accordion": "./src/components/ui/accordion.tsx",
-    "./avatar": "./src/components/ui/avatar.tsx",
-    "./button": "./src/components/ui/button.tsx",
-    "./card": "./src/components/ui/card.tsx",
-    "./checkbox": "./src/components/ui/checkbox.tsx",
-    "./collapsible": "./src/components/ui/collapsible.tsx",
-    "./combobox": "./src/components/ui/combobox.tsx",
-    "./dialog": "./src/components/ui/dialog.tsx",
-    "./drawer": "./src/components/ui/drawer.tsx",
-    "./hover-card": "./src/components/ui/hover-card.tsx",
-    "./input": "./src/components/ui/input.tsx",
-    "./label": "./src/components/ui/label.tsx",
-    "./menu": "./src/components/ui/menu.tsx",
-    "./number-input": "./src/components/ui/number-input.tsx",
-    "./pagination": "./src/components/ui/pagination.tsx",
-    "./pin-input": "./src/components/ui/pin-input.tsx",
-    "./popover": "./src/components/ui/popover.tsx",
-    "./progress": "./src/components/ui/progress.tsx",
-    "./radio-group": "./src/components/ui/radio-group.tsx",
-    "./rating-group": "./src/components/ui/rating-group.tsx",
-    "./select": "./src/components/ui/select.tsx",
-    "./sheet": "./src/components/ui/sheet.tsx",
-    "./slider": "./src/components/ui/slider.tsx",
-    "./switch": "./src/components/ui/switch.tsx",
-    "./tabs": "./src/components/ui/tabs.tsx",
-    "./tags-input": "./src/components/ui/tags-input.tsx",
-    "./textarea": "./src/components/ui/textarea.tsx",
-    "./toast": "./src/components/ui/toast.tsx",
-    "./toggle-group": "./src/components/ui/toggle-group.tsx",
-    "./tooltip": "./src/components/ui/tooltip.tsx",
-    "./tree-view": "./src/components/ui/tree-view.tsx",
-    "./dist/examples/*": "./dist/examples/*"
+    "./accordion": {
+      "types": "./src/components/ui/accordion.tsx",
+      "default": "./dist/components/ui/accordion.js"
+    },
+    "./avatar": {
+      "types": "./src/components/ui/avatar.tsx",
+      "default": "./dist/components/ui/avatar.js"
+    },
+    "./button": {
+      "types": "./src/components/ui/button.tsx",
+      "default": "./dist/components/ui/button.js"
+    },
+    "./card": {
+      "types": "./src/components/ui/card.tsx",
+      "default": "./dist/components/ui/card.js"
+    },
+    "./checkbox": {
+      "types": "./src/components/ui/checkbox.tsx",
+      "default": "./dist/components/ui/checkbox.js"
+    },
+    "./collapsible": {
+      "types": "./src/components/ui/collapsible.tsx",
+      "default": "./dist/components/ui/collapsible.js"
+    },
+    "./combobox": {
+      "types": "./src/components/ui/combobox.tsx",
+      "default": "./dist/components/ui/combobox.js"
+    },
+    "./dialog": {
+      "types": "./src/components/ui/dialog.tsx",
+      "default": "./dist/components/ui/dialog.js"
+    },
+    "./drawer": {
+      "types": "./src/components/ui/drawer.tsx",
+      "default": "./dist/components/ui/drawer.js"
+    },
+    "./hover-card": {
+      "types": "./src/components/ui/hover-card.tsx",
+      "default": "./dist/components/ui/hover-card.js"
+    },
+    "./input": {
+      "types": "./src/components/ui/input.tsx",
+      "default": "./dist/components/ui/input.js"
+    },
+    "./label": {
+      "types": "./src/components/ui/label.tsx",
+      "default": "./dist/components/ui/label.js"
+    },
+    "./menu": {
+      "types": "./src/components/ui/menu.tsx",
+      "default": "./dist/components/ui/menu.js"
+    },
+    "./number-input": {
+      "types": "./src/components/ui/number-input.tsx",
+      "default": "./dist/components/ui/number-input.js"
+    },
+    "./pagination": {
+      "types": "./src/components/ui/pagination.tsx",
+      "default": "./dist/components/ui/pagination.js"
+    },
+    "./pin-input": {
+      "types": "./src/components/ui/pin-input.tsx",
+      "default": "./dist/components/ui/pin-input.js"
+    },
+    "./popover": {
+      "types": "./src/components/ui/popover.tsx",
+      "default": "./dist/components/ui/popover.js"
+    },
+    "./progress": {
+      "types": "./src/components/ui/progress.tsx",
+      "default": "./dist/components/ui/progress.js"
+    },
+    "./radio-group": {
+      "types": "./src/components/ui/radio-group.tsx",
+      "default": "./dist/components/ui/radio-group.js"
+    },
+    "./rating-group": {
+      "types": "./src/components/ui/rating-group.tsx",
+      "default": "./dist/components/ui/rating-group.js"
+    },
+    "./select": {
+      "types": "./src/components/ui/select.tsx",
+      "default": "./dist/components/ui/select.js"
+    },
+    "./sheet": {
+      "types": "./src/components/ui/sheet.tsx",
+      "default": "./dist/components/ui/sheet.js"
+    },
+    "./slider": {
+      "types": "./src/components/ui/slider.tsx",
+      "default": "./dist/components/ui/slider.js"
+    },
+    "./switch": {
+      "types": "./src/components/ui/switch.tsx",
+      "default": "./dist/components/ui/switch.js"
+    },
+    "./tabs": {
+      "types": "./src/components/ui/tabs.tsx",
+      "default": "./dist/components/ui/tabs.js"
+    },
+    "./tags-input": {
+      "types": "./src/components/ui/tags-input.tsx",
+      "default": "./dist/components/ui/tags-input.js"
+    },
+    "./textarea": {
+      "types": "./src/components/ui/textarea.tsx",
+      "default": "./dist/components/ui/textarea.js"
+    },
+    "./toast": {
+      "types": "./src/components/ui/toast.tsx",
+      "default": "./dist/components/ui/toast.js"
+    },
+    "./toggle-group": {
+      "types": "./src/components/ui/toggle-group.tsx",
+      "default": "./dist/components/ui/toggle-group.js"
+    },
+    "./tooltip": {
+      "types": "./src/components/ui/tooltip.tsx",
+      "default": "./dist/components/ui/tooltip.js"
+    },
+    "./tree-view": {
+      "types": "./src/components/ui/tree-view.tsx",
+      "default": "./dist/components/ui/tree-view.js"
+    }
   },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
+    "dev": "vite build --watch",
     "build": "vite build",
     "check-types": "tsc",
     "storybook": "storybook dev -p 6006",

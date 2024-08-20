@@ -7,7 +7,7 @@
     "./examples/*": "./src/examples/*"
   },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
+    "dev": "vite build --watch",
     "build": "vite build",
     "check-types": "vue-tsc",
     "storybook": "storybook dev -p 6006",

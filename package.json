@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "turbo run dev",
+    "dev": "turbo watch dev",
     "gen": "turbo gen",
     "build": "turbo run build",
     "check": "biome check",
@@ -21,5 +21,5 @@
     "typescript": "^5.5.4",
     "zod": "^3.23.8"
   },
-  "packageManager": "pnpm@9.7.1"
+  "packageManager": "pnpm@9.7.1+sha256.46f1bbc8f8020aa9869568c387198f1a813f21fb44c82f400e7d1dbde6c70b40"
 }

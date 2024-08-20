@@ -11,15 +11,14 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: globbySync("src/examples/**/*.{ts,tsx,vue}", {
+      entry: globbySync("src/**/*.{ts,tsx,vue}", {
         ignore: ["**/*.stories.ts"],
       }),
       formats: ["es"],
-      fileName: (_, entryName) => {
-        if (entryName.endsWith(".vue"))
-          return entryName.replace(/\.vue$/, ".js")
-        return `${entryName}.js`
-      },
+      fileName: (_, entryName) =>
+        entryName.endsWith(".vue")
+          ? entryName.replace(/\.vue$/, ".js")
+          : `${entryName}.js`,
     },
     rollupOptions: {
       external: [

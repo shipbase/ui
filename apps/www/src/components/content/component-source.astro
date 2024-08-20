@@ -10,6 +10,8 @@ export interface Props {
 const { component } = Astro.props
 
 const filePath = await resolvePath(`@ui/react/${component}`)
+console.log("filePath", filePath)
+
 const source = fs.readFileSync(filePath, "utf-8")
 ---
 
