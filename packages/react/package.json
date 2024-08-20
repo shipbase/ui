@@ -4,130 +4,164 @@
   "type": "module",
   "private": true,
   "exports": {
-    "./examples/*": "./src/examples/*",
     "./accordion": {
+      "source": "./src/components/ui/accordion.tsx",
       "types": "./src/components/ui/accordion.tsx",
       "default": "./dist/components/ui/accordion.js"
     },
     "./avatar": {
+      "source": "./src/components/ui/avatar.tsx",
       "types": "./src/components/ui/avatar.tsx",
       "default": "./dist/components/ui/avatar.js"
     },
     "./button": {
+      "source": "./src/components/ui/button.tsx",
       "types": "./src/components/ui/button.tsx",
       "default": "./dist/components/ui/button.js"
     },
     "./card": {
+      "source": "./src/components/ui/card.tsx",
       "types": "./src/components/ui/card.tsx",
       "default": "./dist/components/ui/card.js"
     },
     "./checkbox": {
+      "source": "./src/components/ui/checkbox.tsx",
       "types": "./src/components/ui/checkbox.tsx",
       "default": "./dist/components/ui/checkbox.js"
     },
     "./collapsible": {
+      "source": "./src/components/ui/collapsible.tsx",
       "types": "./src/components/ui/collapsible.tsx",
       "default": "./dist/components/ui/collapsible.js"
     },
     "./combobox": {
+      "source": "./src/components/ui/combobox.tsx",
       "types": "./src/components/ui/combobox.tsx",
       "default": "./dist/components/ui/combobox.js"
     },
     "./dialog": {
+      "source": "./src/components/ui/dialog.tsx",
       "types": "./src/components/ui/dialog.tsx",
       "default": "./dist/components/ui/dialog.js"
     },
     "./drawer": {
+      "source": "./src/components/ui/drawer.tsx",
       "types": "./src/components/ui/drawer.tsx",
       "default": "./dist/components/ui/drawer.js"
     },
     "./hover-card": {
+      "source": "./src/components/ui/hover-card.tsx",
       "types": "./src/components/ui/hover-card.tsx",
       "default": "./dist/components/ui/hover-card.js"
     },
     "./input": {
+      "source": "./src/components/ui/input.tsx",
       "types": "./src/components/ui/input.tsx",
       "default": "./dist/components/ui/input.js"
     },
     "./label": {
+      "source": "./src/components/ui/label.tsx",
       "types": "./src/components/ui/label.tsx",
       "default": "./dist/components/ui/label.js"
     },
     "./menu": {
+      "source": "./src/components/ui/menu.tsx",
       "types": "./src/components/ui/menu.tsx",
       "default": "./dist/components/ui/menu.js"
     },
     "./number-input": {
+      "source": "./src/components/ui/number-input.tsx",
       "types": "./src/components/ui/number-input.tsx",
       "default": "./dist/components/ui/number-input.js"
     },
     "./pagination": {
+      "source": "./src/components/ui/pagination.tsx",
       "types": "./src/components/ui/pagination.tsx",
       "default": "./dist/components/ui/pagination.js"
     },
     "./pin-input": {
+      "source": "./src/components/ui/pin-input.tsx",
       "types": "./src/components/ui/pin-input.tsx",
       "default": "./dist/components/ui/pin-input.js"
     },
     "./popover": {
+      "source": "./src/components/ui/popover.tsx",
       "types": "./src/components/ui/popover.tsx",
       "default": "./dist/components/ui/popover.js"
     },
     "./progress": {
+      "source": "./src/components/ui/progress.tsx",
       "types": "./src/components/ui/progress.tsx",
       "default": "./dist/components/ui/progress.js"
     },
     "./radio-group": {
+      "source": "./src/components/ui/radio-group.tsx",
       "types": "./src/components/ui/radio-group.tsx",
       "default": "./dist/components/ui/radio-group.js"
     },
     "./rating-group": {
+      "source": "./src/components/ui/rating-group.tsx",
       "types": "./src/components/ui/rating-group.tsx",
       "default": "./dist/components/ui/rating-group.js"
     },
     "./select": {
+      "source": "./src/components/ui/select.tsx",
       "types": "./src/components/ui/select.tsx",
       "default": "./dist/components/ui/select.js"
     },
     "./sheet": {
+      "source": "./src/components/ui/sheet.tsx",
       "types": "./src/components/ui/sheet.tsx",
       "default": "./dist/components/ui/sheet.js"
     },
     "./slider": {
+      "source": "./src/components/ui/slider.tsx",
       "types": "./src/components/ui/slider.tsx",
       "default": "./dist/components/ui/slider.js"
     },
     "./switch": {
+      "source": "./src/components/ui/switch.tsx",
       "types": "./src/components/ui/switch.tsx",
       "default": "./dist/components/ui/switch.js"
     },
     "./tabs": {
+      "source": "./src/components/ui/tabs.tsx",
       "types": "./src/components/ui/tabs.tsx",
       "default": "./dist/components/ui/tabs.js"
     },
     "./tags-input": {
+      "source": "./src/components/ui/tags-input.tsx",
       "types": "./src/components/ui/tags-input.tsx",
       "default": "./dist/components/ui/tags-input.js"
     },
     "./textarea": {
+      "source": "./src/components/ui/textarea.tsx",
       "types": "./src/components/ui/textarea.tsx",
       "default": "./dist/components/ui/textarea.js"
     },
     "./toast": {
+      "source": "./src/components/ui/toast.tsx",
       "types": "./src/components/ui/toast.tsx",
       "default": "./dist/components/ui/toast.js"
     },
     "./toggle-group": {
+      "source": "./src/components/ui/toggle-group.tsx",
       "types": "./src/components/ui/toggle-group.tsx",
       "default": "./dist/components/ui/toggle-group.js"
     },
     "./tooltip": {
+      "source": "./src/components/ui/tooltip.tsx",
       "types": "./src/components/ui/tooltip.tsx",
       "default": "./dist/components/ui/tooltip.js"
     },
     "./tree-view": {
+      "source": "./src/components/ui/tree-view.tsx",
       "types": "./src/components/ui/tree-view.tsx",
       "default": "./dist/components/ui/tree-view.js"
+    },
+    "./examples/accordion": {
+      "types": "./src/components/ui/examples/accordion/index.ts",
+      "default": "./dist/components/ui/examples/accordion/index.js"
     }
   },
   "scripts": {

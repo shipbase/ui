@@ -4,7 +4,18 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./examples/*": "./src/examples/*"
+    "./accordion": {
+      "types": "./src/components/ui/accordion/index.ts",
+      "default": "./dist/components/ui/accordion/index.js"
+    },
+    "./avatar": {
+      "types": "./src/components/ui/avatar/index.ts",
+      "default": "./dist/components/ui/avatar/index.js"
+    },
+    "./button": {
+      "types": "./src/components/ui/button/index.ts",
+      "default": "./dist/components/ui/button/index.js"
+    }
   },
   "scripts": {
     "dev": "vite build --watch",

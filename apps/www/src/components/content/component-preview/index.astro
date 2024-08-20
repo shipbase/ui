@@ -18,15 +18,18 @@ const { component, name } = Astro.props
 const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
   try {
     const filePath = await resolvePath(id, options)
+    console.log("filePath", filePath)
     return fs.readFile(filePath, "utf-8")
   } catch (error) {
+    console.log("error", error)
     return false
   }
 }
 
 const source = await resolvePathAndReadFile(
-  `@ui/react/examples/${component}/${name || component}`,
+  `@ui/react/examples/${component}`,
   {
+    conditions: ["source"],
     extensions: [".ts", ".tsx"],
   }
 )

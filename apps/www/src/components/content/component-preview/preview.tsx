@@ -8,11 +8,13 @@ interface Props {
 }
 
 const ComponentLoader = ({ component, name }: Props) =>
-  lazy(
-    () =>
-      import(
-        `../../../../node_modules/@ui/react/dist/examples/${component}/${name}.js`
-      )
+  lazy(() =>
+    import(`@ui/react/examples/${component}`).then((module) => {
+      console.log("module", module)
+      return {
+        default: module[name],
+      }
+    })
   )
 
 export default function Preview({ component, name }: Props) {
