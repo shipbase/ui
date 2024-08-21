@@ -10,10 +10,9 @@ import PreviewVue from "./preview.vue"
 import Tabs from "./tabs"
 
 interface Props {
-  component: string
   name: string
 }
-const { component, name } = Astro.props
+const { name } = Astro.props
 
 const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
   try {
