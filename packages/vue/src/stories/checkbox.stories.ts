@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import { default as Checkbox } from "@/examples/checkbox/checkbox.vue"
+import { default as Checkbox } from "../examples/checkbox-demo.vue"
 
 export default {
   title: "Components/Checkbox",

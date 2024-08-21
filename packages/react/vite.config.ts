@@ -10,11 +10,11 @@ export default defineConfig({
   build: {
     minify: false,
     lib: {
-      entry: globbySync("src/examples/**/*.{ts,tsx}"),
+      entry: globbySync("src/**/*.{ts,tsx}", {
+        ignore: ["**/*.stories.{ts,tsx}", "**/*.d.ts"],
+      }),
       formats: ["es"],
-      fileName: (_, entryName) => `${entryName}.js`,
     },
-    emptyOutDir: false,
     rollupOptions: {
       external: [
         /@ark-ui/,

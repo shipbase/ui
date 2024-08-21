@@ -1,22 +1,14 @@
+import Examples from "@ui/react/examples"
 import { Suspense, lazy } from "react"
 
 import { Icons } from "@/components/icons"
 
 interface Props {
-  component: string
   name: string
 }
 
-const ComponentLoader = ({ component, name }: Props) =>
-  lazy(
-    () =>
-      import(
-        `../../../../node_modules/@ui/react/dist/examples/${component}/${name}.js`
-      )
-  )
-
-export default function Preview({ component, name }: Props) {
-  const Component = ComponentLoader({ component, name })
+export default function Preview({ name }: Props) {
+  const Component = lazy(Examples[name])
 
   return (
     <Suspense

@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-export default function Basic() {
+export default function AvatarDemo() {
   return (
     <Avatar>
       <AvatarImage src="https://github.com/iamdin.png" alt="@shipbase" />

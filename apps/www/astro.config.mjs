@@ -18,9 +18,6 @@ export default defineConfig({
   ],
   vite: {
     plugins: [Inspect()],
-    optimizeDeps: {
-      include: ["@ark-ui/react", "@ark-ui/vue"],
-    },
     build: {
       dynamicImportVarsOptions: {
         warnOnError: true,

@@ -1,17 +1,12 @@
 <script setup lang="ts">
+import Examples from "@ui/vue/examples"
 import { Suspense, defineAsyncComponent } from "vue"
 
 const props = defineProps<{
-  component: string
   name: string
 }>()
 
-const Component = defineAsyncComponent(
-  () =>
-    import(
-      `../../../../node_modules/@ui/vue/dist/examples/${props.component}/${props.name}.js`
-    )
-)
+const Component = defineAsyncComponent(Examples[props.name])
 </script>
 
 <template>

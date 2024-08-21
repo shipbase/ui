@@ -4,10 +4,43 @@
   "private": true,
   "type": "module",
   "exports": {
-    "./examples/*": "./src/examples/*"
+    "./accordion": {
+      "source": "./src/components/ui/accordion/index.ts",
+      "types": "./src/components/ui/accordion/index.ts",
+      "default": "./dist/components/ui/accordion/index.js"
+    },
+    "./avatar": {
+      "source": "./src/components/ui/avatar/index.ts",
+      "types": "./src/components/ui/avatar/index.ts",
+      "default": "./dist/components/ui/avatar/index.js"
+    },
+    "./button": {
+      "source": "./src/components/ui/button/index.ts",
+      "types": "./src/components/ui/button/index.ts",
+      "default": "./dist/components/ui/button/index.js"
+    },
+    "./checkbox": {
+      "source": "./src/components/ui/checkbox/index.ts",
+      "types": "./src/components/ui/checkbox/index.ts",
+      "default": "./dist/components/ui/checkbox/index.js"
+    },
+    "./collapsible": {
+      "source": "./src/components/ui/collapsible/index.ts",
+      "types": "./src/components/ui/collapsible/index.ts",
+      "default": "./dist/components/ui/collapsible/index.js"
+    },
+    "./examples": {
+      "types": "./src/examples/index.ts",
+      "default": "./dist/examples/index.js"
+    },
+    "./examples/*": {
+      "source": "./src/examples/*.vue",
+      "types": "./src/examples/*.vue",
+      "default": "./dist/examples/*.js"
+    }
   },
   "scripts": {
-    "dev": "chokidar \"src/**\" -c \"vite build\" --initial",
+    "dev": "vite build --watch",
     "build": "vite build",
     "check-types": "vue-tsc",
     "storybook": "storybook dev -p 6006",
