@@ -159,9 +159,14 @@
       "types": "./src/components/ui/tree-view.tsx",
       "default": "./dist/components/ui/tree-view.js"
     },
-    "./examples/accordion": {
-      "types": "./src/components/ui/examples/accordion/index.ts",
-      "default": "./dist/components/ui/examples/accordion/index.js"
+    "./examples": {
+      "types": "./src/examples/index.ts",
+      "default": "./dist/examples/index.js"
+    },
+    "./examples/*": {
+      "source": "./src/examples/*.tsx",
+      "types": "./src/examples/*.tsx",
+      "default": "./dist/examples/*.js"
     }
   },
   "scripts": {

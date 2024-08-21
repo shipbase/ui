@@ -12,7 +12,7 @@ export default defineConfig({
     minify: false,
     lib: {
       entry: globbySync("src/**/*.{ts,tsx,vue}", {
-        ignore: ["**/*.stories.ts"],
+        ignore: ["**/*.stories.{ts,tsx}", "**/*.d.ts"],
       }),
       formats: ["es"],
       fileName: (_, entryName) =>

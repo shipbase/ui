@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
 
-import { default as Accordion } from "./accordion.vue"
+import { default as Accordion } from "../examples/accordion-demo.vue"
 
 export default {
   title: "Components/Accordion",

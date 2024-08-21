@@ -11,14 +11,13 @@ import Tabs from "./tabs"
 
 interface Props {
   component: string
-  name?: string
+  name: string
 }
 const { component, name } = Astro.props
 
 const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
   try {
     const filePath = await resolvePath(id, options)
-    console.log("filePath", filePath)
     return fs.readFile(filePath, "utf-8")
   } catch (error) {
     console.log("error", error)
@@ -26,19 +25,12 @@ const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
   }
 }
 
-const source = await resolvePathAndReadFile(
-  `@ui/react/examples/${component}`,
-  {
-    conditions: ["source"],
-    extensions: [".ts", ".tsx"],
-  }
-)
-const sourceVue = await resolvePathAndReadFile(
-  `@ui/vue/examples/${component}/${name || component}`,
-  {
-    extensions: [".vue"],
-  }
-)
+const source = await resolvePathAndReadFile(`@ui/react/examples/${name}`, {
+  conditions: ["source"],
+})
+const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
+  conditions: ["source"],
+})
 ---
 
 <div class="group relative my-4 flex flex-col space-y-2">
@@ -62,8 +54,7 @@ const sourceVue = await resolvePathAndReadFile(
           source ? (
             <Preview
               client:visible
-              component={component}
-              name={name || component}
+              name={name}
             />
           ) : (
             <NotFound component={component} />
@@ -79,8 +70,7 @@ const sourceVue = await resolvePathAndReadFile(
           sourceVue ? (
             <PreviewVue
               client:visible
-              component={component}
-              name={name || component}
+              name={name}
             />
           ) : (
             <NotFound component={component} />

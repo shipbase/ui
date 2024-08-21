@@ -11,7 +11,7 @@ export default defineConfig({
     minify: false,
     lib: {
       entry: globbySync("src/**/*.{ts,tsx}", {
-        ignore: ["**/*.stories.ts"],
+        ignore: ["**/*.stories.{ts,tsx}", "**/*.d.ts"],
       }),
       formats: ["es"],
     },
