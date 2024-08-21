@@ -57,7 +57,7 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
               name={name}
             />
           ) : (
-            <NotFound component={component} />
+            <NotFound component={name} />
           )
         }
       </div>
@@ -73,7 +73,7 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
               name={name}
             />
           ) : (
-            <NotFound component={component} />
+            <NotFound component={name} />
           )
         }
       </div>
