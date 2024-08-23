@@ -14,7 +14,7 @@ interface Props {
 export default function ({ preview, code }: Props) {
   return (
     <Tabs defaultValue="preview" className="w-full">
-      <TabsList className="mb-5 flex h-8 justify-start rounded-none border-b bg-transparent p-0">
+      <TabsList className=" flex h-8 justify-start rounded-none border-b bg-transparent p-0">
         <TabsTrigger
           value="preview"
           className="h-full font-semibold data-[selected]:text-foreground"

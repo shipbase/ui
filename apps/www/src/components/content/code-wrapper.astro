@@ -1,19 +1,21 @@
 ---
-import { Code } from "astro/components"
+import { Code } from "astro/components";
+import type { HTMLAttributes } from "astro/types";
 
-import { CopyButton } from "@/components/copy-button"
+import { CopyButton } from "@/components/copy-button";
+import { cn } from "@/lib/utils";
 
-interface Props {
-  lang?: "tsx" | "vue"
-  src: string
-  hidden?: boolean
+interface Props extends HTMLAttributes<"div"> {
+  lang?: "tsx" | "vue";
+  className?: string;
+  src: string;
 }
 
-const { src, lang, hidden } = Astro.props
-const html = Astro.slots.render("default")
+const { src, lang, className } = Astro.props;
+const html = Astro.slots.render("default");
 ---
 
-<div class="code-wrapper relative" hidden={hidden}>
+<div class={cn("code-wrapper relative", className)}>
   {
     lang && src ? (
       <Code lang={lang} wrap={false} theme="vesper" code={src} />
