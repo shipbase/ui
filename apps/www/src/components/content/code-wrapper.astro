@@ -12,16 +12,13 @@ interface Props extends HTMLAttributes<"div"> {
 }
 
 const { src, lang, className } = Astro.props;
-const html = Astro.slots.render("default");
 ---
 
 <div class={cn("code-wrapper relative", className)}>
   {
     lang && src ? (
       <Code lang={lang} wrap={false} theme="vesper" code={src} />
-    ) : (
-      <Fragment set:html={html} />
-    )
+    ) : null
   }
   <CopyButton client:visible className="absolute top-4 right-4" value={src} />
 </div>
