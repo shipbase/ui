@@ -1,17 +1,17 @@
 ---
-import { Code } from "astro/components";
-import type { HTMLAttributes } from "astro/types";
+import { Code } from "astro/components"
+import type { HTMLAttributes } from "astro/types"
 
-import { CopyButton } from "@/components/copy-button";
-import { cn } from "@/lib/utils";
+import { CopyButton } from "@/components/copy-button"
+import { cn } from "@/lib/utils"
 
 interface Props extends HTMLAttributes<"div"> {
-  lang?: "tsx" | "vue";
-  className?: string;
-  src: string;
+  lang?: "tsx" | "vue" | "ts" | "json"
+  className?: string
+  src: string
 }
 
-const { src, lang, className } = Astro.props;
+const { src, lang, className } = Astro.props
 ---
 
 <div class={cn("code-wrapper relative", className)}>

@@ -1,35 +1,35 @@
 ---
-import fs from "node:fs/promises";
-import { CopyButton } from "@/components/copy-button";
-import { type ResolveOptions, resolvePath } from "mlly";
-import CodeWrapper from "../code-wrapper.astro";
-import { FrameworkSwitcher } from "./framework-switcher";
-import NotFound from "./not-found.astro";
-import Preview from "./preview";
-import PreviewVue from "./preview.vue";
-import Tabs from "./tabs";
+import fs from "node:fs/promises"
+import { CopyButton } from "@/components/copy-button"
+import { type ResolveOptions, resolvePath } from "mlly"
+import CodeWrapper from "../code-wrapper.astro"
+import { FrameworkSwitcher } from "./framework-switcher"
+import NotFound from "./not-found.astro"
+import Preview from "./preview"
+import PreviewVue from "./preview.vue"
+import Tabs from "./tabs"
 
 interface Props {
-  name: string;
+  name: string
 }
-const { name } = Astro.props;
+const { name } = Astro.props
 
 const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
   try {
-    const filePath = await resolvePath(id, options);
-    return fs.readFile(filePath, "utf-8");
+    const filePath = await resolvePath(id, options)
+    return fs.readFile(filePath, "utf-8")
   } catch (error) {
-    console.log("error", error);
-    return false;
+    console.log("error", error)
+    return false
   }
-};
+}
 
 const source = await resolvePathAndReadFile(`@ui/react/examples/${name}`, {
   conditions: ["source"],
-});
+})
 const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
   conditions: ["source"],
-});
+})
 ---
 
 <div class="group relative my-4 flex flex-col space-y-2">
