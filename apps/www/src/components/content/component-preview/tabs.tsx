@@ -29,8 +29,12 @@ export default function ({ preview, code }: Props) {
         </TabsTrigger>
         <TabsIndicator className="bottom-[-1px] h-[2px] rounded-none bg-primary" />
       </TabsList>
-      <TabsContent value="preview">{preview}</TabsContent>
-      <TabsContent value="code">{code}</TabsContent>
+      <TabsContent value="preview" className="[&>astro-slot>div]:mt-6">
+        {preview}
+      </TabsContent>
+      <TabsContent value="code" className="[&>astro-slot>div]:mt-6">
+        {code}
+      </TabsContent>
     </Tabs>
   )
 }

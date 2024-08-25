@@ -11,10 +11,10 @@ interface Props extends HTMLAttributes<"div"> {
   src: string
 }
 
-const { src, lang, className } = Astro.props
+const { src, lang, className, ...props } = Astro.props
 ---
 
-<div class={cn("code-wrapper relative", className)}>
+<div class={cn("code-wrapper relative", className)} {...props}>
   {
     lang && src ? (
       <Code lang={lang} wrap={false} theme="vesper" code={src} />
