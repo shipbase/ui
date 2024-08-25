@@ -51,10 +51,7 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
       >
         {
           source ? (
-            <Preview
-              client:visible
-              name={name}
-            />
+            <Preview client:visible name={name} />
           ) : (
             <NotFound component={name} />
           )
@@ -67,10 +64,7 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
       >
         {
           sourceVue ? (
-            <PreviewVue
-              client:visible
-              name={name}
-            />
+            <PreviewVue client:visible name={name} />
           ) : (
             <NotFound component={name} />
           )
@@ -78,12 +72,13 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
       </div>
     </div>
     <Fragment slot="code">
-      <div data-framework="react">
-        <CodeWrapper lang="tsx" src={source || ""} />
-      </div>
-      <div data-framework="vue" hidden>
-        <CodeWrapper lang="vue" src={sourceVue || ""} />
-      </div>
+      <CodeWrapper data-framework="react" lang="tsx" src={source || ""} />
+      <CodeWrapper
+        data-framework="vue"
+        lang="vue"
+        src={sourceVue || ""}
+        hidden
+      />
     </Fragment>
   </Tabs>
 </div>

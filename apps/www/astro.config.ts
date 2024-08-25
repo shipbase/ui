@@ -4,14 +4,12 @@ import tailwind from "@astrojs/tailwind"
 import vue from "@astrojs/vue"
 import { defineConfig } from "astro/config"
 import Inspect from "vite-plugin-inspect"
-import { shikiConfig } from "./src/config/shiki"
+import { rehypeCodeWrapper, shikiConfig } from "./src/lib/code"
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
-    mdx({
-      shikiConfig,
-    }),
+    mdx({ shikiConfig, rehypePlugins: [rehypeCodeWrapper] }),
     react(),
     vue(),
     tailwind(),

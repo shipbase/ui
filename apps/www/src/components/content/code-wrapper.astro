@@ -1,25 +1,24 @@
 ---
 import { Code } from "astro/components"
+import type { HTMLAttributes } from "astro/types"
 
 import { CopyButton } from "@/components/copy-button"
+import { cn } from "@/lib/utils"
 
-interface Props {
-  lang?: "tsx" | "vue"
+interface Props extends HTMLAttributes<"div"> {
+  lang?: "tsx" | "vue" | "ts" | "json"
+  className?: string
   src: string
-  hidden?: boolean
 }
 
-const { src, lang, hidden } = Astro.props
-const html = Astro.slots.render("default")
+const { src, lang, className } = Astro.props
 ---
 
-<div class="code-wrapper relative" hidden={hidden}>
+<div class={cn("code-wrapper relative", className)}>
   {
     lang && src ? (
       <Code lang={lang} wrap={false} theme="vesper" code={src} />
-    ) : (
-      <Fragment set:html={html} />
-    )
+    ) : null
   }
   <CopyButton client:visible className="absolute top-4 right-4" value={src} />
 </div>
