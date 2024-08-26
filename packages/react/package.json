@@ -206,15 +206,5 @@
     "tailwind-merge": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "^4.3.2"
-  },
-  "peerDependencies": {
-    "@ark-ui/react": "catalog:",
-    "class-variance-authority": "catalog:",
-    "clsx": "catalog:",
-    "lucide-react": "^0.424.0",
-    "react": "catalog:",
-    "react-dom": "catalog:",
-    "recharts": "^2.12.7",
-    "tailwind-merge": "catalog:"
   }
 }

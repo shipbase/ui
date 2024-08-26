@@ -21,11 +21,7 @@ export default defineConfig({
           : `${entryName}.js`,
     },
     rollupOptions: {
-      external: [
-        /@ark-ui/,
-        ...Object.keys(pkg.dependencies ?? {}),
-        ...Object.keys(pkg.peerDependencies ?? {}),
-      ],
+      external: [/@ark-ui/, ...Object.keys(pkg.devDependencies ?? {})],
       output: {
         preserveModules: true,
       },
