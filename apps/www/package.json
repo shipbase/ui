@@ -10,8 +10,8 @@
     "check-types": "astro check"
   },
   "dependencies": {
-    "@ark-ui/react": "^3.7.0",
-    "@ark-ui/vue": "^3.8.0",
+    "@ark-ui/react": "catalog:",
+    "@ark-ui/vue": "catalog:",
     "@astrojs/check": "^0.9.2",
     "@astrojs/mdx": "^3.1.3",
     "@astrojs/react": "^3.6.2",
@@ -23,34 +23,34 @@
     "@ui/react": "workspace:*",
     "@ui/vue": "workspace:*",
     "astro": "^4.14.1",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
     "lucide-react": "^0.376.0",
     "nanostores": "^0.11.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "catalog:",
+    "react-dom": "catalog:",
     "recharts": "^2.12.7",
     "sharp": "^0.32.6",
-    "tailwind-merge": "^2.5.2",
-    "vue": "^3.4.38"
+    "tailwind-merge": "catalog:"
   },
   "devDependencies": {
     "@astrojs/markdown-remark": "^5.2.0",
     "@shikijs/transformers": "^1.13.0",
     "@types/hast": "^3.0.4",
     "@types/node": "^20.14.15",
-    "@types/react": "^18.3.3",
-    "@types/react-dom": "^18.3.0",
-    "autoprefixer": "^10.4.20",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "clsx": "catalog:",
     "mdast-util-mdx": "^3.0.0",
     "mdast-util-mdx-jsx": "^3.1.2",
     "mlly": "^1.7.1",
     "postcss": "^8.4.41",
     "shiki": "^1.13.0",
-    "tailwindcss": "^3.4.10",
-    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss": "catalog:",
+    "tailwindcss-animate": "catalog:",
     "unist-util-visit": "^5.0.0",
-    "vite": "^5.4.1",
-    "vite-plugin-inspect": "^0.8.5"
+    "vite": "catalog:",
+    "vite-plugin-inspect": "^0.8.5",
+    "vue": "catalog:"
   }
 }

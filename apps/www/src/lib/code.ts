@@ -3,6 +3,7 @@ import { transformerMetaHighlight } from "@shikijs/transformers"
 import type { Element, Root } from "hast"
 import type { MdxjsEsm } from "mdast-util-mdx"
 import type { MdxJsxFlowElementHast } from "mdast-util-mdx-jsx"
+import type { ShikiTransformer } from "shiki"
 import { visit } from "unist-util-visit"
 
 export const shikiConfig = {
@@ -13,7 +14,7 @@ export const shikiConfig = {
         const pre = root.children?.[0] as Element
         if (pre) pre.properties.source = this.source
       },
-    },
+    } satisfies ShikiTransformer,
     transformerMetaHighlight({
       className: "line--highlighted",
     }),

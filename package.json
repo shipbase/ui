@@ -16,14 +16,12 @@
     "@biomejs/biome": "1.8.3",
     "@turbo/gen": "^2.0.12",
     "@types/node": "^20.14.15",
-    "ai": "^3.3.7",
     "dotenv": "^16.4.5",
     "lint-staged": "^15.2.9",
     "rimraf": "^6.0.1",
     "simple-git-hooks": "^2.11.1",
     "turbo": "^2.0.14",
-    "typescript": "^5.5.4",
-    "zod": "^3.23.8"
+    "typescript": "^5.5.4"
   },
   "packageManager": "pnpm@9.7.1+sha256.46f1bbc8f8020aa9869568c387198f1a813f21fb44c82f400e7d1dbde6c70b40",
   "simple-git-hooks": {

@@ -46,12 +46,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": ["dist", "src"],
-  "dependencies": {
-    "vue": "^3.4.38"
-  },
   "devDependencies": {
-    "@ark-ui/vue": "^3.8.0",
+    "@ark-ui/vue": "catalog:",
     "@chromatic-com/storybook": "^1.6.1",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-interactions": "^8.2.9",
@@ -62,28 +58,24 @@
     "@storybook/test": "^8.2.9",
     "@storybook/vue3": "^8.2.9",
     "@storybook/vue3-vite": "^8.2.9",
+    "@ui/lib": "workspace:*",
     "@ui/tsconfig": "workspace:*",
     "@vitejs/plugin-vue": "^5.1.2",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
-    "autoprefixer": "^10.4.20",
+    "ai": "catalog:",
+    "autoprefixer": "catalog:",
     "chokidar-cli": "^3.0.0",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
     "globby": "^14.0.2",
     "lucide-vue-next": "^0.424.0",
     "storybook": "^8.2.9",
-    "tailwind": "^4.0.0",
-    "tailwind-merge": "^2.5.2",
-    "vite": "^5.4.1",
+    "tailwind-merge": "catalog:",
+    "tailwindcss": "catalog:",
+    "vite": "catalog:",
     "vite-tsconfig-paths": "^4.3.2",
+    "vue": "catalog:",
     "vue-tsc": "^2.0.29",
-    "@ui/lib": "workspace:*"
-  },
-  "peerDependencies": {
-    "@ark-ui/vue": "^3.7.2",
-    "class-variance-authority": "^0.7.0",
-    "clsx": "^2.1.1",
-    "lucide-vue-next": "^0.424.0",
-    "tailwind-merge": "^2.4.0"
+    "zod": "catalog:"
   }
 }
