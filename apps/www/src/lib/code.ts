@@ -60,7 +60,11 @@ export function rehypeCodeWrapper() {
               type: "ImportDeclaration",
               specifiers: [
                 {
-                  type: "ImportDefaultSpecifier",
+                  type: "ImportSpecifier",
+                  imported: {
+                    type: "Identifier",
+                    name: "CodeWrapper",
+                  },
                   local: {
                     type: "Identifier",
                     name: "CodeWrapper",
@@ -69,7 +73,7 @@ export function rehypeCodeWrapper() {
               ],
               source: {
                 type: "Literal",
-                value: "@/components/content/code-wrapper.astro",
+                value: "@/components/content",
               },
             },
           ],

@@ -1,4 +1,3 @@
-import CodeWrapper from "./code-wrapper.astro"
 import { default as ComponentInstall } from "./component-install/index.astro"
 import { default as ComponentPreview } from "./component-preview/index.astro"
 import { default as ComponentSource } from "./component-source.astro"
@@ -13,5 +12,6 @@ export const MDXComponents = {
   ComponentSource,
   Step,
   Steps,
-  codewrapper: CodeWrapper,
 }
+
+export { default as CodeWrapper } from "./code-wrapper/index.astro"

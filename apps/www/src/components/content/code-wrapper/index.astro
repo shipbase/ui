@@ -1,0 +1,25 @@
+---
+import { Code } from "astro/components"
+import type { HTMLAttributes } from "astro/types"
+
+import CodeWrapper from "./code-wrapper"
+
+interface Props extends HTMLAttributes<"div"> {
+  lang?: "tsx" | "vue" | "ts" | "json"
+  className?: string
+  collapsible?: boolean
+  src: string
+}
+
+const { src, lang, className, collapsible, ...props } = Astro.props
+---
+
+<CodeWrapper
+  client:visible
+  src={src}
+  collapsible={!!collapsible}
+  className={className}
+  {...props}
+>
+  <Code lang={lang || "plaintext"} theme="vesper" code={src} />
+</CodeWrapper>

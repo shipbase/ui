@@ -2,7 +2,7 @@
 import fs from "node:fs"
 import { resolvePath } from "mlly"
 
-import CodeWrapper from "./code-wrapper.astro"
+import CodeWrapper from "./code-wrapper/index.astro"
 
 export interface Props {
   component: string
@@ -15,4 +15,4 @@ const filePath = await resolvePath(`@ui/react/${component}`, {
 const source = fs.readFileSync(filePath, "utf-8")
 ---
 
-<CodeWrapper lang="tsx" src={source} />
+<CodeWrapper lang="tsx" src={source} collapsible />
