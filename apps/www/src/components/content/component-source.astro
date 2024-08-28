@@ -1,7 +1,5 @@
 ---
-import fs from "node:fs"
-import { resolvePath } from "mlly"
-
+import { getComponentSource } from "@/lib/source"
 import CodeWrapper from "./code-wrapper/index.astro"
 
 export interface Props {
@@ -9,10 +7,25 @@ export interface Props {
 }
 const { component } = Astro.props
 
-const filePath = await resolvePath(`@ui/react/${component}`, {
-  conditions: ["source"],
-})
-const source = fs.readFileSync(filePath, "utf-8")
+const source = await getComponentSource("react", component)
+const sourceVue = await getComponentSource("vue", component)
 ---
 
-<CodeWrapper lang="tsx" src={source} collapsible />
+{
+  source.map((src) => (
+    <CodeWrapper
+      lang="tsx"
+      src={typeof src === "string" ? src : "Not Found"}
+      collapsible
+    />
+  ))
+}
+{
+  sourceVue.map((src) => (
+    <CodeWrapper
+      lang="vue"
+      src={typeof src === "string" ? src : "Not Found"}
+      collapsible
+    />
+  ))
+}
