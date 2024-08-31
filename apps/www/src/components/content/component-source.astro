@@ -1,7 +1,6 @@
 ---
-import fs from "node:fs"
-import { resolvePath } from "mlly"
-
+import { frameworks } from "@/atoms/framework"
+import { getComponentSource } from "@/lib/source"
 import CodeWrapper from "./code-wrapper/index.astro"
 
 export interface Props {
@@ -9,10 +8,29 @@ export interface Props {
 }
 const { component } = Astro.props
 
-const filePath = await resolvePath(`@ui/react/${component}`, {
-  conditions: ["source"],
-})
-const source = fs.readFileSync(filePath, "utf-8")
+const frameworkSources = await Promise.all(
+  frameworks.map((framework) => getComponentSource(framework, component))
+)
 ---
 
-<CodeWrapper lang="tsx" src={source} collapsible />
+{
+  frameworks.map((framework, index) => (
+    <div data-framework={framework}>
+      {frameworkSources[index]?.length ? (
+        frameworkSources[index]?.map((src) => (
+          <div data-framework={framework}>
+            <p class="mb-2">{src.filename}</p>
+            <CodeWrapper
+              className="mt-0"
+              lang={src.lang}
+              src={src.source}
+              collapsible
+            />
+          </div>
+        ))
+      ) : (
+        <CodeWrapper src={"Not Found"} />
+      )}
+    </div>
+  ))
+}

@@ -1,7 +1,8 @@
 import { useStore } from "@nanostores/react"
 import { useEffect, useState } from "react"
+import { pascalCase } from "scule"
 
-import { $framework, type Framework } from "@/atoms/framework"
+import { $framework, type Framework, frameworks } from "@/atoms/framework"
 import {
   Select,
   SelectContent,
@@ -12,21 +13,10 @@ import {
   SelectValueText,
 } from "@ui/react/select"
 
-const frameworks = [
-  {
-    value: "react",
-    label: "React",
-  },
-  {
-    value: "vue",
-    label: "Vue",
-  },
-  {
-    value: "solid",
-    label: "Solid (WIP)",
-    disabled: true,
-  },
-]
+const frameworksItems = frameworks.map((framework) => ({
+  value: framework,
+  label: pascalCase(framework),
+}))
 
 export function FrameworkSwitcher() {
   const framework = useStore($framework)
@@ -45,7 +35,7 @@ export function FrameworkSwitcher() {
       }}
       className="w-[160px]"
       positioning={{ sameWidth: true }}
-      items={frameworks}
+      items={frameworksItems}
     >
       <SelectControl>
         <SelectTrigger className="h-7 text-xs">
@@ -55,13 +45,9 @@ export function FrameworkSwitcher() {
       </SelectControl>
       <SelectContent>
         <SelectItemGroup>
-          {frameworks.map((framework) => (
-            <SelectItem
-              className="text-xs"
-              item={framework}
-              key={framework.value}
-            >
-              {framework.label}
+          {frameworksItems.map((item) => (
+            <SelectItem className="text-xs" item={item} key={item.value}>
+              {item.label}
             </SelectItem>
           ))}
         </SelectItemGroup>

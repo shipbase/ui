@@ -51,9 +51,6 @@ catalogs:
     vue:
       specifier: ^3.4.38
       version: 3.4.38
-    zod:
-      specifier: ^3.23.8
-      version: 3.23.8
 
 importers:
 
@@ -119,6 +116,9 @@ importers:
       '@nanostores/vue':
         specifier: ^0.10.0
         version: 0.10.0(nanostores@0.11.3)(vue@3.4.38(typescript@5.5.4))
+      '@ui/lib':
+        specifier: workspace:*
+        version: link:../../packages/lib
       '@ui/react':
         specifier: workspace:*
         version: link:../../packages/react
@@ -149,6 +149,9 @@ importers:
       recharts:
         specifier: ^2.12.7
         version: 2.12.7(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      scule:
+        specifier: ^1.3.0
+        version: 1.3.0
       sharp:
         specifier: ^0.32.6
         version: 0.32.6
@@ -219,6 +222,9 @@ importers:
       ai:
         specifier: 'catalog:'
         version: 3.3.20(react@18.3.1)(sswr@2.1.0(svelte@4.2.19))(svelte@4.2.19)(vue@3.4.38(typescript@5.5.4))(zod@3.23.8)
+      mlly:
+        specifier: ^1.7.1
+        version: 1.7.1
     devDependencies:
       '@ui/tsconfig':
         specifier: workspace:*
@@ -409,9 +415,6 @@ importers:
       vue-tsc:
         specifier: ^2.0.29
         version: 2.0.29(typescript@5.5.4)
-      zod:
-        specifier: 'catalog:'
-        version: 3.23.8
 
 packages:
 
@@ -5829,6 +5832,9 @@ packages:
   scheduler@0.23.2:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
 
+  scule@1.3.0:
+    resolution: {integrity: sha512-6FtHJEvt+pVMIB9IBY+IcCJ6Z5f1iQnytgyfKMhDKgmzYG+TeH/wx1y3l27rshSbLiSanrR9ffZDrEsmjlQF2g==}
+
   section-matter@1.0.0:
     resolution: {integrity: sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA==}
     engines: {node: '>=4'}
@@ -6796,6 +6802,9 @@ packages:
 
   vue-component-type-helpers@2.0.29:
     resolution: {integrity: sha512-58i+ZhUAUpwQ+9h5Hck0D+jr1qbYl4voRt5KffBx8qzELViQ4XdT/Tuo+mzq8u63teAG8K0lLaOiL5ofqW38rg==}
+
+  vue-component-type-helpers@2.1.2:
+    resolution: {integrity: sha512-URuxnrOhO9lUG4LOAapGWBaa/WOLDzzyAbL+uKZqT7RS+PFy0cdXI2mUSh7GaMts6vtHaeVbGk7trd0FPJi65Q==}
 
   vue-docgen-api@4.79.2:
     resolution: {integrity: sha512-n9ENAcs+40awPZMsas7STqjkZiVlIjxIKgiJr5rSohDP0/JCrD9VtlzNojafsA1MChm/hz2h3PDtUedx3lbgfA==}
@@ -9005,7 +9014,7 @@ snapshots:
       ts-dedent: 2.2.0
       type-fest: 2.19.0
       vue: 3.4.38(typescript@5.5.4)
-      vue-component-type-helpers: 2.0.29
+      vue-component-type-helpers: 2.1.2
 
   '@swc/helpers@0.5.12':
     dependencies:
@@ -14022,6 +14031,8 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
+  scule@1.3.0: {}
+
   section-matter@1.0.0:
     dependencies:
       extend-shallow: 2.0.1
@@ -14539,7 +14550,7 @@ snapshots:
       is-glob: 4.0.3
       jiti: 1.21.6
       lilconfig: 2.1.0
-      micromatch: 4.0.7
+      micromatch: 4.0.8
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.1
@@ -15193,6 +15204,8 @@ snapshots:
       typescript: 5.5.4
 
   vue-component-type-helpers@2.0.29: {}
+
+  vue-component-type-helpers@2.1.2: {}
 
   vue-docgen-api@4.79.2(vue@3.4.38(typescript@5.5.4)):
     dependencies:

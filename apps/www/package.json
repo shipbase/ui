@@ -20,6 +20,7 @@
     "@fontsource-variable/inter": "^5.0.20",
     "@nanostores/react": "^0.7.3",
     "@nanostores/vue": "^0.10.0",
+    "@ui/lib": "workspace:*",
     "@ui/react": "workspace:*",
     "@ui/vue": "workspace:*",
     "astro": "^4.14.6",
@@ -30,6 +31,7 @@
     "react": "catalog:",
     "react-dom": "catalog:",
     "recharts": "^2.12.7",
+    "scule": "^1.3.0",
     "sharp": "^0.32.6",
     "tailwind-merge": "catalog:"
   },

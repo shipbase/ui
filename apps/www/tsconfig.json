@@ -2,6 +2,7 @@
   "extends": "astro/tsconfigs/strictest",
   "compilerOptions": {
     "verbatimModuleSyntax": true,
+    "exactOptionalPropertyTypes": false,
     // react
     "jsxImportSource": "react",
 

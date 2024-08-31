@@ -1,25 +1,21 @@
 ---
 import { Code } from "astro/components"
 import type { HTMLAttributes } from "astro/types"
+import type { BuiltinLanguage } from "shiki"
 
 import CodeWrapper from "./code-wrapper"
 
 interface Props extends HTMLAttributes<"div"> {
-  lang?: "tsx" | "vue" | "ts" | "json"
+  src?: string
+  lang?: BuiltinLanguage
   className?: string
   collapsible?: boolean
-  src: string
+  copy?: boolean
 }
 
-const { src, lang, className, collapsible, ...props } = Astro.props
+const { src, lang, className, ...props } = Astro.props
 ---
 
-<CodeWrapper
-  client:visible
-  src={src}
-  collapsible={!!collapsible}
-  className={className}
-  {...props}
->
-  <Code lang={lang || "plaintext"} theme="vesper" code={src} />
+<CodeWrapper client:visible src={src} className={className} {...props}>
+  <Code lang={lang || "plaintext"} theme="vesper" code={src || "Not found"} />
 </CodeWrapper>

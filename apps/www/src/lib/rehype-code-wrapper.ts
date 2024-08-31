@@ -1,27 +1,9 @@
-import type { ShikiConfig } from "@astrojs/markdown-remark"
-import { transformerMetaHighlight } from "@shikijs/transformers"
-import type { Element, Root } from "hast"
+import type { Root } from "hast"
 import type { MdxjsEsm } from "mdast-util-mdx"
 import type { MdxJsxFlowElementHast } from "mdast-util-mdx-jsx"
-import type { ShikiTransformer } from "shiki"
 import { visit } from "unist-util-visit"
 
-export const shikiConfig = {
-  theme: "vesper",
-  transformers: [
-    {
-      root(root) {
-        const pre = root.children?.[0] as Element
-        if (pre) pre.properties.source = this.source
-      },
-    } satisfies ShikiTransformer,
-    transformerMetaHighlight({
-      className: "line--highlighted",
-    }),
-  ],
-} satisfies ShikiConfig
-
-export function rehypeCodeWrapper() {
+export default function rehypeCodeWrapper() {
   return (tree: Root) => {
     visit(tree, { type: "element", tagName: "pre" }, (node, index, parent) => {
       if (

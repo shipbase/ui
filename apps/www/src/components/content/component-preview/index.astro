@@ -1,7 +1,8 @@
 ---
-import fs from "node:fs/promises"
 import { CopyButton } from "@/components/copy-button"
-import { type ResolveOptions, resolvePath } from "mlly"
+import { getExampleSource } from "@/lib/source"
+
+import { frameworks } from "@/atoms/framework"
 import CodeWrapper from "../code-wrapper/index.astro"
 import { FrameworkSwitcher } from "./framework-switcher"
 import NotFound from "./not-found.astro"
@@ -14,22 +15,11 @@ interface Props {
 }
 const { name } = Astro.props
 
-const resolvePathAndReadFile = async (id: string, options: ResolveOptions) => {
-  try {
-    const filePath = await resolvePath(id, options)
-    return fs.readFile(filePath, "utf-8")
-  } catch (error) {
-    console.log("error", error)
-    return false
-  }
-}
-
-const source = await resolvePathAndReadFile(`@ui/react/examples/${name}`, {
-  conditions: ["source"],
-})
-const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
-  conditions: ["source"],
-})
+const frameworkSources = await Promise.all(
+  frameworks.map(async (framework) => {
+    return await getExampleSource(framework, name)
+  })
+)
 ---
 
 <div class="group relative my-4 flex flex-col space-y-2">
@@ -38,84 +28,50 @@ const sourceVue = await resolvePathAndReadFile(`@ui/vue/examples/${name}`, {
       <div class="relative rounded-md border">
         <div class="flex items-center justify-between p-4">
           <FrameworkSwitcher client:load />
-          <CopyButton
-            client:load
-            value={source || ""}
-            variant="outline"
-            className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
-            data-framework="react"
-          />
-          <CopyButton
-            client:load
-            value={sourceVue || ""}
-            variant="outline"
-            className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
-            data-framework="vue"
-            hidden
-          />
-        </div>
-        <div
-          class="preview flex min-h-[350px] w-full items-center justify-center p-10"
-          data-framework="react"
-        >
           {
-            source ? (
-              <Preview client:visible name={name} />
-            ) : (
-              <NotFound component={name} />
-            )
+            frameworks.map((framework, index) => (
+              <CopyButton
+                client:load
+                value={frameworkSources[index]?.source}
+                variant="outline"
+                className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
+                data-framework={framework}
+              />
+            ))
           }
         </div>
-        <div
-          class="preview flex min-h-[350px] w-full items-center justify-center p-10"
-          hidden
-          data-framework="vue"
-        >
-          {
-            sourceVue ? (
-              <PreviewVue client:visible name={name} />
-            ) : (
-              <NotFound component={name} />
-            )
-          }
-        </div>
+        {
+          frameworks.map((framework, index) => (
+            <div
+              class="preview flex min-h-[350px] w-full items-center justify-center p-10"
+              data-framework={framework}
+              hidden={framework !== "react"}
+            >
+              {frameworkSources[index] ? (
+                framework === "react" ? (
+                  <Preview client:visible name={name} />
+                ) : (
+                  <PreviewVue client:visible name={name} />
+                )
+              ) : (
+                <NotFound component={name} />
+              )}
+            </div>
+          ))
+        }
       </div>
     </Fragment>
     <Fragment slot="code">
-      <CodeWrapper data-framework="react" lang="tsx" src={source || ""} />
-      <CodeWrapper
-        data-framework="vue"
-        lang="vue"
-        src={sourceVue || ""}
-        hidden
-      />
+      {
+        frameworks.map((framework, index) => (
+          <CodeWrapper
+            data-framework={framework}
+            lang={frameworkSources[index]?.lang}
+            src={frameworkSources[index]?.source}
+            hidden={framework !== "react"}
+          />
+        ))
+      }
     </Fragment>
   </Tabs>
 </div>
-
-<script>
-  import { $framework } from "@/atoms/framework";
-
-  let unsubscribe: () => void;
-
-  document.addEventListener("astro:page-load", () => {
-    if (typeof unsubscribe === "function") {
-      unsubscribe();
-    }
-
-    unsubscribe = $framework.subscribe((value) => {
-      const previewReact = document.querySelectorAll(
-        `[data-framework="react"]`
-      );
-      const previewVue = document.querySelectorAll(`[data-framework="vue"]`);
-      previewReact.forEach((el) => {
-        // @ts-ignore
-        el.hidden = value !== "react";
-      });
-      previewVue.forEach((el) => {
-        // @ts-ignore
-        el.hidden = value !== "vue";
-      });
-    });
-  });
-</script>
