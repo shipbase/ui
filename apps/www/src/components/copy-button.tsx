@@ -5,8 +5,7 @@ import { cn } from "@/lib/utils"
 import { Button, type ButtonProps } from "@ui/react/button"
 
 interface CopyButtonProps extends ButtonProps {
-  value: string
-  src?: string
+  value?: string | undefined
 }
 
 export async function copyToClipboardWithMeta(value: string) {
@@ -16,7 +15,6 @@ export async function copyToClipboardWithMeta(value: string) {
 export function CopyButton({
   value,
   className,
-  src,
   variant = "ghost",
   ...props
 }: CopyButtonProps) {
@@ -42,7 +40,7 @@ export function CopyButton({
         className
       )}
       onClick={() => {
-        copyToClipboardWithMeta(value)
+        copyToClipboardWithMeta(value || "")
         setHasCopied(true)
       }}
       {...props}

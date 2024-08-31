@@ -9,6 +9,10 @@
     "./ai": {
       "types": "./ai/index.ts",
       "default": "./ai/index.ts"
+    },
+    "./utils/*": {
+      "types": "./utils/*.ts",
+      "default": "./utils/*.ts"
     }
   },
   "devDependencies": {
@@ -17,6 +21,7 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.41",
     "@ai-sdk/openai": "^0.0.46",
-    "ai": "catalog:"
+    "ai": "catalog:",
+    "mlly": "^1.7.1"
   }
 }

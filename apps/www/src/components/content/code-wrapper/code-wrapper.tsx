@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils"
 
 interface Props {
   collapsible?: boolean
+  copy?: boolean
   children?: React.ReactNode
-  className: string | undefined
-  src: string
+  className?: string
+  src?: string
   [key: string]: unknown
 }
 
@@ -17,6 +18,7 @@ export default function CodeWrapper({
   className,
   src,
   collapsible,
+  copy = true,
   ...props
 }: Props) {
   const [open, setOpen] = useState(false)
@@ -45,7 +47,9 @@ export default function CodeWrapper({
           </Button>
         </div>
       ) : null}
-      <CopyButton className="absolute top-4 right-4" value={src} />
+      {copy ? (
+        <CopyButton className="absolute top-4 right-4" value={src} />
+      ) : null}
     </div>
   )
 }

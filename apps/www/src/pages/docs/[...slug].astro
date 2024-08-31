@@ -102,3 +102,30 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
     </main>
   </div>
 </Layout>
+
+<script>
+  import { $framework } from "@/atoms/framework";
+
+  let unsubscribe: () => void;
+
+  document.addEventListener("astro:page-load", () => {
+    if (typeof unsubscribe === "function") {
+      unsubscribe();
+    }
+
+    unsubscribe = $framework.subscribe((value) => {
+      const previewReact = document.querySelectorAll(
+        `[data-framework="react"]`
+      );
+      const previewVue = document.querySelectorAll(`[data-framework="vue"]`);
+      previewReact.forEach((el) => {
+        // @ts-ignore
+        el.hidden = value !== "react";
+      });
+      previewVue.forEach((el) => {
+        // @ts-ignore
+        el.hidden = value !== "vue";
+      });
+    });
+  });
+</script>

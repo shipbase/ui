@@ -1,4 +1,5 @@
 ---
+import { frameworks } from "@/atoms/framework"
 import { getComponentSource } from "@/lib/source"
 import CodeWrapper from "./code-wrapper/index.astro"
 
@@ -7,25 +8,29 @@ export interface Props {
 }
 const { component } = Astro.props
 
-const source = await getComponentSource("react", component)
-const sourceVue = await getComponentSource("vue", component)
+const frameworkSources = await Promise.all(
+  frameworks.map((framework) => getComponentSource(framework, component))
+)
 ---
 
 {
-  source.map((src) => (
-    <CodeWrapper
-      lang="tsx"
-      src={typeof src === "string" ? src : "Not Found"}
-      collapsible
-    />
-  ))
-}
-{
-  sourceVue.map((src) => (
-    <CodeWrapper
-      lang="vue"
-      src={typeof src === "string" ? src : "Not Found"}
-      collapsible
-    />
+  frameworks.map((framework, index) => (
+    <div data-framework={framework}>
+      {frameworkSources[index]?.length ? (
+        frameworkSources[index]?.map((src) => (
+          <div data-framework={framework}>
+            <p class="mb-2">{src.filename}</p>
+            <CodeWrapper
+              className="mt-0"
+              lang={src.lang}
+              src={src.source}
+              collapsible
+            />
+          </div>
+        ))
+      ) : (
+        <CodeWrapper src={"Not Found"} />
+      )}
+    </div>
   ))
 }
