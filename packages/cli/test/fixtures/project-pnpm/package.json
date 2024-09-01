@@ -1,6 +1,6 @@
 {
   "name": "test-cli-project-pnpm",
-  "dependencies": {
-    "@types/node": "20"
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
   }
 }

@@ -1,6 +1,3 @@
 {
-  "name": "test-cli-project-npm",
-  "dependencies": {
-    "@types/node": "^20.15.0"
-  }
+  "name": "test-cli-project-npm"
 }

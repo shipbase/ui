@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "chalk": "^5.3.0",
-    "preferred-pm": "^4.0.0",
+    "nypm": "^0.3.11",
+    "ufo": "^1.5.4",
     "zod": "^3.23.8"
   }
 }
