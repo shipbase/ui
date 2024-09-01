@@ -59,6 +59,7 @@ export default {
         },
       },
       borderRadius: {
+        xl: "calc(var(--radius) + 4px)",
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
@@ -67,20 +68,20 @@ export default {
         sans: ["var(--font-sans)", ...fontFamily.sans],
       },
       keyframes: {
-        "collapse-in": {
+        "collapse-down": {
           from: { height: "0" },
           to: { height: "var(--height)" },
         },
-        "collapse-out": {
+        "collapse-up": {
           from: { height: "var(--height)" },
           to: { height: "0" },
         },
       },
       animation: {
-        "accordion-down": "collapse-in 0.2s ease-out",
-        "accordion-up": "collapse-out 0.2s ease-out",
-        "collapse-in": "collapse-in 0.2s ease-out",
-        "collapse-out": "collapse-out 0.2s ease-out",
+        "accordion-down": "collapse-down 0.2s ease-out",
+        "accordion-up": "collapse-up 0.2s ease-out",
+        "collapse-down": "collapse-down 0.2s ease-out",
+        "collapse-up": "collapse-up 0.2s ease-out",
       },
     },
   },

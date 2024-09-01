@@ -15,6 +15,6 @@ const props = defineProps<
 <template>
   <CollapsibleContent
     v-bind="props"
-    :class="cn('overflow-hidden transition-all data-[state=closed]:animate-collapse-out data-[state=open]:animate-collapse-in', props.class)"
+    :class="cn('overflow-hidden transition-all data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down', props.class)"
   />
 </template>
