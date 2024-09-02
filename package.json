@@ -9,6 +9,7 @@
     "build": "turbo run build",
     "check": "biome check",
     "check:write": "biome check --write",
+    "repocheck": "sherif",
     "check-types": "turbo run check-types",
     "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
     "gen": "turbo gen"
@@ -20,6 +21,7 @@
     "dotenv": "^16.4.5",
     "lint-staged": "^15.2.9",
     "rimraf": "^6.0.1",
+    "sherif": "^1.0.0",
     "simple-git-hooks": "^2.11.1",
     "taze": "^0.16.7",
     "turbo": "^2.1.1",
