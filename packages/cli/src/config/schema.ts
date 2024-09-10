@@ -1,8 +1,9 @@
 import { z } from "zod"
 
-export const configSchema = z
+export const ConfigSchema = z
   .object({
     $schema: z.string().optional(),
+    framework: z.enum(["react", "vue"]),
     style: z.string(),
     // rsc: z.coerce.boolean().default(false),
     tsx: z.coerce.boolean().default(true),
@@ -20,4 +21,4 @@ export const configSchema = z
   })
   .strict()
 
-export const resolveConfigPaths = (config: z.infer<typeof configSchema>) => {}
+export type Config = z.infer<typeof ConfigSchema>

@@ -18,17 +18,23 @@
   "files": ["dist"],
   "keywords": ["components", "ui", "tailwind", "ark-ui", "shipbase"],
   "scripts": {
+    "dev": "tsup --watch",
+    "build": "tsup",
     "test": "vitest"
   },
   "devDependencies": {
+    "@types/prompts": "^2.4.9",
     "@ui/tsconfig": "workspace:*",
     "commander": "^12.1.0",
+    "tsup": "^8.2.4",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^2.0.5"
   },
   "dependencies": {
+    "cac": "^6.7.14",
     "chalk": "^5.3.0",
     "nypm": "^0.3.11",
+    "prompts": "^2.4.2",
     "ufo": "^1.5.4",
     "zod": "^3.23.8"
   }
