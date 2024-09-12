@@ -3,7 +3,7 @@ import { z } from "zod"
 export const ConfigSchema = z
   .object({
     $schema: z.string().optional(),
-    framework: z.enum(["react", "vue"]),
+    library: z.enum(["react", "vue"]),
     style: z.string(),
     // rsc: z.coerce.boolean().default(false),
     tsx: z.coerce.boolean().default(true),

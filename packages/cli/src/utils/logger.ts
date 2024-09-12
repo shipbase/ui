@@ -1,17 +1,17 @@
-import chalk from "chalk"
+import { cyan, green, red, yellow } from "kleur/colors"
 
 export const logger = {
-  error(...args: unknown[]) {
-    console.log(chalk.red(...args))
+  error(text: string) {
+    console.log(red(text))
   },
-  warn(...args: unknown[]) {
-    console.log(chalk.yellow(...args))
+  warn(text: string) {
+    console.log(yellow(text))
   },
-  info(...args: unknown[]) {
-    console.log(chalk.cyan(...args))
+  info(text: string) {
+    console.log(cyan(text))
   },
-  success(...args: unknown[]) {
-    console.log(chalk.green(...args))
+  success(text: string) {
+    console.log(green(text))
   },
   break() {
     console.log("")

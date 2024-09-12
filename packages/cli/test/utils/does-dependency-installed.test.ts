@@ -5,12 +5,19 @@ describe("ensure dependency installed", () => {
   test("should throw if package is not installed", async () => {
     expect(
       doesDependencyInstalled("tailwindcss", {
-        cwd: path.resolve(__dirname, "../fixtures/project-npm"),
+        cwd: path.resolve(import.meta.dirname, "../fixtures/project-npm"),
       })
     ).toBe(false)
+
     expect(
       doesDependencyInstalled("tailwindcss", {
-        cwd: path.resolve(__dirname, "../fixtures/project-pnpm"),
+        cwd: path.resolve(import.meta.dirname, "../fixtures/project-pnpm"),
+      })
+    ).toBe(true)
+
+    expect(
+      doesDependencyInstalled("tailwindcss", {
+        cwd: path.resolve(import.meta.dirname, "../fixtures/project-nextjs"),
       })
     ).toBe(true)
   })

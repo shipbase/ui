@@ -1,4 +1,4 @@
-import { type ResolveOptions, findExports, resolvePath } from "mlly"
+import { type ResolveOptions, resolvePath } from "mlly"
 
 type SafeResolvePathResult =
   | {
@@ -12,7 +12,7 @@ type SafeResolvePathResult =
 
 export const safeResolvePath = async (
   id: string,
-  options: ResolveOptions
+  options?: ResolveOptions
 ): Promise<SafeResolvePathResult> => {
   try {
     return {
