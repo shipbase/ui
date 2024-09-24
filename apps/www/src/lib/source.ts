@@ -32,7 +32,7 @@ export const getComponentSource = async (
   const entryFile = await safeReadFile(entryPath.result)
   if (!entryFile.success) return []
 
-  const exports = await findExports(entryFile.result)
+  const exports = findExports(entryFile.result)
   const sources = await Promise.all(
     exports
       .filter((exp) => exp.specifier?.startsWith("./"))
