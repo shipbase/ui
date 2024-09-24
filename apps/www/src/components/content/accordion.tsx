@@ -6,19 +6,18 @@ import {
 } from "@ui/react/accordion"
 
 interface AccordionProps extends React.ComponentProps<typeof Accordion> {
-  [key: `item-trigger-${number}`]: string
-  [key: `item-content-${number}`]: string
+  [key: `trigger-${number}`]: string
+  [key: `content-${number}`]: string
 }
 
 export default function (props: AccordionProps) {
   const items = Object.entries(props).filter(([key]) =>
-    key.startsWith("item-trigger")
+    key.startsWith("trigger")
   )
 
   const rest = Object.fromEntries(
     Object.entries(props).filter(
-      ([key]) =>
-        !key.startsWith("item-trigger") && !key.startsWith("item-content")
+      ([key]) => !key.startsWith("trigger") && !key.startsWith("content")
     )
   )
 
@@ -28,10 +27,10 @@ export default function (props: AccordionProps) {
         return (
           <AccordionItem key={key} value={key}>
             <AccordionItemTrigger>
-              {props[`item-trigger-${index + 1}`]}
+              {props[`trigger-${index + 1}`]}
             </AccordionItemTrigger>
             <AccordionItemContent>
-              {props[`item-content-${index + 1}`]}
+              {props[`content-${index + 1}`]}
             </AccordionItemContent>
           </AccordionItem>
         )

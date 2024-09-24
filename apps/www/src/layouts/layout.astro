@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from "astro:transitions"
+import { ClientRouter } from "astro:transitions"
 
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
@@ -29,7 +29,7 @@ import "@fontsource-variable/inter"
 
     <link rel="sitemap" href="/sitemap.xml" />
 
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body class="min-h-screen bg-background font-sans antialiased">
     <SiteHeader />
