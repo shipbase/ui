@@ -15,19 +15,19 @@
     "gen": "turbo gen"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.0",
+    "@biomejs/biome": "1.9.2",
     "@turbo/gen": "^2.1.2",
-    "@types/node": "^20.16.5",
+    "@types/node": "^20.16.6",
     "dotenv": "^16.4.5",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
     "sherif": "^1.0.0",
     "simple-git-hooks": "^2.11.1",
-    "taze": "^0.16.8",
+    "taze": "^0.16.9",
     "turbo": "^2.1.2",
     "typescript": "^5.6.2"
   },
-  "packageManager": "pnpm@9.10.0",
+  "packageManager": "pnpm@9.11.0",
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
