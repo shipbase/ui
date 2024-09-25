@@ -8,7 +8,8 @@ import { resolvePackageJson } from "./resolve-file"
 export async function prepare() {
   let spinner = ora("Resolving package.json...").start()
   const packageJson = await resolvePackageJson()
-  if (!packageJson) {
+
+  if (!packageJson.success) {
     spinner.fail(red("package.json not found"))
     throw new Error()
   }

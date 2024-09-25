@@ -1,8 +1,8 @@
 import { z } from "zod"
 
-export const ConfigSchema = z
+export const userConfigSchema = z
   .object({
-    $schema: z.string().optional(),
+    // $schema: z.string().optional(),
     library: z.enum(["react", "vue"]),
     style: z.string(),
     // rsc: z.coerce.boolean().default(false),
@@ -21,4 +21,16 @@ export const ConfigSchema = z
   })
   .strict()
 
-export type Config = z.infer<typeof ConfigSchema>
+export type UserConfig = z.infer<typeof userConfigSchema>
+
+export const configSchema = userConfigSchema.extend({
+  resolvedPaths: z.object({
+    cwd: z.string(),
+    tailwindConfig: z.string(),
+    tailwindCss: z.string(),
+    components: z.string(),
+    utils: z.string(),
+  }),
+})
+
+export type Config = z.infer<typeof configSchema>

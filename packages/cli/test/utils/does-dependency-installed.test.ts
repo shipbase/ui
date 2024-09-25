@@ -17,6 +17,12 @@ describe("ensure dependency installed", () => {
 
     expect(
       doesDependencyInstalled("tailwindcss", {
+        cwd: path.resolve(import.meta.dirname, "../fixtures/project-vite"),
+      })
+    ).toBe(true)
+
+    expect(
+      doesDependencyInstalled("tailwindcss", {
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-nextjs"),
       })
     ).toBe(true)
