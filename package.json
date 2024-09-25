@@ -9,7 +9,6 @@
     "test": "turbo run test",
     "build": "turbo run build",
     "check": "biome check",
-    "check:write": "biome check --write",
     "repocheck": "sherif",
     "check-types": "turbo run check-types",
     "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
@@ -34,6 +33,8 @@
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "pnpm check:write"
+    "*": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
   }
 }
