@@ -1,0 +1,35 @@
+---
+import { generateSideItems } from "@/lib/docs"
+import { cn } from "@/lib/utils"
+
+const sidebarGroup = [
+  { title: "Get Started", items: await generateSideItems("overview") },
+  { title: "Components", items: await generateSideItems("components") },
+]
+const pathname = Astro.url.pathname
+---
+
+{
+  sidebarGroup.map((group) => (
+    <div class="pb-4">
+      <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
+        {group.title}
+      </h4>
+      <div class="flex flex-col text-sm">
+        {group.items.map((item) => (
+          <a
+            href={item.href}
+            class={cn(
+              "hover:underline px-2 py-1",
+              pathname === item.href
+                ? "font-medium text-foreground"
+                : "text-muted-foreground"
+            )}
+          >
+            {item.title}
+          </a>
+        ))}
+      </div>
+    </div>
+  ))
+}

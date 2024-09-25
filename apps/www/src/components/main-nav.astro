@@ -22,7 +22,7 @@ const pathname = Astro.url.pathname
       href="/docs"
       class={cn(
         "transition-colors hover:text-foreground/80",
-        pathname?.startsWith("/docs/introduction")
+        pathname?.startsWith("/docs") && !pathname?.startsWith("/docs/components")
           ? "text-foreground"
           : "text-foreground/60"
       )}

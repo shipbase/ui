@@ -1,13 +1,10 @@
 ---
 import { docsConfig } from "@/config/docs"
 import { siteConfig } from "@/config/site"
-import { getDocsSidebarGroup } from "@/lib/docs"
 import { cn } from "@/lib/utils"
-
 import { Icons } from "../icons"
+import Sidebar from "../sidebar.astro"
 import { MobileNavSheet } from "./sheet"
-
-const sidebarGroup = await getDocsSidebarGroup()
 
 const pathname = Astro.url.pathname
 ---
@@ -36,25 +33,7 @@ const pathname = Astro.url.pathname
         }
       </div>
       <div class="flex flex-col space-y-3">
-        {
-          sidebarGroup.map((item) => (
-            <div class="flex flex-col space-y-3 pt-6">
-              <h4 class="font-medium">{item.title}</h4>
-              {item.items.map((subitem) => (
-                <a
-                  href={subitem.href}
-                  class={cn(
-                    pathname === subitem.href
-                      ? "font-medium text-foreground"
-                      : "text-muted-foreground"
-                  )}
-                >
-                  {subitem.title}
-                </a>
-              ))}
-            </div>
-          ))
-        }
+        <Sidebar />
       </div>
     </nav>
   </Fragment>
