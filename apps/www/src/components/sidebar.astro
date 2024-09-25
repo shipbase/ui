@@ -3,7 +3,19 @@ import { generateSideItems } from "@/lib/docs"
 import { cn } from "@/lib/utils"
 
 const sidebarGroup = [
-  { title: "Get Started", items: await generateSideItems("overview") },
+  {
+    title: "Get Started",
+    items: [
+      {
+        title: "Introduction",
+        href: "/docs/introduction",
+      },
+      {
+        title: "Installation",
+        href: "/docs/installation",
+      },
+    ],
+  },
   { title: "Components", items: await generateSideItems("components") },
 ]
 const pathname = Astro.url.pathname
@@ -21,7 +33,7 @@ const pathname = Astro.url.pathname
             href={item.href}
             class={cn(
               "hover:underline px-2 py-1",
-              pathname === item.href
+              pathname.startsWith(item.href)
                 ? "font-medium text-foreground"
                 : "text-muted-foreground"
             )}

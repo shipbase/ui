@@ -27,8 +27,7 @@ export default function rehypeCodeWrapper() {
           ],
           children: node.children,
         }
-        // biome-ignore lint/style/noNonNullAssertion: <explanation>
-        parent!.children.splice(index!, 1, componentElement)
+        if (parent && index) parent.children.splice(index, 1, componentElement)
       }
     })
 

@@ -5,7 +5,7 @@ const overview = defineCollection({
   loader: glob({
     pattern: ["**/*.mdx", "!components"],
     base: "./content",
-    generateId: ({ entry }) => entry.replace(".mdx", ""),
+    generateId: ({ entry }) => entry.replace(/\/index\.mdx$|\.mdx$/, ""),
   }),
   schema: z.object({
     title: z.string(),
@@ -18,7 +18,7 @@ const components = defineCollection({
   loader: glob({
     pattern: ["components/*.mdx"],
     base: "./content",
-    generateId: ({ entry }) => entry.replace(".mdx", ""),
+    generateId: ({ entry }) => entry.replace(/\/index\.mdx$|\.mdx$/, ""),
   }),
   schema: z.object({
     title: z.string(),
