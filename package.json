@@ -6,6 +6,7 @@
   "scripts": {
     "bump": "taze -r -l",
     "dev": "turbo dev",
+    "test": "turbo run test",
     "build": "turbo run build",
     "check": "biome check",
     "check:write": "biome check --write",
