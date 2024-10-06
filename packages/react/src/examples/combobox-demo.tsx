@@ -1,9 +1,6 @@
 import * as React from "react"
 
-import {
-  Combobox as ArkCombobox,
-  type ComboboxInputValueChangeDetails,
-} from "@ark-ui/react"
+import { Combobox as ArkCombobox } from "@ark-ui/react/combobox"
 import { Check, ChevronsUpDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -13,12 +10,14 @@ import {
   ComboboxContent,
   ComboboxControl,
   ComboboxInput,
+  type ComboboxInputValueChangeDetails,
   ComboboxItem,
   ComboboxItemGroup,
   ComboboxItemGroupLabel,
   ComboboxLabel,
   ComboboxPortal,
   ComboboxTrigger,
+  createListCollection,
 } from "@/components/ui/combobox"
 
 const frameworks = [
@@ -47,25 +46,26 @@ const frameworks = [
 
 export default function ComboboxDemo() {
   const [value, setValue] = React.useState<string[]>([])
-  const [items, setItems] = React.useState(frameworks)
-  const handleInputChange = ({
-    inputValue,
-  }: ComboboxInputValueChangeDetails) => {
+  const [collection, setCollection] = React.useState(
+    createListCollection({ items: frameworks })
+  )
+  const handleInputChange = (details: ComboboxInputValueChangeDetails) => {
     const filtered = frameworks.filter((item) =>
-      item.label.toLowerCase().includes(inputValue.toLowerCase())
+      item.label.toLowerCase().includes(details.inputValue.toLowerCase())
     )
-    setItems(filtered.length > 0 ? filtered : frameworks)
+    if (filtered.length > 0)
+      setCollection(createListCollection({ items: filtered }))
   }
 
   const handleOpenChange = () => {
-    setItems(frameworks)
+    setCollection(createListCollection({ items: frameworks }))
   }
 
   return (
     <Combobox
       value={value}
       className="w-64"
-      items={items}
+      collection={collection}
       openOnClick
       onInputValueChange={handleInputChange}
       onOpenChange={handleOpenChange}
@@ -84,7 +84,7 @@ export default function ComboboxDemo() {
         <ComboboxContent>
           <ComboboxItemGroup>
             <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
-            {items.map((item) => (
+            {collection.items.map((item) => (
               <ComboboxItem key={item.value} item={item}>
                 <ArkCombobox.ItemText>{item.label}</ArkCombobox.ItemText>
                 <ArkCombobox.ItemIndicator>

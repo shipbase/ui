@@ -8,35 +8,45 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValueText,
+  createListCollection,
 } from "@/components/ui/select"
+import { useState } from "react"
 
 export default function SelectDemo() {
-  const fruits = [
-    {
-      value: "apple",
-      label: "Apple",
-    },
-    {
-      value: "banana",
-      label: "Banana",
-      disabled: true,
-    },
-    {
-      value: "blueberry",
-      label: "Blueberry",
-    },
-    {
-      value: "grapes",
-      label: "Grapes",
-    },
-    {
-      value: "pineapple",
-      label: "Pineapple",
-    },
-  ]
+  const [fruits] = useState(
+    createListCollection({
+      items: [
+        {
+          value: "apple",
+          label: "Apple",
+        },
+        {
+          value: "banana",
+          label: "Banana",
+          disabled: true,
+        },
+        {
+          value: "blueberry",
+          label: "Blueberry",
+        },
+        {
+          value: "grapes",
+          label: "Grapes",
+        },
+        {
+          value: "pineapple",
+          label: "Pineapple",
+        },
+      ],
+    })
+  )
 
   return (
-    <Select className="w-64" positioning={{ sameWidth: true }} items={fruits}>
+    <Select
+      className="w-64"
+      positioning={{ sameWidth: true }}
+      collection={fruits}
+    >
       <SelectLabel>Framework</SelectLabel>
       <SelectControl>
         <SelectTrigger className="h-full">
@@ -46,7 +56,7 @@ export default function SelectDemo() {
       <SelectContent>
         <SelectItemGroup>
           <SelectItemGroupLabel>Fruits</SelectItemGroupLabel>
-          {fruits.map((fruit) => (
+          {fruits.items.map((fruit) => (
             <SelectItem item={fruit.value} key={fruit.value}>
               {fruit.label}
             </SelectItem>

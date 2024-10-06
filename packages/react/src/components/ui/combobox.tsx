@@ -150,3 +150,9 @@ export type {
   ComboboxOpenChangeDetails,
   ComboboxValueChangeDetails,
 } from "@ark-ui/react/combobox"
+
+export {
+  createListCollection,
+  type CollectionItem,
+  type ListCollection,
+} from "@ark-ui/react/combobox"

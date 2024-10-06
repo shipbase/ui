@@ -11,12 +11,15 @@ import {
   SelectItemGroup,
   SelectTrigger,
   SelectValueText,
+  createListCollection,
 } from "@ui/react/select"
 
-const frameworksItems = frameworks.map((framework) => ({
-  value: framework,
-  label: pascalCase(framework),
-}))
+const frameworksCollection = createListCollection({
+  items: frameworks.map((framework) => ({
+    value: framework,
+    label: pascalCase(framework),
+  })),
+})
 
 export function FrameworkSwitcher() {
   const framework = useStore($framework)
@@ -35,7 +38,7 @@ export function FrameworkSwitcher() {
       }}
       className="w-[160px]"
       positioning={{ sameWidth: true }}
-      items={frameworksItems}
+      collection={frameworksCollection}
     >
       <SelectControl>
         <SelectTrigger className="h-7 text-xs">
@@ -45,7 +48,7 @@ export function FrameworkSwitcher() {
       </SelectControl>
       <SelectContent>
         <SelectItemGroup>
-          {frameworksItems.map((item) => (
+          {frameworksCollection.items.map((item) => (
             <SelectItem className="text-xs" item={item} key={item.value}>
               {item.label}
             </SelectItem>

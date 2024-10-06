@@ -9,6 +9,7 @@ export const generateSideItems = async (name: keyof DataEntryMap) => {
     .filter(
       (entry: DataEntryMap[keyof DataEntryMap]) => entry.data?.sidebar !== false
     )
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
     .map((entry: DataEntryMap[keyof DataEntryMap]) => ({
       title: entry.data?.title,
       href: `/docs/${entry.id}`,
