@@ -19,10 +19,10 @@ const pathname = Astro.url.pathname
   </a>
   <nav class="flex items-center gap-4 text-sm lg:gap-6">
     <a
-      href="/docs"
+      href="/docs/introduction/"
       class={cn(
         "transition-colors hover:text-foreground/80",
-        pathname?.startsWith("/docs/introduction")
+        pathname?.startsWith("/docs") && !pathname?.startsWith("/docs/components")
           ? "text-foreground"
           : "text-foreground/60"
       )}
@@ -30,7 +30,7 @@ const pathname = Astro.url.pathname
       Docs
     </a>
     <a
-      href="/docs/components"
+      href="/docs/components/accordion"
       class={cn(
         "transition-colors hover:text-foreground/80",
         pathname?.startsWith("/docs/components")

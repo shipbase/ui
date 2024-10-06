@@ -1,33 +1,30 @@
 ---
-import { getCollection } from "astro:content"
-import Layout from "@/layouts/layout.astro"
+import { getCollection, render } from "astro:content"
 import type { GetStaticPaths } from "astro"
 import { ChevronRightIcon } from "lucide-react"
 
 import { MDXComponents } from "@/components/content"
 import { TableOfContent } from "@/components/table-of-content"
-import { getCollectionEntrySlug, getDocsSidebarGroup } from "@/lib/docs"
+import Layout from "@/layouts/layout.astro"
+import { generateToC } from "@/lib/toc"
 import { cn } from "@/lib/utils"
 
+import Sidebar from "@/components/sidebar.astro"
 import "@/styles/mdx.css"
 
-import { generateToC } from "@/lib/toc"
-
 export const getStaticPaths = (async () => {
-  const overview = await getCollection("overview")
-  const components = await getCollection("components")
-
-  return [...overview, ...components].map((entry) => ({
-    params: { slug: getCollectionEntrySlug(entry) },
+  const collectionNames = ["overview", "components"] as const
+  const collections = await Promise.all(
+    collectionNames.map((collection) => getCollection(collection))
+  )
+  return collections.flat(1).map((entry) => ({
+    params: { slug: entry.id },
     props: { entry },
   }))
 }) satisfies GetStaticPaths
 
-const sidebarGroup = await getDocsSidebarGroup()
-
-const pathname = Astro.url.pathname
 const { entry } = Astro.props
-const { Content, headings } = await entry.render()
+const { Content, headings } = await render(entry)
 const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
 ---
 
@@ -40,30 +37,7 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
     >
       <div class="relative overflow-y-auto h-full py-6 pr-6 lg:py-8">
         <div class="w-full">
-          {
-            sidebarGroup.map((group) => (
-              <div class="pb-4">
-                <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
-                  {group.title}
-                </h4>
-                <div class="flex flex-col text-sm">
-                  {group.items.map((item) => (
-                    <a
-                      href={item.href}
-                      class={cn(
-                        "hover:underline px-2 py-1",
-                        pathname === item.href
-                          ? "font-medium text-foreground"
-                          : "text-muted-foreground"
-                      )}
-                    >
-                      {item.title}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            ))
-          }
+          <Sidebar />
         </div>
       </div>
     </aside>

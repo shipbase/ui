@@ -21,29 +21,28 @@ import Accordion from "@/components/content/accordion.tsx"
 
 <Accordion multiple client:load>
 
-<Fragment slot="item-trigger-1">
+<Fragment slot="trigger-1">
 Why copy/paste and not packaged as a dependency?
 </Fragment>
-<Fragment slot="item-content-1">
+<Fragment slot="content-1">
 The idea behind this is to give you ownership and control over the code, allowing you to decide how the components are built and styled.
 
 Start with some sensible defaults, then customize the components to your needs.
 
 One of the drawbacks of packaging the components in an npm package is that the style is coupled with the implementation. _The design of your components should be separate from their implementation._
-
 </Fragment>
 
-<Fragment slot="item-trigger-2">
+<Fragment slot="trigger-2">
 Do you plan to publish it as an npm package?
 </Fragment>
-<Fragment slot="item-content-2">
+<Fragment slot="content-2">
 No. I have no plans to publish it as an npm package.
 </Fragment>
 
-<Fragment slot="item-trigger-3">
+<Fragment slot="trigger-3">
 Which JavaScript frameworks are supported?
 </Fragment>
-<Fragment slot="item-content-3">
+<Fragment slot="content-3">
 We embrace a multi-framework approach to cater to diverse developer preferences:
 
 - **React ecosystem**: Fully supported, including popular meta-frameworks like [Next.js](https://ui.shadcn.com/docs/installation/next), [Astro](https://ui.shadcn.com/docs/installation/astro), and [Remix](https://ui.shadcn.com/docs/installation/remix).
@@ -51,13 +50,12 @@ We embrace a multi-framework approach to cater to diverse developer preferences:
 - **Solid**: Currently in active development. Stay tuned for updates!
 
 Our goal is to provide flexibility and choice, allowing you to use your preferred tools while benefiting from our component collection.
-
 </Fragment>
 
-<Fragment slot="item-trigger-4">
+<Fragment slot="trigger-4">
 Can I use this in my project?
 </Fragment>
-<Fragment slot="item-content-4">
+<Fragment slot="content-4">
 Yes. Free to use for personal and commercial projects. No attribution required.
 
 But hey, let me know if you do. I'd love to see what you build.
