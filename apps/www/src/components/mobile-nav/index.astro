@@ -1,7 +1,5 @@
 ---
-import { docsConfig } from "@/config/docs"
 import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
 import { Icons } from "../icons"
 import Sidebar from "../sidebar.astro"
 import { MobileNavSheet } from "./sheet"
@@ -16,22 +14,6 @@ const pathname = Astro.url.pathname
       <span class="font-bold">{siteConfig.name}</span>
     </a>
     <nav class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6 overflow-y-auto">
-      <div class="flex flex-col space-y-3">
-        {
-          docsConfig.mainNav?.map((item) => (
-            <a
-              href={item.href}
-              class={cn(
-                pathname === item.href
-                  ? "font-medium text-foreground"
-                  : "text-muted-foreground"
-              )}
-            >
-              {item.title}
-            </a>
-          ))
-        }
-      </div>
       <div class="flex flex-col space-y-3">
         <Sidebar />
       </div>

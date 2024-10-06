@@ -4,6 +4,7 @@ import { fontFamily } from "tailwindcss/defaultTheme"
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
+  safelist: ["sm:grid-cols-2", "sm:gap-6"],
   content: [
     "node_modules/@ui/react/dist/**/*.js",
     "node_modules/@ui/vue/dist/**/*.js",
