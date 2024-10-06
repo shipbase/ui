@@ -1,6 +1,7 @@
 ---
 import { frameworks } from "@/atoms/framework"
 import { getComponentSource } from "@/lib/source"
+
 import CodeWrapper from "./code-wrapper/index.astro"
 
 export interface Props {
@@ -16,10 +17,13 @@ const frameworkSources = await Promise.all(
 {
   frameworks.map((framework, index) => (
     <div data-framework={framework}>
-      {frameworkSources[index]?.length ? (
-        frameworkSources[index]?.map((src) => (
+      {frameworkSources?.[index]?.length ? (
+        frameworkSources?.[index]?.map((src) => (
           <div data-framework={framework}>
-            <p class="mb-2">{src.filename}</p>
+            {typeof frameworkSources?.[index]?.length === "number" &&
+            frameworkSources?.[index]?.length > 1 ? (
+              <p class="mb-2">{src.filename}</p>
+            ) : null}
             <CodeWrapper
               className="mt-0"
               lang={src.lang}
