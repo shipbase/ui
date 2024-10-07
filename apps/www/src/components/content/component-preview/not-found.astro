@@ -1,13 +1,16 @@
 ---
 interface Props {
   component: string
+  [key: string]: unknown
 }
 
-const { component } = Astro.props
+const { component, ...props } = Astro.props
 ---
 
-<p class="text-muted-foreground text-sm">
+<p class="text-sm text-muted-foreground" {...props}>
   Component
-  <code class="relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">{component}</code>
+  <code class="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm"
+    >{component}</code
+  >
   not found in registry.
 </p>

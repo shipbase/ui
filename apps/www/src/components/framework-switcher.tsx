@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react"
 import { useEffect, useState } from "react"
 import { pascalCase } from "scule"
 
-import { $framework, type Framework, frameworks } from "@/atoms/framework"
+import { $framework, type Framework, frameworks } from "@/store/atoms/framework"
 import {
   Select,
   SelectContent,
@@ -36,13 +36,12 @@ export function FrameworkSwitcher() {
       onValueChange={(d) => {
         $framework.set(d.value[0] as Framework)
       }}
-      className="w-[160px]"
-      positioning={{ sameWidth: true }}
+      className="w-[80px]"
+      positioning={{ sameWidth: true, slide: true }}
       collection={frameworksCollection}
     >
       <SelectControl>
-        <SelectTrigger className="h-7 text-xs">
-          <span className="text-muted-foreground">Framework: </span>
+        <SelectTrigger className="h-7 border-none text-xs">
           <SelectValueText />
         </SelectTrigger>
       </SelectControl>

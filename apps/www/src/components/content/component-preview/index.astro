@@ -1,75 +1,54 @@
 ---
-import { CopyButton } from "@/components/copy-button"
 import { getExampleSource } from "@/lib/source"
-
-import { frameworks } from "@/atoms/framework"
+import { $framework, frameworks } from "@/store/atoms/framework"
 import CodeWrapper from "../code-wrapper/index.astro"
-import { FrameworkSwitcher } from "./framework-switcher"
-import NotFound from "./not-found.astro"
 import Preview from "./preview"
 import PreviewVue from "./preview.vue"
 import Tabs from "./tabs"
+import Wrapper from "./wrapper.astro"
 
-interface Props {
+export interface Props {
   name: string
 }
 const { name } = Astro.props
 
-const frameworkSources = await Promise.all(
-  frameworks.map(async (framework) => {
-    return await getExampleSource(framework, name)
-  })
+const sources = await Promise.all(
+  frameworks.map((framework) => getExampleSource(framework, name))
 )
 ---
 
-<div class="group relative my-4 flex flex-col space-y-2">
+<div class="relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]">
   <Tabs client:visible>
     <Fragment slot="preview">
-      <div class="relative rounded-md border">
-        <div class="flex items-center justify-between p-4">
-          <FrameworkSwitcher client:load />
-          {
-            frameworks.map((framework, index) => (
-              <CopyButton
-                client:load
-                value={frameworkSources[index]?.source}
-                variant="outline"
-                className="h-7 w-7 text-foreground opacity-100 hover:bg-muted hover:text-foreground [&_svg]:h-3.5 [&_svg]:w-3.5"
-                data-framework={framework}
-              />
-            ))
-          }
-        </div>
-        {
-          frameworks.map((framework, index) => (
-            <div
-              class="preview flex min-h-[350px] w-full items-center justify-center p-10"
-              data-framework={framework}
-              hidden={framework !== "react"}
-            >
-              {frameworkSources[index] ? (
-                framework === "react" ? (
-                  <Preview client:visible name={name} />
-                ) : (
-                  <PreviewVue client:visible name={name} />
-                )
-              ) : (
-                <NotFound component={name} />
-              )}
-            </div>
-          ))
-        }
-      </div>
+      {
+        frameworks.map((framework, index) => (
+          <Wrapper
+            component={name}
+            source={sources[index]}
+            data-framework={framework}
+            hidden={$framework.value !== framework}
+          >
+            {framework === "react" ? (
+              <Preview client:visible name={name} hidden={!sources[index]} />
+            ) : framework === "vue" ? (
+              <PreviewVue client:visible name={name} hidden={!sources[index]} />
+            ) : null}
+          </Wrapper>
+        ))
+      }
     </Fragment>
     <Fragment slot="code">
       {
         frameworks.map((framework, index) => (
-          <CodeWrapper
+          <div
             data-framework={framework}
-            lang={frameworkSources[index]?.lang}
-            src={frameworkSources[index]?.source}
-            hidden={framework !== "react"}
-          />
+            hidden={$framework.value !== framework}
+          >
+            <CodeWrapper
+              lang={sources[index]?.lang}
+              src={sources[index]?.source}
+            />
+          </div>
         ))
       }
     </Fragment>
