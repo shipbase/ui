@@ -19,9 +19,9 @@
     "@ui/tsconfig": "workspace:*"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^0.0.41",
-    "@ai-sdk/openai": "^0.0.46",
+    "@ai-sdk/anthropic": "^0.0.51",
+    "@ai-sdk/openai": "^0.0.66",
     "ai": "catalog:",
-    "mlly": "^1.7.1"
+    "mlly": "^1.7.2"
   }
 }

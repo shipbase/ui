@@ -183,7 +183,7 @@
   },
   "devDependencies": {
     "@ark-ui/react": "catalog:",
-    "@chromatic-com/storybook": "^1.9.0",
+    "@chromatic-com/storybook": "^2.0.2",
     "@storybook/addon-essentials": "^8.3.5",
     "@storybook/addon-interactions": "^8.3.5",
     "@storybook/addon-links": "^8.3.5",
@@ -200,7 +200,7 @@
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "globby": "^14.0.2",
-    "lucide-react": "^0.424.0",
+    "lucide-react": "^0.451.0",
     "prop-types": "^15.8.1",
     "react": "catalog:",
     "react-dom": "catalog:",
@@ -209,6 +209,6 @@
     "tailwind": "^4.0.0",
     "tailwind-merge": "catalog:",
     "vite": "catalog:",
-    "vite-tsconfig-paths": "^4.3.2"
+    "vite-tsconfig-paths": "^5.0.1"
   }
 }
