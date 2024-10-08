@@ -1,3 +1,5 @@
+import type * as React from "react"
+
 import {
   Tabs,
   TabsContent,
@@ -11,7 +13,7 @@ interface Props {
   code?: React.ReactNode
 }
 
-export default function ({ preview, code }: Props) {
+export default function ComponentPreviewTabs({ preview, code }: Props) {
   return (
     <Tabs defaultValue="preview" className="w-full">
       <TabsList className=" flex h-8 justify-start rounded-none border-b bg-transparent p-0">
@@ -29,10 +31,10 @@ export default function ({ preview, code }: Props) {
         </TabsTrigger>
         <TabsIndicator className="bottom-[-1px] h-[2px] rounded-none bg-primary" />
       </TabsList>
-      <TabsContent value="preview" className="[&>astro-slot>div]:mt-6">
+      <TabsContent value="preview" className="mt-4">
         {preview}
       </TabsContent>
-      <TabsContent value="code" className="[&>astro-slot>div]:mt-6">
+      <TabsContent value="code" className="mt-4">
         {code}
       </TabsContent>
     </Tabs>

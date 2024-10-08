@@ -25,7 +25,7 @@ export default function CodeWrapper({
   return (
     <div
       className={cn(
-        "code-wrapper relative mt-6 mb-4 [&_pre]:py-4",
+        "code-wrapper relative mt-4 mb-4 [&_pre]:py-4",
         collapsible && !open && "max-h-32 overflow-hidden",
         collapsible && open && "[&_pre]:pb-12",
         className

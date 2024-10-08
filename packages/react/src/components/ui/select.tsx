@@ -140,3 +140,9 @@ export type {
   SelectOpenChangeDetails,
   SelectValueChangeDetails,
 } from "@ark-ui/react/select"
+
+export {
+  createListCollection,
+  type CollectionItem,
+  type ListCollection,
+} from "@ark-ui/react/combobox"

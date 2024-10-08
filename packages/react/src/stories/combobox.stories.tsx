@@ -20,6 +20,7 @@ import {
   ComboboxList,
   ComboboxPortal,
   ComboboxTrigger,
+  createListCollection,
 } from "@/components/ui/combobox"
 
 export default {
@@ -27,8 +28,9 @@ export default {
 } satisfies Meta
 
 export function Usage() {
+  const collection = createListCollection({ items: ["React", "Vue"] })
   return (
-    <Combobox items={["React", "Vue"]}>
+    <Combobox collection={collection}>
       <ComboboxLabel>Framework</ComboboxLabel>
       <ComboboxControl>
         <ComboboxInput placeholder="Select a framework" />
@@ -42,7 +44,7 @@ export function Usage() {
           <ComboboxList>
             <ComboboxItemGroup>
               <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
-              {["React", "Vue"].map((item) => (
+              {collection.items.map((item) => (
                 <ComboboxItem key={item} item={item}>
                   <ComboboxItemText>{item}</ComboboxItemText>
                   <ComboboxItemIndicator>
@@ -58,50 +60,58 @@ export function Usage() {
   )
 }
 
+const frameworks = [
+  {
+    value: "next.js",
+    label: "Next.js",
+  },
+  {
+    value: "sveltekit",
+    label: "SvelteKit",
+    disabled: true,
+  },
+  {
+    value: "nuxt.js",
+    label: "Nuxt.js",
+  },
+  {
+    value: "remix",
+    label: "Remix",
+  },
+  {
+    value: "astro",
+    label: "Astro",
+  },
+]
+
 export function ComboboxDemo() {
-  const frameworks = [
-    {
-      value: "next.js",
-      label: "Next.js",
-    },
-    {
-      value: "sveltekit",
-      label: "SvelteKit",
-      disabled: true,
-    },
-    {
-      value: "nuxt.js",
-      label: "Nuxt.js",
-    },
-    {
-      value: "remix",
-      label: "Remix",
-    },
-    {
-      value: "astro",
-      label: "Astro",
-    },
-  ]
-  const [items, setItems] = useState(frameworks)
-  const handleInputChange = ({
-    inputValue,
-  }: ComboboxInputValueChangeDetails) => {
+  const [value, setValue] = useState<string[]>([])
+  const [collection, setCollection] = useState(
+    createListCollection({ items: frameworks })
+  )
+  const handleInputChange = (details: ComboboxInputValueChangeDetails) => {
     const filtered = frameworks.filter((item) =>
-      item.label.toLowerCase().includes(inputValue.toLowerCase())
+      item.label.toLowerCase().includes(details.inputValue.toLowerCase())
     )
-    setItems(filtered.length > 0 ? filtered : frameworks)
+    if (filtered.length > 0)
+      setCollection(createListCollection({ items: filtered }))
   }
 
   const handleOpenChange = () => {
-    setItems(frameworks)
+    setCollection(createListCollection({ items: frameworks }))
   }
 
   return (
     <Combobox
+      value={value}
       className="w-64"
-      items={items}
+      collection={collection}
+      openOnClick
       onInputValueChange={handleInputChange}
       onOpenChange={handleOpenChange}
+      onValueChange={(details) => {
+        setValue(details.value[0] === value[0] ? [] : details.value)
+      }}
     >
       <ComboboxLabel>Framework</ComboboxLabel>
       <ComboboxControl className="relative">
@@ -112,19 +122,17 @@ export function ComboboxDemo() {
       </ComboboxControl>
       <ComboboxPortal>
         <ComboboxContent>
-          <ComboboxList>
-            <ComboboxItemGroup>
-              <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
-              {items.map((item) => (
-                <ComboboxItem key={item.value} item={item}>
-                  <ComboboxItemText>{item.label}</ComboboxItemText>
-                  <ComboboxItemIndicator>
-                    <Check className={cn("ml-2 h-4 w-4")} />
-                  </ComboboxItemIndicator>
-                </ComboboxItem>
-              ))}
-            </ComboboxItemGroup>
-          </ComboboxList>
+          <ComboboxItemGroup>
+            <ComboboxItemGroupLabel>Frameworks</ComboboxItemGroupLabel>
+            {collection.items.map((item) => (
+              <ComboboxItem key={item.value} item={item}>
+                <ComboboxItemText>{item.label}</ComboboxItemText>
+                <ComboboxItemIndicator>
+                  <Check className={cn("ml-2 h-4 w-4")} />
+                </ComboboxItemIndicator>
+              </ComboboxItem>
+            ))}
+          </ComboboxItemGroup>
         </ComboboxContent>
       </ComboboxPortal>
     </Combobox>

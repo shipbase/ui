@@ -64,9 +64,9 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
             )
           }
         </div>
-        <div class="pt-8 pb-12" id="content-container">
+        <article class="pt-8 pb-12" id="content-container">
           <Content components={MDXComponents} />
-        </div>
+        </article>
       </div>
       <div class="hidden text-sm xl:block">
         <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
@@ -78,7 +78,7 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
 </Layout>
 
 <script>
-  import { $framework } from "@/atoms/framework";
+  import { $framework } from "@/store/atoms/framework";
 
   let unsubscribe: () => void;
 

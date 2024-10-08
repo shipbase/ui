@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react"
 import { useEffect, useState } from "react"
 import { pascalCase } from "scule"
 
-import { $framework, type Framework, frameworks } from "@/atoms/framework"
+import { $framework, type Framework, frameworks } from "@/store/atoms/framework"
 import {
   Select,
   SelectContent,
@@ -11,12 +11,15 @@ import {
   SelectItemGroup,
   SelectTrigger,
   SelectValueText,
+  createListCollection,
 } from "@ui/react/select"
 
-const frameworksItems = frameworks.map((framework) => ({
-  value: framework,
-  label: pascalCase(framework),
-}))
+const frameworksCollection = createListCollection({
+  items: frameworks.map((framework) => ({
+    value: framework,
+    label: pascalCase(framework),
+  })),
+})
 
 export function FrameworkSwitcher() {
   const framework = useStore($framework)
@@ -33,19 +36,18 @@ export function FrameworkSwitcher() {
       onValueChange={(d) => {
         $framework.set(d.value[0] as Framework)
       }}
-      className="w-[160px]"
-      positioning={{ sameWidth: true }}
-      items={frameworksItems}
+      className="w-[80px]"
+      positioning={{ sameWidth: true, slide: true }}
+      collection={frameworksCollection}
     >
       <SelectControl>
-        <SelectTrigger className="h-7 text-xs">
-          <span className="text-muted-foreground">Framework: </span>
+        <SelectTrigger className="h-7 border-none text-xs">
           <SelectValueText />
         </SelectTrigger>
       </SelectControl>
       <SelectContent>
         <SelectItemGroup>
-          {frameworksItems.map((item) => (
+          {frameworksCollection.items.map((item) => (
             <SelectItem className="text-xs" item={item} key={item.value}>
               {item.label}
             </SelectItem>
