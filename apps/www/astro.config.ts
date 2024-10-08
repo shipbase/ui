@@ -33,6 +33,7 @@ export default defineConfig({
     tailwind(),
   ],
   vite: {
+    // @ts-ignore FIXME when inspect vite@6
     plugins: [Inspect()],
     build: {
       dynamicImportVarsOptions: {
