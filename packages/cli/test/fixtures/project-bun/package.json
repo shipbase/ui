@@ -1,0 +1,6 @@
+{
+  "name": "test-cli-project-bun",
+  "dependencies": {
+    "@types/node": "20"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "test-cli-project-vite",
+  "devDependencies": {
+    "tailwindcss": "^3.4.13"
+  }
+}

@@ -1,6 +1,7 @@
 packages:
-  - apps/*
-  - packages/*
+  - "apps/*"
+  - "packages/*"
+  - "!**/test/fixtures/**"
 catalog:
   '@ark-ui/react': ^4.1.0
   '@ark-ui/vue': ^4.1.0
