@@ -1,15 +1,15 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
+  "$schema": "http://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
     // Enable latest features
-    "lib": ["ESNext"],
-    "target": "ESNext",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "target": "ES2022",
     "module": "ESNext",
 
     // Bundler mode
     "noEmit": true,
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "verbatimModuleSyntax": true,
 

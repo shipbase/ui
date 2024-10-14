@@ -16,14 +16,14 @@
     }
   },
   "devDependencies": {
-    "@ui/tsconfig": "workspace:*"
+    "@ui/typescript": "workspace:*"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.51",
     "@ai-sdk/openai": "^0.0.66",
+    "@ui/typescript": "workspace:*",
     "ai": "catalog:",
-    "mlly": "^1.7.2",
-    "@ui/tsconfig": "workspace:*"
+    "mlly": "^1.7.2"
   },
   "peerDependencies": {
     "mlly": "^1.7.2"
