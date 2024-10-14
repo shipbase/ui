@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "check-types": "astro check"
+    "check:type": "astro check"
   },
   "dependencies": {
     "@ark-ui/react": "catalog:",
@@ -53,8 +53,7 @@
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
     "unist-util-visit": "^5.0.0",
-    "vite": "catalog:",
-    "vite-plugin-inspect": "^0.8.7",
+    "vite-plugin-inspect": "0.10.0-alpha.4",
     "vue": "catalog:"
   }
 }

@@ -23,7 +23,7 @@ jobs:
 
   types:
     runs-on: ubuntu-latest
-    name: pnpm check-types
+    name: pnpm check:type
     steps:
       - uses: actions/checkout@v4
 
@@ -50,4 +50,4 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - run: pnpm check-types
+      - run: pnpm check:type

@@ -42,7 +42,7 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
-    "check-types": "vue-tsc",
+    "check:type": "vue-tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -59,7 +59,7 @@
     "@storybook/vue3": "^8.3.5",
     "@storybook/vue3-vite": "^8.3.5",
     "@ui/lib": "workspace:*",
-    "@ui/tsconfig": "workspace:*",
+    "@ui/typescript": "workspace:*",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitejs/plugin-vue-jsx": "^4.0.1",
     "ai": "catalog:",

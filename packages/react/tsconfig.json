@@ -1,6 +1,6 @@
 {
-  "$schema": "https://json.schemastore.org/tsconfig",
-  "extends": "@ui/tsconfig/tsconfig.react.json",
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "extends": "@ui/typescript/tsconfig.react.json",
   "compilerOptions": {
     "rootDir": "src",
     "outDir": "dist",

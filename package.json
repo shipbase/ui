@@ -6,13 +6,13 @@
   "scripts": {
     "bump": "taze -r -l",
     "dev": "turbo dev",
-    "test": "turbo run test",
-    "build": "turbo run build",
+    "test": "turbo test",
+    "build": "turbo build",
     "check": "biome check",
-    "repocheck": "sherif",
-    "check-types": "turbo run check-types",
-    "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
-    "gen": "turbo gen"
+    "check:repo": "sherif",
+    "check:repo:fix": "sherif --fix",
+    "check:type": "turbo check:type",
+    "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",
@@ -21,7 +21,7 @@
     "dotenv": "^16.4.5",
     "lint-staged": "^15.2.10",
     "rimraf": "^6.0.1",
-    "sherif": "^1.0.0",
+    "sherif": "latest",
     "simple-git-hooks": "^2.11.1",
     "taze": "^0.17.2",
     "turbo": "^2.1.3",
