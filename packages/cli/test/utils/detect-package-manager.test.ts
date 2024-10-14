@@ -1,5 +1,5 @@
 import path from "node:path"
-import { detectPackageManager, ensureDependencyInstalled } from "nypm"
+import { detectPackageManager } from "nypm"
 
 test("detect package manager", async () => {
   expect(

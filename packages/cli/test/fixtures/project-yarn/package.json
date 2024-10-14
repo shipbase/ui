@@ -1,3 +1,4 @@
 {
-  "name": "test-cli-project-yarn"
+  "name": "test-cli-project-yarn",
+  "packageManager": "yarn@1.22.19"
 }
