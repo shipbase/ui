@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "@ui/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "isolatedModules": true,
+    "noEmit": false,
+    "baseUrl": ".",
+    "outDir": "./dist",
+    "types": ["vitest/globals"]
+  },
+  "include": ["src", "test"],
+  "exclude": ["node_modules", "dist", "test/fixtures"]
+}

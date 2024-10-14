@@ -6,9 +6,9 @@
   "scripts": {
     "bump": "taze -r -l",
     "dev": "turbo dev",
+    "test": "turbo run test",
     "build": "turbo run build",
     "check": "biome check",
-    "check:write": "biome check --write",
     "repocheck": "sherif",
     "check-types": "turbo run check-types",
     "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
@@ -25,13 +25,16 @@
     "simple-git-hooks": "^2.11.1",
     "taze": "^0.17.2",
     "turbo": "^2.1.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vite": "^5.4.3"
   },
   "packageManager": "pnpm@9.12.1",
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "pnpm check:write"
+    "*": [
+      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+    ]
   }
 }
