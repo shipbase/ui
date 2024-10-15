@@ -21,7 +21,6 @@
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.51",
     "@ai-sdk/openai": "^0.0.66",
-    "@ui/typescript": "workspace:*",
     "ai": "catalog:",
     "mlly": "^1.7.2"
   },
