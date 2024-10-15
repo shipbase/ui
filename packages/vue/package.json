@@ -67,7 +67,7 @@
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "globby": "^14.0.2",
-    "lucide-vue-next": "^0.451.0",
+    "lucide-vue-next": "^0.453.0",
     "storybook": "^8.3.5",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
