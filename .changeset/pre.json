@@ -1,9 +1,0 @@
-{
-  "mode": "pre",
-  "tag": "beta",
-  "initialVersions": {
-    "www": "0.0.0",
-    "shipbase-ui": "0.0.0"
-  },
-  "changesets": []
-}
