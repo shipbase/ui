@@ -18,8 +18,7 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run check
-      - run: pnpm dlx turbo run check:type test --filter=shipbase-ui
+      - run: pnpm run check test check:type --parallel
       - run: pnpm build --filter=shipbase-ui
 
       - name: Publish to NPM
