@@ -39,6 +39,6 @@ test("detect package manager", async () => {
   ).toMatchObject({
     name: "bun",
     command: "bun",
-    lockFile: "bun.lockb",
+    lockFile: ["bun.lockb", "bun.lock"],
   })
 })
