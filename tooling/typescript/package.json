@@ -1,5 +1,6 @@
 {
   "name": "@ui/typescript",
+  "version": "0.0.0",
   "private": true,
   "dependencies": {
     "@vue/tsconfig": "^0.5.1"
