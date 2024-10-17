@@ -13,18 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-
-      - run: biome ci --diagnostic-level=warn
-
-  other:
-    name: Test & TypeCheck
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
       - name: Enable corepack
         run: corepack enable
         shell: bash
@@ -36,4 +24,5 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm run test check:type --parallel
+      - run: pnpm run check
+      - run: pnpm dlx turbo test check:type
