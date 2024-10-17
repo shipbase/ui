@@ -11,10 +11,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Node.js
+      - name: Enable corepack
+        run: corepack enable
+        shell: bash
+
+      - name: Setup Node & Pnpm
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: lts/*
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
