@@ -1,6 +1,6 @@
 {
   "name": "shipbase-ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "Add components to your apps.",
   "exports": "./dist/index.js",
@@ -15,8 +15,16 @@
   },
   "author": "@shipbase",
   "license": "MIT",
-  "files": ["dist"],
-  "keywords": ["shipbase", "components", "ui", "tailwind", "ark-ui"],
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "shipbase",
+    "components",
+    "ui",
+    "tailwind",
+    "ark-ui"
+  ],
   "scripts": {
     "dev": "tsup --watch",
     "test": "vitest",
