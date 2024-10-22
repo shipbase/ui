@@ -5,7 +5,7 @@ import * as React from "react"
 import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 
-import { buttonVariants } from "@/components/ui/button"
+import { type ButtonProps, buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 const PaginationContext = PaginationPrimitive.Context
@@ -16,7 +16,7 @@ const Pagination = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Root
     className={cn(
-      "mx-auto flex w-full items-center justify-center gap-1",
+      "mx-auto flex w-full flex-row items-center justify-center gap-1",
       className
     )}
     {...props}
@@ -29,29 +29,32 @@ const PaginationItem = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof PaginationPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <PaginationPrimitive.Item
-    className={cn(
-      buttonVariants({
-        variant: "ghost",
-        size: "icon",
-      }),
-      "data-[selected]:border data-[selected]:border-input data-[selected]:bg-background hover:data-[selected]:bg-accent data-[selected]:hover:text-accent-foreground"
+  <PaginationContext>
+    {(context) => (
+      <PaginationPrimitive.Item
+        className={cn(
+          buttonVariants({
+            variant: context.page === props.value ? "outline" : "ghost",
+            size: "icon",
+          }),
+          className
+        )}
+        {...props}
+        ref={ref}
+      />
     )}
-    {...props}
-    ref={ref}
-  />
+  </PaginationContext>
 ))
+PaginationItem.displayName = PaginationPrimitive.Item.displayName
 
 const PaginationPrevTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.PrevTrigger>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.PrevTrigger>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.PrevTrigger> &
+    Pick<ButtonProps, "size">
+>(({ className, size = "default", ...props }, ref) => (
   <PaginationPrimitive.PrevTrigger
     className={cn(
-      buttonVariants({
-        variant: "ghost",
-        size: "default",
-      }),
+      buttonVariants({ variant: "ghost", size }),
       "gap-1 pl-2.5",
       className
     )}
@@ -62,17 +65,16 @@ const PaginationPrevTrigger = React.forwardRef<
     <span>Previous</span>
   </PaginationPrimitive.PrevTrigger>
 ))
+PaginationPrevTrigger.displayName = PaginationPrimitive.PrevTrigger.displayName
 
 const PaginationNextTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.NextTrigger>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.NextTrigger>
->(({ className, ...props }, ref) => (
+  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.NextTrigger> &
+    Pick<ButtonProps, "size">
+>(({ className, size = "default", ...props }, ref) => (
   <PaginationPrimitive.NextTrigger
     className={cn(
-      buttonVariants({
-        variant: "ghost",
-        size: "default",
-      }),
+      buttonVariants({ variant: "ghost", size }),
       "gap-1 pr-2.5",
       className
     )}
@@ -83,27 +85,23 @@ const PaginationNextTrigger = React.forwardRef<
     <ChevronRight className="h-4 w-4" />
   </PaginationPrimitive.NextTrigger>
 ))
+PaginationNextTrigger.displayName = PaginationPrimitive.NextTrigger.displayName
 
 const PaginationEllipsis = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Ellipsis>,
   React.ComponentPropsWithoutRef<typeof PaginationPrimitive.Ellipsis>
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Ellipsis
-    className={cn(
-      buttonVariants({
-        variant: "ghost",
-        size: "icon",
-      })
-    )}
+    aria-hidden
+    className={cn("flex h-9 w-9 items-center justify-center", className)}
     {...props}
     ref={ref}
   >
-    <span aria-hidden className="flex h-9 w-9 items-center justify-center">
-      <MoreHorizontal className="h-4 w-4" />
-      <span className="sr-only">More pages</span>
-    </span>
+    <MoreHorizontal className="h-4 w-4" />
+    <span className="sr-only">More pages</span>
   </PaginationPrimitive.Ellipsis>
 ))
+PaginationEllipsis.displayName = PaginationPrimitive.Ellipsis.displayName
 
 export {
   Pagination,
