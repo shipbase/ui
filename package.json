@@ -8,11 +8,14 @@
     "dev": "turbo dev",
     "test": "turbo test",
     "build": "turbo build",
-    "check": "biome check",
+    "format": "biome check --linter-enabled=false --write",
+    "lint": "biome lint",
+    "lint:fix": "biome lint --write --unsafe",
     "check:repo": "sherif",
     "check:repo:fix": "sherif --fix",
     "check:type": "turbo check:type",
-    "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro"
+    "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
+    "version": "changeset version && pnpm run format"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.3",

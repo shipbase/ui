@@ -15,7 +15,7 @@ export default function PaginationDemo() {
         {(context) =>
           context.pages.map((page, index) =>
             page.type === "page" ? (
-              <PaginationItem key={page.value} {...page}>
+              <PaginationItem key={index} {...page}>
                 {page.value}
               </PaginationItem>
             ) : (
