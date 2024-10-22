@@ -15,16 +15,8 @@
   },
   "author": "@shipbase",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "shipbase",
-    "components",
-    "ui",
-    "tailwind",
-    "ark-ui"
-  ],
+  "files": ["dist"],
+  "keywords": ["shipbase", "components", "ui", "tailwind", "ark-ui"],
   "scripts": {
     "dev": "tsup --watch",
     "test": "vitest",
