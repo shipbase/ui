@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^0.0.51",
-    "@ai-sdk/openai": "^0.0.67",
+    "@ai-sdk/openai": "^0.0.68",
     "ai": "catalog:",
     "mlly": "^1.7.2"
   },
