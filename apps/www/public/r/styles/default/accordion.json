@@ -1,0 +1,43 @@
+{
+  "name": "accordion",
+  "type": "registry:ui",
+  "dependencies": [],
+  "files": [
+    {
+      "path": "ui/accordion.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Accordion as AccordionPrimitive } from \"@ark-ui/react/accordion\"\nimport { ChevronDown } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Accordion = AccordionPrimitive.Root\n\nconst AccordionRootProvider = AccordionPrimitive.RootProvider\n\nconst AccordionContext = AccordionPrimitive.Context\n\nconst AccordionItemContext = AccordionPrimitive.ItemContext\n\nconst AccordionItem = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.Item>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>\n>(({ className, ...props }, ref) => (\n  <AccordionPrimitive.Item\n    ref={ref}\n    className={cn(\"border-b\", className)}\n    {...props}\n  />\n))\nAccordionItem.displayName = \"AccordionItem\"\n\nconst AccordionItemTrigger = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.ItemTrigger>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.ItemTrigger>\n>(({ className, children, ...props }, ref) => (\n  <AccordionPrimitive.ItemTrigger\n    ref={ref}\n    className={cn(\n      \"flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline data[-state=open]:rotate-180\",\n      className\n    )}\n    {...props}\n  >\n    {children}\n    <AccordionPrimitive.ItemIndicator>\n      <ChevronDown className=\"h-4 w-4 shrink-0 transition-transform duration-200\" />\n    </AccordionPrimitive.ItemIndicator>\n  </AccordionPrimitive.ItemTrigger>\n))\n\nconst AccordionItemContent = React.forwardRef<\n  React.ElementRef<typeof AccordionPrimitive.ItemContent>,\n  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.ItemContent>\n>(({ className, children, ...props }, ref) => (\n  <AccordionPrimitive.ItemContent\n    ref={ref}\n    className=\"overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down\"\n    {...props}\n  >\n    <div className={cn(\"pt-0 pb-4\", className)}>{children}</div>\n  </AccordionPrimitive.ItemContent>\n))\n\nexport {\n  Accordion,\n  AccordionContext,\n  AccordionItem,\n  AccordionItemContent,\n  AccordionItemContext,\n  AccordionItemTrigger,\n  AccordionRootProvider,\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ],
+  "tailwind": {
+    "config": {
+      "theme": {
+        "extend": {
+          "keyframes": {
+            "collapse-down": {
+              "from": {
+                "height": "0"
+              },
+              "to": {
+                "height": "var(--height)"
+              }
+            },
+            "collapse-up": {
+              "from": {
+                "height": "var(--height)"
+              },
+              "to": {
+                "height": "0"
+              }
+            }
+          },
+          "animation": {
+            "accordion-down": "collapse-down 0.2s ease-out",
+            "accordion-up": "collapse-up 0.2s ease-out"
+          }
+        }
+      }
+    }
+  }
+}
