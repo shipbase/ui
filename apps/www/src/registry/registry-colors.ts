@@ -1,4 +1,21 @@
-export const colors = {
+export interface Color {
+  hex: string
+  rgb: string
+  hsl: string
+}
+
+export interface ColorWithChannel extends Color {
+  rgbChannel: string
+  hslChannel: string
+}
+
+export interface ScaleColor extends Color {
+  scale: number
+}
+
+export type ColorsMap = Record<string, string | Color | ScaleColor[]>
+
+export const colors: ColorsMap = {
   inherit: "inherit",
   current: "currentColor",
   transparent: "transparent",

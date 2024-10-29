@@ -1,14 +1,19 @@
-import { promises as fs } from "node:fs"
+import fs from "node:fs/promises"
 import path from "node:path"
+import template from "lodash-es/template"
 // import { tmpdir } from "node:os"
 import { resolvePath } from "mlly"
-// import template from "lodash-es/template"
 import { rimraf } from "rimraf"
 // import { Project, ScriptKind, SyntaxKind } from "ts-morph"
 import type { z } from "zod"
 import { registry } from "../src/registry"
-// import { baseColors } from "../src/registry/registry-base-colors"
-// import { colorMapping, colors } from "../src/registry/registry-colors"
+import { baseColors } from "../src/registry/registry-base-colors"
+import {
+  type ColorWithChannel,
+  type ScaleColor,
+  colorMapping,
+  colors,
+} from "../src/registry/registry-colors"
 import { styles } from "../src/registry/registry-styles"
 import {
   type Registry,
@@ -147,52 +152,50 @@ async function buildStylesIndex() {
   )
 }
 
-// ----------------------------------------------------------------------------
-// Build registry/colors/index.json.
-// ----------------------------------------------------------------------------
-/*
 async function buildThemes() {
-  const colorsTargetPath = path.join(REGISTRY_PATH, "colors")
-  rimraf.sync(colorsTargetPath)
-  if (!existsSync(colorsTargetPath)) {
-    await fs.mkdir(colorsTargetPath, { recursive: true })
-  }
-
-  const colorsData: Record<string, any> = {}
-  for (const [color, value] of Object.entries(colors)) {
-    if (typeof value === "string") {
-      colorsData[color] = value
-      continue
-    }
-
-    if (Array.isArray(value)) {
-      colorsData[color] = value.map((item) => ({
-        ...item,
-        rgbChannel: item.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, "$1 $2 $3"),
-        hslChannel: item.hsl.replace(
-          /^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
-          "$1 $2 $3"
-        ),
-      }))
-      continue
-    }
-
-    if (typeof value === "object") {
-      colorsData[color] = {
-        ...value,
-        rgbChannel: value.rgb.replace(/^rgb\((\d+),(\d+),(\d+)\)$/, "$1 $2 $3"),
-        hslChannel: value.hsl.replace(
-          /^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
-          "$1 $2 $3"
-        ),
+  // ----------------------------------------------------------------------------
+  // Build registry/colors/index.json.
+  // ----------------------------------------------------------------------------
+  const colorsData = Object.entries(colors).reduce(
+    (buf, [color, value]) => {
+      if (typeof value === "string") {
+        buf[color] = value
       }
-    }
-  }
+      if (Array.isArray(value)) {
+        buf[color] = value.map((item) => ({
+          ...item,
+          rgbChannel: item.rgb.replace(
+            /^rgb\((\d+),(\d+),(\d+)\)$/,
+            "$1 $2 $3"
+          ),
+          hslChannel: item.hsl.replace(
+            /^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
+            "$1 $2 $3"
+          ),
+        }))
+      }
+      if (typeof value === "object" && "rgb" in value && "hsl" in value) {
+        buf[color] = {
+          ...value,
+          rgbChannel: value.rgb.replace(
+            /^rgb\((\d+),(\d+),(\d+)\)$/,
+            "$1 $2 $3"
+          ),
+          hslChannel: value.hsl.replace(
+            /^hsl\(([\d.]+),([\d.]+%),([\d.]+%)\)$/,
+            "$1 $2 $3"
+          ),
+        }
+      }
 
-  await fs.writeFile(
-    path.join(colorsTargetPath, "index.json"),
-    JSON.stringify(colorsData, null, 2),
-    "utf8"
+      return buf
+    },
+    {} as Record<string, string | ColorWithChannel | ScaleColor[]>
+  )
+
+  await writeFileSafe(
+    path.join(REGISTRY_PATH, "colors/index.json"),
+    JSON.stringify(colorsData, null, 2)
   )
 
   // ----------------------------------------------------------------------------
@@ -271,9 +274,13 @@ async function buildThemes() {
   body {
     @apply bg-background text-foreground;
   }
+  [hidden] {
+    display: none !important;
+  }
 }`
 
   for (const baseColor of ["slate", "gray", "zinc", "neutral", "stone"]) {
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     const base: Record<string, any> = {
       inlineColors: {},
       cssVars: {},
@@ -292,13 +299,17 @@ async function buildThemes() {
           const resolvedColor = value.replace(/{{base}}-/g, `${baseColor}-`)
           base.inlineColors[mode][key] = resolvedColor
 
-          const [resolvedBase, scale] = resolvedColor.split("-")
+          const [resolvedBase, scale] = resolvedColor.split("-") as [
+            string,
+            string,
+          ]
           const color = scale
-            ? colorsData[resolvedBase].find(
-                (item: any) => item.scale === Number.parseInt(scale)
+            ? Array.isArray(colorsData[resolvedBase]) &&
+              colorsData[resolvedBase].find(
+                (item) => item.scale === Number.parseInt(scale)
               )
             : colorsData[resolvedBase]
-          if (color) {
+          if (color && typeof color === "object" && "hslChannel" in color) {
             base.cssVars[mode][key] = color.hslChannel
           }
         }
@@ -311,17 +322,15 @@ async function buildThemes() {
       colors: base.cssVars,
     })
 
-    await fs.writeFile(
+    await writeFileSafe(
       path.join(REGISTRY_PATH, `colors/${baseColor}.json`),
-      JSON.stringify(base, null, 2),
-      "utf8"
+      JSON.stringify(base, null, 2)
     )
 
     // ----------------------------------------------------------------------------
     // Build registry/themes.css
     // ----------------------------------------------------------------------------
-    const THEME_STYLES_WITH_VARIABLES = `
-.theme-<%- theme %> {
+    const THEME_STYLES_WITH_VARIABLES = `.theme-<%- theme %> {
   --background: <%- colors.light["background"] %>;
   --foreground: <%- colors.light["foreground"] %>;
 
@@ -396,17 +405,16 @@ async function buildThemes() {
       )
     }
 
-    await fs.writeFile(
+    await writeFileSafe(
       path.join(REGISTRY_PATH, "themes.css"),
-      themeCSS.join("\n"),
-      "utf8"
+      themeCSS.join("\n")
     )
 
     // ----------------------------------------------------------------------------
     // Build registry/themes/[theme].json
     // ----------------------------------------------------------------------------
-    rimraf.sync(path.join(REGISTRY_PATH, "themes"))
     for (const baseColor of ["slate", "gray", "zinc", "neutral", "stone"]) {
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
       const payload: Record<string, any> = {
         name: baseColor,
         label: baseColor.charAt(0).toUpperCase() + baseColor.slice(1),
@@ -419,35 +427,30 @@ async function buildThemes() {
             const resolvedColor = value.replace(/{{base}}-/g, `${baseColor}-`)
             payload.cssVars[mode][key] = resolvedColor
 
-            const [resolvedBase, scale] = resolvedColor.split("-")
+            const [resolvedBase, scale] = resolvedColor.split("-") as [
+              string,
+              string,
+            ]
             const color = scale
-              ? colorsData[resolvedBase].find(
-                  (item: any) => item.scale === Number.parseInt(scale)
+              ? Array.isArray(colorsData[resolvedBase]) &&
+                colorsData[resolvedBase].find(
+                  (item) => item.scale === Number.parseInt(scale)
                 )
               : colorsData[resolvedBase]
-            if (color) {
+            if (color && typeof color === "object" && "hslChannel" in color) {
               payload.cssVars[mode][key] = color.hslChannel
             }
           }
         }
       }
 
-      const targetPath = path.join(REGISTRY_PATH, "themes")
-
-      // Create directory if it doesn't exist.
-      if (!existsSync(targetPath)) {
-        await fs.mkdir(targetPath, { recursive: true })
-      }
-
-      await fs.writeFile(
-        path.join(targetPath, `${payload.name}.json`),
-        JSON.stringify(payload, null, 2),
-        "utf8"
+      await writeFileSafe(
+        path.join(REGISTRY_PATH, `themes/${payload.name}.json`),
+        JSON.stringify(payload, null, 2)
       )
     }
   }
 }
-*/
 
 try {
   const result = registrySchema.safeParse(registry)
@@ -462,7 +465,7 @@ try {
   await buildRegistryIndex(result.data)
   await buildStyles(result.data)
   await buildStylesIndex()
-  // await buildThemes()
+  await buildThemes()
 
   console.log("✅ Done!")
 } catch (error) {
