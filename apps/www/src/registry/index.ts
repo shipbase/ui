@@ -5,7 +5,6 @@
 import { lib } from "./registry-lib"
 import { themes } from "./registry-themes"
 import { ui } from "./registry-ui"
-// import { v0 } from "./registry-v0"
 import type { Registry } from "./schema"
 
 export const registry: Registry = [
@@ -16,5 +15,4 @@ export const registry: Registry = [
   ...lib,
   // ...hooks,
   ...themes,
-  // ...v0,
 ]
