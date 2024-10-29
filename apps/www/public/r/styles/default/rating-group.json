@@ -1,0 +1,12 @@
+{
+  "name": "rating-group",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/rating-group.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { RatingGroup as RatingGroupPrimitive } from \"@ark-ui/react/rating-group\"\nimport { StarIcon } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst RatingGroup = RatingGroupPrimitive.Root\n\nconst RatingGroupContext = RatingGroupPrimitive.Context\n\nconst RatingGroupLabel = React.forwardRef<\n  React.ElementRef<typeof RatingGroupPrimitive.Label>,\n  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Label>\n>(({ className, ...props }, ref) => (\n  <RatingGroupPrimitive.Label\n    ref={ref}\n    className={cn(\n      \"font-medium text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70\",\n      className\n    )}\n    {...props}\n  />\n))\nRatingGroupLabel.displayName = RatingGroupPrimitive.Label.displayName\n\nconst RatingGroupControl = React.forwardRef<\n  React.ElementRef<typeof RatingGroupPrimitive.Control>,\n  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Control>\n>(({ className, children, ...props }, ref) => (\n  <RatingGroupPrimitive.Control\n    ref={ref}\n    className={cn(\"flex w-max gap-0.5\", className)}\n    {...props}\n  >\n    <RatingGroupPrimitive.HiddenInput />\n    {children}\n  </RatingGroupPrimitive.Control>\n))\nRatingGroupControl.displayName = RatingGroupPrimitive.Control.displayName\n\nconst RatingGroupItem = React.forwardRef<\n  React.ElementRef<typeof RatingGroupPrimitive.Item>,\n  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Item>\n>(({ className, ...props }, ref) => (\n  <RatingGroupPrimitive.Item\n    ref={ref}\n    className={cn(\n      \"cursor-pointer transition-all data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 *:data-[highlighted]:fill-current\",\n      className\n    )}\n    {...props}\n  >\n    <StarIcon />\n  </RatingGroupPrimitive.Item>\n))\nRatingGroupItem.displayName = RatingGroupPrimitive.Item.displayName\n\nexport {\n  RatingGroup,\n  RatingGroupContext,\n  RatingGroupControl,\n  RatingGroupItem,\n  RatingGroupLabel,\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
