@@ -1,0 +1,12 @@
+{
+  "name": "switch",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/switch.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Switch as SwitchPrimitive } from \"@ark-ui/react/switch\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst SwitchThumb = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Thumb>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Thumb>\n>(({ className, children, ...props }, ref) => (\n  <SwitchPrimitive.Thumb\n    ref={ref}\n    className={cn(\n      \"pointer-events-none block h-5 w-5 rounded-full bg-background shadow-lg ring-0 transition-transform data-[state=checked]:translate-x-5 data-[state=unchecked]:translate-x-0\",\n      className\n    )}\n    {...props}\n  />\n))\n\nconst SwitchControl = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Control>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Control>\n>(({ className, children, ...props }, ref) => (\n  <SwitchPrimitive.Control\n    ref={ref}\n    className={cn(\n      \"inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input\",\n      className\n    )}\n    {...props}\n  >\n    <SwitchThumb />\n  </SwitchPrimitive.Control>\n))\n\nconst SwitchLabel = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Label>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Label>\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitive.Label\n    ref={ref}\n    className={cn(\n      \"font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70\",\n      className\n    )}\n    {...props}\n  />\n))\n\nconst Switch = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Root>,\n  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>\n>(({ className, children, ...props }, ref) => (\n  <SwitchPrimitive.Root\n    ref={ref}\n    className={cn(\"flex items-center space-x-2\", className)}\n    {...props}\n  >\n    <SwitchPrimitive.HiddenInput />\n    {children}\n  </SwitchPrimitive.Root>\n))\n\nexport { Switch, SwitchControl, SwitchLabel, SwitchThumb }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

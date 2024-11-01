@@ -1,0 +1,12 @@
+{
+  "name": "collapsible",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/collapsible.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Collapsible as CollapsiblePrimitive } from \"@ark-ui/react/collapsible\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Collapsible = CollapsiblePrimitive.Root\n\nconst CollapsibleContext = CollapsiblePrimitive.Context\n\nconst CollapsibleTrigger = CollapsiblePrimitive.Trigger\n\nconst CollapsibleContent = React.forwardRef<\n  React.ElementRef<typeof CollapsiblePrimitive.Content>,\n  React.ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>\n>(({ className, ...props }, ref) => (\n  <CollapsiblePrimitive.Content\n    ref={ref}\n    className={cn(\n      \"overflow-hidden transition-all data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down\",\n      className\n    )}\n    {...props}\n  />\n))\n\nexport {\n  Collapsible,\n  CollapsibleContent,\n  CollapsibleContext,\n  CollapsibleTrigger,\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

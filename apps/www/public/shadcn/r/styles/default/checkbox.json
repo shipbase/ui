@@ -1,0 +1,12 @@
+{
+  "name": "checkbox",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/checkbox.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Checkbox as CheckboxPrimitive } from \"@ark-ui/react/checkbox\"\nimport { Check } from \"lucide-react\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Checkbox = CheckboxPrimitive.Root\n\nconst CheckboxContext = CheckboxPrimitive.Context\n\nconst CheckboxTrigger = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Control>,\n  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Control>\n>(({ className, children, ...props }, ref) => (\n  <>\n    <CheckboxPrimitive.Control\n      ref={ref}\n      className={cn(\n        \"peer flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded-sm border border-primary text-current ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[disabled]:cursor-not-allowed data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[disabled]:opacity-50\",\n        className\n      )}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator>\n        <Check className=\"h-4 w-4\" />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Control>\n    <CheckboxPrimitive.HiddenInput />\n  </>\n))\nCheckboxTrigger.displayName = \"CheckboxTrigger\"\n\nconst CheckboxLabel = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Label>,\n  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Label>\n>(({ className, ...props }, ref) => (\n  <CheckboxPrimitive.Label\n    ref={ref}\n    className={cn(\n      \"data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70\",\n      className\n    )}\n    {...props}\n  />\n))\nCheckboxLabel.displayName = \"CheckboxLabel\"\n\nexport { Checkbox, CheckboxContext, CheckboxLabel, CheckboxTrigger }\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}

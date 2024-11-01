@@ -171,7 +171,8 @@
       "source": "./src/examples/*.tsx",
       "types": "./src/examples/*.tsx",
       "default": "./dist/examples/*.js"
-    }
+    },
+    "./package.json": "./package.json"
   },
   "scripts": {
     "dev": "vite build --watch",

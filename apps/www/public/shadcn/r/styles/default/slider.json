@@ -1,0 +1,12 @@
+{
+  "name": "slider",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "ui/slider.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Slider as SliderPrimitive } from \"@ark-ui/react/slider\"\n\nconst Slider = SliderPrimitive.Root\n\nconst SliderLabel = SliderPrimitive.Label\n\nconst SliderValueText = SliderPrimitive.ValueText\n\nconst SliderMarkGroup = SliderPrimitive.MarkerGroup\n\nconst SliderMark = React.forwardRef<\n  React.ElementRef<typeof SliderPrimitive.Marker>,\n  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Marker>\n>(({ className, ...props }, ref) => (\n  <SliderPrimitive.Marker\n    ref={ref}\n    className=\"before:-top-1.5 before:-translate-x-1/2 text-muted-foreground text-sm before:relative before:left-1/2 before:block before:size-1 before:rounded-full before:bg-background before:content-[''] dark:before:bg-foreground dark:before:data-[state='under-value']:bg-background\"\n    {...props}\n  />\n))\n\nconst SliderControl = () => (\n  <SliderPrimitive.Control className=\"flex items-center rounded-full\">\n    <SliderPrimitive.Track className=\"h-2 w-full grow overflow-hidden rounded-full bg-secondary\">\n      <SliderPrimitive.Range className=\"h-full bg-primary\" />\n    </SliderPrimitive.Track>\n    <SliderPrimitive.Context>\n      {(context) =>\n        context.value.map((value, index) => (\n          <SliderPrimitive.Thumb\n            index={index}\n            key={value}\n            className=\"block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50\"\n          >\n            <SliderPrimitive.HiddenInput />\n          </SliderPrimitive.Thumb>\n        ))\n      }\n    </SliderPrimitive.Context>\n  </SliderPrimitive.Control>\n)\n\nexport {\n  Slider,\n  SliderControl,\n  SliderLabel,\n  SliderMark,\n  SliderMarkGroup,\n  SliderValueText,\n}\n",
+      "type": "registry:ui",
+      "target": ""
+    }
+  ]
+}
