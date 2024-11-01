@@ -4,11 +4,11 @@ packages:
   - tooling/*
   - '!**/test/fixtures/**'
 catalog:
-  '@ark-ui/react': ^4.1.2
-  '@ark-ui/vue': ^4.1.1
+  '@ark-ui/react': ^4.2.0
+  '@ark-ui/vue': ^4.2.0
   '@types/react': ^18.3.12
   '@types/react-dom': ^18.3.1
-  ai: ^3.4.18
+  ai: ^3.4.31
   autoprefixer: ^10.4.20
   class-variance-authority: ^0.7.0
   clsx: ^2.1.1
@@ -22,4 +22,4 @@ catalog:
   zod: ^3.23.8
 catalogs:
   vite6:
-    vite: ^6.0.0-beta.5
+    vite: ^6.0.0-beta.8
