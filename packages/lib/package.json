@@ -22,7 +22,7 @@
     "@ai-sdk/anthropic": "^0.0.51",
     "@ai-sdk/openai": "^0.0.66",
     "ai": "catalog:",
-    "mlly": "^1.7.2"
+    "mlly": "^1.7.3"
   },
   "peerDependencies": {
     "mlly": "^1.7.2"
