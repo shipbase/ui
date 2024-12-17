@@ -4,22 +4,28 @@ packages:
   - tooling/*
   - '!**/test/fixtures/**'
 catalog:
-  '@ark-ui/react': ^4.2.0
-  '@ark-ui/vue': ^4.2.0
-  '@types/react': ^18.3.12
-  '@types/react-dom': ^18.3.1
-  ai: ^3.4.31
+  '@ark-ui/react': ^4.4.4
+  '@ark-ui/vue': ^4.4.2
+  ai: ^4.0.14
   autoprefixer: ^10.4.20
-  class-variance-authority: ^0.7.0
+  class-variance-authority: ^0.7.1
   clsx: ^2.1.1
-  react: ^18.3.1
-  react-dom: ^18.3.1
-  tailwind-merge: ^2.5.4
-  tailwindcss: ^3.4.14
+  tailwind-merge: ^2.5.5
+  tailwindcss: ^3.4.16
   tailwindcss-animate: ^1.0.7
-  vite: ^5.4.10
-  vue: ^3.5.12
-  zod: ^3.23.8
+  vite: ^6.0.3
+  vue: ^3.5.13
+  zod: ^3.24.1
 catalogs:
   vite6:
-    vite: ^6.0.0-beta.8
+    vite: ^6.0.3
+  react18:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    '@types/react': ^18.3.15
+    '@types/react-dom': ^18.3.4
+  react19:
+    react: ^19.0.0
+    react-dom: ^19.0.0
+    '@types/react': ^19.0.0
+    '@types/react-dom': ^19.0.0
