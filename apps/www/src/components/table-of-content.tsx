@@ -58,10 +58,14 @@ function useActiveItem(headings: MarkdownHeading[]) {
 
 export function TableOfContent({ id, toc, headings }: Props) {
   const activeId = useActiveItem(headings)
+  return null
 
+  // FIXME: fix table of content
+  // biome-ignore lint/correctness/noUnreachable: <explanation>
   return (
     <TreeView
       id={id}
+      collection={headings}
       className="space-y-3"
       expandOnClick={false}
       defaultExpandedValue={headings.map((h) => h.slug)}
