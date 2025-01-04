@@ -3,7 +3,6 @@ import { getExampleSource } from "@/lib/source"
 import { $framework, frameworks } from "@/store/atoms/framework"
 import CodeWrapper from "../code-wrapper/index.astro"
 import Preview from "./preview"
-import PreviewVue from "./preview.vue"
 import Tabs from "./tabs"
 import Wrapper from "./wrapper.astro"
 
@@ -28,11 +27,7 @@ const sources = await Promise.all(
             data-framework={framework}
             hidden={$framework.value !== framework}
           >
-            {framework === "react" ? (
-              <Preview client:visible name={name} hidden={!sources[index]} />
-            ) : framework === "vue" ? (
-              <PreviewVue client:visible name={name} hidden={!sources[index]} />
-            ) : null}
+            <Preview client:visible name={name} hidden={!sources[index]} />
           </Wrapper>
         ))
       }

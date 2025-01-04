@@ -13,6 +13,7 @@
     "check:type": {
       "dependsOn": ["^check:type"]
     },
-    "test": {}
+    "test": {},
+    "storybook": { "cache": false }
   }
 }

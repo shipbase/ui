@@ -6,7 +6,6 @@ import { ChevronRightIcon } from "lucide-react"
 import { MDXComponents } from "@/components/content"
 import { TableOfContent } from "@/components/table-of-content"
 import Layout from "@/layouts/layout.astro"
-import { generateToC } from "@/lib/toc"
 import { cn } from "@/lib/utils"
 
 import Sidebar from "@/components/sidebar.astro"
@@ -25,7 +24,6 @@ export const getStaticPaths = (async () => {
 
 const { entry } = Astro.props
 const { Content, headings } = await render(entry)
-const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
 ---
 
 <Layout>
@@ -35,7 +33,7 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
     <aside
       class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
     >
-      <div class="relative overflow-y-auto h-full py-6 pr-6 lg:py-8">
+      <div class="relative h-full py-6 pr-6 overflow-y-auto lg:py-8">
         <div class="w-full">
           <Sidebar />
         </div>
@@ -44,9 +42,9 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
     <main
       class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_300px]"
     >
-      <div class="mx-auto w-full min-w-0">
+      <div class="w-full min-w-0 mx-auto">
         <div
-          class="mb-4 flex items-center space-x-1 text-sm leading-none text-muted-foreground"
+          class="flex items-center mb-4 space-x-1 text-sm leading-none text-muted-foreground"
         >
           <div class="truncate">Docs</div>
           <ChevronRightIcon className="h-3.5 w-3.5" />
@@ -70,7 +68,7 @@ const toc = generateToC(headings, { minHeadingLevel: 2, maxHeadingLevel: 4 })
       </div>
       <div class="hidden text-sm xl:block">
         <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
-          <TableOfContent id="toc" toc={toc} headings={headings} client:load />
+          <TableOfContent headings={headings} client:load />
         </div>
       </div>
     </main>

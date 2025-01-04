@@ -1,15 +1,18 @@
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import tailwind from "@astrojs/tailwind"
-import vue from "@astrojs/vue"
+// import vue from "@astrojs/vue"
 import { transformerMetaHighlight } from "@shikijs/transformers"
 import { defineConfig } from "astro/config"
 import type { Element, Root } from "hast"
-import Inspect from "vite-plugin-inspect"
+import inspect from "vite-plugin-inspect"
 import rehypeCodeWrapper from "./src/lib/rehype-code-wrapper"
 
 // https://astro.build/config
 export default defineConfig({
+  experimental: {
+    svg: true,
+  },
   integrations: [
     mdx({
       shikiConfig: {
@@ -29,25 +32,11 @@ export default defineConfig({
       rehypePlugins: [rehypeCodeWrapper],
     }),
     react(),
-    vue(),
+    // vue({ include: ["**/*.vue"] }),
     tailwind(),
   ],
   vite: {
-    // @ts-ignore FIXME when inspect vite@6
-    plugins: [Inspect()],
-    build: {
-      dynamicImportVarsOptions: {
-        warnOnError: true,
-      },
-      rollupOptions: {
-        onLog(level, log, handler) {
-          if (log.code === "SOURCEMAP_ERROR") {
-            return
-          }
-          handler(level, log)
-        },
-      },
-    },
+    plugins: [inspect()],
   },
   trailingSlash: "never",
   redirects: {

@@ -1,10 +1,11 @@
 import type { MarkdownHeading } from "astro"
 
 export interface TocItem extends MarkdownHeading {
+  id: string
   children: TocItem[]
 }
 
-export type ToC = TocItem[]
+export type ToC = TocItem
 
 interface TocOpts {
   minHeadingLevel: number
@@ -20,18 +21,79 @@ export function generateToC(
     ({ depth }) => depth >= minHeadingLevel && depth <= maxHeadingLevel
   )
   const toc: Array<TocItem> = []
-  for (const heading of _headings)
-    injectChild(toc, { ...heading, children: [] })
+  for (let i = 0; i < _headings.length; i++) {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    const heading = _headings[i]!
+    injectChild(toc, { ...heading, children: [], id: heading.slug }, [i])
+  }
   return toc
 }
 
 /** Inject a ToC entry as deep in the tree as its `depth` property requires. */
-function injectChild(items: TocItem[], item: TocItem): void {
+function injectChild(
+  items: TocItem[],
+  item: TocItem,
+  indexPath: number[]
+): void {
   const lastItem = items.at(-1)
   if (!lastItem || lastItem.depth >= item.depth) {
     items.push(item)
   } else {
-    injectChild(lastItem.children, item)
+    injectChild(lastItem.children, { ...item, id: `${indexPath.join(".")}` }, [
+      ...indexPath,
+    ])
     return
   }
+}
+
+export function generateToCTree(headings: MarkdownHeading[]) {
+  if (!headings[0]) return
+
+  const toItem = (
+    current: MarkdownHeading,
+    parent?: MarkdownHeading
+  ): TocItem => ({
+    id: parent ? `${parent.slug}_${current.slug}` : current.slug,
+    depth: current.depth,
+    slug: current.slug,
+    text: current.text,
+    children: [],
+  })
+  const root = toItem({ slug: "_ROOT_", text: "", depth: 1 })
+  const stack: TocItem[] = [root]
+
+  let i = 0
+  while (i < headings.length) {
+    // biome-ignore lint/style/noNonNullAssertion: <explanation>
+    const heading = headings[i]!
+    const lastItem = stack.at(-1)
+    if (!lastItem) return
+    if (lastItem.depth < heading.depth) {
+      const item = toItem(heading, lastItem)
+      lastItem.children.push(item)
+      stack.push(item)
+      i++
+    } else if (lastItem.depth > heading.depth) {
+      while (
+        stack.length &&
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        stack.at(-1)!.depth > heading.depth
+      ) {
+        stack.pop()
+      }
+    } else {
+      let index = stack.length - 1
+      // biome-ignore lint/style/noNonNullAssertion: <explanation>
+      while (index >= 0 && stack[index]!.depth === heading.depth) index--
+      const item = toItem(heading, stack[index])
+      if (index >= 0) {
+        // biome-ignore lint/style/noNonNullAssertion: <explanation>
+        stack[index]!.children.push(item)
+      }
+      stack.push(item)
+      i++
+    }
+  }
+
+  return root
 }
