@@ -4,12 +4,7 @@ import { fontFamily } from "tailwindcss/defaultTheme"
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: [
-    "src/pages/**/*.{ts,tsx,astro}",
-    "src/components/**/*.{ts,tsx,astro}",
-    "src/layouts/**/*.{ts,tsx,astro}",
-    "src/registry/**/*.{ts,tsx,astro}",
-  ],
+  content: ["src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
     container: {
