@@ -1,62 +1,105 @@
-import { File, FolderClosed, FolderOpen } from "lucide-react"
-
 import {
   TreeView,
   TreeViewBranch,
   TreeViewBranchContent,
   TreeViewBranchControl,
+  TreeViewBranchIndentGuide,
   TreeViewBranchIndicator,
   TreeViewBranchText,
+  TreeViewBranchTrigger,
   TreeViewItem,
   TreeViewItemText,
   TreeViewLabel,
+  TreeViewNodeProvider,
+  type TreeViewNodeProviderProps,
   TreeViewTree,
+  createTreeCollection,
 } from "@/components/ui/tree-view"
+import { FolderClosed, FolderOpen } from "lucide-react"
+
+interface TreeNode {
+  id: string
+  name: string
+  children?: TreeNode[]
+}
 
 export default function TreeViewDemo() {
+  const collection = createTreeCollection<TreeNode>({
+    rootNode: {
+      id: "_ROOT_",
+      name: "",
+      children: [
+        {
+          id: "1",
+          name: "Item 1",
+          children: [
+            {
+              id: "1.1",
+              name: "Item 1.1",
+              children: [
+                { id: "1.1.1", name: "Item 1.1.1" },
+                {
+                  id: "1.1.2",
+                  name: "Item 1.1.2",
+                  children: [
+                    { id: "1.1.2.1", name: "Item 1.1.2.1" },
+                    { id: "1.1.2.2", name: "Item 1.1.2.2" },
+                  ],
+                },
+              ],
+            },
+            { id: "1.2", name: "Item 1.2" },
+          ],
+        },
+        { id: "2", name: "Item 2" },
+      ],
+    },
+    nodeToString: (node) => node.name,
+    nodeToValue: (node) => node.id,
+  })
   return (
-    <TreeView className="w-[40%]">
-      <TreeViewLabel>Label</TreeViewLabel>
+    <TreeView collection={collection} className="w-full">
+      <TreeViewLabel>Tree View</TreeViewLabel>
       <TreeViewTree>
-        <TreeViewBranch value="1">
-          <TreeViewBranchControl>
-            <TreeViewBranchIndicator className="data-[state=open]:hidden">
-              <FolderClosed className="h-4 w-4 shrink-0" />
-            </TreeViewBranchIndicator>
-            <TreeViewBranchIndicator className="data-[state=closed]:hidden">
-              <FolderOpen className="h-4 w-4 shrink-0" />
-            </TreeViewBranchIndicator>
-            <TreeViewBranchText>Item 1</TreeViewBranchText>
-          </TreeViewBranchControl>
-          <TreeViewBranchContent className="">
-            <TreeViewItem value="1.1">
-              <File className="h-4 w-4 shrink-0" />
-              <TreeViewItemText>Item 1.1</TreeViewItemText>
-            </TreeViewItem>
-            <TreeViewBranch value="1.2">
-              <TreeViewBranchControl>
-                <TreeViewBranchIndicator className="data-[state=open]:hidden">
-                  <FolderClosed className="h-4 w-4 shrink-0" />
-                </TreeViewBranchIndicator>
-                <TreeViewBranchIndicator className="data-[state=closed]:hidden">
-                  <FolderOpen className="h-4 w-4 shrink-0" />
-                </TreeViewBranchIndicator>
-                <TreeViewBranchText>Item 1.2</TreeViewBranchText>
-              </TreeViewBranchControl>
-              <TreeViewBranchContent>
-                <TreeViewItem value="1.2.1">
-                  <File className="h-4 w-4 shrink-0" />
-                  <TreeViewItemText>Item 1.2.1</TreeViewItemText>
-                </TreeViewItem>
-              </TreeViewBranchContent>
-            </TreeViewBranch>
-          </TreeViewBranchContent>
-        </TreeViewBranch>
-        <TreeViewItem value="2">
-          <File className="h-4 w-4 shrink-0" />
-          <TreeViewItemText>Item 2</TreeViewItemText>
-        </TreeViewItem>
+        {collection.rootNode.children?.map((node, index) => (
+          <TreeTreeNode key={node.id} node={node} indexPath={[index]} />
+        ))}
       </TreeViewTree>
     </TreeView>
+  )
+}
+
+function TreeTreeNode({
+  node,
+  indexPath,
+}: TreeViewNodeProviderProps<TreeNode>) {
+  return (
+    <TreeViewNodeProvider node={node} indexPath={indexPath}>
+      {node.children ? (
+        <TreeViewBranch>
+          <TreeViewBranchControl>
+            <TreeViewBranchIndicator className="group">
+              <FolderClosed className="h-4 w-4 group-data-[state=open]:hidden" />
+              <FolderOpen className="h-4 w-4 group-data-[state=closed]:hidden" />
+            </TreeViewBranchIndicator>
+            <TreeViewBranchText>{node.name}</TreeViewBranchText>
+          </TreeViewBranchControl>
+          <TreeViewBranchContent>
+            <TreeViewBranchIndentGuide />
+            {node.children.map((child, index) => (
+              <TreeTreeNode
+                key={child.id}
+                node={child}
+                indexPath={[...indexPath, index]}
+              />
+            ))}
+          </TreeViewBranchContent>
+        </TreeViewBranch>
+      ) : (
+        <TreeViewItem>
+          <TreeViewItemText>{node.name}</TreeViewItemText>
+        </TreeViewItem>
+      )}
+    </TreeViewNodeProvider>
   )
 }
