@@ -6,6 +6,7 @@
   "scripts": {
     "bump": "taze -r -l",
     "dev": "turbo dev",
+    "dev:storybook": "turbo run storybook",
     "test": "turbo test",
     "build": "turbo build",
     "format": "biome check --linter-enabled=false --write",
