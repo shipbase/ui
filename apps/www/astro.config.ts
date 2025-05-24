@@ -10,9 +10,6 @@ import rehypeCodeWrapper from "./src/lib/rehype-code-wrapper"
 
 // https://astro.build/config
 export default defineConfig({
-  experimental: {
-    svg: true,
-  },
   integrations: [
     mdx({
       shikiConfig: {
@@ -24,6 +21,7 @@ export default defineConfig({
               if (pre) pre.properties.source = this.source
             },
           },
+          // @ts-expect-error version mismatch
           transformerMetaHighlight({
             className: "line--highlighted",
           }),
