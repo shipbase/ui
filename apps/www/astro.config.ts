@@ -43,4 +43,7 @@ export default defineConfig({
     "/docs": "/docs/introduction",
     "/docs/components": "/docs/components/accordion",
   },
+  devToolbar: {
+    enabled: true,
+  },
 })
