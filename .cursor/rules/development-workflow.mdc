@@ -1,0 +1,61 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Development Workflow Guide
+
+## Quick Start
+
+### Install Dependencies
+```bash
+pnpm install
+```
+
+### Development Mode
+```bash
+pnpm dev           # Start all app development servers
+pnpm dev:storybook # Start Storybook development environment
+```
+
+## Main Commands
+
+### Build Related
+- `pnpm build` - Build all packages and applications
+- `pnpm test` - Run all tests
+- `pnpm typecheck` - Type checking
+
+### Code Quality
+- `pnpm lint` - Run Biome linter
+- `pnpm lint:fix` - Auto-fix lint issues  
+- `pnpm format` - Format code
+- `pnpm check:repo` - Check repository dependency consistency
+- `pnpm check:repo:fix` - Auto-fix repository dependency issues
+
+### Dependency Management
+- `pnpm bump` - Update dependency versions
+- `pnpm clean` - Clean all node_modules and build artifacts
+
+## Turbo Task Configuration
+
+Refer to [turbo.json](mdc:turbo.json) for task dependency relationships:
+
+- **dev**: Development mode task, no cache, persistent running
+- **build**: Build task, depends on other packages' builds completing
+- **typecheck**: Type checking task, depends on other packages' type checking
+- **test**: Test task
+- **storybook**: Storybook task, no cache
+
+## Pre-commit Checks
+
+Project has configured git hooks:
+- Uses [simple-git-hooks](mdc:package.json) to run lint-staged on pre-commit
+- Automatically formats and checks committed files
+
+## Version Release
+
+Uses Changesets for version management:
+```bash
+pnpm changeset      # Create change record
+pnpm version        # Update versions and format code
+```
