@@ -24,7 +24,7 @@
     "@changesets/cli": "catalog:",
     "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
-    "@typescript/native-preview": "7.0.0-dev.20250523.1",
+    "@typescript/native-preview": "catalog:",
     "dotenv": "catalog:",
     "lint-staged": "catalog:",
     "rimraf": "catalog:",
