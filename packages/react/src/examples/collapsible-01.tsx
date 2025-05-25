@@ -14,7 +14,7 @@ export default function CollapsibleDemo() {
   return (
     <Collapsible
       open={isOpen}
-      onOpenChange={(details) => setIsOpen(details.open)}
+      onOpenChange={({ open }) => setIsOpen(open)}
       className="w-[350px] space-y-2"
     >
       <div className="flex items-center justify-between space-x-4 px-4">
