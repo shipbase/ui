@@ -13,7 +13,7 @@ const HoverCardTrigger = HoverCardPrimitive.Trigger
 
 const HoverCardArrow = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Arrow>,
-  React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Arrow>
+  HoverCardPrimitive.ArrowProps
 >(({ className, ...props }, ref) => (
   <HoverCardPrimitive.Arrow>
     <HoverCardPrimitive.ArrowTip
@@ -27,7 +27,7 @@ HoverCardArrow.displayName = "HoverCardArrow"
 
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
+  HoverCardPrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <Portal>
     <HoverCardPrimitive.Positioner>

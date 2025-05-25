@@ -13,7 +13,7 @@ const TagsInputContext = TagsInputPrimitive.Context
 
 const TagsInputLabel = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof TagsInputPrimitive.Label>
+  TagsInputPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <TagsInputPrimitive.Label
     ref={ref}
@@ -25,7 +25,7 @@ TagsInputLabel.displayName = TagsInputPrimitive.Label.displayName
 
 const TagsInputControl = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof TagsInputPrimitive.Control>
+  TagsInputPrimitive.ControlProps
 >(({ className, ...props }, ref) => (
   <TagsInputPrimitive.Control
     ref={ref}
@@ -40,7 +40,7 @@ TagsInputControl.displayName = TagsInputPrimitive.Control.displayName
 
 const TagsInputItem = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof TagsInputPrimitive.Item>
+  TagsInputPrimitive.ItemProps
 >(({ className, value, ...props }, ref) => (
   <TagsInputPrimitive.Item ref={ref} value={value} {...props}>
     <TagsInputPrimitive.ItemPreview
@@ -62,7 +62,7 @@ TagsInputItem.displayName = TagsInputPrimitive.Item.displayName
 
 const TagsInputInput = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.Input>,
-  React.ComponentPropsWithoutRef<typeof TagsInputPrimitive.Input>
+  TagsInputPrimitive.InputProps
 >(({ className, ...props }, ref) => (
   <TagsInputPrimitive.Input
     ref={ref}

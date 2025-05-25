@@ -17,7 +17,7 @@ const DrawerCloseTrigger = DrawerPrimitive.CloseTrigger
 
 const DrawerBackdrop = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Backdrop>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Backdrop>
+  DrawerPrimitive.BackdropProps
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Backdrop
     ref={ref}
@@ -29,7 +29,7 @@ DrawerBackdrop.displayName = DrawerPrimitive.Backdrop.displayName
 
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Content>
+  DrawerPrimitive.ContentProps
 >(({ className, children, ...props }, ref) => (
   <DrawerPortal>
     <DrawerBackdrop />
@@ -72,7 +72,7 @@ DrawerFooter.displayName = "DrawerFooter"
 
 const DrawerTitle = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Title>
+  DrawerPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Title
     ref={ref}
@@ -87,7 +87,7 @@ DrawerTitle.displayName = DrawerPrimitive.Title.displayName
 
 const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DrawerPrimitive.Description>
+  DrawerPrimitive.DescriptionProps
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description
     ref={ref}

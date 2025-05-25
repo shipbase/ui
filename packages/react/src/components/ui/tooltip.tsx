@@ -16,7 +16,7 @@ const TooltipContext = TooltipPrimitive.Context
 
 const TooltipArrow = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Arrow>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Arrow>
+  TooltipPrimitive.ArrowProps
 >(({ className, ...props }, ref) => (
   <TooltipPrimitive.Arrow>
     <TooltipPrimitive.ArrowTip

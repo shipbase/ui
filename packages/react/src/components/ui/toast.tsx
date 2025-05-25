@@ -41,8 +41,7 @@ const Toaster = React.forwardRef<
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root> &
-    VariantProps<typeof toastVariants>
+  ToastPrimitive.RootProps & VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => (
   <ToastPrimitive.Root
     ref={ref}
@@ -53,7 +52,7 @@ const Toast = React.forwardRef<
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Title>
+  ToastPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Title
     ref={ref}
@@ -64,7 +63,7 @@ const ToastTitle = React.forwardRef<
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Description>
+  ToastPrimitive.DescriptionProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Description
     ref={ref}
@@ -75,7 +74,7 @@ const ToastDescription = React.forwardRef<
 
 const ToastActionTrigger = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.ActionTrigger>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.ActionTrigger>
+  ToastPrimitive.ActionTriggerProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.ActionTrigger
     ref={ref}
@@ -89,7 +88,7 @@ const ToastActionTrigger = React.forwardRef<
 
 const ToastCloseTrigger = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.CloseTrigger>,
-  React.ComponentPropsWithoutRef<typeof ToastPrimitive.CloseTrigger>
+  ToastPrimitive.CloseTriggerProps
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.CloseTrigger
     ref={ref}

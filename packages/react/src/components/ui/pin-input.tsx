@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 const PinInput = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof PinInputPrimitive.Root>
+  PinInputPrimitive.RootProps
 >(({ className, children, ...props }, ref) => (
   <PinInputPrimitive.Root
     className={cn("max-w-fit", className)}
@@ -25,7 +25,7 @@ const PinInputContext = PinInputPrimitive.Context
 
 const PinInputLabel = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof PinInputPrimitive.Label>
+  PinInputPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <PinInputPrimitive.Label
     className={cn(
@@ -39,7 +39,7 @@ const PinInputLabel = React.forwardRef<
 
 const PinInputControl = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof PinInputPrimitive.Control>
+  PinInputPrimitive.ControlProps
 >(({ className, ...props }, ref) => (
   <PinInputPrimitive.Control
     className={cn("flex items-center", className)}
@@ -50,7 +50,7 @@ const PinInputControl = React.forwardRef<
 
 const PinInputInput = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Input>,
-  React.ComponentPropsWithoutRef<typeof PinInputPrimitive.Input>
+  PinInputPrimitive.InputProps
 >(({ className, ...props }, ref) => (
   <PinInputPrimitive.Input
     className={cn(

@@ -14,7 +14,7 @@ const SliderMarkGroup = SliderPrimitive.MarkerGroup
 
 const SliderMark = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Marker>,
-  React.ComponentPropsWithoutRef<typeof SliderPrimitive.Marker>
+  SliderPrimitive.MarkerProps
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Marker
     ref={ref}

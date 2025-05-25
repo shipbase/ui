@@ -9,11 +9,13 @@ import { cn } from "@/lib/utils"
 
 const RatingGroup = RatingGroupPrimitive.Root
 
+const RatingGroupProvider = RatingGroupPrimitive.RootProvider
+
 const RatingGroupContext = RatingGroupPrimitive.Context
 
 const RatingGroupLabel = React.forwardRef<
   React.ElementRef<typeof RatingGroupPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Label>
+  RatingGroupPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <RatingGroupPrimitive.Label
     ref={ref}
@@ -28,7 +30,7 @@ RatingGroupLabel.displayName = RatingGroupPrimitive.Label.displayName
 
 const RatingGroupControl = React.forwardRef<
   React.ElementRef<typeof RatingGroupPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Control>
+  RatingGroupPrimitive.ControlProps
 >(({ className, children, ...props }, ref) => (
   <RatingGroupPrimitive.Control
     ref={ref}
@@ -43,7 +45,7 @@ RatingGroupControl.displayName = RatingGroupPrimitive.Control.displayName
 
 const RatingGroupItem = React.forwardRef<
   React.ElementRef<typeof RatingGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RatingGroupPrimitive.Item>
+  RatingGroupPrimitive.ItemProps
 >(({ className, ...props }, ref) => (
   <RatingGroupPrimitive.Item
     ref={ref}
@@ -64,4 +66,5 @@ export {
   RatingGroupControl,
   RatingGroupItem,
   RatingGroupLabel,
+  RatingGroupProvider,
 }

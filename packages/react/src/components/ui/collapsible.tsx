@@ -8,13 +8,15 @@ import { cn } from "@/lib/utils"
 
 const Collapsible = CollapsiblePrimitive.Root
 
+const CollapsibleProvider = CollapsiblePrimitive.RootProvider
+
 const CollapsibleContext = CollapsiblePrimitive.Context
 
 const CollapsibleTrigger = CollapsiblePrimitive.Trigger
 
 const CollapsibleContent = React.forwardRef<
   React.ElementRef<typeof CollapsiblePrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof CollapsiblePrimitive.Content>
+  CollapsiblePrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <CollapsiblePrimitive.Content
     ref={ref}
@@ -30,5 +32,6 @@ export {
   Collapsible,
   CollapsibleContent,
   CollapsibleContext,
+  CollapsibleProvider,
   CollapsibleTrigger,
 }

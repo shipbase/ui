@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 const Progress = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
+  ProgressPrimitive.RootProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.Root
     ref={ref}
@@ -19,7 +19,7 @@ const Progress = React.forwardRef<
 
 const ProgressLabel = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Label>
+  ProgressPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.Label
     ref={ref}
@@ -31,7 +31,7 @@ ProgressLabel.displayName = ProgressPrimitive.Label.displayName
 
 const ProgressTrack = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Track>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Track>
+  ProgressPrimitive.TrackProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.Track
     ref={ref}
@@ -46,7 +46,7 @@ ProgressTrack.displayName = ProgressPrimitive.Track.displayName
 
 const ProgressRange = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Range>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Range>
+  ProgressPrimitive.RangeProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.Range
     ref={ref}
@@ -58,7 +58,7 @@ ProgressRange.displayName = ProgressPrimitive.Range.displayName
 
 const ProgressValueText = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.ValueText>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.ValueText>
+  ProgressPrimitive.ValueTextProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.ValueText
     ref={ref}
@@ -72,7 +72,7 @@ const ProgressCircle = ProgressPrimitive.Circle
 
 const ProgressCircleTrack = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.CircleTrack>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.CircleTrack>
+  ProgressPrimitive.CircleTrackProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.CircleTrack
     ref={ref}
@@ -84,7 +84,7 @@ ProgressCircleTrack.displayName = ProgressPrimitive.CircleTrack.displayName
 
 const ProgressCircleRange = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.CircleRange>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.CircleRange>
+  ProgressPrimitive.CircleRangeProps
 >(({ className, ...props }, ref) => (
   <ProgressPrimitive.CircleRange
     ref={ref}

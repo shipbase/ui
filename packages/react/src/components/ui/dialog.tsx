@@ -20,7 +20,7 @@ const DialogPortal = Portal
 
 const DialogBackdrop = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Backdrop>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Backdrop>
+  DialogPrimitive.BackdropProps
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Backdrop
     ref={ref}
@@ -35,7 +35,7 @@ DialogBackdrop.displayName = DialogPrimitive.Backdrop.displayName
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+  DialogPrimitive.ContentProps
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogBackdrop />
@@ -89,7 +89,7 @@ DialogFooter.displayName = "DialogFooter"
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
+  DialogPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Title
     ref={ref}
@@ -104,7 +104,7 @@ DialogTitle.displayName = DialogPrimitive.Title.displayName
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
+  DialogPrimitive.DescriptionProps
 >(({ className, ...props }, ref) => (
   <DialogPrimitive.Description
     ref={ref}
