@@ -177,7 +177,7 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build",
-    "check:type": "tsc",
+    "check:type": "tsgo --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },

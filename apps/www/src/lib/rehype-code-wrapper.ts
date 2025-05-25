@@ -56,6 +56,7 @@ export default function rehypeCodeWrapper() {
                 type: "Literal",
                 value: "@/components/content",
               },
+              attributes: [],
             },
           ],
           type: "Program",
