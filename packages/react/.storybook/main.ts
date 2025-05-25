@@ -1,8 +1,9 @@
 import type { StorybookConfig } from "@storybook/react-vite"
+import inspect from "vite-plugin-inspect"
 import viteTsconfigPaths from "vite-tsconfig-paths"
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/stories/*.stories.@(js|jsx|mjs|ts|tsx)"],
   addons: [
     "@storybook/addon-onboarding",
     "@storybook/addon-links",
@@ -25,7 +26,7 @@ const config: StorybookConfig = {
     const { mergeConfig } = await import("vite")
 
     return mergeConfig(config, {
-      plugins: [viteTsconfigPaths({ root: "../" })],
+      plugins: [viteTsconfigPaths({ root: "../" }), inspect()],
     })
   },
 }
