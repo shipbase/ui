@@ -1,0 +1,122 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Code Standards Guide
+
+## Code Quality Tools
+
+### Biome Configuration
+The project uses Biome as the primary code formatting and linting tool, configuration file: [biome.jsonc](mdc:biome.jsonc)
+
+### Main Rules
+- Use TypeScript strict mode
+- 2 space indentation
+- Use semicolons for statement endings
+- Single quote strings
+- Trailing commas (multiline)
+
+## Naming Conventions
+
+### File Naming
+- **React Components**: kebab-case (e.g. `button.tsx`, `toggle-group.tsx`)
+- **Vue Components**: PascalCase directory + PascalCase file (e.g. `button/Button.vue`)
+- **Utility Functions**: kebab-case (e.g. `utils.ts`)
+- **Type Files**: kebab-case (e.g. `types.ts`)
+
+### Variable and Function Naming
+- **Components**: PascalCase (e.g. `Button`, `ToggleGroup`)
+- **Functions**: camelCase (e.g. `buttonVariants`, `cn`)
+- **Constants**: SCREAMING_SNAKE_CASE (e.g. `DEFAULT_VARIANT`)
+- **Type Interfaces**: PascalCase with Props suffix (e.g. `ButtonProps`)
+
+## TypeScript Standards
+
+### Component Type Definitions
+```tsx
+// React
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+// Vue  
+interface Props {
+  variant?: ButtonVariants["variant"]
+  size?: ButtonVariants["size"]
+  class?: HTMLAttributes["class"]
+  asChild?: boolean
+}
+```
+
+### Export Patterns
+```tsx
+// React - Export both component and variants
+export { Button, buttonVariants }
+
+// Vue - Export component and types
+export { default as Button } from './Button.vue'
+export type { ButtonVariants } from './types'
+```
+
+## Style Standards
+
+### Tailwind CSS Usage
+- Prefer Tailwind built-in classes
+- Organize complex styles through CVA
+- Use semantic design tokens
+- Support dark theme
+
+### CVA Variant Definition
+```tsx
+const buttonVariants = cva(
+  "base style classes", // Base styles
+  {
+    variants: {
+      variant: { /* style variants */ },
+      size: { /* size variants */ }
+    },
+    defaultVariants: { /* default values */ }
+  }
+)
+```
+
+## Component Development Standards
+
+### Accessibility
+- Use Ark UI components as foundation
+- Support keyboard navigation
+- Provide appropriate ARIA attributes
+- Support screen readers
+
+### Performance Considerations
+- Use React.forwardRef to forward refs
+- Avoid unnecessary re-renders
+- Handle event listeners properly
+
+### Error Handling
+- Provide meaningful error messages
+- Use TypeScript for compile-time checking
+- Handle runtime edge cases
+
+## Commit Standards
+
+### Git Hooks
+Project has configured pre-commit hooks:
+- Automatically run [lint-staged](mdc:package.json) 
+- Format code and fix simple lint issues
+- Type checking
+
+### Commit Message Format
+Follow Conventional Commits specification:
+```
+feat: add new feature
+fix: fix issue
+docs: documentation update
+style: code formatting adjustment
+refactor: refactor code
+test: add tests
+chore: build process or tool updates
+```
