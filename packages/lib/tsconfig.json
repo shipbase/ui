@@ -5,6 +5,6 @@
     "outDir": "dist",
     "noEmit": false
   },
-  "include": ["ai"],
+  "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
