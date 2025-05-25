@@ -15,16 +15,8 @@
   },
   "author": "@shipbase",
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "shipbase",
-    "components",
-    "ui",
-    "tailwind",
-    "ark-ui"
-  ],
+  "files": ["dist"],
+  "keywords": ["shipbase", "components", "ui", "tailwind", "ark-ui"],
   "scripts": {
     "dev": "tsup --watch",
     "test": "vitest",
@@ -36,13 +28,13 @@
     "@ui/lib": "workspace:*",
     "@ui/typescript": "workspace:*",
     "tsup": "^8.5.0",
-    "vitest": "^2.1.9"
+    "vitest": "^3.1.4"
   },
   "dependencies": {
     "cac": "^6.7.14",
     "kleur": "^4.1.5",
     "mlly": "^1.7.4",
-    "nypm": "^0.4.1",
+    "nypm": "^0.6.0",
     "ora": "^8.2.0",
     "prompts": "^2.4.2",
     "ufo": "^1.6.1",

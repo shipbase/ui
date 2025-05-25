@@ -201,7 +201,7 @@
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
     "globby": "^14.1.0",
-    "lucide-react": "^0.469.0",
+    "lucide-react": "^0.511.0",
     "prop-types": "^15.8.1",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
