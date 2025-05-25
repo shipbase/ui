@@ -2,8 +2,8 @@ import type { Meta } from "@storybook/react"
 
 import {
   Checkbox,
+  CheckboxControl,
   CheckboxLabel,
-  CheckboxTrigger,
 } from "@/components/ui/checkbox"
 
 export default {
@@ -14,7 +14,7 @@ export function Basic() {
   return (
     <>
       <Checkbox className="flex items-center space-x-2">
-        <CheckboxTrigger />
+        <CheckboxControl />
         <CheckboxLabel className="font-medium text-sm leading-none">
           Accept terms and conditions
         </CheckboxLabel>

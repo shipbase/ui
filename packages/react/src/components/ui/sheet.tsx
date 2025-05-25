@@ -33,7 +33,7 @@ const SheetSideContext = React.createContext<
 >({})
 
 interface SheetProps
-  extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Root>,
+  extends SheetPrimitive.RootProps,
     VariantProps<typeof sheetVariants> {}
 
 const Sheet = ({ children, side, ...props }: SheetProps) => (
@@ -54,7 +54,7 @@ const SheetTrigger = SheetPrimitive.Trigger
 
 const SheetBackdrop = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Backdrop>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Backdrop>
+  SheetPrimitive.BackdropProps
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Backdrop
     ref={ref}
@@ -69,7 +69,7 @@ SheetBackdrop.displayName = SheetPrimitive.Backdrop.displayName
 
 const SheetContent = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>
+  SheetPrimitive.ContentProps
 >(({ className, children, ...props }, ref) => {
   const { side } = React.useContext(SheetSideContext)
 
@@ -124,7 +124,7 @@ SheetFooter.displayName = "SheetFooter"
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Title>
+  SheetPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title
     ref={ref}
@@ -136,7 +136,7 @@ SheetTitle.displayName = SheetPrimitive.Title.displayName
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof SheetPrimitive.Description>
+  SheetPrimitive.DescriptionProps
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description
     ref={ref}

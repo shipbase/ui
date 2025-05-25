@@ -20,7 +20,7 @@ const TreeViewNodeContext = TreeViewPrimitive.NodeContext
 
 const TreeViewBranch = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Branch>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Branch>
+  TreeViewPrimitive.BranchProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.Branch
     ref={ref}
@@ -31,7 +31,7 @@ const TreeViewBranch = React.forwardRef<
 
 const TreeViewBranchControl = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchControl>
+  TreeViewPrimitive.BranchControlProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.BranchControl
     ref={ref}
@@ -51,7 +51,7 @@ const TreeViewBranchText = TreeViewPrimitive.BranchText
 
 const TreeViewBranchIndentGuide = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchIndentGuide>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchIndentGuide>
+  TreeViewPrimitive.BranchIndentGuideProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.BranchIndentGuide
     ref={ref}
@@ -65,7 +65,7 @@ const TreeViewBranchIndentGuide = React.forwardRef<
 
 const TreeViewBranchContent = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchContent>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.BranchContent>
+  TreeViewPrimitive.BranchContentProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.BranchContent
     ref={ref}
@@ -76,7 +76,7 @@ const TreeViewBranchContent = React.forwardRef<
 
 const TreeViewItem = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Item>
+  TreeViewPrimitive.ItemProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.Item
     ref={ref}
@@ -90,7 +90,7 @@ const TreeViewItem = React.forwardRef<
 
 const TreeViewLabel = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof TreeViewPrimitive.Label>
+  TreeViewPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.Label
     ref={ref}

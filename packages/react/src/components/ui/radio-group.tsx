@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils"
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
+  RadioGroupPrimitive.RootProps
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Root
     ref={ref}
@@ -21,7 +21,7 @@ RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
 const RadioGroupLabel = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Label>
+  RadioGroupPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Label
     ref={ref}
@@ -36,7 +36,7 @@ RadioGroupLabel.displayName = RadioGroupPrimitive.Label.displayName
 
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
+  RadioGroupPrimitive.ItemProps
 >(({ className, children, ...props }, ref) => (
   <RadioGroupPrimitive.Item
     ref={ref}
@@ -51,7 +51,7 @@ RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
 const RadioGroupItemText = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.ItemText>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.ItemText>
+  RadioGroupPrimitive.ItemTextProps
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.ItemText
     ref={ref}
@@ -66,7 +66,7 @@ RadioGroupItemText.displayName = RadioGroupPrimitive.ItemText.displayName
 
 const RadioGroupItemControl = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.ItemControl>,
-  React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.ItemControl>
+  RadioGroupPrimitive.ItemControlProps
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.ItemControl
     ref={ref}

@@ -14,7 +14,7 @@ const PopoverTrigger = PopoverPrimitive.Trigger
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+  PopoverPrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <Portal>
     <PopoverPrimitive.Positioner>
@@ -33,7 +33,7 @@ PopoverContent.displayName = PopoverPrimitive.Content.displayName
 
 const PopoverArrow = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Arrow>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Arrow>
+  PopoverPrimitive.ArrowProps
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Arrow>
     <PopoverPrimitive.ArrowTip
@@ -47,7 +47,7 @@ PopoverArrow.displayName = PopoverPrimitive.Arrow.displayName
 
 const PopoverCloseTrigger = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.CloseTrigger>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.CloseTrigger>
+  PopoverPrimitive.CloseTriggerProps
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.CloseTrigger
     ref={ref}
@@ -65,7 +65,7 @@ PopoverCloseTrigger.displayName = PopoverPrimitive.CloseTrigger.displayName
 
 const PopoverTitle = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Title>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Title>
+  PopoverPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Title
     ref={ref}
@@ -80,7 +80,7 @@ PopoverTitle.displayName = PopoverPrimitive.Title.displayName
 
 const PopoverDescription = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Description>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Description>
+  PopoverPrimitive.DescriptionProps
 >(({ className, ...props }, ref) => (
   <PopoverPrimitive.Description
     ref={ref}
