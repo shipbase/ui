@@ -7,10 +7,6 @@
     "build": "tsc"
   },
   "exports": {
-    "./ai": {
-      "types": "./ai/index.ts",
-      "default": "./ai/index.ts"
-    },
     "./utils/*": {
       "types": "./utils/*.ts",
       "default": "./utils/*.ts"
@@ -20,9 +16,6 @@
     "@ui/typescript": "workspace:*"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "catalog:",
-    "@ai-sdk/openai": "catalog:",
-    "ai": "catalog:",
     "mlly": "catalog:"
   },
   "peerDependencies": {
