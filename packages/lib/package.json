@@ -20,10 +20,10 @@
     "@ui/typescript": "workspace:*"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^1.2.12",
-    "@ai-sdk/openai": "^1.3.22",
+    "@ai-sdk/anthropic": "catalog:",
+    "@ai-sdk/openai": "catalog:",
     "ai": "catalog:",
-    "mlly": "^1.7.4"
+    "mlly": "catalog:"
   },
   "peerDependencies": {
     "mlly": "^1.7.2"
