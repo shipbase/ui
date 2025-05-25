@@ -8,7 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "build:registry": "tsx ./scripts/build-registry.ts",
-    "check:type": "astro check",
+    "typecheck": "astro check",
     "test": "vitest"
   },
   "dependencies": {

@@ -24,7 +24,7 @@ const MenuItemText = MenuPrimitive.ItemText
 
 const MenuTriggerItem = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.TriggerItem>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.TriggerItem> & {
+  MenuPrimitive.TriggerItemProps & {
     inset?: boolean
   }
 >(({ className, inset, children, ...props }, ref) => (
@@ -45,7 +45,7 @@ MenuTriggerItem.displayName = MenuPrimitive.TriggerItem.displayName
 
 const MenuContent = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.Content>
+  MenuPrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <Portal>
     <MenuPrimitive.Positioner>
@@ -64,7 +64,7 @@ MenuContent.displayName = MenuPrimitive.Content.displayName
 
 const MenuItem = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.Item> & {
+  MenuPrimitive.ItemProps & {
     inset?: boolean
   }
 >(({ className, inset, ...props }, ref) => (
@@ -82,7 +82,7 @@ MenuItem.displayName = MenuPrimitive.Item.displayName
 
 const MenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.CheckboxItem>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.CheckboxItem>
+  MenuPrimitive.CheckboxItemProps
 >(({ className, children, checked, ...props }, ref) => (
   <MenuPrimitive.CheckboxItem
     ref={ref}
@@ -105,7 +105,7 @@ MenuCheckboxItem.displayName = MenuPrimitive.CheckboxItem.displayName
 
 const MenuRadioItem = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.RadioItem>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.RadioItem>
+  MenuPrimitive.RadioItemProps
 >(({ className, children, ...props }, ref) => (
   <MenuPrimitive.RadioItem
     ref={ref}
@@ -127,7 +127,7 @@ MenuRadioItem.displayName = MenuPrimitive.RadioItem.displayName
 
 const MenuItemGroupLabel = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.ItemGroupLabel>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.ItemGroupLabel> & {
+  MenuPrimitive.ItemGroupLabelProps & {
     inset?: boolean
   }
 >(({ className, inset, ...props }, ref) => (
@@ -145,7 +145,7 @@ MenuItemGroupLabel.displayName = MenuPrimitive.ItemGroupLabel.displayName
 
 const MenuSeparator = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.Separator>
+  MenuPrimitive.SeparatorProps
 >(({ className, ...props }, ref) => (
   <MenuPrimitive.Separator
     ref={ref}
@@ -157,7 +157,7 @@ MenuSeparator.displayName = MenuPrimitive.Separator.displayName
 
 const MenuArrow = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.Arrow>,
-  React.ComponentPropsWithoutRef<typeof MenuPrimitive.Arrow>
+  MenuPrimitive.ArrowProps
 >(({ className, ...props }, ref) => (
   <MenuPrimitive.Arrow>
     <MenuPrimitive.ArrowTip

@@ -10,8 +10,8 @@
       "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
-    "check:type": {
-      "dependsOn": ["^check:type"]
+    "typecheck": {
+      "dependsOn": ["^typecheck"]
     },
     "test": {},
     "storybook": { "cache": false }

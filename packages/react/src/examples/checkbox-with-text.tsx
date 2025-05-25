@@ -1,13 +1,13 @@
 import {
   Checkbox,
+  CheckboxControl,
   CheckboxLabel,
-  CheckboxTrigger,
 } from "@/components/ui/checkbox"
 
 export default function CheckboxWithText() {
   return (
     <Checkbox className="items-top flex space-x-2">
-      <CheckboxTrigger />
+      <CheckboxControl />
       <div className="grid gap-1.5 leading-none">
         <CheckboxLabel className="font-medium text-sm leading-none">
           Accept terms and conditions

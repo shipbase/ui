@@ -7,13 +7,15 @@ import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+const CheckboxProvider = CheckboxPrimitive.RootProvider
+
 const Checkbox = CheckboxPrimitive.Root
 
 const CheckboxContext = CheckboxPrimitive.Context
 
-const CheckboxTrigger = React.forwardRef<
+const CheckboxControl = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Control>
+  CheckboxPrimitive.ControlProps
 >(({ className, children, ...props }, ref) => (
   <>
     <CheckboxPrimitive.Control
@@ -31,11 +33,9 @@ const CheckboxTrigger = React.forwardRef<
     <CheckboxPrimitive.HiddenInput />
   </>
 ))
-CheckboxTrigger.displayName = "CheckboxTrigger"
-
 const CheckboxLabel = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Label>
+  CheckboxPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <CheckboxPrimitive.Label
     ref={ref}
@@ -46,6 +46,11 @@ const CheckboxLabel = React.forwardRef<
     {...props}
   />
 ))
-CheckboxLabel.displayName = "CheckboxLabel"
 
-export { Checkbox, CheckboxContext, CheckboxLabel, CheckboxTrigger }
+export {
+  Checkbox,
+  CheckboxContext,
+  CheckboxControl,
+  CheckboxLabel,
+  CheckboxProvider,
+}

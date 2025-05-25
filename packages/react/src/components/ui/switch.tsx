@@ -8,8 +8,8 @@ import { cn } from "@/lib/utils"
 
 const SwitchThumb = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitive.Thumb>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Thumb>
->(({ className, children, ...props }, ref) => (
+  SwitchPrimitive.ThumbProps
+>(({ className, ...props }, ref) => (
   <SwitchPrimitive.Thumb
     ref={ref}
     className={cn(
@@ -22,7 +22,7 @@ const SwitchThumb = React.forwardRef<
 
 const SwitchControl = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Control>
+  SwitchPrimitive.ControlProps
 >(({ className, children, ...props }, ref) => (
   <SwitchPrimitive.Control
     ref={ref}
@@ -38,7 +38,7 @@ const SwitchControl = React.forwardRef<
 
 const SwitchLabel = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Label>
+  SwitchPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <SwitchPrimitive.Label
     ref={ref}
@@ -52,7 +52,7 @@ const SwitchLabel = React.forwardRef<
 
 const Switch = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>
+  SwitchPrimitive.RootProps
 >(({ className, children, ...props }, ref) => (
   <SwitchPrimitive.Root
     ref={ref}
@@ -64,4 +64,18 @@ const Switch = React.forwardRef<
   </SwitchPrimitive.Root>
 ))
 
-export { Switch, SwitchControl, SwitchLabel, SwitchThumb }
+const SwitchProvider = SwitchPrimitive.RootProvider
+
+const SwitchContext = SwitchPrimitive.Context
+
+const SwitchHiddenInput = SwitchPrimitive.HiddenInput
+
+export {
+  Switch,
+  SwitchContext,
+  SwitchControl,
+  SwitchHiddenInput,
+  SwitchLabel,
+  SwitchProvider,
+  SwitchThumb,
+}

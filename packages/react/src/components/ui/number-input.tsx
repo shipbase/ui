@@ -11,7 +11,7 @@ const NumberInput = NumberInputPrimitive.Root
 
 const NumberInputLabel = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof NumberInputPrimitive.Label> & {
+  NumberInputPrimitive.LabelProps & {
     inset?: boolean
   }
 >(({ className, inset, ...props }, ref) => (
@@ -28,7 +28,7 @@ const NumberInputLabel = React.forwardRef<
 
 const NumberInputControl = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Control>,
-  React.ComponentPropsWithoutRef<typeof NumberInputPrimitive.Control>
+  NumberInputPrimitive.ControlProps
 >(({ className, ...props }, ref) => (
   <NumberInputPrimitive.Control
     ref={ref}
@@ -39,7 +39,7 @@ const NumberInputControl = React.forwardRef<
 
 const NumberInputInput = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Input>,
-  React.ComponentPropsWithoutRef<typeof NumberInputPrimitive.Input>
+  NumberInputPrimitive.InputProps
 >(({ className, ...props }, ref) => (
   <NumberInputPrimitive.Input
     ref={ref}
@@ -53,7 +53,7 @@ const NumberInputInput = React.forwardRef<
 
 const NumberInputIncrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.IncrementTrigger>,
-  React.ComponentPropsWithoutRef<typeof NumberInputPrimitive.IncrementTrigger>
+  NumberInputPrimitive.IncrementTriggerProps
 >(({ className, ...props }, ref) => (
   <NumberInputPrimitive.IncrementTrigger
     ref={ref}
@@ -69,7 +69,7 @@ const NumberInputIncrementTrigger = React.forwardRef<
 
 const NumberInputDecrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.DecrementTrigger>,
-  React.ComponentPropsWithoutRef<typeof NumberInputPrimitive.DecrementTrigger>
+  NumberInputPrimitive.DecrementTriggerProps
 >(({ className, ...props }, ref) => (
   <NumberInputPrimitive.DecrementTrigger
     ref={ref}

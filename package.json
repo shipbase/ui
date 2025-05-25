@@ -14,7 +14,7 @@
     "lint:fix": "biome lint --write --unsafe",
     "check:repo": "sherif",
     "check:repo:fix": "sherif --fix",
-    "check:type": "turbo check:type",
+    "typecheck": "turbo typecheck",
     "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
     "version": "changeset version && pnpm run format"
   },

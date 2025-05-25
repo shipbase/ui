@@ -12,7 +12,7 @@ const PaginationContext = PaginationPrimitive.Context
 
 const Pagination = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.Root>
+  PaginationPrimitive.RootProps
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Root
     className={cn(
@@ -27,7 +27,7 @@ Pagination.displayName = PaginationPrimitive.Root.displayName
 
 const PaginationItem = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.Item>
+  PaginationPrimitive.ItemProps
 >(({ className, ...props }, ref) => (
   <PaginationContext>
     {(context) => (
@@ -49,8 +49,7 @@ PaginationItem.displayName = PaginationPrimitive.Item.displayName
 
 const PaginationPrevTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.PrevTrigger>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.PrevTrigger> &
-    Pick<ButtonProps, "size">
+  PaginationPrimitive.PrevTriggerProps & Pick<ButtonProps, "size">
 >(({ className, size = "default", ...props }, ref) => (
   <PaginationPrimitive.PrevTrigger
     className={cn(
@@ -69,8 +68,7 @@ PaginationPrevTrigger.displayName = PaginationPrimitive.PrevTrigger.displayName
 
 const PaginationNextTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.NextTrigger>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.NextTrigger> &
-    Pick<ButtonProps, "size">
+  PaginationPrimitive.NextTriggerProps & Pick<ButtonProps, "size">
 >(({ className, size = "default", ...props }, ref) => (
   <PaginationPrimitive.NextTrigger
     className={cn(
@@ -89,7 +87,7 @@ PaginationNextTrigger.displayName = PaginationPrimitive.NextTrigger.displayName
 
 const PaginationEllipsis = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Ellipsis>,
-  React.ComponentPropsWithoutRef<typeof PaginationPrimitive.Ellipsis>
+  PaginationPrimitive.EllipsisProps
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Ellipsis
     aria-hidden

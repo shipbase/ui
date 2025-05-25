@@ -56,7 +56,7 @@ SelectTrigger.displayName = SelectPrimitive.Trigger.displayName
 
 const SelectLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>
+  SelectPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.Label
     ref={ref}
@@ -68,7 +68,7 @@ SelectLabel.displayName = SelectPrimitive.Label.displayName
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>
+  SelectPrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <Portal>
     <SelectPrimitive.Positioner>
@@ -86,7 +86,7 @@ const SelectContent = React.forwardRef<
 
 const SelectItemGroup = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ItemGroup>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ItemGroup>
+  SelectPrimitive.ItemGroupProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ItemGroup
     ref={ref}
@@ -97,7 +97,7 @@ const SelectItemGroup = React.forwardRef<
 
 const SelectItemGroupLabel = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ItemGroupLabel>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ItemGroupLabel>
+  SelectPrimitive.ItemGroupLabelProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ItemGroupLabel
     ref={ref}
@@ -108,7 +108,7 @@ const SelectItemGroupLabel = React.forwardRef<
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item>
+  SelectPrimitive.ItemProps
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Item
     ref={ref}

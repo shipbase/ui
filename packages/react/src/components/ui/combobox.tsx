@@ -39,13 +39,13 @@ const Combobox = React.forwardRef(
     />
   )
 ) as <T extends CollectionItem>(
-  props: React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Root<T>> &
+  props: ComboboxRootProps<T> &
     React.RefAttributes<React.ElementRef<typeof ComboboxPrimitive.Root>>
 ) => JSX.Element
 
 const ComboboxInput = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Input>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Input>
+  ComboboxPrimitive.InputProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.Input
     ref={ref}
@@ -59,7 +59,7 @@ const ComboboxInput = React.forwardRef<
 
 const ComboboxLabel = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Label>
+  ComboboxPrimitive.LabelProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.Label
     ref={ref}
@@ -73,7 +73,7 @@ const ComboboxLabel = React.forwardRef<
 
 const ComboboxPortal = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Positioner>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Positioner>
+  ComboboxPrimitive.PositionerProps
 >((props, ref) => (
   <Portal>
     <ComboboxPrimitive.Positioner ref={ref} {...props} />
@@ -82,7 +82,7 @@ const ComboboxPortal = React.forwardRef<
 
 const ComboboxContent = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Content>
+  ComboboxPrimitive.ContentProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.Content
     ref={ref}
@@ -96,7 +96,7 @@ const ComboboxContent = React.forwardRef<
 
 const ComboboxItemGroup = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.ItemGroup>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.ItemGroup>
+  ComboboxPrimitive.ItemGroupProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.ItemGroup
     ref={ref}
@@ -107,7 +107,7 @@ const ComboboxItemGroup = React.forwardRef<
 
 const ComboboxItemGroupLabel = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.ItemGroupLabel>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.ItemGroupLabel>
+  ComboboxPrimitive.ItemGroupLabelProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.ItemGroupLabel
     ref={ref}
@@ -121,7 +121,7 @@ const ComboboxItemGroupLabel = React.forwardRef<
 
 const ComboboxItem = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof ComboboxPrimitive.Item>
+  ComboboxPrimitive.ItemProps
 >(({ className, ...props }, ref) => (
   <ComboboxPrimitive.Item
     ref={ref}

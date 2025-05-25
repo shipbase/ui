@@ -38,8 +38,7 @@ const ToggleGroupContext = React.createContext<
 
 const ToggleGroup = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root> &
-    VariantProps<typeof toggleVariants>
+  ToggleGroupPrimitive.RootProps & VariantProps<typeof toggleVariants>
 >(({ className, variant, size, children, ...props }, ref) => (
   <ToggleGroupPrimitive.Root
     ref={ref}
@@ -54,8 +53,7 @@ const ToggleGroup = React.forwardRef<
 
 const ToggleGroupItem = React.forwardRef<
   React.ElementRef<typeof ToggleGroupPrimitive.Item>,
-  React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &
-    VariantProps<typeof toggleVariants>
+  ToggleGroupPrimitive.ItemProps & VariantProps<typeof toggleVariants>
 >(({ className, variant, size, ...props }, ref) => {
   const context = React.useContext(ToggleGroupContext)
   return (
