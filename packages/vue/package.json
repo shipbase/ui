@@ -63,7 +63,6 @@
     "@ui/typescript": "workspace:*",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
-    "ai": "catalog:",
     "autoprefixer": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
