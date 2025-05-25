@@ -21,7 +21,7 @@
     "dev": "tsup --watch",
     "test": "vitest",
     "build": "tsup",
-    "check:type": "tsc --noEmit"
+    "check:type": "tsgo --noEmit"
   },
   "devDependencies": {
     "@types/prompts": "catalog:",

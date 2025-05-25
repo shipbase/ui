@@ -3,22 +3,30 @@
 import * as React from "react"
 
 import { Portal } from "@ark-ui/react/portal"
-import { Select as SelectPrimitive } from "@ark-ui/react/select"
+import {
+  type CollectionItem,
+  Select as SelectPrimitive,
+  type SelectRootProps,
+} from "@ark-ui/react/select"
 import { Check, ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Select = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Root>
->(({ className, ...props }, ref) => (
-  <SelectPrimitive.Root
-    ref={ref}
-    className={cn("w-[200px] space-y-2", className)}
-    {...props}
-  />
-))
-Select.displayName = "Select"
+const Select = React.forwardRef(
+  <T extends CollectionItem>(
+    { className, ...props }: SelectRootProps<T>,
+    ref: React.Ref<HTMLDivElement>
+  ) => (
+    <SelectPrimitive.Root
+      ref={ref}
+      className={cn("w-[200px] space-y-2", className)}
+      {...props}
+    />
+  )
+) as <T extends CollectionItem>(
+  props: SelectRootProps<T> &
+    React.RefAttributes<React.ElementRef<typeof SelectPrimitive.Root>>
+) => JSX.Element
 
 const SelectContext = SelectPrimitive.Context
 
@@ -30,7 +38,7 @@ const SelectClearTrigger = SelectPrimitive.ClearTrigger
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>
+  SelectPrimitive.TriggerProps
 >(({ className, children, ...props }, ref) => (
   <SelectPrimitive.Trigger
     ref={ref}

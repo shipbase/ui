@@ -21,7 +21,6 @@ export default defineConfig({
               if (pre) pre.properties.source = this.source
             },
           },
-          // @ts-expect-error version mismatch
           transformerMetaHighlight({
             className: "line--highlighted",
           }),
