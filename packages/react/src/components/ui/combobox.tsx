@@ -2,14 +2,28 @@
 
 import * as React from "react"
 
-import {
-  type CollectionItem,
-  Combobox as ComboboxPrimitive,
-  type ComboboxRootProps,
-} from "@ark-ui/react/combobox"
+import { Combobox as ComboboxPrimitive } from "@ark-ui/react/combobox"
 import { Portal } from "@ark-ui/react/portal"
 
 import { cn } from "@/lib/utils"
+
+const Combobox = React.forwardRef(
+  <T extends ComboboxPrimitive.CollectionItem>(
+    { className, ...props }: ComboboxPrimitive.RootProps<T>,
+    ref: React.Ref<HTMLDivElement>
+  ) => (
+    <ComboboxPrimitive.Root
+      ref={ref}
+      className={cn("w-[200px] space-y-2", className)}
+      {...props}
+    />
+  )
+) as <T extends ComboboxPrimitive.CollectionItem>(
+  props: ComboboxPrimitive.RootProps<T> &
+    React.RefAttributes<React.ElementRef<typeof ComboboxPrimitive.Root>>
+) => JSX.Element
+
+const ComboboxClearTrigger = ComboboxPrimitive.ClearTrigger
 
 const ComboboxContext = ComboboxPrimitive.Context
 
@@ -23,25 +37,7 @@ const ComboboxItemIndicator = ComboboxPrimitive.ItemIndicator
 
 const ComboboxTrigger = ComboboxPrimitive.Trigger
 
-const ComboboxClearTrigger = ComboboxPrimitive.ClearTrigger
-
 const ComboboxList = ComboboxPrimitive.List
-
-const Combobox = React.forwardRef(
-  <T extends CollectionItem>(
-    { className, ...props }: ComboboxRootProps<T>,
-    ref: React.Ref<HTMLDivElement>
-  ) => (
-    <ComboboxPrimitive.Root
-      ref={ref}
-      className={cn("w-[200px] space-y-2", className)}
-      {...props}
-    />
-  )
-) as <T extends CollectionItem>(
-  props: ComboboxRootProps<T> &
-    React.RefAttributes<React.ElementRef<typeof ComboboxPrimitive.Root>>
-) => JSX.Element
 
 const ComboboxInput = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Input>,
