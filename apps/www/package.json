@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
+    "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "astro build",
     "preview": "astro preview",
     "build:registry": "tsx ./scripts/build-registry.ts",
