@@ -40,6 +40,7 @@
   },
   "scripts": {
     "dev": "vite build --watch",
+    "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "vite build",
     "typecheck": "vue-tsc",
     "storybook": "storybook dev -p 6007",
