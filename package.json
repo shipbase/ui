@@ -15,7 +15,7 @@
     "check:repo": "sherif",
     "check:repo:fix": "sherif --fix",
     "typecheck": "turbo typecheck",
-    "clean": "rimraf -g **/node_modules **/dist **/.turbo **/.astro",
+    "clean": "turbo clean && git clean -xdf node_modules .turbo",
     "version": "changeset version && pnpm run format"
   },
   "devDependencies": {
