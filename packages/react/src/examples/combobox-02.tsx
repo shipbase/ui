@@ -44,7 +44,7 @@ const frameworks = [
   },
 ]
 
-export default function ComboboxDemo() {
+export default function Component() {
   const [value, setValue] = React.useState<string[]>([])
   const [collection, setCollection] = React.useState(
     createListCollection({ items: frameworks })
