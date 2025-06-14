@@ -180,9 +180,6 @@ catalogs:
     prompts:
       specifier: ^2.4.2
       version: 2.4.2
-    prop-types:
-      specifier: ^15.8.1
-      version: 15.8.1
     react-scan:
       specifier: ^0.3.4
       version: 0.3.4
@@ -594,9 +591,6 @@ importers:
       lucide-react:
         specifier: 'catalog:'
         version: 0.511.0(react@18.3.1)
-      prop-types:
-        specifier: 'catalog:'
-        version: 15.8.1
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -615,6 +609,9 @@ importers:
       tailwindcss:
         specifier: 'catalog:'
         version: 3.4.17(ts-node@10.9.2(@types/node@22.7.0)(typescript@5.8.3))
+      tailwindcss-animate:
+        specifier: 'catalog:'
+        version: 1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.7.0)(typescript@5.8.3)))
       vite:
         specifier: 'catalog:'
         version: 6.3.5(@types/node@22.7.0)(jiti@2.4.2)(tsx@4.19.4)(yaml@2.8.0)
@@ -12458,6 +12455,10 @@ snapshots:
   tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.50)(typescript@5.8.3))):
     dependencies:
       tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@20.17.50)(typescript@5.8.3))
+
+  tailwindcss-animate@1.0.7(tailwindcss@3.4.17(ts-node@10.9.2(@types/node@22.7.0)(typescript@5.8.3))):
+    dependencies:
+      tailwindcss: 3.4.17(ts-node@10.9.2(@types/node@22.7.0)(typescript@5.8.3))
 
   tailwindcss@3.4.17(ts-node@10.9.2(@types/node@20.17.50)(typescript@5.8.3)):
     dependencies:

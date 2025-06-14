@@ -203,13 +203,13 @@
     "clsx": "catalog:",
     "globby": "catalog:",
     "lucide-react": "catalog:",
-    "prop-types": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "recharts": "catalog:",
     "storybook": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
+    "tailwindcss-animate": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "catalog:"
   }
