@@ -2,21 +2,20 @@
 
 import * as React from "react"
 
-import { Dialog as DialogPrimitive } from "@ark-ui/react/dialog"
+import { Dialog as DialogPrimitive, dialogAnatomy } from "@ark-ui/react/dialog"
+import {
+  type HTMLProps,
+  type PolymorphicProps,
+  ark,
+} from "@ark-ui/react/factory"
 import { Portal } from "@ark-ui/react/portal"
-import { X } from "lucide-react"
+import { XIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
+const parts = dialogAnatomy.extendWith("header").build()
+
 const Dialog = DialogPrimitive.Root
-
-const DialogContext = DialogPrimitive.Context
-
-const DialogTrigger = DialogPrimitive.Trigger
-
-const DialogCloseTrigger = DialogPrimitive.CloseTrigger
-
-const DialogPortal = Portal
 
 const DialogBackdrop = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Backdrop>,
@@ -25,82 +24,41 @@ const DialogBackdrop = React.forwardRef<
   <DialogPrimitive.Backdrop
     ref={ref}
     className={cn(
-      "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80 data-[state=closed]:animate-out data-[state=open]:animate-in",
+      "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-[--z-index] bg-black/80 data-[state=closed]:animate-out data-[state=open]:animate-in",
       className
     )}
     {...props}
   />
 ))
-DialogBackdrop.displayName = DialogPrimitive.Backdrop.displayName
+
+const DialogCloseTrigger = DialogPrimitive.CloseTrigger
 
 const DialogContent = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Content>,
   DialogPrimitive.ContentProps
 >(({ className, children, ...props }, ref) => (
-  <DialogPortal>
+  <Portal>
     <DialogBackdrop />
     <DialogPrimitive.Positioner>
       <DialogPrimitive.Content
         ref={ref}
         className={cn(
-          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%] data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] fixed top-[50%] left-[50%] z-50 grid w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 border bg-background p-6 shadow-lg duration-200 data-[state=closed]:animate-out data-[state=open]:animate-in sm:rounded-lg",
+          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 -translate-x-1/2 -translate-y-1/2 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-1/2 left-1/2 z-[--z-index] grid max-h-[calc(100%-2rem)] w-full max-w-[calc(100%-2rem)] gap-4 overflow-y-auto rounded-xl border bg-background p-6 shadow-lg data-[state=closed]:animate-out data-[state=open]:animate-in sm:max-w-100",
           className
         )}
         {...props}
       >
         {children}
-        <DialogCloseTrigger className="absolute top-4 right-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">
-          <X className="h-4 w-4" />
+        <DialogPrimitive.CloseTrigger className="group absolute top-3 right-3 flex size-7 items-center justify-center rounded outline-none transition-[color,box-shadow] focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none">
+          <XIcon className="size-4 opacity-60 transition-opacity group-hover:opacity-100" />
           <span className="sr-only">Close</span>
-        </DialogCloseTrigger>
+        </DialogPrimitive.CloseTrigger>
       </DialogPrimitive.Content>
     </DialogPrimitive.Positioner>
-  </DialogPortal>
+  </Portal>
 ))
-DialogContent.displayName = DialogPrimitive.Content.displayName
 
-const DialogHeader = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col space-y-1.5 text-center sm:text-left",
-      className
-    )}
-    {...props}
-  />
-)
-DialogHeader.displayName = "DialogHeader"
-
-const DialogFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn(
-      "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-      className
-    )}
-    {...props}
-  />
-)
-DialogFooter.displayName = "DialogFooter"
-
-const DialogTitle = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Title>,
-  DialogPrimitive.TitleProps
->(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title
-    ref={ref}
-    className={cn(
-      "font-semibold text-lg leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
-))
-DialogTitle.displayName = DialogPrimitive.Title.displayName
+const DialogContext = DialogPrimitive.Context
 
 const DialogDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
@@ -112,10 +70,48 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ))
-DialogDescription.displayName = DialogPrimitive.Description.displayName
+
+const DialogFooter = ({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement>) => (
+  <div
+    className={cn(
+      "flex flex-col-reverse gap-3 sm:flex-row sm:justify-end",
+      className
+    )}
+    {...props}
+  />
+)
+
+const DialogHeader = React.forwardRef<
+  HTMLDivElement,
+  PolymorphicProps & HTMLProps<"div">
+>(({ className, ...props }, ref) => (
+  <ark.div
+    ref={ref}
+    {...parts.header.attrs}
+    className={cn("flex flex-col gap-1 text-center sm:text-left", className)}
+    {...props}
+  />
+))
+
+const DialogTitle = React.forwardRef<
+  React.ElementRef<typeof DialogPrimitive.Title>,
+  DialogPrimitive.TitleProps
+>(({ className, ...props }, ref) => (
+  <DialogPrimitive.Title
+    ref={ref}
+    className={cn("font-semibold text-lg leading-none", className)}
+    {...props}
+  />
+))
+
+const DialogTrigger = DialogPrimitive.Trigger
 
 export {
   Dialog,
+  DialogBackdrop,
   DialogCloseTrigger,
   DialogContent,
   DialogContext,
