@@ -194,6 +194,7 @@
     "@storybook/react": "catalog:",
     "@storybook/react-vite": "catalog:",
     "@storybook/test": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
     "@ui/typescript": "workspace:*",
@@ -210,7 +211,9 @@
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:",
     "vite": "catalog:",
+    "vite-plugin-inspect": "catalog:",
     "vite-tsconfig-paths": "catalog:"
   }
 }
