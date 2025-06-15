@@ -9,8 +9,6 @@ import { cn } from "@/lib/utils"
 
 const HoverCard = HoverCardPrimitive.Root
 
-const HoverCardTrigger = HoverCardPrimitive.Trigger
-
 const HoverCardArrow = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Arrow>,
   HoverCardPrimitive.ArrowProps
@@ -23,7 +21,6 @@ const HoverCardArrow = React.forwardRef<
     />
   </HoverCardPrimitive.Arrow>
 ))
-HoverCardArrow.displayName = "HoverCardArrow"
 
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
@@ -34,7 +31,7 @@ const HoverCardContent = React.forwardRef<
       <HoverCardPrimitive.Content
         ref={ref}
         className={cn(
-          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 relative z-50 w-64 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=closed]:animate-out data-[state=open]:animate-in",
+          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 w-64 origin-(--transform-origin) rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-hidden data-[state=closed]:animate-out data-[state=open]:animate-in",
           className
         )}
         {...props}
@@ -42,6 +39,7 @@ const HoverCardContent = React.forwardRef<
     </HoverCardPrimitive.Positioner>
   </Portal>
 ))
-HoverCardContent.displayName = HoverCardPrimitive.Content.displayName
+
+const HoverCardTrigger = HoverCardPrimitive.Trigger
 
 export { HoverCard, HoverCardArrow, HoverCardContent, HoverCardTrigger }
