@@ -10,7 +10,25 @@ import { cn } from "@/lib/utils"
 
 const Popover = PopoverPrimitive.Root
 
-const PopoverTrigger = PopoverPrimitive.Trigger
+const PopoverAnchor = PopoverPrimitive.Anchor
+
+const PopoverArrow = React.forwardRef<
+  React.ElementRef<typeof PopoverPrimitive.Arrow>,
+  PopoverPrimitive.ArrowProps
+>(({ className, ...props }, ref) => (
+  <PopoverPrimitive.Arrow
+    ref={ref}
+    className={cn(
+      "[--arrow-background:var(--popover)] [--arrow-size:calc(var(--spacing)*2)]",
+      className
+    )}
+    {...props}
+  >
+    <PopoverPrimitive.ArrowTip className="border-t border-l" />
+  </PopoverPrimitive.Arrow>
+))
+
+const PopoverCloseTrigger = PopoverPrimitive.CloseTrigger
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -21,7 +39,7 @@ const PopoverContent = React.forwardRef<
       <PopoverPrimitive.Content
         ref={ref}
         className={cn(
-          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 z-50 w-80 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-none data-[state=closed]:animate-out data-[state=open]:animate-in",
+          "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 z-50 w-72 rounded-md border bg-popover p-4 text-popover-foreground shadow-md outline-hidden data-[state=closed]:animate-out data-[state=open]:animate-in",
           className
         )}
         {...props}
@@ -29,54 +47,8 @@ const PopoverContent = React.forwardRef<
     </PopoverPrimitive.Positioner>
   </Portal>
 ))
-PopoverContent.displayName = PopoverPrimitive.Content.displayName
 
-const PopoverArrow = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Arrow>,
-  PopoverPrimitive.ArrowProps
->(({ className, ...props }, ref) => (
-  <PopoverPrimitive.Arrow>
-    <PopoverPrimitive.ArrowTip
-      ref={ref}
-      className={cn("border-t-[1px] border-l-[1px]", className)}
-      {...props}
-    />
-  </PopoverPrimitive.Arrow>
-))
-PopoverArrow.displayName = PopoverPrimitive.Arrow.displayName
-
-const PopoverCloseTrigger = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.CloseTrigger>,
-  PopoverPrimitive.CloseTriggerProps
->(({ className, ...props }, ref) => (
-  <PopoverPrimitive.CloseTrigger
-    ref={ref}
-    className={cn(
-      "absolute top-4 right-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground",
-      className
-    )}
-    {...props}
-  >
-    <X className="h-4 w-4" />
-    <span className="sr-only">Close</span>
-  </PopoverPrimitive.CloseTrigger>
-))
-PopoverCloseTrigger.displayName = PopoverPrimitive.CloseTrigger.displayName
-
-const PopoverTitle = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Title>,
-  PopoverPrimitive.TitleProps
->(({ className, ...props }, ref) => (
-  <PopoverPrimitive.Title
-    ref={ref}
-    className={cn(
-      "font-semibold text-lg leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
-))
-PopoverTitle.displayName = PopoverPrimitive.Title.displayName
+const PopoverContext = PopoverPrimitive.Context
 
 const PopoverDescription = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Description>,
@@ -88,14 +60,33 @@ const PopoverDescription = React.forwardRef<
     {...props}
   />
 ))
-PopoverDescription.displayName = PopoverPrimitive.Description.displayName
+
+const PopoverRootProvider = PopoverPrimitive.RootProvider
+
+const PopoverTitle = React.forwardRef<
+  React.ElementRef<typeof PopoverPrimitive.Title>,
+  PopoverPrimitive.TitleProps
+>(({ className, ...props }, ref) => (
+  <PopoverPrimitive.Title
+    ref={ref}
+    className={cn("font-semibold text-lg leading-none", className)}
+    {...props}
+  />
+))
+
+const PopoverTrigger = PopoverPrimitive.Trigger
 
 export {
   Popover,
+  PopoverAnchor,
   PopoverArrow,
   PopoverCloseTrigger,
   PopoverContent,
+  PopoverContext,
   PopoverDescription,
+  PopoverRootProvider,
   PopoverTitle,
   PopoverTrigger,
 }
+
+export { usePopover } from "@ark-ui/react/popover"
