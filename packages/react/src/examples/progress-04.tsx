@@ -18,9 +18,9 @@ export default function ProgressCircularDemo() {
   }, [])
 
   return (
-    <Progress value={progress} className="[--size:6rem] [--thickness:10px]">
-      <ProgressLabel>Label</ProgressLabel>
-      <ProgressCircle>
+    <Progress value={progress} className="*:not-first:mt-2">
+      <ProgressLabel>Circular Progress</ProgressLabel>
+      <ProgressCircle className="[--size:200px]">
         <ProgressCircleTrack />
         <ProgressCircleRange />
       </ProgressCircle>

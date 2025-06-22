@@ -5,10 +5,9 @@ import {
   ProgressLabel,
   ProgressRange,
   ProgressTrack,
-  ProgressValueText,
 } from "@/components/ui/progress"
 
-export default function ProgressDemo() {
+export default function Component() {
   const [progress, setProgress] = React.useState(13)
 
   React.useEffect(() => {
@@ -17,12 +16,11 @@ export default function ProgressDemo() {
   }, [])
 
   return (
-    <Progress value={progress} className="w-[60%]">
-      <ProgressLabel>Label</ProgressLabel>
+    <Progress value={progress} className="*:not-first:mt-2">
+      <ProgressLabel>Simple Progress</ProgressLabel>
       <ProgressTrack>
         <ProgressRange />
       </ProgressTrack>
-      <ProgressValueText />
     </Progress>
   )
 }
