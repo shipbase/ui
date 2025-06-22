@@ -2,6 +2,7 @@ import * as React from "react"
 
 import {
   Progress,
+  ProgressLabel,
   ProgressRange,
   ProgressTrack,
 } from "@/components/ui/progress"
@@ -15,7 +16,8 @@ export default function ProgressDemo() {
   }, [])
 
   return (
-    <Progress value={progress} className="w-[60%]">
+    <Progress value={progress} orientation="vertical" className="h-[500px]">
+      <ProgressLabel>Vertical Progress</ProgressLabel>
       <ProgressTrack>
         <ProgressRange />
       </ProgressTrack>
