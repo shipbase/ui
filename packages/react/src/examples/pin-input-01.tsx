@@ -1,6 +1,7 @@
 import {
   PinInput,
   PinInputControl,
+  PinInputGroup,
   PinInputInput,
   PinInputLabel,
   PinInputSeparator,
@@ -8,20 +9,20 @@ import {
 
 export default function PinInputDemo() {
   return (
-    <PinInput className="space-y-2">
+    <PinInput className="flex max-w-fit flex-col gap-2">
       <PinInputLabel>Label</PinInputLabel>
-      <div className="flex items-center gap-2">
-        <PinInputControl>
+      <PinInputControl>
+        <PinInputGroup>
           <PinInputInput index={0} />
           <PinInputInput index={1} />
           <PinInputInput index={2} />
-        </PinInputControl>
+        </PinInputGroup>
         <PinInputSeparator />
-        <PinInputControl>
+        <PinInputGroup>
           <PinInputInput index={3} />
           <PinInputInput index={4} />
-        </PinInputControl>
-      </div>
+        </PinInputGroup>
+      </PinInputControl>
     </PinInput>
   )
 }
