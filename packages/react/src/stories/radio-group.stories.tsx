@@ -1,31 +1,10 @@
 import type { Meta } from "@storybook/react"
 
-import {
-  RadioGroup,
-  RadioGroupItem,
-  RadioGroupItemControl,
-  RadioGroupItemText,
-} from "@/components/ui/radio-group"
-
 export default {
   title: "Components/Radio Group",
 } satisfies Meta
 
-export const Basic = () => {
-  return (
-    <RadioGroup>
-      <RadioGroupItem value="default" disabled>
-        <RadioGroupItemControl />
-        <RadioGroupItemText>Default</RadioGroupItemText>
-      </RadioGroupItem>
-      <RadioGroupItem value="comfortable">
-        <RadioGroupItemControl />
-        <RadioGroupItemText>Comfortable</RadioGroupItemText>
-      </RadioGroupItem>
-      <RadioGroupItem value="compact">
-        <RadioGroupItemControl />
-        <RadioGroupItemText>Compact</RadioGroupItemText>
-      </RadioGroupItem>
-    </RadioGroup>
-  )
-}
+export { default as RadioGroup01 } from "@/examples/radio-group-01"
+export { default as RadioGroup02 } from "@/examples/radio-group-02"
+export { default as RadioGroup03 } from "@/examples/radio-group-03"
+export { default as RadioGroup20 } from "@/examples/radio-group-20"
