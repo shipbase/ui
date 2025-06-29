@@ -1,31 +1,19 @@
 import type { Meta } from "@storybook/react"
 
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-
 export default {
   title: "Components/Tabs",
 } satisfies Meta
 
-export const TabsDemo = () => {
-  return (
-    <Tabs defaultValue={"react"} className="w-[400px]">
-      <TabsList className="grid grid-cols-3">
-        <TabsTrigger value="react">React</TabsTrigger>
-        <TabsTrigger disabled value="vue">
-          Vue
-        </TabsTrigger>
-        <TabsTrigger value="solid">Solid</TabsTrigger>
-        <TabsIndicator />
-      </TabsList>
-      <TabsContent value="react">React content</TabsContent>
-      <TabsContent value="vue">Vue content</TabsContent>
-      <TabsContent value="solid">Solid content</TabsContent>
-    </Tabs>
-  )
-}
+export { default as Tabs01 } from "@/examples/tabs-01"
+export { default as Tabs02 } from "@/examples/tabs-02"
+export { default as Tabs03 } from "@/examples/tabs-03"
+export { default as Tabs04 } from "@/examples/tabs-04"
+export { default as Tabs05 } from "@/examples/tabs-05"
+export { default as Tabs06 } from "@/examples/tabs-06"
+export { default as Tabs07 } from "@/examples/tabs-07"
+export { default as Tabs08 } from "@/examples/tabs-08"
+export { default as Tabs09 } from "@/examples/tabs-09"
+export { default as Tabs10 } from "@/examples/tabs-10"
+export { default as Tabs11 } from "@/examples/tabs-11"
+export { default as Tabs12 } from "@/examples/tabs-12"
+export { default as Tabs13 } from "@/examples/tabs-13"
