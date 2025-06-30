@@ -1,0 +1,36 @@
+import {
+  TagsInput,
+  TagsInputClearTrigger,
+  TagsInputContext,
+  TagsInputControl,
+  TagsInputInput,
+  TagsInputItem,
+  TagsInputItemDeleteTrigger,
+  TagsInputItemPreview,
+  TagsInputItemText,
+  TagsInputLabel,
+} from "@/components/ui/tags-input"
+
+export default function TagsInputDemo() {
+  return (
+    <TagsInput className="w-64 *:not-first:mt-2">
+      <TagsInputLabel>TagsInput with placeholder and clear</TagsInputLabel>
+      <TagsInputControl>
+        <TagsInputContext>
+          {(context) =>
+            context.value.map((value, index) => (
+              <TagsInputItem key={value} index={index} value={value}>
+                <TagsInputItemPreview>
+                  <TagsInputItemText>{value}</TagsInputItemText>
+                  <TagsInputItemDeleteTrigger />
+                </TagsInputItemPreview>
+              </TagsInputItem>
+            ))
+          }
+        </TagsInputContext>
+        <TagsInputInput placeholder="input to add" />
+        <TagsInputClearTrigger />
+      </TagsInputControl>
+    </TagsInput>
+  )
+}
