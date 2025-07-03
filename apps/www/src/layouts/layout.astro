@@ -33,22 +33,16 @@ import "@fontsource-variable/inter";
     <script src="https://unpkg.com/react-scan/dist/install-hook.global.js"
     ></script>
   </head>
-  <body class="min-h-screen bg-background font-sans antialiased">
-    <script>
-      import { scan } from "react-scan"; // import this BEFORE react
-
-      if (typeof window !== "undefined") {
-        scan({
-          enabled: true,
-          log: true,
-        });
-      }
-    </script>
-    <SiteHeader />
-    <main class="flex-1 border-b">
-      <slot />
-    </main>
-    <SiteFooter />
-    {import.meta.env.DEV ? <TailwindIndicator /> : null}
+  <body
+    class="bg-background overscroll-none text-foreground font-sans antialiased"
+  >
+    <div class="bg-background relative z-10 flex min-h-svh flex-col">
+      <SiteHeader />
+      <main class="flex flex-1 flex-col">
+        <slot />
+      </main>
+      <SiteFooter />
+      {import.meta.env.DEV ? <TailwindIndicator /> : null}
+    </div>
   </body>
 </html>

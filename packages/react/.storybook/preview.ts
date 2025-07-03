@@ -1,7 +1,7 @@
 import { withThemeByClassName } from "@storybook/addon-themes"
 import type { Preview } from "@storybook/react"
 
-import "@/global.css"
+import "@ui/tailwind/global.css"
 
 const preview: Preview = {
   parameters: {

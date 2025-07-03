@@ -1,8 +1,8 @@
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
-import tailwind from "@astrojs/tailwind"
 // import vue from "@astrojs/vue"
 import { transformerMetaHighlight } from "@shikijs/transformers"
+import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 import type { Element, Root } from "hast"
 import inspect from "vite-plugin-inspect"
@@ -30,10 +30,9 @@ export default defineConfig({
     }),
     react(),
     // vue({ include: ["**/*.vue"] }),
-    tailwind(),
   ],
   vite: {
-    plugins: [inspect()],
+    plugins: [inspect(), tailwindcss()],
   },
   trailingSlash: "never",
   redirects: {

@@ -4,7 +4,8 @@
     "dev": {
       "cache": false,
       "persistent": true,
-      "outputs": ["dist/**", ".astro/**"]
+      "outputs": ["dist/**", ".astro/**"],
+      "dependsOn": ["^build"]
     },
     "build": {
       "dependsOn": ["^build"],

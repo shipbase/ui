@@ -12,7 +12,7 @@ import MobileNav from "./mobile-nav/index.astro"
 <header
   class="sticky top-0 z-50 w-full border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60"
 >
-  <div class="container flex h-14 max-w-screen-2xl items-center">
+  <div class="px-6 h-14 flex items-center">
     <MainNav />
     <MobileNav />
     <div
@@ -21,18 +21,12 @@ import MobileNav from "./mobile-nav/index.astro"
       <div class="w-full flex-1 md:w-auto md:flex-none">
         <!-- <CommandMenu /> -->
       </div>
-      <nav class="flex items-center">
+      <nav class="flex items-center gap-2">
         <FrameworkSwitcher client:load />
         <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
           <Button variant="ghost" className="size-8 p-0">
             <Icons.gitHub className="h-4 w-4" />
             <span class="sr-only">GitHub</span>
-          </Button>
-        </a>
-        <a href={siteConfig.links.twitter} target="_blank" rel="noreferrer">
-          <Button variant="ghost" className="size-8 p-0">
-            <Icons.twitter className="h-3 w-3 fill-current" />
-            <span class="sr-only">Twitter</span>
           </Button>
         </a>
         <ThemeToggle />
