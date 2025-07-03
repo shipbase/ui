@@ -5,7 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "bump": "taze -r -l",
-    "dev": "turbo dev",
+    "dev": "turbo watch dev",
     "dev:storybook": "turbo run storybook",
     "test": "turbo test",
     "build": "turbo build",

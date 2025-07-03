@@ -1,7 +1,7 @@
 packages:
   - apps/*
   - packages/*
-  - tooling/*
+  - tools/*
   - '!**/test/fixtures/**'
 
 catalog:
@@ -107,6 +107,7 @@ catalogs:
 
 onlyBuiltDependencies:
   - '@biomejs/biome'
+  - '@tailwindcss/oxide'
   - core-js-pure
   - esbuild
   - sharp

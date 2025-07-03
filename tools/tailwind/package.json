@@ -1,0 +1,12 @@
+{
+  "name": "@ui/tailwind",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./global.css": "./global.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "catalog:",
+    "tw-animate-css": "catalog:"
+  }
+}
