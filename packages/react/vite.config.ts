@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url"
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { globbySync } from "globby"
 import { defineConfig } from "vite"
@@ -6,7 +7,7 @@ import viteTsconfigPaths from "vite-tsconfig-paths"
 import pkg from "./package.json"
 
 export default defineConfig({
-  plugins: [react(), viteTsconfigPaths()],
+  plugins: [react(), viteTsconfigPaths(), tailwindcss()],
   build: {
     minify: false,
     lib: {

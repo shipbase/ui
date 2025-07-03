@@ -8,12 +8,6 @@ import { cn } from "@/lib/utils"
 
 const Collapsible = CollapsiblePrimitive.Root
 
-const CollapsibleProvider = CollapsiblePrimitive.RootProvider
-
-const CollapsibleContext = CollapsiblePrimitive.Context
-
-const CollapsibleTrigger = CollapsiblePrimitive.Trigger
-
 const CollapsibleContent = React.forwardRef<
   React.ElementRef<typeof CollapsiblePrimitive.Content>,
   CollapsiblePrimitive.ContentProps
@@ -21,17 +15,23 @@ const CollapsibleContent = React.forwardRef<
   <CollapsiblePrimitive.Content
     ref={ref}
     className={cn(
-      "overflow-hidden transition-all data-[state=closed]:animate-collapse-up data-[state=open]:animate-collapse-down",
+      "overflow-hidden transition-all data-[state=closed]:animate-collapsible-up data-[state=open]:animate-collapsible-down",
       className
     )}
     {...props}
   />
 ))
 
+const CollapsibleContext = CollapsiblePrimitive.Context
+
+const CollapsibleIndicator = CollapsiblePrimitive.Indicator
+
+const CollapsibleTrigger = CollapsiblePrimitive.Trigger
+
 export {
   Collapsible,
   CollapsibleContent,
   CollapsibleContext,
-  CollapsibleProvider,
+  CollapsibleIndicator,
   CollapsibleTrigger,
 }

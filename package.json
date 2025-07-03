@@ -36,7 +36,7 @@
     "typescript": "catalog:",
     "vite": "catalog:"
   },
-  "packageManager": "pnpm@10.11.0",
+  "packageManager": "pnpm@10.12.1",
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
