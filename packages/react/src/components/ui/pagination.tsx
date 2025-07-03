@@ -1,111 +1,132 @@
 "use client"
 
+import {
+  type HTMLProps,
+  type PolymorphicProps,
+  ark,
+} from "@ark-ui/react/factory"
+import {
+  Pagination as PaginationPrimitive,
+  paginationAnatomy,
+} from "@ark-ui/react/pagination"
+import type { VariantProps } from "class-variance-authority"
+import { MoreHorizontal } from "lucide-react"
 import * as React from "react"
 
-import { Pagination as PaginationPrimitive } from "@ark-ui/react/pagination"
-import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
-
-import { type ButtonProps, buttonVariants } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
-const PaginationContext = PaginationPrimitive.Context
+const parts = paginationAnatomy.extendWith("content").build()
 
 const Pagination = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Root>,
-  PaginationPrimitive.RootProps
+  Omit<PaginationPrimitive.RootProps, "type">
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Root
+    ref={ref}
     className={cn(
       "mx-auto flex w-full flex-row items-center justify-center gap-1",
       className
     )}
     {...props}
-    ref={ref}
   />
 ))
-Pagination.displayName = PaginationPrimitive.Root.displayName
 
-const PaginationItem = React.forwardRef<
-  React.ElementRef<typeof PaginationPrimitive.Item>,
-  PaginationPrimitive.ItemProps
+const PaginationContent = React.forwardRef<
+  HTMLUListElement,
+  PolymorphicProps & HTMLProps<"ul">
 >(({ className, ...props }, ref) => (
-  <PaginationContext>
-    {(context) => (
-      <PaginationPrimitive.Item
-        className={cn(
-          buttonVariants({
-            variant: context.page === props.value ? "outline" : "ghost",
-            size: "icon",
-          }),
-          className
-        )}
-        {...props}
-        ref={ref}
-      />
-    )}
-  </PaginationContext>
-))
-PaginationItem.displayName = PaginationPrimitive.Item.displayName
-
-const PaginationPrevTrigger = React.forwardRef<
-  React.ElementRef<typeof PaginationPrimitive.PrevTrigger>,
-  PaginationPrimitive.PrevTriggerProps & Pick<ButtonProps, "size">
->(({ className, size = "default", ...props }, ref) => (
-  <PaginationPrimitive.PrevTrigger
-    className={cn(
-      buttonVariants({ variant: "ghost", size }),
-      "gap-1 pl-2.5",
-      className
-    )}
-    {...props}
+  <ark.ul
     ref={ref}
-  >
-    <ChevronLeft className="h-4 w-4" />
-    <span>Previous</span>
-  </PaginationPrimitive.PrevTrigger>
-))
-PaginationPrevTrigger.displayName = PaginationPrimitive.PrevTrigger.displayName
-
-const PaginationNextTrigger = React.forwardRef<
-  React.ElementRef<typeof PaginationPrimitive.NextTrigger>,
-  PaginationPrimitive.NextTriggerProps & Pick<ButtonProps, "size">
->(({ className, size = "default", ...props }, ref) => (
-  <PaginationPrimitive.NextTrigger
-    className={cn(
-      buttonVariants({ variant: "ghost", size }),
-      "gap-1 pr-2.5",
-      className
-    )}
+    {...parts.content.attrs}
+    className={cn("flex flex-row items-center gap-1", className)}
     {...props}
-    ref={ref}
-  >
-    <span>Next</span>
-    <ChevronRight className="h-4 w-4" />
-  </PaginationPrimitive.NextTrigger>
+  />
 ))
-PaginationNextTrigger.displayName = PaginationPrimitive.NextTrigger.displayName
+
+const PaginationContext = PaginationPrimitive.Context
 
 const PaginationEllipsis = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Ellipsis>,
   PaginationPrimitive.EllipsisProps
 >(({ className, ...props }, ref) => (
-  <PaginationPrimitive.Ellipsis
-    aria-hidden
-    className={cn("flex h-9 w-9 items-center justify-center", className)}
-    {...props}
-    ref={ref}
-  >
-    <MoreHorizontal className="h-4 w-4" />
-    <span className="sr-only">More pages</span>
-  </PaginationPrimitive.Ellipsis>
+  <ark.li>
+    <PaginationPrimitive.Ellipsis
+      ref={ref}
+      aria-hidden
+      className={cn("flex h-9 w-9 items-center justify-center", className)}
+      {...props}
+    >
+      <MoreHorizontal className="h-4 w-4" />
+      <span className="sr-only">More pages</span>
+    </PaginationPrimitive.Ellipsis>
+  </ark.li>
 ))
-PaginationEllipsis.displayName = PaginationPrimitive.Ellipsis.displayName
+
+export interface PaginationItemProps
+  extends PaginationPrimitive.ItemProps,
+    VariantProps<typeof buttonVariants> {}
+
+const PaginationItem = React.forwardRef<
+  React.ElementRef<typeof PaginationPrimitive.Item>,
+  PaginationItemProps
+>(({ className, variant = "outline", size, ...props }, ref) => (
+  <ark.li>
+    <PaginationPrimitive.Item
+      ref={ref}
+      className={cn(buttonVariants({ variant, size }), className)}
+      {...props}
+    />
+  </ark.li>
+))
+
+export interface PaginationNextTriggerProps
+  extends PaginationPrimitive.NextTriggerProps,
+    VariantProps<typeof buttonVariants> {}
+
+const PaginationNextTrigger = React.forwardRef<
+  React.ElementRef<typeof PaginationPrimitive.NextTrigger>,
+  PaginationNextTriggerProps
+>(({ className, variant = "outline", size, ...props }, ref) => (
+  <ark.li>
+    <PaginationPrimitive.NextTrigger
+      ref={ref}
+      aria-label="Go to next page"
+      className={cn(buttonVariants({ variant, size }), className)}
+      {...props}
+    />
+  </ark.li>
+))
+
+export interface PaginationPrevTriggerProps
+  extends PaginationPrimitive.PrevTriggerProps,
+    VariantProps<typeof buttonVariants> {}
+
+const PaginationPrevTrigger = React.forwardRef<
+  React.ElementRef<typeof PaginationPrimitive.PrevTrigger>,
+  PaginationPrevTriggerProps
+>(({ className, variant = "outline", size, ...props }, ref) => (
+  <ark.li>
+    <PaginationPrimitive.PrevTrigger
+      ref={ref}
+      aria-label="Go to previous page"
+      className={cn(buttonVariants({ variant, size }), className)}
+      {...props}
+    />
+  </ark.li>
+))
+
+const PaginationRootProvider = PaginationPrimitive.RootProvider
 
 export {
   Pagination,
+  PaginationContent,
   PaginationContext,
   PaginationEllipsis,
   PaginationItem,
   PaginationNextTrigger,
   PaginationPrevTrigger,
+  PaginationRootProvider,
 }
+
+export { usePagination } from "@ark-ui/react/pagination"

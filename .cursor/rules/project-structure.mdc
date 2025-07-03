@@ -1,0 +1,40 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Project Structure Guide
+
+## Overview
+This is a monorepo-based UI component library project supporting React and Vue frameworks, built with Ark UI and Tailwind CSS.
+
+## Core Files
+- [package.json](mdc:package.json) - Root level package configuration file
+- [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml) - pnpm workspace configuration and dependency catalog
+- [turbo.json](mdc:turbo.json) - Turbo build tool configuration
+- [biome.jsonc](mdc:biome.jsonc) - Code formatting and linting configuration
+
+## Directory Structure
+
+### Apps Directory
+- [apps/www/](mdc:apps/www) - Main documentation website (Astro)
+  - [apps/www/astro.config.ts](mdc:apps/www/astro.config.ts) - Astro configuration
+  - [apps/www/src/](mdc:apps/www/src) - Website source code
+
+### Packages Directory  
+- [packages/react/](mdc:packages/react) - React component package
+- [packages/vue/](mdc:packages/vue) - Vue component package
+- [packages/lib/](mdc:packages/lib) - Shared libraries and utilities
+- [packages/cli/](mdc:packages/cli) - CLI tools
+
+### Tooling Directory
+- [tooling/](mdc:tooling) - Build tools and configurations
+
+## Tech Stack
+- **Frameworks**: React 18/19, Vue 3
+- **Build Tools**: Turbo, Vite, Astro
+- **Styling**: Tailwind CSS
+- **Component Library**: Ark UI
+- **Package Management**: pnpm workspace
+- **Code Quality**: Biome (formatting + linting)
+- **Version Management**: Changesets

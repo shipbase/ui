@@ -1,0 +1,50 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# shipbase/ui Project Overview
+
+## Project Introduction
+This is a modern UI component library that provides beautiful, accessible, and customizable components. It supports both React and Vue frameworks, built with Ark UI and Tailwind CSS, inspired by shadcn/ui style.
+
+## Related Rule Documentation
+- [Project Structure Guide](mdc:.cursor/rules/project-structure.mdc) - Understanding project organization and tech stack
+- [Development Workflow Guide](mdc:.cursor/rules/development-workflow.mdc) - Development environment setup and common commands  
+- [Component Development Guide](mdc:.cursor/rules/component-development.mdc) - Component architecture and development standards
+- [Code Standards Guide](mdc:.cursor/rules/code-standards.mdc) - Code quality and style standards
+
+## Quick Navigation
+
+### Key Configuration Files
+- [package.json](mdc:package.json) - Main package configuration and scripts
+- [pnpm-workspace.yaml](mdc:pnpm-workspace.yaml) - Workspace and dependency configuration
+- [turbo.json](mdc:turbo.json) - Build task configuration
+- [biome.jsonc](mdc:biome.jsonc) - Code quality tool configuration
+
+### Main Package Directories
+- [apps/www/](mdc:apps/www) - Documentation website (Astro)
+- [packages/react/](mdc:packages/react) - React component package
+- [packages/vue/](mdc:packages/vue) - Vue component package
+- [packages/lib/](mdc:packages/lib) - Shared utility library
+- [packages/cli/](mdc:packages/cli) - CLI tools
+
+### Component Directories
+- [packages/react/src/components/ui/](mdc:packages/react/src/components/ui) - React component implementations
+- [packages/vue/src/components/ui/](mdc:packages/vue/src/components/ui) - Vue component implementations
+
+## Core Features
+- **Framework Agnostic**: Supports both React and Vue
+- **Type Safe**: Complete TypeScript support
+- **Accessible**: Built on Ark UI ensuring accessibility
+- **Customizable**: Flexible customization with Tailwind CSS and CVA
+- **Modern**: Uses latest toolchain and best practices
+
+## Development Environment
+- **Node.js**: Requires v20+ version
+- **Package Manager**: pnpm v9.15.9
+- **Build Tools**: Turbo + Vite
+- **Code Quality**: Biome
+- **Version Management**: Changesets
+
+Visit http://shipbase-ui.pages.dev to view the complete documentation.

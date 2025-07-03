@@ -3,7 +3,6 @@
 import * as React from "react"
 
 import { RadioGroup as RadioGroupPrimitive } from "@ark-ui/react/radio-group"
-import { Circle } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -13,26 +12,26 @@ const RadioGroup = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <RadioGroupPrimitive.Root
     ref={ref}
-    className={cn("grid gap-2", className)}
+    className={cn("grid gap-3", className)}
     {...props}
   />
 ))
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName
 
-const RadioGroupLabel = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Label>,
-  RadioGroupPrimitive.LabelProps
+const RadioGroupContext = RadioGroupPrimitive.Context
+
+const RadioGroupIndicator = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Indicator>,
+  RadioGroupPrimitive.IndicatorProps
 >(({ className, ...props }, ref) => (
-  <RadioGroupPrimitive.Label
+  <RadioGroupPrimitive.Indicator
     ref={ref}
     className={cn(
-      "font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+      "left-(--left) h-(--height) w-(--width) transition-[left,top,width,height,box-shadow]! peer-has-data-[focus-visible]:border-ring peer-has-data-[focus-visible]:ring-[3px] peer-has-data-[focus-visible]:ring-ring/50",
       className
     )}
     {...props}
   />
 ))
-RadioGroupLabel.displayName = RadioGroupPrimitive.Label.displayName
 
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
@@ -40,29 +39,15 @@ const RadioGroupItem = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <RadioGroupPrimitive.Item
     ref={ref}
-    className={cn("flex items-center space-x-2", className)}
+    className={cn("peer flex items-center gap-2", className)}
     {...props}
   >
     <RadioGroupPrimitive.ItemHiddenInput />
     {children}
   </RadioGroupPrimitive.Item>
 ))
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName
 
-const RadioGroupItemText = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.ItemText>,
-  RadioGroupPrimitive.ItemTextProps
->(({ className, ...props }, ref) => (
-  <RadioGroupPrimitive.ItemText
-    ref={ref}
-    className={cn(
-      "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
-    )}
-    {...props}
-  />
-))
-RadioGroupItemText.displayName = RadioGroupPrimitive.ItemText.displayName
+const RadioGroupItemContext = RadioGroupPrimitive.ItemContext
 
 const RadioGroupItemControl = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.ItemControl>,
@@ -71,20 +56,53 @@ const RadioGroupItemControl = React.forwardRef<
   <RadioGroupPrimitive.ItemControl
     ref={ref}
     className={cn(
-      "flex aspect-square h-4 w-4 items-center justify-center rounded-full border border-primary text-primary ring-offset-background focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 *:data-[state=checked]:block",
+      "data-[state=checked]:-outline-offset-[5px] aspect-square size-4 shrink-0 rounded-full border border-input bg-transparent shadow-xs transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[disabled]:cursor-not-allowed data-[state=checked]:border-primary data-[state=checked]:bg-primary-foreground data-[disabled]:opacity-50 data-[state=checked]:outline-4 data-[state=checked]:outline-primary data-[state=checked]:outline-solid dark:aria-invalid:ring-destructive/40",
       className
     )}
     {...props}
-  >
-    <Circle className="hidden h-2.5 w-2.5 fill-current text-current" />
-  </RadioGroupPrimitive.ItemControl>
+  />
 ))
-RadioGroupItemControl.displayName = RadioGroupPrimitive.ItemControl.displayName
+
+const RadioGroupItemText = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.ItemText>,
+  RadioGroupPrimitive.ItemTextProps
+>(({ className, ...props }, ref) => (
+  <RadioGroupPrimitive.ItemText
+    ref={ref}
+    className={cn(
+      "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  />
+))
+
+const RadioGroupLabel = React.forwardRef<
+  React.ElementRef<typeof RadioGroupPrimitive.Label>,
+  RadioGroupPrimitive.LabelProps
+>(({ className, ...props }, ref) => (
+  <RadioGroupPrimitive.Label
+    ref={ref}
+    className={cn(
+      "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  />
+))
+
+const RadioGroupRootProvider = RadioGroupPrimitive.RootProvider
 
 export {
   RadioGroup,
+  RadioGroupContext,
+  RadioGroupIndicator,
   RadioGroupItem,
+  RadioGroupItemContext,
   RadioGroupItemControl,
   RadioGroupItemText,
   RadioGroupLabel,
+  RadioGroupRootProvider,
 }
+
+export { useRadioGroup } from "@ark-ui/react/radio-group"

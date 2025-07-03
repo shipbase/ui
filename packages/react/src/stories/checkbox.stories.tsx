@@ -1,24 +1,10 @@
 import type { Meta } from "@storybook/react"
 
-import {
-  Checkbox,
-  CheckboxControl,
-  CheckboxLabel,
-} from "@/components/ui/checkbox"
-
 export default {
   title: "Components/Checkbox",
 } satisfies Meta
 
-export function Basic() {
-  return (
-    <>
-      <Checkbox className="flex items-center space-x-2">
-        <CheckboxControl />
-        <CheckboxLabel className="font-medium text-sm leading-none">
-          Accept terms and conditions
-        </CheckboxLabel>
-      </Checkbox>
-    </>
-  )
-}
+export { default as Checkbox01 } from "@/examples/checkbox-01"
+export { default as Checkbox02 } from "@/examples/checkbox-02"
+export { default as Checkbox03 } from "@/examples/checkbox-03"
+export { default as Checkbox04 } from "@/examples/checkbox-04"

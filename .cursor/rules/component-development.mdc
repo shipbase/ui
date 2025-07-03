@@ -1,0 +1,77 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Component Development Guide
+
+## Component Architecture
+
+### React Components
+React components are located in [packages/react/src/components/ui/](mdc:packages/react/src/components/ui), using single-file architecture:
+- One `.tsx` file per component
+- Uses class-variance-authority (CVA) to manage style variants
+- Built on top of Ark UI components
+- Supports forwardRef and complete TypeScript types
+
+Example component structure - [button.tsx](mdc:packages/react/src/components/ui/button.tsx):
+```tsx
+const buttonVariants = cva(/* base styles and variants */)
+export interface ButtonProps extends HTMLAttributes, VariantProps {}
+const Button = React.forwardRef(/* component implementation */)
+export { Button, buttonVariants }
+```
+
+### Vue Components  
+Vue components are located in [packages/vue/src/components/ui/](mdc:packages/vue/src/components/ui), using directory architecture:
+- One directory per component (e.g. `button/`)
+- Main component file `Button.vue`
+- Accompanying type and style files
+- Uses Composition API and TypeScript
+
+Example component structure - [Button.vue](mdc:packages/vue/src/components/ui/button/Button.vue):
+```vue
+<script setup lang="ts">
+interface Props { /* component prop types */ }
+const props = defineProps<Props>()
+</script>
+<template>
+  <ark.button :class="cn(buttonVariants({ variant, size }), props.class)">
+    <slot />
+  </ark.button>
+</template>
+```
+
+## Development Standards
+
+### Styling System
+- Use Tailwind CSS for styling
+- Define component variants through CVA
+- Use `cn()` utility function to merge class names
+- Support custom className overrides
+
+### Component Design Principles
+1. **Accessibility First**: Built on Ark UI ensuring accessibility
+2. **Type Safety**: Complete TypeScript support
+3. **Customizable**: Support style and behavior customization
+4. **Consistency**: Maintain API consistency across frameworks
+
+### Storybook Development
+- React: [packages/react/src/stories/](mdc:packages/react/src/stories)
+- Vue: [packages/vue/src/stories/](mdc:packages/vue/src/stories)
+- Each component provides complete Story examples
+- Includes demonstrations of different variants and states
+
+### Example Code
+- React examples: [packages/react/src/examples/](mdc:packages/react/src/examples)
+- Vue examples: [packages/vue/src/examples/](mdc:packages/vue/src/examples)
+
+## Testing
+- Uses Vitest for unit testing
+- Test files located in each package's `test/` directory
+- Run tests: `pnpm test`
+
+## Build and Packaging
+- Uses Vite to build component packages
+- Configuration files: [packages/react/vite.config.ts](mdc:packages/react/vite.config.ts) and [packages/vue/vite.config.ts](mdc:packages/vue/vite.config.ts)
+- Output directory: `dist/`

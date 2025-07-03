@@ -2,53 +2,132 @@
 
 import * as React from "react"
 
+import { cn } from "@/lib/utils"
 import { Slider as SliderPrimitive } from "@ark-ui/react/slider"
 
 const Slider = SliderPrimitive.Root
 
-const SliderLabel = SliderPrimitive.Label
+const SliderControl = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Control>,
+  SliderPrimitive.ControlProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Control
+    ref={ref}
+    className={cn(
+      "relative flex w-full touch-none select-none items-center data-[orientation=vertical]:h-full data-[orientation=vertical]:min-h-44 data-[orientation=vertical]:w-auto data-[orientation=vertical]:flex-col data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  />
+))
 
-const SliderValueText = SliderPrimitive.ValueText
+const SliderDraggingIndicator = SliderPrimitive.DraggingIndicator
 
-const SliderMarkGroup = SliderPrimitive.MarkerGroup
+const SliderLabel = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Label>,
+  SliderPrimitive.LabelProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Label
+    ref={ref}
+    className={cn(
+      "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  />
+))
 
-const SliderMark = React.forwardRef<
+const SliderMarker = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Marker>,
   SliderPrimitive.MarkerProps
 >(({ className, ...props }, ref) => (
   <SliderPrimitive.Marker
     ref={ref}
-    className="before:-top-1.5 before:-translate-x-1/2 text-muted-foreground text-sm before:relative before:left-1/2 before:block before:size-1 before:rounded-full before:bg-background before:content-[''] dark:before:bg-foreground dark:before:data-[state='under-value']:bg-background"
+    className={cn("font-medium text-muted-foreground text-xs", className)}
     {...props}
   />
 ))
 
-const SliderControl = () => (
-  <SliderPrimitive.Control className="flex items-center rounded-full">
-    <SliderPrimitive.Track className="h-2 w-full grow overflow-hidden rounded-full bg-secondary">
-      <SliderPrimitive.Range className="h-full bg-primary" />
-    </SliderPrimitive.Track>
-    <SliderPrimitive.Context>
-      {(context) =>
-        context.value.map((value, index) => (
-          <SliderPrimitive.Thumb
-            index={index}
-            key={value}
-            className="block h-5 w-5 rounded-full border-2 border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
-          >
-            <SliderPrimitive.HiddenInput />
-          </SliderPrimitive.Thumb>
-        ))
-      }
-    </SliderPrimitive.Context>
-  </SliderPrimitive.Control>
-)
+const SliderMarkerGroup = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.MarkerGroup>,
+  SliderPrimitive.MarkerGroupProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.MarkerGroup
+    ref={ref}
+    className={cn("mt-2", className)}
+    {...props}
+  />
+))
+
+const SliderRange = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Range>,
+  SliderPrimitive.RangeProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Range
+    ref={ref}
+    className={cn(
+      "absolute bg-primary data-[orientation=horizontal]:h-full data-[orientation=vertical]:w-full",
+      className
+    )}
+    {...props}
+  />
+))
+
+const SliderRootProvider = SliderPrimitive.RootProvider
+
+const SliderThumb = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Thumb>,
+  SliderPrimitive.ThumbProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Thumb
+    ref={ref}
+    className={cn(
+      "block size-4 shrink-0 rounded-full border border-primary bg-background shadow-sm outline-none ring-ring/50 transition-[color,box-shadow] hover:ring-4 focus-visible:ring-4 disabled:pointer-events-none disabled:opacity-50",
+      className
+    )}
+    {...props}
+  >
+    <SliderPrimitive.HiddenInput />
+  </SliderPrimitive.Thumb>
+))
+
+const SliderTrack = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.Track>,
+  SliderPrimitive.TrackProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.Track
+    ref={ref}
+    className={cn(
+      "relative grow overflow-hidden rounded-full bg-muted data-[orientation=horizontal]:h-1.5 data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-1.5",
+      className
+    )}
+    {...props}
+  />
+))
+
+const SliderValueText = React.forwardRef<
+  React.ElementRef<typeof SliderPrimitive.ValueText>,
+  SliderPrimitive.ValueTextProps
+>(({ className, ...props }, ref) => (
+  <SliderPrimitive.ValueText
+    ref={ref}
+    className={cn("font-medium text-sm tabular-nums", className)}
+    {...props}
+  />
+))
 
 export {
   Slider,
   SliderControl,
+  SliderDraggingIndicator,
   SliderLabel,
-  SliderMark,
-  SliderMarkGroup,
+  SliderMarker,
+  SliderMarkerGroup,
+  SliderRange,
+  SliderRootProvider,
+  SliderThumb,
+  SliderTrack,
   SliderValueText,
 }
+
+export { useSlider } from "@ark-ui/react/slider"

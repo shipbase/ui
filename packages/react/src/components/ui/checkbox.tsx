@@ -3,11 +3,9 @@
 import * as React from "react"
 
 import { Checkbox as CheckboxPrimitive } from "@ark-ui/react/checkbox"
-import { Check } from "lucide-react"
+import { CheckIcon, MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-
-const CheckboxProvider = CheckboxPrimitive.RootProvider
 
 const Checkbox = CheckboxPrimitive.Root
 
@@ -21,18 +19,27 @@ const CheckboxControl = React.forwardRef<
     <CheckboxPrimitive.Control
       ref={ref}
       className={cn(
-        "peer flex h-4 w-4 shrink-0 cursor-pointer items-center justify-center rounded-sm border border-primary text-current ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 data-[disabled]:cursor-not-allowed data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[disabled]:opacity-50",
+        "peer flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input shadow-xs outline-none transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-500 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:aria-invalid:ring-destructive/40",
         className
       )}
       {...props}
     >
-      <CheckboxPrimitive.Indicator>
-        <Check className="h-4 w-4" />
+      <CheckboxPrimitive.Indicator
+        className="grid place-content-center text-current"
+        indeterminate
+      >
+        <MinusIcon className="size-4" />
+      </CheckboxPrimitive.Indicator>
+      <CheckboxPrimitive.Indicator className="grid place-content-center text-current">
+        <CheckIcon className="size-4" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Control>
     <CheckboxPrimitive.HiddenInput />
   </>
 ))
+
+const CheckboxGroup = CheckboxPrimitive.Group
+
 const CheckboxLabel = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Label>,
   CheckboxPrimitive.LabelProps
@@ -40,7 +47,7 @@ const CheckboxLabel = React.forwardRef<
   <CheckboxPrimitive.Label
     ref={ref}
     className={cn(
-      "data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
+      "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
       className
     )}
     {...props}
@@ -51,6 +58,6 @@ export {
   Checkbox,
   CheckboxContext,
   CheckboxControl,
+  CheckboxGroup,
   CheckboxLabel,
-  CheckboxProvider,
 }

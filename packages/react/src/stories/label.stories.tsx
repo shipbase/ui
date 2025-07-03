@@ -1,17 +1,7 @@
 import type { Meta } from "@storybook/react"
 
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-
 export default {
   title: "Components/Label",
 } satisfies Meta
 
-export function LabelDemo() {
-  return (
-    <div className="grid w-full max-w-sm items-center gap-1.5">
-      <Label htmlFor="email">Email</Label>
-      <Input type="email" id="email" placeholder="Email" />
-    </div>
-  )
-}
+export { default as Label01 } from "@/examples/label-01"

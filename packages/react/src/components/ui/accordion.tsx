@@ -44,19 +44,17 @@ const AccordionItemTrigger = React.forwardRef<
   <AccordionPrimitive.ItemTrigger
     ref={ref}
     className={cn(
-      "flex flex-1 items-center justify-between gap-4 rounded-md py-4 text-left font-semibold text-sm outline-none transition-all hover:underline focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+      "flex w-full flex-1 items-center justify-between gap-4 rounded-md py-4 text-left font-semibold text-sm outline-none transition-all hover:underline focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50",
       className
     )}
     {...props}
   >
     {children}
-    <AccordionPrimitive.ItemIndicator>
-      <ChevronDown className="h-4 w-4 shrink-0 transition-transform duration-200" />
+    <AccordionPrimitive.ItemIndicator className="[&[data-state=open]>svg]:rotate-180">
+      <ChevronDown className="pointer-events-none size-4 shrink-0 opacity-60 transition-transform duration-200" />
     </AccordionPrimitive.ItemIndicator>
   </AccordionPrimitive.ItemTrigger>
 ))
-
-const AccordionProvider = AccordionPrimitive.RootProvider
 
 export {
   Accordion,
@@ -65,5 +63,4 @@ export {
   AccordionItemContent,
   AccordionItemContext,
   AccordionItemTrigger,
-  AccordionProvider,
 }

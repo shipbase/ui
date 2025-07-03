@@ -2,33 +2,34 @@
 
 import * as React from "react"
 
-import { ark } from "@ark-ui/react/factory"
-import { type VariantProps, cva } from "class-variance-authority"
+import { createAnatomy } from "@ark-ui/react/anatomy"
+import {
+  type HTMLProps,
+  type PolymorphicProps,
+  ark,
+} from "@ark-ui/react/factory"
 
 import { cn } from "@/lib/utils"
 
-const labelVariants = cva(
-  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-)
+const anatomy = createAnatomy("label").parts("root")
+const parts = anatomy.build()
 
-export interface LabelProps
-  extends React.LabelHTMLAttributes<HTMLLabelElement>,
-    VariantProps<typeof labelVariants> {
-  asChild?: boolean
-}
-
-const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
-  ({ className, htmlFor, children, ...props }, ref) => (
-    <ark.label
-      ref={ref}
-      className={cn(labelVariants(), className)}
-      htmlFor={htmlFor}
-      {...props}
-    >
-      {children}
-    </ark.label>
-  )
-)
-Label.displayName = "Label"
+const Label = React.forwardRef<
+  HTMLLabelElement,
+  PolymorphicProps & HTMLProps<"label">
+>(({ className, htmlFor, children, ...props }, ref) => (
+  <ark.label
+    ref={ref}
+    {...parts.root.attrs}
+    htmlFor={htmlFor}
+    className={cn(
+      "select-none font-medium text-foreground text-sm leading-4 peer-disabled:cursor-not-allowed peer-disabled:opacity-50 group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50",
+      className
+    )}
+    {...props}
+  >
+    {children}
+  </ark.label>
+))
 
 export { Label }

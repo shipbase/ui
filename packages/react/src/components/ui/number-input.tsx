@@ -3,28 +3,10 @@
 import * as React from "react"
 
 import { NumberInput as NumberInputPrimitive } from "@ark-ui/react/number-input"
-import { ChevronDown, ChevronUp } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
 const NumberInput = NumberInputPrimitive.Root
-
-const NumberInputLabel = React.forwardRef<
-  React.ElementRef<typeof NumberInputPrimitive.Label>,
-  NumberInputPrimitive.LabelProps & {
-    inset?: boolean
-  }
->(({ className, inset, ...props }, ref) => (
-  <NumberInputPrimitive.Label
-    ref={ref}
-    className={cn(
-      "font-medium text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
-      inset && "pl-8",
-      className
-    )}
-    {...props}
-  />
-))
 
 const NumberInputControl = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Control>,
@@ -32,19 +14,8 @@ const NumberInputControl = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <NumberInputPrimitive.Control
     ref={ref}
-    className={cn("relative", className)}
-    {...props}
-  />
-))
-
-const NumberInputInput = React.forwardRef<
-  React.ElementRef<typeof NumberInputPrimitive.Input>,
-  NumberInputPrimitive.InputProps
->(({ className, ...props }, ref) => (
-  <NumberInputPrimitive.Input
-    ref={ref}
     className={cn(
-      "flex h-10 w-full rounded-md border border-input bg-background py-2 pr-6 pl-3 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+      "relative inline-flex h-9 w-full items-center overflow-hidden whitespace-nowrap rounded-md border border-input text-sm shadow-xs outline-none transition-[color,box-shadow] data-focus:border-ring data-disabled:opacity-50 data-focus:ring-[3px] data-focus:ring-ring/50 data-focus:has-aria-invalid:border-destructive data-focus:has-aria-invalid:ring-destructive/20 dark:data-focus:has-aria-invalid:ring-destructive/40",
       className
     )}
     {...props}
@@ -54,40 +25,68 @@ const NumberInputInput = React.forwardRef<
 const NumberInputIncrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.IncrementTrigger>,
   NumberInputPrimitive.IncrementTriggerProps
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <NumberInputPrimitive.IncrementTrigger
     ref={ref}
     className={cn(
-      "absolute top-1 right-2 inline-flex cursor-pointer items-center justify-center",
+      "-me-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-muted-foreground/80 text-sm transition-[color,box-shadow] hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
       className
     )}
     {...props}
   >
-    <ChevronUp className="h-4 w-4" />
+    {children}
   </NumberInputPrimitive.IncrementTrigger>
 ))
 
 const NumberInputDecrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.DecrementTrigger>,
   NumberInputPrimitive.DecrementTriggerProps
->(({ className, ...props }, ref) => (
+>(({ className, children, ...props }, ref) => (
   <NumberInputPrimitive.DecrementTrigger
     ref={ref}
     className={cn(
-      "absolute right-2 bottom-1 inline-flex cursor-pointer items-center justify-center",
+      "-me-px -mt-px flex h-1/2 w-6 flex-1 items-center justify-center border border-input bg-background text-muted-foreground/80 text-sm transition-[color,box-shadow] hover:bg-accent hover:text-foreground disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
       className
     )}
     {...props}
   >
-    <ChevronDown className="h-4 w-4" />
+    {children}
   </NumberInputPrimitive.DecrementTrigger>
+))
+
+const NumberInputInput = React.forwardRef<
+  React.ElementRef<typeof NumberInputPrimitive.Input>,
+  NumberInputPrimitive.InputProps
+>(({ className, ...props }, ref) => (
+  <NumberInputPrimitive.Input
+    ref={ref}
+    className={cn(
+      "flex-1 bg-background px-3 py-2 text-foreground tabular-nums",
+      className
+    )}
+    {...props}
+  />
+))
+
+const NumberInputLabel = React.forwardRef<
+  React.ElementRef<typeof NumberInputPrimitive.Label>,
+  NumberInputPrimitive.LabelProps
+>(({ className, ...props }, ref) => (
+  <NumberInputPrimitive.Label
+    ref={ref}
+    className={cn(
+      "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
+      className
+    )}
+    {...props}
+  />
 ))
 
 export {
   NumberInput,
-  NumberInputLabel,
-  NumberInputInput,
   NumberInputControl,
-  NumberInputIncrementTrigger,
   NumberInputDecrementTrigger,
+  NumberInputIncrementTrigger,
+  NumberInputInput,
+  NumberInputLabel,
 }
