@@ -7,8 +7,8 @@ import {
   Select,
   SelectContent,
   SelectControl,
+  SelectIndicator,
   SelectItem,
-  SelectItemGroup,
   SelectTrigger,
   SelectValueText,
   createListCollection,
@@ -32,27 +32,26 @@ export function FrameworkSwitcher() {
 
   return (
     <Select
+      className="w-48"
       value={[value]}
-      onValueChange={(d) => {
-        $framework.set(d.value[0] as Framework)
+      onValueChange={(details) => {
+        setValue(details.value[0] as Framework)
       }}
-      className="w-[80px]"
-      positioning={{ sameWidth: true, slide: true }}
       collection={frameworksCollection}
+      positioning={{ sameWidth: true }}
     >
       <SelectControl>
-        <SelectTrigger className="h-7 border-none text-xs">
-          <SelectValueText />
+        <SelectTrigger>
+          <SelectValueText placeholder="Select a framework" />
+          <SelectIndicator />
         </SelectTrigger>
       </SelectControl>
       <SelectContent>
-        <SelectItemGroup>
-          {frameworksCollection.items.map((item) => (
-            <SelectItem className="text-xs" item={item} key={item.value}>
-              {item.label}
-            </SelectItem>
-          ))}
-        </SelectItemGroup>
+        {frameworksCollection.items.map((item) => (
+          <SelectItem key={item.value} item={item}>
+            {item.label}
+          </SelectItem>
+        ))}
       </SelectContent>
     </Select>
   )
