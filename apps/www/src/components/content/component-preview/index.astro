@@ -1,49 +1,44 @@
 ---
-import { getExampleSource } from "@/lib/source"
-import { $framework, frameworks } from "@/store/atoms/framework"
-import CodeWrapper from "../code-wrapper/index.astro"
-import Preview from "./preview"
-import Tabs from "./tabs"
-import Wrapper from "./wrapper.astro"
+import { getExampleSource } from "@/lib/source";
+import { $framework, uiLibraries } from "@/store/atoms/framework";
+import ExampleSourcePreview from "../example-source-preview.astro";
+import NotFound from "./not-found.astro";
+import Preview from "./preview";
+import Tabs from "./tabs";
 
 export interface Props {
-  name: string
+  name: string;
 }
-const { name } = Astro.props
+const { name } = Astro.props;
 
 const sources = await Promise.all(
-  frameworks.map((framework) => getExampleSource(framework, name))
-)
+  uiLibraries.map((uiLibrary) => getExampleSource(uiLibrary, name))
+);
 ---
 
 <div class="relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]">
   <Tabs client:visible>
     <Fragment slot="preview">
       {
-        frameworks.map((framework, index) => (
-          <Wrapper
-            component={name}
-            source={sources[index]}
-            data-framework={framework}
-            hidden={$framework.value !== framework}
+        uiLibraries.map((uiLibrary, index) => (
+          <div
+            class="relative flex min-h-[350px] max-w-screen flex-col items-center justify-center rounded-xl border"
+            data-ui-library={uiLibrary}
+            hidden={$framework.value !== uiLibrary}
           >
-            <Preview client:visible name={name} hidden={!sources[index]} />
-          </Wrapper>
+            {sources[index] ? (
+              <Preview client:visible name={name} hidden={!sources[index]} />
+            ) : (
+              <NotFound component={name} />
+            )}
+          </div>
         ))
       }
     </Fragment>
     <Fragment slot="code">
       {
-        frameworks.map((framework, index) => (
-          <div
-            data-framework={framework}
-            hidden={$framework.value !== framework}
-          >
-            <CodeWrapper
-              lang={sources[index]?.lang}
-              src={sources[index]?.source}
-            />
-          </div>
+        uiLibraries.map((uiLibrary) => (
+          <ExampleSourcePreview uiLibrary={uiLibrary} example={name} />
         ))
       }
     </Fragment>

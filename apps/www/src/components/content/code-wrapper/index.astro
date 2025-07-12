@@ -1,21 +1,100 @@
 ---
-import { Code } from "astro/components"
-import type { HTMLAttributes } from "astro/types"
-import type { BuiltinLanguage } from "shiki"
+import { Button } from "@ui/react/button";
+import { Code } from "astro/components";
+import type { HTMLAttributes } from "astro/types";
+import type { BuiltinLanguage } from "shiki";
 
-import CodeWrapper from "./code-wrapper"
+import { CopyButton } from "@/components/copy-button";
+import { cn } from "@/lib/utils";
 
 interface Props extends HTMLAttributes<"div"> {
-  src?: string
-  lang?: BuiltinLanguage
-  className?: string
-  collapsible?: boolean
-  copy?: boolean
+  src?: string;
+  lang?: BuiltinLanguage;
+  className?: string;
+  collapsible?: boolean;
+  copy?: boolean;
 }
 
-const { src, lang, className, ...props } = Astro.props
+const {
+  src,
+  lang,
+  className,
+  collapsible,
+  copy = true,
+  ...props
+} = Astro.props;
 ---
 
-<CodeWrapper client:visible src={src} className={className} {...props}>
-  <Code lang={lang || "plaintext"} theme="vesper" code={src || "Not found"} />
-</CodeWrapper>
+<div
+  class={cn("code-wrapper relative mt-4 mb-4 [&_pre]:py-4", className)}
+  data-collapsible={collapsible}
+  data-collapsed={collapsible ? "true" : "false"}
+  {...props}
+>
+  <Code lang={lang || "plaintext"} code={src || "Not found"} />
+  {
+    collapsible && (
+      <div class="collapse-overlay absolute flex items-center justify-center rounded-lg bg-gradient-to-b from-zinc-700/30 to-zinc-950/90 p-2">
+        <Button
+          variant="outline"
+          size="sm"
+          className="collapse-button"
+          type="button"
+        >
+          <span class="button-text">Expand</span>
+        </Button>
+      </div>
+    )
+  }
+  {
+    copy && (
+      <CopyButton
+        client:visible
+        value={src}
+        className="absolute top-4 right-4"
+      />
+    )
+  }
+</div>
+
+<style>
+  .code-wrapper[data-collapsible="true"][data-collapsed="true"] {
+    max-height: 8rem;
+    overflow: hidden;
+  }
+
+  .code-wrapper[data-collapsible="true"][data-collapsed="false"] [&_pre] {
+    padding-bottom: 3rem;
+  }
+
+  .code-wrapper[data-collapsed="true"] .collapse-overlay {
+    inset: 0;
+  }
+
+  .code-wrapper[data-collapsed="false"] .collapse-overlay {
+    inset-inline: 0;
+    bottom: 0;
+    height: 3rem;
+    border-radius: 0;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+  }
+</style>
+
+<script is:inline>
+  // Handle collapsible functionality
+  document.addEventListener("astro:page-load", () => {
+    const collapseButtons = document.querySelectorAll(".collapse-button");
+
+    collapseButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const wrapper = button.closest(".code-wrapper");
+        const isCollapsed = wrapper.getAttribute("data-collapsed") === "true";
+        const buttonText = button.querySelector(".button-text");
+
+        wrapper.setAttribute("data-collapsed", isCollapsed ? "false" : "true");
+        buttonText.textContent = isCollapsed ? "Collapse" : "Expand";
+      });
+    });
+  });
+</script>

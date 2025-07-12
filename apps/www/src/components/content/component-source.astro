@@ -1,6 +1,6 @@
 ---
 import { getComponentSource } from "@/lib/source"
-import { frameworks } from "@/store/atoms/framework"
+import { uiLibraries } from "@/store/atoms/framework"
 
 import CodeWrapper from "./code-wrapper/index.astro"
 
@@ -10,16 +10,16 @@ export interface Props {
 const { component } = Astro.props
 
 const frameworkSources = await Promise.all(
-  frameworks.map((framework) => getComponentSource(framework, component))
+  uiLibraries.map((uiLibrary) => getComponentSource(uiLibrary, component))
 )
 ---
 
 {
-  frameworks.map((framework, index) => (
-    <div data-framework={framework}>
+  uiLibraries.map((uiLibrary, index) => (
+    <div data-framework={uiLibrary}>
       {frameworkSources?.[index]?.length ? (
         frameworkSources?.[index]?.map((src) => (
-          <div data-framework={framework}>
+          <div data-framework={uiLibrary}>
             {typeof frameworkSources?.[index]?.length === "number" &&
             frameworkSources?.[index]?.length > 1 ? (
               <p class="mb-2">{src.filename}</p>

@@ -13,7 +13,10 @@ export default defineConfig({
   integrations: [
     mdx({
       shikiConfig: {
-        theme: "vesper",
+        themes: {
+          dark: "github-dark",
+          light: "github-light",
+        },
         transformers: [
           {
             root(root: Root) {

@@ -1,11 +1,10 @@
-import Examples from "@ui/react/examples"
+import { RotateCcw } from "lucide-react"
 import * as React from "react"
 
-import { RotateCcw } from "lucide-react"
+import { Button } from "@ui/react/button"
+import Examples from "@ui/react/examples"
 
 import { Icons } from "@/components/icons"
-import { Button } from "@ui/react/button"
-
 interface Props {
   name: string
   hidden?: boolean
