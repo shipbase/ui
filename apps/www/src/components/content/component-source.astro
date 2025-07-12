@@ -1,39 +1,33 @@
 ---
-import { getComponentSource } from "@/lib/source"
-import { frameworks } from "@/store/atoms/framework"
-
-import CodeWrapper from "./code-wrapper/index.astro"
+import Code from "@/components/code.astro";
+import { getComponentSource } from "@/lib/source";
+import { uiLibraries } from "@/store/atoms/framework";
 
 export interface Props {
-  component: string
+  component: string;
 }
-const { component } = Astro.props
+const { component } = Astro.props;
 
 const frameworkSources = await Promise.all(
-  frameworks.map((framework) => getComponentSource(framework, component))
-)
+  uiLibraries.map((uiLibrary) => getComponentSource(uiLibrary, component))
+);
 ---
 
 {
-  frameworks.map((framework, index) => (
-    <div data-framework={framework}>
+  uiLibraries.map((uiLibrary, index) => (
+    <div data-framework={uiLibrary}>
       {frameworkSources?.[index]?.length ? (
         frameworkSources?.[index]?.map((src) => (
-          <div data-framework={framework}>
+          <div data-framework={uiLibrary}>
             {typeof frameworkSources?.[index]?.length === "number" &&
             frameworkSources?.[index]?.length > 1 ? (
               <p class="mb-2">{src.filename}</p>
             ) : null}
-            <CodeWrapper
-              className="mt-0"
-              lang={src.lang}
-              src={src.source}
-              collapsible
-            />
+            <Code className="mt-0" lang={src.lang} src={src.source} collapsible />
           </div>
         ))
       ) : (
-        <CodeWrapper src={"Not Found"} />
+        <Code src={"Not Found"} />
       )}
     </div>
   ))

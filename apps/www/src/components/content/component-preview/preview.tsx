@@ -1,21 +1,19 @@
-import Examples from "@ui/react/examples"
+import { RotateCcw } from "lucide-react"
 import * as React from "react"
 
-import { RotateCcw } from "lucide-react"
+import { Button } from "@ui/react/button"
+import Examples from "@ui/react/examples"
 
 import { Icons } from "@/components/icons"
-import { Button } from "@ui/react/button"
-
 interface Props {
   name: string
-  hidden?: boolean
 }
 
-export default function Preview({ name, hidden }: Props) {
-  if (hidden) return null
-
+export default function Preview({ name }: Props) {
   const [key, setKey] = React.useState(0)
-  const Component = React.lazy(Examples[name])
+  const Component = React.lazy(
+    Examples[name] ?? (() => <NotFound component={name} />)
+  )
 
   return (
     <div
@@ -40,5 +38,17 @@ export default function Preview({ name, hidden }: Props) {
         <Component />
       </React.Suspense>
     </div>
+  )
+}
+
+function NotFound({ component }: { component: string }) {
+  return (
+    <p className="text-muted-foreground text-sm">
+      Component
+      <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+        {component}
+      </code>
+      not found in registry.
+    </p>
   )
 }

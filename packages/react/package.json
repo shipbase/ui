@@ -13,8 +13,8 @@
       "default": "./dist/examples/*.js"
     },
     "./*": {
-      "source": "./src/components/*.tsx",
-      "types": "./src/components/*.tsx",
+      "source": "./src/components/ui/*.tsx",
+      "types": "./src/components/ui/*.tsx",
       "default": "./dist/components/ui/*.js"
     },
     "./package.json": "./package.json"

@@ -15,8 +15,8 @@ interface Props {
 
 export default function ComponentPreviewTabs({ preview, code }: Props) {
   return (
-    <Tabs defaultValue="preview" className="w-full">
-      <TabsList className=" flex h-8 justify-start rounded-none border-b bg-transparent p-0">
+    <Tabs defaultValue="preview">
+      <TabsList className="justify-start bg-transparent">
         <TabsTrigger
           value="preview"
           className="h-full font-semibold data-[selected]:text-foreground"
@@ -29,14 +29,10 @@ export default function ComponentPreviewTabs({ preview, code }: Props) {
         >
           Code
         </TabsTrigger>
-        <TabsIndicator className="bottom-[-1px] h-[2px] rounded-none bg-primary" />
+        <TabsIndicator className="bg-muted shadow-none" />
       </TabsList>
-      <TabsContent value="preview" className="mt-4">
-        {preview}
-      </TabsContent>
-      <TabsContent value="code" className="mt-4">
-        {code}
-      </TabsContent>
+      <TabsContent value="preview">{preview}</TabsContent>
+      <TabsContent value="code">{code}</TabsContent>
     </Tabs>
   )
 }
