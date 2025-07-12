@@ -1,0 +1,24 @@
+---
+import Code from "@/components/code.astro";
+import { getExampleSource } from "@/lib/source";
+import type { UiLibrary } from "@/store/atoms/framework";
+
+export interface Props {
+  uiLibrary: UiLibrary;
+  example: string;
+}
+
+const { uiLibrary, example } = Astro.props;
+
+const { source, lang } = (await getExampleSource(uiLibrary, example)) || {};
+---
+
+<div data-ui-library={uiLibrary}>
+  {
+    source ? (
+      <Code className="mt-0" lang={lang} src={source} collapsible />
+    ) : (
+      <Code src={"Not Found"} />
+    )
+  }
+</div>

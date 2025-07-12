@@ -6,13 +6,14 @@ import { visit } from "unist-util-visit"
 export default function rehypeCodeWrapper() {
   return (tree: Root) => {
     visit(tree, { type: "element", tagName: "pre" }, (node, index, parent) => {
+      console.log(node)
       if (
         typeof node.properties.dataLanguage === "string" &&
         typeof node.properties.source === "string"
       ) {
         const componentElement: MdxJsxFlowElementHast = {
           type: "mdxJsxFlowElement",
-          name: "CodeWrapper",
+          name: "Code",
           attributes: [
             {
               type: "mdxJsxAttribute",
@@ -44,17 +45,17 @@ export default function rehypeCodeWrapper() {
                   type: "ImportSpecifier",
                   imported: {
                     type: "Identifier",
-                    name: "CodeWrapper",
+                    name: "Code",
                   },
                   local: {
                     type: "Identifier",
-                    name: "CodeWrapper",
+                    name: "Code",
                   },
                 },
               ],
               source: {
                 type: "Literal",
-                value: "@/components/content",
+                value: "@/components",
               },
               attributes: [],
             },
@@ -65,6 +66,6 @@ export default function rehypeCodeWrapper() {
       },
     }
 
-    tree.children.unshift(codeWrapperImport)
+    // tree.children.unshift(codeWrapperImport)
   }
 }

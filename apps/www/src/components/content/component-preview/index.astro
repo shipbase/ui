@@ -1,50 +1,33 @@
 ---
-import { getExampleSource } from "@/lib/source"
-import { $framework, frameworks } from "@/store/atoms/framework"
-import CodeWrapper from "../code-wrapper/index.astro"
-import Preview from "./preview"
-import Tabs from "./tabs"
-import Wrapper from "./wrapper.astro"
+import Code from "@/components/code.astro";
+import { getExampleSource } from "@/lib/source";
+import PreviewReact from "./preview";
+import Tabs from "./tabs";
 
 export interface Props {
-  name: string
+  name: string;
 }
-const { name } = Astro.props
+const { name } = Astro.props;
 
-const sources = await Promise.all(
-  frameworks.map((framework) => getExampleSource(framework, name))
-)
+const { source, lang } = (await getExampleSource("react", name)) || {};
 ---
 
 <div class="relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]">
   <Tabs client:visible>
     <Fragment slot="preview">
-      {
-        frameworks.map((framework, index) => (
-          <Wrapper
-            component={name}
-            source={sources[index]}
-            data-framework={framework}
-            hidden={$framework.value !== framework}
-          >
-            <Preview client:visible name={name} hidden={!sources[index]} />
-          </Wrapper>
-        ))
-      }
+      <div
+        class="relative flex h-[450px] w-full flex-col items-center justify-center rounded-xl border"
+      >
+        <PreviewReact client:visible name={name} />
+      </div>
     </Fragment>
     <Fragment slot="code">
       {
-        frameworks.map((framework, index) => (
-          <div
-            data-framework={framework}
-            hidden={$framework.value !== framework}
-          >
-            <CodeWrapper
-              lang={sources[index]?.lang}
-              src={sources[index]?.source}
-            />
-          </div>
-        ))
+        source ? (
+          <Code className="mt-0 h-[450px] overflow-y-auto"  lang={lang} src={source} />
+        ) : (
+          <Code src={"Not Found"} />
+        )
       }
     </Fragment>
   </Tabs>

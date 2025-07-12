@@ -2,11 +2,26 @@
 import { cn } from "@/lib/utils"
 
 const { class: className, ...props } = Astro.props
+
+// 生成id的函数
+function generateId(content: string) {
+  return content
+    .replace(/ /g, "-")
+    .replace(/'/g, "")
+    .replace(/\?/g, "")
+    .toLowerCase()
+}
+
+// 获取slot内容来生成id
+const slotContent = await Astro.slots.render('default')
+const textContent = slotContent.replace(/<[^>]*>/g, '').trim()
+const id = generateId(textContent)
 ---
 
 <h2
+  id={id}
   class={cn(
-    "font-heading mt-12 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0",
+    "font-heading mt-12 scroll-m-28 text-2xl font-medium tracking-tight first:mt-0 lg:mt-20 [&+p]:!mt-4 *:[code]:text-2xl",
     className
   )}
   {...props}

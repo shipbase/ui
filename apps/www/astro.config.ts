@@ -12,20 +12,24 @@ import rehypeCodeWrapper from "./src/lib/rehype-code-wrapper"
 export default defineConfig({
   integrations: [
     mdx({
-      shikiConfig: {
-        theme: "vesper",
-        transformers: [
-          {
-            root(root: Root) {
-              const pre = root.children?.[0] as Element
-              if (pre) pre.properties.source = this.source
-            },
-          },
-          transformerMetaHighlight({
-            className: "line--highlighted",
-          }),
-        ],
-      },
+      // shikiConfig: {
+      //   themes: {
+      //     dark: "github-dark",
+      //     light: "github-light",
+      //   },
+      //   defaultColor: false,
+      //   transformers: [
+      //     {
+      //       root(root: Root) {
+      //         const pre = root.children?.[0] as Element
+      //         if (pre) pre.properties.source = this.source
+      //       },
+      //     },
+      //     transformerMetaHighlight({
+      //       className: "line--highlighted",
+      //     }),
+      //   ],
+      // },
       rehypePlugins: [rehypeCodeWrapper],
     }),
     react(),

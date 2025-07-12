@@ -1,3 +1,4 @@
+import { default as Code } from "@/components/code.astro"
 import { default as ComponentInstall } from "./component-install/index.astro"
 import { default as ComponentPreview } from "./component-preview/index.astro"
 import { default as ComponentSource } from "./component-source.astro"
@@ -7,11 +8,14 @@ import { default as Steps } from "./steps.astro"
 
 export const MDXComponents = {
   ...porse,
+  pre: (...args) => {
+    console.log(JSON.stringify(args, null, 2))
+    return <pre {...args} />
+  },
   ComponentInstall,
   ComponentPreview,
   ComponentSource,
   Step,
   Steps,
+  Code,
 }
-
-export { default as CodeWrapper } from "./code-wrapper/index.astro"
