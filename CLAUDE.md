@@ -4,136 +4,101 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Shipbase UI is a modern component library that provides beautifully designed, accessible, and customizable UI components. Developers can copy and paste these components directly into their applications. The library is framework-agnostic and currently supports React and Vue.
+This is a monorepo for a UI component library similar to shadcn/ui, built with Ark UI instead of Radix UI. It provides accessible, customizable components for React and Vue with a CLI tool for easy installation.
 
-## Technology Stack
+## Common Development Commands
 
-- **Build System**: Turbo (monorepo)
-- **Documentation**: Astro with MDX
-- **UI Frameworks**: React and Vue
-- **Component Foundation**: Ark UI (headless components)
-- **Styling**: Tailwind CSS v4
-- **Animation**: tailwindcss-animate
-- **Code Quality**: Biome (linting & formatting)
-- **Package Manager**: pnpm v10.12.1
-- **Testing**: Vitest
-- **TypeScript**: Strict mode enabled
-
-## Project Structure
-
-```
-/ui (root)
-├── apps/
-│   └── www/               # Documentation website (Astro)
-├── packages/
-│   ├── cli/              # CLI tool for component installation
-│   ├── lib/              # Shared utilities
-│   ├── react/            # React component library
-│   └── vue/              # Vue component library
-└── tools/
-    ├── tailwind/         # Tailwind configuration
-    └── typescript/       # TypeScript configurations
-```
-
-## Key Commands
-
-### Development
+### Essential Commands
 ```bash
-pnpm dev          # Run all packages in dev mode with watch
-pnpm build        # Build all packages
-pnpm test         # Run tests across all packages
+# Install dependencies
+pnpm install
+
+# Run development servers (docs site and component builds)
+pnpm dev
+
+# Run Storybook for component development
+pnpm dev:storybook
+
+# Build all packages
+pnpm build
+
+# Type check all packages
+pnpm typecheck
+
+# Lint and format code
+pnpm lint
+pnpm lint:fix
+pnpm format
+
+# Run tests
+pnpm test
+
+# Clean build artifacts
+pnpm clean
 ```
 
-### Code Quality
+### Running Tests for Specific Packages
 ```bash
-pnpm lint         # Run Biome linter
-pnpm lint:fix     # Fix linting issues
-pnpm format       # Format code with Biome
-pnpm typecheck    # Type check all packages
+# Run tests for a specific package
+pnpm --filter @shipbase-ui/react test
+pnpm --filter @shipbase-ui/vue test
+
+# Run a specific test file
+pnpm --filter @shipbase-ui/react test button.test.tsx
 ```
 
-### Maintenance
-```bash
-pnpm clean        # Clean build artifacts
-pnpm check:repo   # Check repository consistency
-pnpm version      # Version packages with changesets
-```
+## Architecture and Key Concepts
 
-## Component Development Guidelines
+### Monorepo Structure
+- **apps/www**: Documentation site built with Astro, MDX, and Tailwind CSS v4
+- **packages/cli**: CLI tool for adding components to user projects
+- **packages/react**: React component implementations
+- **packages/vue**: Vue component implementations
+- **packages/lib**: Shared utilities
+- **tools/**: Shared configurations (Tailwind, TypeScript)
 
-1. **Location**: Components are developed in `packages/react/src/components` and `packages/vue/src/components`
-2. **Structure**: Each component should have:
-   - Component file (e.g., `button.tsx`)
-   - Story file for testing (e.g., `button.stories.tsx`)
-   - Documentation in `apps/www/content/components/`
-3. **Foundation**: Build on top of Ark UI primitives for accessibility
-4. **Styling**: Use Tailwind CSS v4 with custom design tokens
-5. **Exports**: Components are exported through barrel files in each package
+### Component Development Workflow
+1. Components are built on top of Ark UI for accessibility
+2. Each component has framework-specific implementations in `packages/react` and `packages/vue`
+3. Examples live in `src/examples/` within each framework package
+4. Documentation MDX files are in `apps/www/content/components/`
+5. Components use Class Variance Authority (CVA) for variant management
 
-## Documentation Site
+### Registry System
+- Components are distributed via a registry pattern (not npm packages)
+- Registry files are generated in `public/shadcn/` directory
+- Users install components by copying them into their projects via the CLI
 
-- **Location**: `apps/www/`
-- **Content**: MDX files in `content/` directory
-- **Preview**: Component previews with source code tabs
-- **Registry**: Components are built to `public/shadcn/` for CLI consumption
+### State Management
+- The documentation site uses nanostores for cross-framework state
+- UI library selection (React/Vue) is persisted across page loads
+- State atoms are in `apps/www/src/store/atoms/`
 
-## CLI Tool
+### Code Quality Tools
+- **Biome**: Used for linting and formatting (NOT ESLint/Prettier)
+- **TypeScript**: Strict type checking across all packages
+- **Vitest**: Testing framework
+- **lint-staged**: Pre-commit hooks for code quality
 
-- **Package**: `packages/cli/`
-- **Command**: `shipbase-ui add <component>`
-- **Purpose**: Allows users to install components into their projects
+### Important Patterns
+1. **Framework Agnostic**: Components are implemented separately for React and Vue
+2. **Copy-paste Architecture**: Users copy components rather than installing as dependencies
+3. **Tailwind v4**: Using the latest Tailwind CSS with custom theme configuration
+4. **Accessibility First**: All components built on Ark UI's accessible foundations
 
-## Code Style
+### Adding New Components
+1. Create component in both `packages/react/src/components` and `packages/vue/src/components`
+2. Add examples in `src/examples/` for each framework
+3. Create MDX documentation in `apps/www/content/components/`
+4. Update the component registry
+5. Run `pnpm build` to verify everything works
 
-- **Indentation**: 2 spaces
-- **Quotes**: Double quotes for strings
-- **Semicolons**: As needed
-- **Trailing Commas**: ES5 style
-- **File Naming**: kebab-case for files, PascalCase for components
+### Version Management
+- Uses changesets for version management
+- Run `pnpm changeset` to create a changeset
+- Run `pnpm version` to apply changesets and bump versions
 
-## Recent Changes
 
-- Migration to Tailwind CSS v4
-- Refactoring of component structure
-- Updated build tooling configuration
+## Code Quality
 
-## Important Notes
-
-1. The project follows a shadcn-style approach where components are copied, not installed as dependencies
-2. Components are built on Ark UI for better accessibility
-3. The documentation site uses Astro with MDX for rich content
-4. All packages share common configurations through the tools/ directory
-5. Use Turbo for efficient builds in the monorepo
-
-## Git Workflow
-
-- Main branch: `main`
-- Current branch: `gitbutler/workspace`
-- Use conventional commits
-- Run linting before committing (automated via pre-commit hooks)
-
-## Testing
-
-- Framework: Vitest
-- Run tests: `pnpm test`
-- Test files: `*.test.ts` or `*.test.tsx`
-
-## Common Tasks
-
-### Adding a New Component
-1. Create component in `packages/react/src/components/ui/`
-2. Create Vue version in `packages/vue/src/components/ui/`
-3. Add exports to index files
-4. Create documentation in `apps/www/content/components/`
-5. Add to registry build process
-
-### Updating Documentation
-1. Edit MDX files in `apps/www/content/`
-2. Component previews update automatically
-3. Run `pnpm dev` to see changes locally
-
-### Publishing Changes
-1. Create changeset: `pnpm changeset`
-2. Version packages: `pnpm version`
-3. Build and test: `pnpm build && pnpm test`
-4. Follow release process
+1. TypeScript first, when you create or edit file, you can use IDE Diagnosis tools to check.

@@ -11,7 +11,7 @@ interface Props {
   cli?: React.ReactNode
 }
 
-export const ComponentInstall = ({ manual, cli }: Props) => {
+export const ComponentInstallTabs = ({ manual, cli }: Props) => {
   return (
     <Tabs defaultValue="manual" className="relative mt-6 w-full">
       <TabsList className="mb-5 flex h-8 justify-start rounded-none border-b bg-transparent p-0">
