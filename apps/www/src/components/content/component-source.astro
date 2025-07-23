@@ -25,7 +25,11 @@ const frameworkSources = await Promise.all(
               <p class="mb-2">{src.filename}</p>
             ) : null}
             <CodeCollapsible client:visible>
-              <Code lang={src.lang} src={src.source} copy={false} />
+              <Code
+                lang={src.lang}
+                src={src.source}
+                className="[&>pre]:pb-10"
+              />
             </CodeCollapsible>
           </Fragment>
         ))

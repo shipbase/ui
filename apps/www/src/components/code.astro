@@ -1,9 +1,9 @@
 ---
+import { transformerMetaHighlight } from "@shikijs/transformers";
 import { codeToHtml } from "shiki";
 
 import { cn } from "@/lib/utils";
-import { transformerMetaHighlight } from "@shikijs/transformers";
-import CopyButton from "./copy-button.astro";
+import { CopyButton } from "./copy-button.tsx";
 
 interface Props {
   src: string;
@@ -27,6 +27,14 @@ const html = await codeToHtml(src, {
 <div
   class={cn("code-wrapper relative [&_pre]:py-4 bg-code rounded", className)}
 >
-  {copy && <CopyButton value={src} className="absolute top-2 right-2 z-10" />}
+  {
+    copy && (
+      <CopyButton
+        client:visible
+        value={src}
+        className="absolute top-2 right-2 z-10"
+      />
+    )
+  }
   <Fragment set:html={html} />
 </div>
