@@ -9,7 +9,7 @@ interface Props {
   name: string
 }
 
-export default function Preview({ name }: Props) {
+export default function PreviewReact({ name }: Props) {
   const [key, setKey] = React.useState(0)
   const Component = React.lazy(
     Examples[name] ?? (() => <NotFound component={name} />)
