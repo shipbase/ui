@@ -1,6 +1,6 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-import type { UiLibrary } from "@/store/atoms/framework"
+import type { UiLibrary } from "@/store/atoms/ui-library"
 import { safeReadFile } from "@ui/lib/utils/fs"
 import { safeResolvePath } from "@ui/lib/utils/mlly"
 import { findExports } from "mlly"

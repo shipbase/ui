@@ -1,26 +1,18 @@
 ---
-import { Button } from "@ui/react/button";
 import { codeToHtml } from "shiki";
 
-import CopyButton from "@/components/copy-button.astro";
 import { cn } from "@/lib/utils";
+import { transformerMetaHighlight } from "@shikijs/transformers";
+import CopyButton from "./copy-button.astro";
 
 interface Props {
   src: string;
   lang?: string;
   className?: string;
-  collapsible?: boolean;
   copy?: boolean;
 }
 
-const {
-  src,
-  lang = "tsx",
-  className,
-  collapsible,
-  copy = true,
-  ...props
-} = Astro.props;
+const { src, lang = "tsx", copy = true, className } = Astro.props;
 
 const html = await codeToHtml(src, {
   lang,
@@ -28,84 +20,13 @@ const html = await codeToHtml(src, {
     dark: "github-dark",
     light: "github-light",
   },
+  transformers: [transformerMetaHighlight()],
 });
 ---
 
-<script is:inline>
-  // Handle collapsible functionality
-  document.addEventListener("astro:page-load", () => {
-    const codeWrapper = document.querySelector(".code-wrapper");
-    const collapseButton = codeWrapper.querySelector(".collapse-button");
-
-    collapseButton?.addEventListener("click", () => {
-      const isCollapsed = codeWrapper.getAttribute("data-collapsed") === "true";
-      codeWrapper.setAttribute(
-        "data-collapsed",
-        isCollapsed ? "false" : "true"
-      );
-    });
-  });
-</script>
-
 <div
-  class={cn("code-wrapper relative rounded-xl [&_pre]:py-4", className)}
-  data-collapsible={collapsible ? "" : undefined}
-  data-state="close"
-  {...props}
+  class={cn("code-wrapper relative [&_pre]:py-4 bg-code rounded", className)}
 >
-  <Fragment class="text-sm" set:html={html} />
-  {copy && <CopyButton value={src} className="absolute top-4 right-4" />}
-  {
-    collapsible && (
-      <div class="collapse-overlay absolute flex items-center justify-center rounded-lg bg-gradient-to-b from-zinc-700/30 to-zinc-950/90 p-2">
-        <Button
-          className="collapse-button"
-          variant="outline"
-          size="sm"
-          type="button"
-        >
-          Expand
-        </Button>
-      </div>
-    )
-  }
+  {copy && <CopyButton value={src} className="absolute top-2 right-2 z-10" />}
+  <Fragment set:html={html} />
 </div>
-
-<style is:global>
-  .code-wrapper .shiki {
-    padding-inline-start: calc(var(--spacing) * 4);
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
-    background-color: var(--code) !important;
-  }
-
-  html.dark .code-wrapper .shiki,
-  html.dark .code-wrapper .shiki span {
-    background-color: oklch(0.2 0 0) !important;
-    color: var(--shiki-dark) !important;
-  }
-</style>
-
-<style>
-  .code-wrapper[data-collapsible][data-state="close"] {
-    max-height: 8rem;
-    overflow: hidden;
-  }
-
-  .code-wrapper[data-collapsible][data-state="open"] [&_pre] {
-    padding-bottom: 3rem;
-  }
-
-  .code-wrapper[data-state="close"] .collapse-overlay {
-    inset: 0;
-  }
-
-  .code-wrapper[data-state="open"] .collapse-overlay {
-    inset-inline: 0;
-    bottom: 0;
-    height: 3rem;
-    border-radius: 0;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
-  }
-</style>
