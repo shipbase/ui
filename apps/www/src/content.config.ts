@@ -16,7 +16,13 @@ const overview = defineCollection({
 
 const components = defineCollection({
   loader: glob({
-    pattern: ["components/*.mdx", "!components/tree-view.mdx"],
+    pattern: [
+      "components/*.mdx",
+      "!components/tree-view.mdx",
+      "!components/drawer.mdx",
+      "!components/rating-group.mdx",
+      "!components/toast.mdx",
+    ],
     base: "./content",
     generateId: ({ entry }) => entry.replace(/\/index\.mdx$|\.mdx$/, ""),
   }),
