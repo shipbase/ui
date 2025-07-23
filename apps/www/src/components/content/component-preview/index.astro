@@ -24,7 +24,11 @@ const { source, lang } = (await getExampleSource("react", name)) || {};
     <Fragment slot="code">
       {
         source ? (
-          <Code className="mt-0 h-[450px] overflow-y-auto"  lang={lang} src={source} />
+          <Code
+            className="mt-0 h-[450px] overflow-y-auto"
+            lang={lang}
+            src={source}
+          />
         ) : (
           <Code src={"Not Found"} />
         )
