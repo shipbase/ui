@@ -25,6 +25,7 @@
     "@nanostores/vue": "catalog:",
     "@rehype-pretty/transformers": "^0.13.2",
     "@tailwindcss/vite": "catalog:",
+    "@types/mdast": "^4.0.4",
     "@ui/lib": "workspace:*",
     "@ui/react": "workspace:*",
     "@ui/tailwind": "workspace:*",

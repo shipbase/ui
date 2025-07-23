@@ -29,7 +29,12 @@ export const ComponentInstall = ({ manual, cli }: Props) => {
         </TabsTrigger>
         <TabsIndicator className="bottom-[-1px] h-[2px] rounded-none bg-primary" />
       </TabsList>
-      <TabsContent value="manual">{manual}</TabsContent>
+      <TabsContent
+        value="manual"
+        className="[&>.steps]:mt-6 [&_h3.font-heading]:font-medium [&_h3.font-heading]:text-base *:[figure]:first:mt-0"
+      >
+        {manual}
+      </TabsContent>
       <TabsContent value="cli">{cli}</TabsContent>
     </Tabs>
   )

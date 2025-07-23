@@ -17,7 +17,7 @@ import {
   type UiLibrary,
   uiLibraries,
   uiLibraryAtom,
-} from "@/store/atoms/framework"
+} from "@/store/atoms/ui-library"
 
 const uiLibrariesCollection = createListCollection({
   items: uiLibraries.map((library) => ({

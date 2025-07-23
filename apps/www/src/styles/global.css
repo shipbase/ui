@@ -35,6 +35,18 @@
   button:active {
     @apply opacity-60 md:opacity-100;
   }
+
+  .code-wrapper .shiki {
+    @apply px-4 text-sm leading-normal bg-code! overflow-auto;
+  }
+  .remark-code-wrapper {
+    @apply mt-4;
+  }
+
+  html.dark .code-wrapper .shiki,
+  html.dark .code-wrapper .shiki span {
+    @apply bg-code! text-[var(--shiki-dark)]!;
+  }
 }
 
 @utility container {

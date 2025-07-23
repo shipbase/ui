@@ -8,10 +8,6 @@ import { default as Steps } from "./steps.astro"
 
 export const MDXComponents = {
   ...porse,
-  pre: (...args) => {
-    console.log(JSON.stringify(args, null, 2))
-    return <pre {...args} />
-  },
   ComponentInstall,
   ComponentPreview,
   ComponentSource,

@@ -1,7 +1,8 @@
 ---
 import Code from "@/components/code.astro";
 import { getComponentSource } from "@/lib/source";
-import { uiLibraries } from "@/store/atoms/framework";
+import { uiLibraries } from "@/store/atoms/ui-library";
+import CodeCollapsible from "../code-collapsible";
 
 export interface Props {
   component: string;
@@ -15,16 +16,18 @@ const frameworkSources = await Promise.all(
 
 {
   uiLibraries.map((uiLibrary, index) => (
-    <div data-framework={uiLibrary}>
+    <div data-ui-library={uiLibrary} class="mt-4" hidden>
       {frameworkSources?.[index]?.length ? (
         frameworkSources?.[index]?.map((src) => (
-          <div data-framework={uiLibrary}>
+          <Fragment>
             {typeof frameworkSources?.[index]?.length === "number" &&
             frameworkSources?.[index]?.length > 1 ? (
               <p class="mb-2">{src.filename}</p>
             ) : null}
-            <Code className="mt-0" lang={src.lang} src={src.source} collapsible />
-          </div>
+            <CodeCollapsible client:visible>
+              <Code lang={src.lang} src={src.source} copy={false} />
+            </CodeCollapsible>
+          </Fragment>
         ))
       ) : (
         <Code src={"Not Found"} />
