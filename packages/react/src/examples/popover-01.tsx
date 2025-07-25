@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/checkbox"
 import {
   Popover,
+  PopoverCloseTrigger,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
@@ -59,14 +60,16 @@ export default function Component() {
                 className="-mx-3 my-3 h-px bg-border"
               />
               <div className="flex justify-between gap-2">
-                <Button
-                  size="sm"
-                  variant="outline"
-                  type="button"
-                  className="h-7 px-2"
-                >
-                  Clear
-                </Button>
+                <PopoverCloseTrigger asChild>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    type="button"
+                    className="h-7 px-2"
+                  >
+                    Clear
+                  </Button>
+                </PopoverCloseTrigger>
                 <Button type="button" size="sm" className="h-7 px-2">
                   Apply
                 </Button>

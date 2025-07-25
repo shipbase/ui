@@ -1,3 +1,4 @@
+import avatar from "@/assets/avatar-40-01.jpg"
 import { Button } from "@/components/ui/button"
 import {
   HoverCard,
@@ -15,12 +16,7 @@ export default function Component() {
           asChild
         >
           <a href="https://github.com/shipbase/ui">
-            <img
-              src="/src/assets/avatar-40-01.jpg"
-              width={40}
-              height={40}
-              alt="Avatar"
-            />
+            <img src={avatar} width={40} height={40} alt="Avatar" />
           </a>
         </Button>
       </HoverCardTrigger>
@@ -28,7 +24,7 @@ export default function Component() {
         <div className="flex items-start gap-3">
           <img
             className="shrink-0 rounded-full"
-            src="/src/assets/avatar-40-01.jpg"
+            src={avatar}
             width={40}
             height={40}
             alt="Avatar"

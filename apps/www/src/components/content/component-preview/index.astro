@@ -1,22 +1,29 @@
 ---
-import Code from "@/components/code.astro";
-import { getExampleSource } from "@/lib/source";
-import PreviewReact from "./preview";
-import Tabs from "./tabs";
+import Code from "@/components/code.astro"
+import { getExampleSource } from "@/lib/source"
+import { cn } from "@/lib/utils"
+import PreviewReact from "./preview"
+import Tabs from "./tabs"
 
 export interface Props {
-  name: string;
+  name: string
+  className?: string
 }
-const { name } = Astro.props;
+const { name, className } = Astro.props
 
-const { source, lang } = (await getExampleSource("react", name)) || {};
+const { source, lang } = (await getExampleSource("react", name)) || {}
 ---
 
-<div class="relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]">
+<div
+  class={cn(
+    "relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]",
+    className
+  )}
+>
   <Tabs client:visible>
     <Fragment slot="preview">
       <div
-        class="relative flex h-[450px] w-full flex-col items-center justify-center rounded-xl border"
+        class="relative flex h-[450px] w-full flex-col items-center justify-center rounded border"
       >
         <PreviewReact client:visible name={name} />
       </div>

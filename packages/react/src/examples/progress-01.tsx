@@ -16,7 +16,7 @@ export default function Component() {
   }, [])
 
   return (
-    <Progress value={progress} className="*:not-first:mt-2">
+    <Progress value={progress} className="w-full *:not-first:mt-2">
       <ProgressLabel>Simple Progress</ProgressLabel>
       <ProgressTrack>
         <ProgressRange />
