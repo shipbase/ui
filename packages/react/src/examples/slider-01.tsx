@@ -9,7 +9,7 @@ import {
 
 export default function Component() {
   return (
-    <Slider defaultValue={[25]} className="*:not-first:mt-4">
+    <Slider defaultValue={[25]} className="w-full *:not-first:mt-4">
       <SliderLabel>Simple slider</SliderLabel>
       <SliderControl>
         <SliderTrack>

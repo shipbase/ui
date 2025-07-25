@@ -12,7 +12,7 @@ import {
 
 export default function TagsInputDemo() {
   return (
-    <TagsInput className="w-64 *:not-first:mt-2">
+    <TagsInput className="w-full *:not-first:mt-2">
       <TagsInputLabel>TagsInput</TagsInputLabel>
       <TagsInputControl>
         <TagsInputContext>
