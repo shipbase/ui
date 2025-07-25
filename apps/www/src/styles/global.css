@@ -1,6 +1,6 @@
 @import "@ui/tailwind/global.css";
 
-@source "../../node_modules/@ui/react/dist/components";
+@source "../../node_modules/@ui/react/dist";
 
 @theme inline {
   --breakpoint-3xl: 1600px;
@@ -23,12 +23,6 @@
   body {
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
-  }
-
-  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
-    [data-wrapper] {
-      @apply min-[1800px]:border-t;
-    }
   }
 
   a:active,
