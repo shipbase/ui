@@ -99,6 +99,18 @@ pnpm --filter @shipbase-ui/react test button.test.tsx
 - Run `pnpm version` to apply changesets and bump versions
 
 
-## Code Quality
+## Tech Stack and Development Rules
 
-1. TypeScript first, when you create or edit file, you can use IDE Diagnosis tools to check.
+### UI Components
+- **Priority**: Always check `packages/react/src/components/ui/` first before creating new components
+- **Foundation**: All components built on Ark UI for accessibility
+- **Styling**: Tailwind CSS v4 with CVA for variant management
+
+### Icons and Assets
+- **Icons**: Use `lucide-react` for all icon needs
+
+### Code Quality and Tools
+- **Language**: TypeScript first - use IDE diagnostics to check types
+- **Linting/Formatting**: Biome (NOT ESLint/Prettier)
+- **Testing**: Vitest framework
+- **Commits**: lint-staged pre-commit hooks
