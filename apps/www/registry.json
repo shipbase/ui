@@ -24,11 +24,31 @@
       ]
     },
     {
+      "name": "badge",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "../../packages/react/src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "button",
       "type": "registry:ui",
       "files": [
         {
           "path": "../../packages/react/src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "../../packages/react/src/components/ui/card.tsx",
           "type": "registry:ui"
         }
       ]
