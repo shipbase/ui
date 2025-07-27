@@ -1,17 +1,17 @@
 ---
-import Code from "@/components/code.astro";
-import { getComponentSource } from "@/lib/source";
-import { uiLibraries } from "@/store/atoms/ui-library";
-import CodeCollapsible from "../code-collapsible";
+import Code from "@/components/code.astro"
+import { getComponentSource } from "@/lib/source"
+import { uiLibraries } from "@/store/atoms/ui-library"
+import CodeCollapsible from "../code-collapsible"
 
 export interface Props {
-  component: string;
+  component: string
 }
-const { component } = Astro.props;
+const { component } = Astro.props
 
 const frameworkSources = await Promise.all(
   uiLibraries.map((uiLibrary) => getComponentSource(uiLibrary, component))
-);
+)
 ---
 
 {

@@ -1,18 +1,18 @@
 ---
-import { transformerMetaHighlight } from "@shikijs/transformers";
-import { codeToHtml } from "shiki";
+import { transformerMetaHighlight } from "@shikijs/transformers"
+import { codeToHtml } from "shiki"
 
-import { cn } from "@/lib/utils";
-import { CopyButton } from "./copy-button.tsx";
+import { cn } from "@/lib/utils"
+import { CopyButton } from "./copy-button.tsx"
 
 interface Props {
-  src: string;
-  lang?: string;
-  className?: string;
-  copy?: boolean;
+  src: string
+  lang?: string
+  className?: string
+  copy?: boolean
 }
 
-const { src, lang = "tsx", copy = true, className } = Astro.props;
+const { src, lang = "tsx", copy = true, className } = Astro.props
 
 const html = await codeToHtml(src, {
   lang,
@@ -21,7 +21,7 @@ const html = await codeToHtml(src, {
     light: "github-light",
   },
   transformers: [transformerMetaHighlight()],
-});
+})
 ---
 
 <div
