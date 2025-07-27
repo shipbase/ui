@@ -91,6 +91,8 @@ catalog:
   '@typescript/native-preview': latest
   tw-animate-css: ^1.3.4
   '@tailwindcss/vite': ^4.1.10
+  gray-matter: ^4.0.3
+  shadcn: ^2.9.3-canary.0
 
 catalogs:
   react18:

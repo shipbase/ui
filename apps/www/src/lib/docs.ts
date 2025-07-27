@@ -7,7 +7,8 @@ export const generateSideItems = async (name: keyof DataEntryMap) => {
   const collection = await getCollection(name)
   return collection
     .filter(
-      (entry: DataEntryMap[keyof DataEntryMap]) => entry.data?.sidebar !== false
+      (entry: DataEntryMap[keyof DataEntryMap]) =>
+        entry.data?.sidebar !== false && entry.data.visible !== false
     )
     .sort((a, b) => a.data.title.localeCompare(b.data.title))
     .map((entry: DataEntryMap[keyof DataEntryMap]) => ({

@@ -1,28 +1,31 @@
 ---
-import { getCollection, render } from "astro:content";
-import type { GetStaticPaths } from "astro";
-import { ChevronRightIcon } from "lucide-react";
+import { getCollection, render } from "astro:content"
+import type { GetStaticPaths } from "astro"
+import { ChevronRightIcon } from "lucide-react"
 
-import { MDXComponents } from "@/components/content";
-import { TableOfContent } from "@/components/table-of-content";
-import Layout from "@/layouts/layout.astro";
-import { cn } from "@/lib/utils";
+import { MDXComponents } from "@/components/content"
+import { TableOfContent } from "@/components/table-of-content"
+import Layout from "@/layouts/layout.astro"
+import { cn } from "@/lib/utils"
 
-import Sidebar from "@/components/sidebar.astro";
+import Sidebar from "@/components/sidebar.astro"
 
 export const getStaticPaths = (async () => {
-  const collectionNames = ["overview", "components"] as const;
+  const collectionNames = ["overview", "components"] as const
   const collections = await Promise.all(
     collectionNames.map((collection) => getCollection(collection))
-  );
-  return collections.flat(1).map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }));
-}) satisfies GetStaticPaths;
+  )
+  return collections
+    .flat(1)
+    .filter((entry) => entry.data.visible !== false)
+    .map((entry) => ({
+      params: { slug: entry.id },
+      props: { entry },
+    }))
+}) satisfies GetStaticPaths
 
-const { entry } = Astro.props;
-const { Content, headings } = await render(entry);
+const { entry } = Astro.props
+const { Content, headings } = await render(entry)
 ---
 
 <Layout>

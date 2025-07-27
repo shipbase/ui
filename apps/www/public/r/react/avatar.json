@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "avatar",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "../../packages/react/src/components/ui/avatar.tsx",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\nimport { Avatar as AvatarPrimitive } from \"@ark-ui/react/avatar\"\n\nimport { cn } from \"@/lib/utils\"\n\nconst Avatar = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Root>,\n  AvatarPrimitive.RootProps\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Root\n    ref={ref}\n    className={cn(\n      \"relative flex size-8 shrink-0 overflow-hidden rounded-full\",\n      className\n    )}\n    {...props}\n  />\n))\n\nconst AvatarContext = AvatarPrimitive.Context\n\nconst AvatarFallback = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Fallback>,\n  AvatarPrimitive.FallbackProps\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Fallback\n    ref={ref}\n    className={cn(\n      \"flex size-full items-center justify-center rounded-[inherit] bg-secondary text-xs\",\n      className\n    )}\n    {...props}\n  />\n))\n\nconst AvatarImage = React.forwardRef<\n  React.ElementRef<typeof AvatarPrimitive.Image>,\n  AvatarPrimitive.ImageProps\n>(({ className, ...props }, ref) => (\n  <AvatarPrimitive.Image\n    ref={ref}\n    className={cn(\"aspect-square size-full\", className)}\n    {...props}\n  />\n))\n\nexport { Avatar, AvatarContext, AvatarFallback, AvatarImage }\n",
+      "type": "registry:ui"
+    }
+  ]
+}
