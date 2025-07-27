@@ -13,8 +13,8 @@ function generateId(content: string) {
 }
 
 // 获取slot内容来生成id
-const slotContent = await Astro.slots.render('default')
-const textContent = slotContent.replace(/<[^>]*>/g, '').trim()
+const slotContent = await Astro.slots.render("default")
+const textContent = slotContent.replace(/<[^>]*>/g, "").trim()
 const id = generateId(textContent)
 ---
 
