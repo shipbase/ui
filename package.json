@@ -9,11 +9,8 @@
     "dev:storybook": "turbo run storybook",
     "test": "turbo test",
     "build": "turbo build",
-    "format": "biome check --linter-enabled=false --write",
-    "lint": "biome lint",
-    "lint:fix": "biome lint --write --unsafe",
-    "check:repo": "sherif",
-    "check:repo:fix": "sherif --fix",
+    "check": "biome check --write .",
+    "sherif": "sherif --fix",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && git clean -xdf node_modules .turbo",
     "version": "changeset version && pnpm run format"
