@@ -22,7 +22,6 @@
     "@biomejs/biome": "catalog:",
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
-    "@turbo/gen": "catalog:",
     "@types/node": "catalog:",
     "@typescript/native-preview": "catalog:",
     "dotenv": "catalog:",
