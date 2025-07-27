@@ -1,4 +1,5 @@
 import { default as Code } from "@/components/code.astro"
+import { default as ComponentInstallCLI } from "./component-install-cli/index.astro"
 import { default as ComponentInstall } from "./component-install/index.astro"
 import { default as ComponentPreview } from "./component-preview/index.astro"
 import { default as ComponentSource } from "./component-source.astro"
@@ -11,6 +12,7 @@ export const MDXComponents = {
   ComponentInstall,
   ComponentPreview,
   ComponentSource,
+  ComponentInstallCLI,
   Step,
   Steps,
   Code,

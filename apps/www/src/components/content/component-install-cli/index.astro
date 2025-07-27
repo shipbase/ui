@@ -1,0 +1,11 @@
+---
+import { ComponentInstallCLI } from "./component-install-cli.tsx"
+
+interface Props {
+  name: string
+}
+
+const { name } = Astro.props
+---
+
+<ComponentInstallCLI name={name} client:visible />

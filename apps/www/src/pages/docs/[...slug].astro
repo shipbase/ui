@@ -15,13 +15,10 @@ export const getStaticPaths = (async () => {
   const collections = await Promise.all(
     collectionNames.map((collection) => getCollection(collection))
   )
-  return collections
-    .flat(1)
-    .filter((entry) => entry.data.visible !== false)
-    .map((entry) => ({
-      params: { slug: entry.id },
-      props: { entry },
-    }))
+  return collections.flat(1).map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
 }) satisfies GetStaticPaths
 
 const { entry } = Astro.props
