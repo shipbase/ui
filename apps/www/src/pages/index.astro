@@ -1,6 +1,7 @@
 ---
 import RootLayout from "@/layouts/root-layout.astro"
 
+import ExampleCards from "@/components/example-cards/index.astro"
 import { Icons } from "@/components/icons"
 import { Button } from "@ui/react/button"
 ---
@@ -10,9 +11,6 @@ import { Button } from "@ui/react/button"
     <section
       class="mx-auto flex justify-center flex-col gap-2 items-center py-4 lg:py-24 md:py-12"
     >
-      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter">
-        你好
-      </h1>
       <h1 class="text-3xl md:text-5xl font-bold tracking-tighter">
         Build your component library
       </h1>
@@ -29,6 +27,9 @@ import { Button } from "@ui/react/button"
           Github
         </Button>
       </div>
+    </section>
+    <section>
+      <ExampleCards />
     </section>
   </div>
 </RootLayout>
