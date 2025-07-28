@@ -5,6 +5,9 @@
 @theme inline {
   --breakpoint-3xl: 1600px;
   --breakpoint-4xl: 2000px;
+  --font-sans: "Geist Variable", sans-serif;
+  --font-mono: "Geist Mono Variable", monospace;
+
   --color-code: var(--code);
 }
 
@@ -31,7 +34,7 @@
   }
 
   .code-wrapper .shiki {
-    @apply px-4 text-sm leading-normal bg-code! overflow-auto;
+    @apply px-4 text-sm leading-normal bg-code! overflow-auto font-mono;
   }
   .remark-code-wrapper {
     @apply mt-4;
