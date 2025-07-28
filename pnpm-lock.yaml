@@ -39,15 +39,6 @@ catalogs:
     '@fontsource-variable/inter':
       specifier: ^5.2.6
       version: 5.2.6
-    '@nanostores/persistent':
-      specifier: ^1.1.0
-      version: 1.1.0
-    '@nanostores/react':
-      specifier: ^1.0.0
-      version: 1.0.0
-    '@nanostores/vue':
-      specifier: ^1.0.1
-      version: 1.0.1
     '@shikijs/transformers':
       specifier: ^3.8.1
       version: 3.8.1
@@ -153,9 +144,6 @@ catalogs:
     mlly:
       specifier: ^1.7.4
       version: 1.7.4
-    nanostores:
-      specifier: ^1.0.1
-      version: 1.0.1
     nypm:
       specifier: ^0.6.0
       version: 0.6.0
@@ -342,15 +330,6 @@ importers:
       '@fontsource-variable/inter':
         specifier: 'catalog:'
         version: 5.2.6
-      '@nanostores/persistent':
-        specifier: 'catalog:'
-        version: 1.1.0(nanostores@1.0.1)
-      '@nanostores/react':
-        specifier: 'catalog:'
-        version: 1.0.0(nanostores@1.0.1)(react@18.3.1)
-      '@nanostores/vue':
-        specifier: 'catalog:'
-        version: 1.0.1(nanostores@1.0.1)(vue@3.5.18(typescript@5.8.3))
       '@rehype-pretty/transformers':
         specifier: ^0.13.2
         version: 0.13.2
@@ -390,9 +369,6 @@ importers:
       lucide-vue-next:
         specifier: 'catalog:'
         version: 0.515.0(vue@3.5.18(typescript@5.8.3))
-      nanostores:
-        specifier: 'catalog:'
-        version: 1.0.1
       react:
         specifier: catalog:react18
         version: 18.3.1
@@ -1661,33 +1637,6 @@ packages:
   '@mswjs/interceptors@0.39.3':
     resolution: {integrity: sha512-9bw/wBL7pblsnOCIqvn1788S9o4h+cC5HWXg0Xhh0dOzsZ53IyfmBM+FYqpDDPbm0xjCqEqvCITloF3Dm4TXRQ==}
     engines: {node: '>=18'}
-
-  '@nanostores/persistent@1.1.0':
-    resolution: {integrity: sha512-e6vfv7H99VkCfSoNTR/qNVMj6vXwWcsEL+LCQQamej5GK9iDefKxPCJjdOpBi1p4lNCFIQ+9VjYF1spvvc2p6A==}
-    engines: {node: ^20.0.0 || >=22.0.0}
-    peerDependencies:
-      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
-
-  '@nanostores/react@1.0.0':
-    resolution: {integrity: sha512-eDduyNy+lbQJMg6XxZ/YssQqF6b4OXMFEZMYKPJCCmBevp1lg0g+4ZRi94qGHirMtsNfAWKNwsjOhC+q1gvC+A==}
-    engines: {node: ^20.0.0 || >=22.0.0}
-    peerDependencies:
-      nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
-      react: '>=18.0.0'
-
-  '@nanostores/vue@1.0.1':
-    resolution: {integrity: sha512-0VwubMTMvEdWQhVN4BAvDZ+vHQH3O1G9BaOfgrjfF4erqBsWScoK/zyaBeRfFjptNOb25947EFPHBZwEf9JcMg==}
-    engines: {node: ^20.0.0 || >=22.0.0}
-    peerDependencies:
-      '@nanostores/logger': ^0.4.0 || ^1.0.0
-      '@vue/devtools-api': '>=7.6.2'
-      nanostores: ^0.11.3 || ^1.0.0
-      vue: '>=3.3.1'
-    peerDependenciesMeta:
-      '@nanostores/logger':
-        optional: true
-      '@vue/devtools-api':
-        optional: true
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -4784,10 +4733,6 @@ packages:
     resolution: {integrity: sha512-Ir/+ZpE9fDsNH0hQ3C68uyThDXzYcim2EqcZ8zn8Chtt1iylPT9xXJB0kPCnqzgcEGikO9RxSrh63MsmVCU7Fw==}
     engines: {node: ^18 || >=20}
     hasBin: true
-
-  nanostores@1.0.1:
-    resolution: {integrity: sha512-kNZ9xnoJYKg/AfxjrVL4SS0fKX++4awQReGqWnwTRHxeHGZ1FJFVgTqr/eMrNQdp0Tz7M7tG/TDaX8QfHDwVCw==}
-    engines: {node: ^20.0.0 || >=22.0.0}
 
   negotiator@1.0.0:
     resolution: {integrity: sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg==}
@@ -7931,20 +7876,6 @@ snapshots:
       is-node-process: 1.2.0
       outvariant: 1.4.3
       strict-event-emitter: 0.5.1
-
-  '@nanostores/persistent@1.1.0(nanostores@1.0.1)':
-    dependencies:
-      nanostores: 1.0.1
-
-  '@nanostores/react@1.0.0(nanostores@1.0.1)(react@18.3.1)':
-    dependencies:
-      nanostores: 1.0.1
-      react: 18.3.1
-
-  '@nanostores/vue@1.0.1(nanostores@1.0.1)(vue@3.5.18(typescript@5.8.3))':
-    dependencies:
-      nanostores: 1.0.1
-      vue: 3.5.18(typescript@5.8.3)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -11847,8 +11778,6 @@ snapshots:
   nanoid@3.3.11: {}
 
   nanoid@5.1.5: {}
-
-  nanostores@1.0.1: {}
 
   negotiator@1.0.0: {}
 
