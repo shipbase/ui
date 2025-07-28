@@ -16,9 +16,6 @@ catalog:
   '@changesets/cli': ^2.29.5
   '@chromatic-com/storybook': ^3.2.7
   '@fontsource-variable/inter': ^5.2.6
-  '@nanostores/persistent': ^1.1.0
-  '@nanostores/react': ^1.0.0
-  '@nanostores/vue': ^1.0.1
   '@shikijs/transformers': ^3.8.1
   '@storybook/addon-essentials': ^8.6.14
   '@storybook/addon-interactions': ^8.6.14
@@ -51,7 +48,6 @@ catalog:
   lucide-vue-next: ^0.515.0
   mdast-util-mdx-jsx: ^3.2.0
   mlly: ^1.7.4
-  nanostores: ^1.0.1
   nypm: ^0.6.0
   ora: ^8.2.0
   postcss: ^8.5.6

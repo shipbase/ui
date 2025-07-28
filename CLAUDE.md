@@ -70,7 +70,7 @@ pnpm --filter @shipbase-ui/react test button.test.tsx
 - Users install components by copying them into their projects via the CLI
 
 ### State Management
-- The documentation site uses nanostores for cross-framework state
+- The documentation site uses @xstate/store for cross-framework state
 - UI library selection (React/Vue) is persisted across page loads
 - State atoms are in `apps/www/src/store/atoms/`
 
