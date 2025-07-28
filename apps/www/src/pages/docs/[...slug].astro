@@ -5,7 +5,7 @@ import { ChevronRightIcon } from "lucide-react"
 
 import { MDXComponents } from "@/components/content"
 import { TableOfContent } from "@/components/table-of-content"
-import Layout from "@/layouts/layout.astro"
+import RootLayout from "@/layouts/root-layout.astro"
 import { cn } from "@/lib/utils"
 
 import Sidebar from "@/components/sidebar.astro"
@@ -25,7 +25,7 @@ const { entry } = Astro.props
 const { Content, headings } = await render(entry)
 ---
 
-<Layout>
+<RootLayout>
   <div
     class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
   >
@@ -72,4 +72,4 @@ const { Content, headings } = await render(entry)
       </div>
     </main>
   </div>
-</Layout>
+</RootLayout>
