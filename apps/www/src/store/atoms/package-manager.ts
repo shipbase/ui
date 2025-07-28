@@ -8,7 +8,7 @@ export type PackageManager = (typeof packageManagers)[number]
 export const PACKAGE_MANAGER_COMMAND_MAP = {
   pnpm: "pnpm dlx",
   npm: "npx",
-  yarn: "npx",
+  yarn: "yarn",
   bun: "bunx --bun",
 } as const
 
