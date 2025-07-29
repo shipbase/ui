@@ -1,14 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
+    "stub": {
+      "cache": false,
+      "outputs": ["dist/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true,
       "outputs": ["dist/**", ".astro/**"],
-      "dependsOn": ["^build"]
+      "dependsOn": ["^stub"]
     },
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^stub"],
       "outputs": ["dist/**"]
     },
     "typecheck": {

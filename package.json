@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "scripts": {
     "bump": "taze -r -l",
+    "stub": "turbo run stub",
     "dev": "turbo watch dev",
     "dev:storybook": "turbo run storybook",
     "test": "turbo test",
@@ -29,8 +30,7 @@
     "taze": "catalog:",
     "tsx": "catalog:",
     "turbo": "catalog:",
-    "typescript": "catalog:",
-    "vite": "catalog:"
+    "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.13.1",
   "simple-git-hooks": {

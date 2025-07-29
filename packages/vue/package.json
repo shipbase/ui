@@ -39,9 +39,7 @@
     }
   },
   "scripts": {
-    "dev": "vite build --watch",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
-    "build": "vite build",
     "typecheck": "vue-tsc",
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
@@ -67,16 +65,15 @@
     "autoprefixer": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",
-    "globby": "catalog:",
     "lucide-vue-next": "catalog:",
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "storybook": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
+    "tinyglobby": "catalog:",
     "vite": "catalog:",
     "vite-tsconfig-paths": "catalog:",
-    "vue": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

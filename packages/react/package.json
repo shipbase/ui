@@ -12,23 +12,35 @@
       "types": "./src/examples/*.tsx",
       "default": "./dist/examples/*.js"
     },
+    "./package.json": "./package.json",
     "./*": {
       "source": "./src/components/ui/*.tsx",
       "types": "./src/components/ui/*.tsx",
       "default": "./dist/components/ui/*.js"
-    },
-    "./package.json": "./package.json"
+    }
   },
   "scripts": {
-    "dev": "vite build --watch",
+    "stub": "vite build --mode development",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "vite build",
     "typecheck": "tsgo --noEmit",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },
-  "devDependencies": {
+  "dependencies": {
     "@ark-ui/react": "catalog:",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "cmdk": "catalog:",
+    "lucide-react": "catalog:",
+    "react": "catalog:react18",
+    "react-dom": "catalog:react18",
+    "recharts": "catalog:",
+    "tailwind-merge": "catalog:",
+    "tailwindcss-animate": "catalog:",
+    "tw-animate-css": "catalog:"
+  },
+  "devDependencies": {
     "@chromatic-com/storybook": "catalog:",
     "@storybook/addon-essentials": "catalog:",
     "@storybook/addon-interactions": "catalog:",
@@ -44,23 +56,12 @@
     "@types/react-dom": "catalog:react18",
     "@ui/tailwind": "workspace:*",
     "@ui/typescript": "workspace:*",
-    "@vitejs/plugin-react": "catalog:",
-    "autoprefixer": "catalog:",
-    "class-variance-authority": "catalog:",
-    "clsx": "catalog:",
-    "globby": "catalog:",
-    "lucide-react": "catalog:",
-    "react": "catalog:react18",
-    "react-dom": "catalog:react18",
-    "recharts": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
     "storybook": "catalog:",
-    "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
-    "tailwindcss-animate": "catalog:",
-    "tw-animate-css": "catalog:",
+    "tinyglobby": "catalog:",
     "vite": "catalog:",
     "vite-plugin-inspect": "catalog:",
-    "vite-tsconfig-paths": "catalog:",
-    "cmdk": "^1.1.1"
+    "vite-tsconfig-paths": "catalog:"
   }
 }
