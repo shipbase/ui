@@ -8,5 +8,8 @@
   "prettier.enable": false,
   "[mdx]": {
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

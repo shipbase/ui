@@ -31,7 +31,7 @@ catalog:
   '@types/node': ^22.16.5
   '@types/prompts': ^2.4.9
   '@types/mdast': ^4.0.4
-  '@vitejs/plugin-react': ^4.7.0
+  '@vitejs/plugin-react-swc': ^3.11.0
   '@vitejs/plugin-vue': ^5.2.4
   '@vitejs/plugin-vue-jsx': ^4.2.0
   '@vue/tsconfig': ^0.7.0
@@ -41,8 +41,8 @@ catalog:
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
   dotenv: ^16.6.1
-  globby: ^14.1.0
   kleur: ^4.1.5
+  tinyglobby: ^0.2.14
   lint-staged: ^16.1.2
   lucide-react: ^0.515.0
   lucide-vue-next: ^0.515.0
@@ -71,7 +71,7 @@ catalog:
   typescript: ^5.8.3
   ufo: ^1.6.1
   unist-util-visit: ^5.0.0
-  vite: ^6.3.5
+  vite: ^7.0.0
   vite-plugin-inspect: 11.3.2
   vite-tsconfig-paths: ^5.1.4
   vitest: ^3.2.4
@@ -84,6 +84,7 @@ catalog:
   '@tailwindcss/vite': ^4.1.11
   gray-matter: ^4.0.3
   shadcn: ^2.9.3
+  cmdk: ^1.1.1
 
 catalogs:
   react18:
