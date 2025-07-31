@@ -2,16 +2,12 @@
 description: rewrite an example component following the user given description
 ---
 
+## Steps
 
-
-## Tasks
-
-1. Ask the user for a description of the example they want to create.
-2. Determine primitive components existing in this repository.
-  a. for React, primitives are in @packages/react/src/components/ui
-3. Determine the components that can be built on top of the primitive components.
-4. Write a new example file for a given description.
-  a. the usage of each primitive component you should reference their example in @packages/react/src/examples/
+1. If user does not provide a description, ask the user for a description of the example they want to create.
+2. use @source-code-retriever subagent to get the example code.
+3. use @component-example-rewriter subagent to rewrite the example code.
+4. use @code-quality-checker subagent to validate quality of the rewritten example code.
 
 ## Specifics
 

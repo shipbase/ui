@@ -40,7 +40,6 @@
   },
   "scripts": {
     "clean": "git clean -xdf node_modules .astro .turbo dist",
-    "typecheck": "vue-tsc",
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
   },

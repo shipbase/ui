@@ -23,7 +23,7 @@
     "stub": "vite build --mode development",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "vite build",
-    "typecheck": "tsgo --noEmit",
+    "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
   },
