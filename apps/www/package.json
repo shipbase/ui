@@ -9,7 +9,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "build:registry": "shadcn build",
-    "typecheck": "astro check",
+    "typecheck": "astro check && tsc --noEmit",
     "test": "vitest"
   },
   "dependencies": {
