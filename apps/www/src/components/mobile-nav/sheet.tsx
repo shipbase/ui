@@ -5,7 +5,7 @@ import { Icons } from "../icons"
 
 export function MobileNavSheet({ children }: { children: React.ReactNode }) {
   return (
-    <Sheet side="left">
+    <Sheet>
       <SheetTrigger asChild>
         <Button
           variant="ghost"
@@ -15,7 +15,9 @@ export function MobileNavSheet({ children }: { children: React.ReactNode }) {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className="pr-0">{children}</SheetContent>
+      <SheetContent className="pr-0" side="left">
+        {children}
+      </SheetContent>
     </Sheet>
   )
 }
