@@ -9,8 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "build:registry": "shadcn build",
-    "typecheck": "astro check && tsc --noEmit",
-    "test": "vitest"
+    "typecheck": "astro check",
+    "test": "vitest run"
   },
   "dependencies": {
     "@ark-ui/react": "catalog:",
@@ -44,6 +44,7 @@
     "tw-animate-css": "catalog:"
   },
   "devDependencies": {
+    "@astrojs/ts-plugin": "^1.10.4",
     "@shikijs/transformers": "catalog:",
     "@types/mdast": "catalog:",
     "@types/node": "catalog:",

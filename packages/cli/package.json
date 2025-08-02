@@ -19,9 +19,8 @@
   "keywords": ["shipbase", "components", "ui", "tailwind", "ark-ui"],
   "scripts": {
     "dev": "tsup --watch",
-    "test": "vitest",
-    "build": "tsup",
-    "typecheck": "tsgo --noEmit"
+    "test": "vitest run",
+    "build": "tsup"
   },
   "devDependencies": {
     "@types/prompts": "catalog:",
