@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets"
+import { Icons } from "@/components/icons"
+---
+
+<div class="flex items-center gap-2">
+  <Image
+    class="rounded-full"
+    alt="shadcn"
+    width={40}
+    height={40}
+    src="https://pbs.twimg.com/profile_images/1593304942210478080/TUYae5z7_x96.jpg"
+  />
+  <div class="h-full flex flex-col text-3 leading-none justify-between">
+    <div class="flex items-center gap-1">
+      <div class="font-bold">shadcn</div>
+      <Icons.xCertification />
+    </div>
+    <div class="text-muted-foreground">@shadcn</div>
+  </div>
+</div>

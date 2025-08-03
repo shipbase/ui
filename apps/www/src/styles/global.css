@@ -8,15 +8,24 @@
   --font-sans: "Geist Variable", sans-serif;
   --font-mono: "Geist Mono Variable", monospace;
 
+  --color-surface: var(--surface);
+  --color-surface-foreground: var(--surface-foreground);
   --color-code: var(--code);
+  --color-code-foreground: var(--code-foreground);
 }
 
 :root {
-  --code: oklch(0.98 0 0);
+  --surface: oklch(0.98 0 0);
+  --surface-foreground: var(--foreground);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
 }
 
 .dark {
-  --code: oklch(0.2 0 0);
+  --surface: oklch(0.2 0 0);
+  --surface-foreground: oklch(0.708 0 0);
+  --code: var(--surface);
+  --code-foreground: var(--surface-foreground);
 }
 
 @layer base {
