@@ -8,32 +8,3 @@ description: rewrite an example component following the user given description
 2. use @source-code-retriever subagent to get the example code.
 3. use @component-example-rewriter subagent to rewrite the example code.
 4. use @code-quality-checker subagent to validate quality of the rewritten example code.
-
-## Specifics
-
-- If the component has a `Label` anatomy, you should use it, do not use another `Label` component. Example:
-
-✅ Right:
-```tsx
-function Example() {
-  return (
-    <Switch>
-      <SwitchControl />
-      <SwitchLabel>Label</SwitchLabel>
-    </Switch>
-  )
-}
-```
-
-❌ Wrong:
-```tsx
-function Example() {
-  const id = useId()
-  return (
-    <Label htmlFor={id}>
-    <Switch id={id}>
-      <SwitchControl />
-    </Switch>
-  )
-}
-```
