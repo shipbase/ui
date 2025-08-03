@@ -1,116 +1,61 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
 ## Project Overview
 
-This is a monorepo for a UI component library similar to shadcn/ui, built with Ark UI instead of Radix UI. It provides accessible, customizable components for React and Vue with a CLI tool for easy installation.
+This is a monorepo for a UI component library similar to shadcn/ui, built with Ark UI instead of Radix UI. It provides accessible, customizable components for React and Vue.
 
-## Common Development Commands
+## Architecture
 
-### Essential Commands
-```bash
-# Install dependencies
-pnpm install
+### Tech Stack
+  - pnpm for package management
+  - turborepo for monorepo tasks management
+  - biome for linting and formatting
+  - typescript for type checking
+  - vitest for testing
+  - changesets for version management
+  - ark-ui for primitive components
+  - tailwindcss v4 for styling
+  - lucide-react for icons
+  - xstate for state management
+  - astro for documentation site
+  - mdx for documentation
 
-# Run development servers (docs site and component builds)
-pnpm dev
+### Directory Structure
 
-# Run Storybook for component development
-pnpm dev:storybook
-
-# Build all packages
-pnpm build
-
-# Type check all packages
-pnpm typecheck
-
-# Lint and format code
-pnpm lint
-pnpm lint:fix
-pnpm format
-
-# Run tests
-pnpm test
-
-# Clean build artifacts
-pnpm clean
+```
+ui/
+├── apps/
+│   └── www/                # Documentation site built with Astro, MDX, and Tailwind CSS v4
+├── packages/
+│   ├── react/              # React primitive component implementations, examples, stories
+│   ├── vue/                # Vue primitive component implementations, examples, stories
+│   └── lib/                # Shared utilities
+└── tools/                  # Shared configurations (Tailwind, TypeScript)
 ```
 
-### Running Tests for Specific Packages
-```bash
-# Run tests for a specific package
-pnpm --filter @shipbase-ui/react test
-pnpm --filter @shipbase-ui/vue test
-
-# Run a specific test file
-pnpm --filter @shipbase-ui/react test button.test.tsx
-```
-
-## Architecture and Key Concepts
-
-### Monorepo Structure
-- **apps/www**: Documentation site built with Astro, MDX, and Tailwind CSS v4
-- **packages/cli**: CLI tool for adding components to user projects
-- **packages/react**: React component implementations
-- **packages/vue**: Vue component implementations
-- **packages/lib**: Shared utilities
-- **tools/**: Shared configurations (Tailwind, TypeScript)
+## Development Workflow
 
 ### Component Development Workflow
-1. Components are built on top of Ark UI for accessibility
-2. Each component has framework-specific implementations in `packages/react` and `packages/vue`
-3. Examples live in `src/examples/` within each framework package
-4. Documentation MDX files are in `apps/www/content/components/`
-5. Components use Class Variance Authority (CVA) for variant management
 
-### Registry System
-- Components are distributed via a registry pattern (not npm packages)
-- Registry files are generated in `public/shadcn/` directory
-- Users install components by copying them into their projects via the CLI
+Components are built on top of Ark UI, with primitive component, examples, stories, and documentation.
 
-### State Management
-- The documentation site uses @xstate/store for cross-framework state
-- UI library selection (React/Vue) is persisted across page loads
-- State atoms are in `apps/www/src/store/atoms/`
+- Each component has framework-specific implementations in `packages/react` and `packages/vue`
+- Examples live in `src/examples/` within each framework package
+- Stories live in `src/stories/` within each framework package
+- Documentation MDX files are in `apps/www/content`
 
-### Code Quality Tools
-- **Biome**: Used for linting and formatting (NOT ESLint/Prettier)
-- **TypeScript**: Strict type checking across all packages
-- **Vitest**: Testing framework
-- **lint-staged**: Pre-commit hooks for code quality
+### Commands that you can use
 
-### Important Patterns
-1. **Framework Agnostic**: Components are implemented separately for React and Vue
-2. **Copy-paste Architecture**: Users copy components rather than installing as dependencies
-3. **Tailwind v4**: Using the latest Tailwind CSS with custom theme configuration
-4. **Accessibility First**: All components built on Ark UI's accessible foundations
+- !`pnpm run test` for testing, use `--filter={package_path}` to run tests for a specific package.
+- !`pnpm run build` for building, use `--filter={package_path}` to build a specific package.
+- !`pnpm run typecheck` for type checking, use `--filter={package_path}` to type check a specific package.
+- !`pnpm run check` for linting.
+- !`pnpm run format` for formatting.
 
-### Adding New Components
-1. Create component in both `packages/react/src/components` and `packages/vue/src/components`
-2. Add examples in `src/examples/` for each framework
-3. Create MDX documentation in `apps/www/content/components/`
-4. Update the component registry
-5. Run `pnpm build` to verify everything works
+>  don't use any stub, dev to run this project for testing, the dev server is running before i work with you.
 
-### Version Management
-- Uses changesets for version management
-- Run `pnpm changeset` to create a changeset
-- Run `pnpm version` to apply changesets and bump versions
+## Specific Rules
 
+### Code Quality
 
-## Tech Stack and Development Rules
-
-### UI Components
-- **Priority**: Always check `packages/react/src/components/ui/` first before creating new components
-- **Foundation**: All components built on Ark UI for accessibility
-- **Styling**: Tailwind CSS v4 with CVA for variant management
-
-### Icons and Assets
-- **Icons**: Use `lucide-react` for all icon needs
-
-### Code Quality and Tools
-- **Language**: TypeScript first - use IDE diagnostics to check types
-- **Linting/Formatting**: Biome (NOT ESLint/Prettier)
-- **Testing**: Vitest framework
-- **Commits**: lint-staged pre-commit hooks
+- use mcp__ide__getDiagnostics to diagnostics of every file edited.
