@@ -27,7 +27,7 @@
     "@ui/react": "workspace:*",
     "@ui/tailwind": "workspace:*",
     "@ui/vue": "workspace:*",
-    "@xstate/store": "^3.8.2",
+    "@xstate/store": "^3.8.4",
     "astro": "catalog:",
     "class-variance-authority": "catalog:",
     "clsx": "catalog:",

@@ -1,35 +1,42 @@
 ---
+import FeaturesSection from "@/components/landing/features.astro"
+import Shadcn from "@/components/landing/shadcn.astro"
 import RootLayout from "@/layouts/root-layout.astro"
-
-import ExampleCards from "@/components/example-cards/index.astro"
-import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils"
 import { Button } from "@ui/react/button"
+
+const separatorClass = cn(
+  "relative py-5",
+  "before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] before:absolute before:-inset-x-32 before:top-0 before:h-px",
+  "after:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:-inset-x-32 after:bottom-0 after:h-px"
+)
 ---
 
 <RootLayout>
-  <div class="container relative">
-    <section
-      class="mx-auto flex justify-center flex-col gap-2 items-center py-4 lg:py-24 md:py-12"
-    >
-      <h1 class="text-3xl md:text-5xl font-bold tracking-tighter">
+  <div>
+    <section class="w-full py-24 text-center">
+      <h1
+        class="font-heading text-foreground mb-4 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]"
+      >
         Build your component library
       </h1>
-      <span class="text-foreground text-lg max-w-[500px] text-center">
+      <p class="text-muted-foreground mb-8 text-lg">
         Beautifully designed components that you can copy and paste into your
         apps.
-      </span>
-      <div class="flex w-full items-center justify-center py-4 md:pb-10 gap-4">
+      </p>
+      <div class="flex items-center justify-center gap-4">
         <a href="/docs/introduction">
-          <Button size="sm"> Get Started </Button>
+          <Button size="sm" className="rounded-xs"> Get Started </Button>
         </a>
-        <Button size="sm" variant="outline">
-          <Icons.gitHub className="h-4 w-4 mr-2" />
-          Github
-        </Button>
+        <a href="/docs/components">
+          <Button size="sm" variant="ghost" className="rounded-xs"> View Components </Button>
+        </a>
       </div>
     </section>
-    <section>
-      <ExampleCards />
-    </section>
+    <section class={separatorClass} />
+    <Shadcn />
+    <section class={separatorClass} />
+    <FeaturesSection />
+    <section class={separatorClass} />
   </div>
 </RootLayout>

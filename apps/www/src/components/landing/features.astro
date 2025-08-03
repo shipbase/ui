@@ -1,0 +1,142 @@
+---
+import { Icons } from "@/components/icons"
+import { cn } from "@/lib/utils"
+import { Blocks, Layers, Zap } from "lucide-react"
+---
+
+<section class="relative overflow-hidden">
+  <!-- Background pattern -->
+  <div
+    class="absolute inset-0 bg-gradient-to-br from-background via-background to-muted/20"
+  >
+  </div>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,theme(colors.primary.500/0.05),transparent_50%)]"
+  >
+  </div>
+
+  <!-- Featured item: Multi-Framework Support -->
+  <div class="border-b border-border/50">
+    <div
+      class={cn(
+        "group p-12 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <div class="flex items-center gap-3 mb-6">
+        <span class="text-2xl font-bold">Multi-Framework Support</span>
+      </div>
+      <p class="text-muted-foreground leading-relaxed text-lg mb-8">
+        Same components, same API across React, Vue, Solid, and Svelte. Build once, use everywhere. 
+        Predictable behavior and consistent developer experience, no matter which framework you choose.
+      </p>
+      
+      <!-- Framework logos -->
+      <div class="flex items-center gap-8 overflow-x-auto">
+        <!-- React -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/20 border border-border/30">
+          <Icons.react className="w-5 h-5" />
+          <span class="text-white font-bold text-lg">React</span>
+        </div>
+        
+        <!-- Vue -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/20 border border-border/30">
+          <Icons.vue className="w-5 h-5" />
+          <span class="text-white font-bold text-lg">Vue</span>
+        </div>
+        
+        <!-- Solid -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/20 border border-border/30">
+          <Icons.solid className="w-5 h-5" />
+          <span class="text-white font-bold text-lg">Solid</span>
+        </div>
+        
+        <!-- Svelte -->
+        <div class="flex items-center gap-2 px-4 py-2 rounded-lg bg-black/20 border border-border/30">
+          <Icons.svelte className="w-5 h-5" />
+          <span class="text-white font-bold text-lg">Svelte</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Grid layout with separators for remaining features -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-0">
+
+    <!-- Feature 2: Composition -->
+    <div
+      class={cn(
+        "group p-8 bg-card/50 backdrop-blur-sm border-r border-b border-border/50 hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold mb-4">Built for Composition</h3>
+      <p class="text-muted-foreground leading-relaxed">
+        Every component uses a common, composable interface. Build complex UIs
+        effortlessly with modular components that work seamlessly together.
+      </p>
+    </div>
+
+    <!-- Feature 3: Accessibility -->
+    <div
+      class={cn(
+        "group p-8 bg-card/50 backdrop-blur-sm border-r border-b border-border/50 hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold mb-4">WCAG Compliant Always</h3>
+      <p class="text-muted-foreground leading-relaxed">
+        Screen reader tested. Keyboard navigation perfected. Built-in focus
+        management. Accessibility isn't an afterthought—it's the foundation.
+      </p>
+    </div>
+
+    <!-- Feature 4: Beautiful Defaults -->
+    <div
+      class={cn(
+        "group p-8 bg-card/50 backdrop-blur-sm border-r border-b border-border/50 hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold mb-4">Stunning Out of the Box</h3>
+      <p class="text-muted-foreground leading-relaxed">
+        Thoughtfully crafted default styles that look professional from day one.
+        Beautiful foundations, endless customization possibilities.
+      </p>
+    </div>
+
+    <!-- Feature 5: Code Ownership -->
+    <div
+      class={cn(
+        "group p-8 bg-card/50 backdrop-blur-sm border-r border-b border-border/50 hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold mb-4">Your Code, Your Control</h3>
+      <p class="text-muted-foreground leading-relaxed">
+        No dependencies, no black boxes. Copy components directly into your
+        project. Modify, extend, and maintain on your terms.
+      </p>
+    </div>
+
+    <!-- Feature 6: Open Source -->
+    <div
+      class={cn(
+        "group p-8 bg-card/50 backdrop-blur-sm border-b border-border/50 hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold mb-4">Community Driven</h3>
+      <p class="text-muted-foreground leading-relaxed">
+        MIT licensed. Transparent development. Community contributions welcome.
+        Built by developers, for developers, with developers.
+      </p>
+    </div>
+  </div>
+</section>

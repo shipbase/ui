@@ -58,6 +58,7 @@
     "@ui/typescript": "workspace:*",
     "@vitejs/plugin-react-swc": "catalog:",
     "storybook": "catalog:",
+    "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tinyglobby": "catalog:",
     "vite": "catalog:",

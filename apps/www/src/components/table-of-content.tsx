@@ -70,7 +70,7 @@ export function TableOfContent({ headings }: Props) {
     nodeToString: (node) => node.text,
   })
 
-  const defaultExpandedValue = collection.flatten().map((e) => e.value)
+  const defaultExpandedValue = collection.flatten().map((e) => e.id)
 
   return (
     <TreeView

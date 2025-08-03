@@ -10,6 +10,7 @@
     "editor.defaultFormatter": "unifiedjs.vscode-mdx"
   },
   "[astro]": {
-    "editor.defaultFormatter": "biomejs.biome"
-  }
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "cSpell.words": ["shadcn"]
 }

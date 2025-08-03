@@ -1,13 +1,50 @@
 ---
-import { CardsChat } from "./chat"
-import { CardsCookieSettings } from "./cookie-settings"
-import { CardsCreateAccount } from "./create-account"
-import { CardsForms } from "./forms"
-import { CardsPaymentMethod } from "./payment-method"
+// import { CardsChat } from "./chat"
+// import { CardsCookieSettings } from "./cookie-settings"
+// import { CardsCreateAccount } from "./create-account"
+// import { CardsForms } from "./forms"
+// import { CardsPaymentMethod } from "./payment-method"
+import { CardsPayments } from "./payments"
+import { CardsReportIssue } from "./report-issue"
+import { CardsShare } from "./share"
+import { CardsTeamMembers } from "./team-members"
 ---
 
-<CardsChat client:visible />
-<CardsCookieSettings client:visible />
-<CardsCreateAccount client:visible />
-<CardsForms client:visible />
-<CardsPaymentMethod client:visible />
+<section class="grid gap-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-6 auto-rows-fr">
+  <!-- Top row - balanced hero cards -->
+  <div class="md:col-span-2 lg:col-span-3">
+    <!-- <CardsCreateAccount client:visible /> -->
+  </div>
+  <div class="md:col-span-2 lg:col-span-3">
+    <!-- <CardsPaymentMethod client:visible /> -->
+  </div>
+  
+  <!-- Second row - feature showcase -->
+  <div class="md:col-span-4 lg:col-span-6">
+    <CardsPayments client:visible />
+  </div>
+  
+  <!-- Third row - three equal cards -->
+  <div class="md:col-span-4 lg:col-span-2">
+    <CardsTeamMembers client:visible />
+  </div>
+  <div class="md:col-span-2 lg:col-span-2">
+    <CardsShare client:visible />
+  </div>
+  <div class="md:col-span-2 lg:col-span-2">
+    <CardsReportIssue client:visible />
+  </div>
+  
+  <!-- Fourth row - two equal cards -->
+  <div class="md:col-span-2 lg:col-span-3">
+    <!-- <CardsForms client:visible /> -->
+  </div>
+  <div class="md:col-span-2 lg:col-span-3">
+    <!-- <CardsCookieSettings client:visible /> -->
+  </div>
+  
+  <!-- Bottom row - full width communication -->
+  <div class="md:col-span-4 lg:col-span-6">
+    <!-- <CardsChat client:visible /> -->
+  </div>
+</section>

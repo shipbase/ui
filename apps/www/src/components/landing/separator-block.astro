@@ -1,0 +1,11 @@
+---
+import { cn } from "@/lib/utils"
+---
+
+<section class={
+  cn(
+    "relative py-5",
+    "before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] before:absolute before:-inset-x-32 before:top-0 before:h-px",
+    "after:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:-inset-x-32 after:bottom-0 after:h-px"
+  )
+} />
