@@ -1,8 +1,8 @@
 ---
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-
-import { Icons } from "./icons"
+import LogoDark from "../../public/shipbase-icon-dark.svg"
+import Logo from "../../public/shipbase-icon-light.svg"
 
 const pathname = Astro.url.pathname
 ---
@@ -12,33 +12,37 @@ const pathname = Astro.url.pathname
     href="/"
     class="mr-4 flex items-center space-x-2 lg:mr-6 text-sm font-medium text-muted-foreground"
   >
-    <Icons.logo className="h-6 w-6" />
+    <Logo class="block dark:hidden" width="16" height="16" />
+    <LogoDark class="hidden dark:block" width="16" height="16" />
     <span class="hidden font-bold lg:inline-block text-primary">
-      {siteConfig.name}
+      <span class="hidden font-bold lg:inline-block text-primary">
+        {siteConfig.name}
+      </span>
     </span>
+    <nav class="flex items-center gap-4 text-sm lg:gap-6">
+      <a
+        href="/docs/introduction/"
+        class={cn(
+          "transition-colors hover:text-foreground/80",
+          pathname?.startsWith("/docs") &&
+            !pathname?.startsWith("/docs/components")
+            ? "text-foreground"
+            : "text-foreground/60"
+        )}
+      >
+        Docs
+      </a>
+      <a
+        href="/docs/components/accordion"
+        class={cn(
+          "transition-colors hover:text-foreground/80",
+          pathname?.startsWith("/docs/components")
+            ? "text-foreground"
+            : "text-foreground/60"
+        )}
+      >
+        Components
+      </a>
+    </nav>
   </a>
-  <nav class="flex items-center gap-4 text-sm lg:gap-6">
-    <a
-      href="/docs/introduction/"
-      class={cn(
-        "transition-colors hover:text-foreground/80",
-        pathname?.startsWith("/docs") && !pathname?.startsWith("/docs/components")
-          ? "text-foreground"
-          : "text-foreground/60"
-      )}
-    >
-      Docs
-    </a>
-    <a
-      href="/docs/components/accordion"
-      class={cn(
-        "transition-colors hover:text-foreground/80",
-        pathname?.startsWith("/docs/components")
-          ? "text-foreground"
-          : "text-foreground/60"
-      )}
-    >
-      Components
-    </a>
-  </nav>
 </div>

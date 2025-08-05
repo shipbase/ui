@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGO</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        
+        .triangle {
+            width: 0;
+            height: 0;
+            border-left: 400px solid transparent;
+            border-bottom: 500px solid #000;
+            /* outline: 1px solid red; */
+        }
+
+        .triangle.flip {
+            width: 0;
+            height: 0;
+            border-left:0;
+            border-right: 400px solid transparent;
+            border-top: 500px solid #000;
+            border-bottom: 0;
+            margin-top: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="triangle"></div>
+    <div class="triangle flip"></div>
+</body>
+</html>

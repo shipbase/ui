@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
+  <rect width="1200" height="600" fill="#000000" />
+  <g transform="translate(200, 0) scale(0.5)">
+    <!-- First triangle: 400px wide, 500px high -->
+    <polygon points="0,500 400,0 400,500" fill="#FFFFFF" stroke="none" />
+    <!-- Second triangle: 400px wide, 500px high, positioned at y=300 -->
+    <polygon points="400,300 800,300 400,800" fill="#FFFFFF" stroke="none" />
+  </g>
+</svg>
