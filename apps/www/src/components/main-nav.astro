@@ -1,8 +1,8 @@
 ---
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import LogoDark from "../../public/shipbase-icon-dark.svg"
-import Logo from "../../public/shipbase-icon-light.svg"
+import LogoDark from "../../public/logo-dark.svg"
+import Logo from "../../public/logo.svg"
 
 const pathname = Astro.url.pathname
 ---
@@ -12,8 +12,8 @@ const pathname = Astro.url.pathname
     href="/"
     class="mr-4 flex items-center space-x-2 lg:mr-6 text-sm font-medium text-muted-foreground"
   >
-    <Logo class="block dark:hidden" width="16" height="16" />
-    <LogoDark class="hidden dark:block" width="16" height="16" />
+    <Logo class="block dark:hidden size-4" />
+    <LogoDark class="hidden dark:block size-4" />
     <span class="hidden font-bold lg:inline-block text-primary">
       <span class="hidden font-bold lg:inline-block text-primary">
         {siteConfig.name}

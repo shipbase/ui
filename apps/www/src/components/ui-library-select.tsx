@@ -61,7 +61,7 @@ export function FrameworkSwitcher() {
           <SelectIndicator />
         </SelectTrigger>
       </SelectControl>
-      <SelectContent>
+      <SelectContent className="z-10">
         {uiLibrariesCollection.items.map((item) => (
           <SelectItem key={item.value} item={item}>
             {item.label}

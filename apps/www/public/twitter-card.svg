@@ -1,9 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="600" viewBox="0 0 1200 600">
-  <rect width="1200" height="600" fill="#000000" />
-  <g transform="translate(200, 0) scale(0.5)">
-    <!-- First triangle: 400px wide, 500px high -->
-    <polygon points="0,500 400,0 400,500" fill="#FFFFFF" stroke="none" />
-    <!-- Second triangle: 400px wide, 500px high, positioned at y=300 -->
-    <polygon points="400,300 800,300 400,800" fill="#FFFFFF" stroke="none" />
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Twitter Card – Shipbase S Logo</title>
+  <desc id="desc">1200×630 image optimized for Twitter with the Shipbase S logo.</desc>
+  <rect width="1200" height="630" fill="#1f1f1f"/>
+  <g transform="translate(285,0) scale(0.7875)">
+    <line x1="220" y1="287.4" x2="580" y2="188" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
+    <line x1="220" y1="220" x2="580" y2="580" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
+    <line x1="220" y1="612" x2="580" y2="512.6" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
   </g>
 </svg>
