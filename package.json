@@ -15,7 +15,8 @@
     "sherif": "sherif --fix",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && git clean -xdf node_modules .turbo",
-    "version": "changeset version && pnpm run format"
+    "version": "changeset version && pnpm run format",
+    "assets:generate": "tsx tools/assets/generate-icons.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
@@ -31,7 +32,9 @@
     "taze": "catalog:",
     "tsx": "catalog:",
     "turbo": "catalog:",
-    "typescript": "catalog:"
+    "typescript": "catalog:",
+    "png-to-ico": "^2.1.7",
+    "sharp": "^0.33.5"
   },
   "packageManager": "pnpm@10.13.1",
   "simple-git-hooks": {

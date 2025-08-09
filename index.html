@@ -5,33 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGO</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-        }
-        
-        .triangle {
-            width: 0;
-            height: 0;
-            border-left: 400px solid transparent;
-            border-bottom: 500px solid #000;
-            /* outline: 1px solid red; */
+        :root {
+            --size: 800px;
+            /* Light mode defaults */
+            --page: #ffffff;      /* page background */
+            --bg: #1f1f1f;        /* square background */
+            --fg: #ffffff;        /* stroke color */
         }
 
-        .triangle.flip {
-            width: 0;
-            height: 0;
-            border-left:0;
-            border-right: 400px solid transparent;
-            border-top: 500px solid #000;
-            border-bottom: 0;
-            margin-top: 300px;
+        @media (prefers-color-scheme: dark) {
+            :root {
+                /* Dark mode: invert square and stroke for contrast */
+                --page: #0b0b0b;
+                --bg: #f1f1f1;
+                --fg: #111111;
+            }
         }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 24px;
+            min-height: 100svh;
+            display: grid;
+            place-items: center;
+            background: var(--page);
+            font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        .frame {
+            width: var(--size);
+            height: var(--size);
+            background: var(--bg);
+            border-radius: 0;
+            display: grid;
+            place-items: center;
+            box-shadow: 0 2px 24px rgba(0,0,0,.12);
+            overflow: hidden;
+        }
+
+        .frame svg {
+            width: 92%;
+            height: 92%;
+            display: block;
+        }
+        /* coordinate helpers removed */
     </style>
 </head>
 <body>
-    <div class="triangle"></div>
-    <div class="triangle flip"></div>
+    <div class="frame" aria-label="S logo">
+      <svg viewBox="0 0 800 800" role="img" aria-labelledby="title desc">
+        <title id="title">Stylized S Logo</title>
+        <desc id="desc">Three diagonal lines forming an S shape.</desc>
+        <line x1="160" y1="249" x2="640" y2="120" stroke="var(--fg)" stroke-width="100" stroke-linecap="square" />
+        <line x1="160" y1="160" x2="640" y2="640" stroke="var(--fg)" stroke-width="100" stroke-linecap="square" />
+        <line x1="160" y1="680" x2="640" y2="551" stroke="var(--fg)" stroke-width="100" stroke-linecap="square" />
+      </svg>
+    </div>
 </body>
 </html>
