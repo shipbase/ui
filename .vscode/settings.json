@@ -12,5 +12,5 @@
   "[astro]": {
     "editor.defaultFormatter": "astro-build.astro-vscode"
   },
-  "cSpell.words": ["shadcn"]
+  "cSpell.words": ["shadcn", "shipbase"]
 }

@@ -1,42 +1,43 @@
 ---
-import { Icons } from "@/components/icons"
+import AstroDark from "@/assets/logos/astro_dark.svg"
+import AstroLight from "@/assets/logos/astro_light.svg"
+import Nextjs from "@/assets/logos/nextjs.svg"
+import Nuxtjs from "@/assets/logos/nuxtjs.svg"
+import Svelte from "@/assets/logos/svelte.svg"
 import { cn } from "@/lib/utils"
 ---
 
 <section class="relative overflow-hidden">
-  <!-- Featured item: Multi-Framework Support -->
+  <!-- Featured item: Meta-Framework Support -->
   <div class="p-6 xs:p-8 flex flex-col gap-2 border-b border-border/50">
-    <h3 class="text-xl font-bold">Multi-Framework Support</h3>
+    <h3 class="text-xl font-bold">Framework Agnostic</h3>
     <p class="text-muted-foreground leading-tight">
-      Same components, same API across React, Vue, Solid, and Svelte. Build
-      once, use everywhere. Predictable behavior and consistent developer
-      experience, no matter which framework you choose.
+      Works with any React, Vue, Solid, Svelte stack. Whether you're using
+      Next.js, Nuxt, Astro, or SvelteKit—our components integrate seamlessly
+      with your preferred development stack.
     </p>
 
-    <!-- Framework logos -->
+    <!-- Meta-Framework logos -->
     <div class="flex items-center gap-4 overflow-x-auto">
-      <!-- React -->
       <div class="flex items-center gap-2">
-        <Icons.react className="w-5 h-5" />
-        <span class="text-foreground font-medium">React</span>
+        <Nextjs class="w-5 h-5" />
+        <span class="text-foreground font-medium">Next.js</span>
       </div>
 
-      <!-- Vue -->
       <div class="flex items-center gap-2">
-        <Icons.vue className="w-5 h-5" />
-        <span class="text-foreground font-medium">Vue</span>
+        <Nuxtjs class="w-5 h-5" />
+        <span class="text-foreground font-medium">Nuxt</span>
       </div>
 
-      <!-- Solid -->
       <div class="flex items-center gap-2">
-        <Icons.solid className="w-5 h-5" />
-        <span class="text-foreground font-medium">Solid</span>
+        <AstroDark class="w-5 h-5 dark:block hidden" />
+        <AstroLight class="w-5 h-5 dark:hidden block" />
+        <span class="text-foreground font-medium">Astro</span>
       </div>
 
-      <!-- Svelte -->
       <div class="flex items-center gap-2">
-        <Icons.svelte className="w-5 h-5" />
-        <span class="text-foreground font-medium">Svelte</span>
+        <Svelte class="w-5 h-5" />
+        <span class="text-foreground font-medium">SvelteKit</span>
       </div>
     </div>
   </div>
@@ -44,7 +45,9 @@ import { cn } from "@/lib/utils"
   <!-- Grid layout with separators for remaining features -->
   <div class="grid grid-cols-1 gap-0">
     <!-- Second row: 2 columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-border/50">
+    <div
+      class="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-border/50"
+    >
       <!-- Feature 2: Composition -->
       <div
         class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
@@ -76,8 +79,8 @@ import { cn } from "@/lib/utils"
       >
         <h3 class="text-xl font-bold">Beautiful Defaults</h3>
         <p class="text-muted-foreground leading-tight">
-          Thoughtfully crafted default styles that look professional from day one.
-          Beautiful foundations, endless customization possibilities.
+          Thoughtfully crafted default styles that look professional from day
+          one. Beautiful foundations, endless customization possibilities.
         </p>
       </div>
 
@@ -85,10 +88,10 @@ import { cn } from "@/lib/utils"
       <div
         class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
       >
-        <h3 class="text-xl font-bold">Complete Ownership</h3>
+        <h3 class="text-xl font-bold">Code Ownership</h3>
         <p class="text-muted-foreground leading-tight">
-          No dependencies, no black boxes. Copy components directly into your
-          project. Modify, extend, and maintain on your terms.
+          No vendor lock-in. No hidden dependencies. Install via CLI or
+          copy-paste. All components live in your repo — you own your codebase.
         </p>
       </div>
 
@@ -100,11 +103,12 @@ import { cn } from "@/lib/utils"
           "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
         )}
       >
-        <h3 class="text-xl font-bold">Community Driven</h3>
+        <h3 class="text-xl font-bold">Open Source</h3>
         <p class="text-muted-foreground leading-tight">
-          MIT licensed. Transparent development. Community contributions welcome.
-          Built by developers, for developers, with developers.
+          MIT licensed. Transparent development. Community contributions
+          welcome. Built by developers, for developers, with developers.
         </p>
       </div>
+    </div>
   </div>
 </section>

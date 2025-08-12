@@ -1,0 +1,26 @@
+---
+import { Button } from "@ui/react/button"
+import { Input } from "@ui/react/input"
+---
+
+<section class="w-full py-16 text-center">
+  <div class="mx-auto max-w-md">
+    <h2 class="text-foreground mb-4 text-2xl font-semibold tracking-tight">
+      Stay Updated
+    </h2>
+    <p class="text-muted-foreground mb-6 text-sm">
+      Get notified about new components, updates, and releases.
+    </p>
+    <form class="flex items-center justify-center gap-2">
+      <Input
+        type="email"
+        placeholder="Enter your email"
+        className="flex-1 max-w-xs"
+        required
+      />
+      <Button size="sm" type="submit" className="rounded-md">
+        Subscribe
+      </Button>
+    </form>
+  </div>
+</section>

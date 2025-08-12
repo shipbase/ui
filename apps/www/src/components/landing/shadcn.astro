@@ -1,5 +1,6 @@
 ---
-import { Icons } from "@/components/icons"
+import ShadcnUIDark from "@/assets/logos/shadcn-ui_dark.svg"
+import ShadcnUI from "@/assets/logos/shadcn-ui_light.svg"
 import ShadcnXTitle from "@/components/landing/shadcn-x-title.astro"
 ---
 
@@ -8,16 +9,20 @@ import ShadcnXTitle from "@/components/landing/shadcn-x-title.astro"
     <h3 class="text-xl font-bold flex items-center gap-3">
       Inspired by
       <span class="inline-flex items-center gap-1">
-        <a
-          href="https://ui.shadcn.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icons.shadcnUI />
-        </a>
-        shadcn/ui,
+        <ShadcnUIDark
+          class="hidden dark:block"
+          width="20"
+          height="20"
+          fill="currentColor"
+        />
+        <ShadcnUI
+          class="block dark:hidden"
+          width="20"
+          height="20"
+          fill="currentColor"
+        />
+        shadcn/ui
       </span>
-      Distribution by shadcn
     </h3>
     <p class="text-muted-foreground leading-tight">
       shadcn/ui is a game changer that revolutionized the way to build component

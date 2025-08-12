@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from "@/config/site"
-import { Icons } from "../icons"
+import { Logo } from "../icons"
 import Sidebar from "../sidebar.astro"
 import { MobileNavSheet } from "./sheet"
 ---
@@ -8,7 +8,7 @@ import { MobileNavSheet } from "./sheet"
 <MobileNavSheet client:visible>
   <Fragment>
     <a href="/" class="flex items-center">
-      <Icons.logo className="mr-2 h-4 w-4" />
+      <Logo className="mr-2 h-4 w-4" />
       <span class="font-bold">{siteConfig.name}</span>
     </a>
     <nav class="my-4 h-[calc(100vh-8rem)] pb-10 pl-6 overflow-y-auto">

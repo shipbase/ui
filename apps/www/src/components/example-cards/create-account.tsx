@@ -12,9 +12,13 @@ import {
 import { Input } from "@ui/react/input"
 import { Label } from "@ui/react/label"
 
-export function CardsCreateAccount() {
+interface CardsCreateAccountProps {
+  className?: string
+}
+
+export function CardsCreateAccount({ className }: CardsCreateAccountProps) {
   return (
-    <Card>
+    <Card className={className}>
       <CardHeader>
         <CardTitle className="text-2xl">Create an account</CardTitle>
         <CardDescription>

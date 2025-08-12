@@ -1,5 +1,6 @@
 ---
-import { Icons } from "@/components/icons"
+import GitHubDark from "@/assets/logos/github_dark.svg"
+import GitHubLight from "@/assets/logos/github_light.svg"
 import ThemeToggle from "@/components/theme-toggle.astro"
 import { siteConfig } from "@/config/site"
 import { Button } from "@ui/react/button"
@@ -30,7 +31,8 @@ import { FrameworkSwitcher } from "./ui-library-select"
         <FrameworkSwitcher client:load />
         <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
           <Button variant="ghost" className="size-8 p-0">
-            <Icons.gitHub className="h-4 w-4" />
+            <GitHubLight width="16" height="16" fill="currentColor" class="dark:hidden" />
+            <GitHubDark width="16" height="16" fill="currentColor" class="hidden dark:block" />
             <span class="sr-only">GitHub</span>
           </Button>
         </a>
