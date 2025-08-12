@@ -4,7 +4,7 @@ import * as React from "react"
 import { Button } from "@ui/react/button"
 import Examples from "@ui/react/examples"
 
-import { Icons } from "@/components/icons"
+import { Spinner } from "@/components/icons"
 interface Props {
   name: string
 }
@@ -30,7 +30,7 @@ export default function PreviewReact({ name }: Props) {
       <React.Suspense
         fallback={
           <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
-            <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
+            <Spinner className="mr-2 h-4 w-4 animate-spin" />
             Loading...
           </div>
         }

@@ -1,11 +1,11 @@
 ---
-import { Icons } from "@/components/icons"
+import ComponentsOverview from "@/components/landing/components-overview.astro"
+import CTA from "@/components/landing/cta.astro"
 import FeaturesSection from "@/components/landing/features.astro"
+import Newsletter from "@/components/landing/newsletter.astro"
 import Shadcn from "@/components/landing/shadcn.astro"
 import RootLayout from "@/layouts/root-layout.astro"
 import { cn } from "@/lib/utils"
-import { Button } from "@ui/react/button"
-import { Input } from "@ui/react/input"
 
 const separatorClass = cn(
   "relative py-5",
@@ -16,162 +16,14 @@ const separatorClass = cn(
 
 <RootLayout>
   <div>
-    <section class="w-full py-24 text-center">
-      <h1
-        class="font-heading text-foreground mb-4 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]"
-      >
-        Build your component library
-      </h1>
-      <p class="text-muted-foreground mb-8 text-lg">
-        Beautifully designed components that you can copy and paste into your
-        apps.
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <a href="/docs/introduction">
-          <Button size="sm" className="rounded-xs"> Get Started </Button>
-        </a>
-        <a href="/docs/components">
-          <Button size="sm" variant="ghost" className="rounded-xs">
-            View Components
-          </Button>
-        </a>
-      </div>
-
-      <div class="mt-8 font-mono text-center">
-        <p
-          class="text-muted-foreground mb-8 text-sm font-medium uppercase tracking-wide"
-        >
-          Build with
-        </p>
-        <div class="flex justify-center gap-6 opacity-60">
-          <div class="flex items-center gap-2">
-            <Icons.tailwindOfficial className="h-6 w-6" />
-            <span class="text-sm">Tailwind CSS</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <Icons.arkui className="h-6 w-6" />
-            <span class="text-sm">Ark UI</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <Icons.shadcnUI className="h-6 w-6" />
-            <span class="text-sm">shadcn/ui</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <Icons.cva className="h-6 w-6" />
-            <span class="text-sm">CVA</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <Icons.typescriptOfficial className="h-6 w-6" />
-            <span class="text-sm">TypeScript</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-8 font-mono text-center">
-        <p
-          class="text-muted-foreground mb-6 text-sm font-medium uppercase tracking-wide"
-        >
-          Supported JavaScript Frameworks
-        </p>
-        <div class="flex justify-center gap-16">
-          <div class="flex flex-col items-center gap-2">
-            <Icons.react className="h-8 w-8" />
-            <span class="text-sm">React</span>
-          </div>
-          <div class="flex flex-col items-center gap-2">
-            <Icons.vue className="h-8 w-8" />
-            <span class="text-sm">Vue</span>
-          </div>
-          <div class="flex flex-col items-center gap-2 opacity-50">
-            <Icons.svelte className="h-8 w-8" />
-            <span class="text-sm text-muted-foreground">Soon</span>
-          </div>
-          <div class="flex flex-col items-center gap-2 opacity-50">
-            <Icons.solid className="h-8 w-8" />
-            <span class="text-sm text-muted-foreground">Soon</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <CTA />
     <section class={separatorClass}></section>
     <Shadcn />
     <section class={separatorClass}></section>
     <FeaturesSection />
     <section class={separatorClass}></section>
-    <!-- Components Features Section -->
-    <section class="relative overflow-hidden">
-      <!-- Summary row -->
-      <div class="p-6 xs:p-8 flex flex-col gap-2 border-b border-border/50">
-        <h3 class="text-xl font-bold">Everything you need to build</h3>
-        <p class="text-muted-foreground leading-tight">
-          A comprehensive component library with production-ready components,
-          rich examples, and ready-to-use blocks. Built on Ark UI primitives
-          with accessibility and customization at the core.
-        </p>
-      </div>
-
-      <!-- Three features in one row -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-0">
-        <!-- Feature: Components -->
-        <div
-          class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
-        >
-          <h3 class="text-xl font-bold">30+ Components</h3>
-          <p class="text-muted-foreground leading-tight">
-            From basic inputs to complex data tables, we've got you covered with
-            production-ready components built on Ark UI primitives.
-          </p>
-        </div>
-
-        <!-- Feature: Rich Examples -->
-        <div
-          class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
-        >
-          <h3 class="text-xl font-bold">Rich Examples</h3>
-          <p class="text-muted-foreground leading-tight">
-            Every component comes with multiple examples showing different
-            variants, sizes, and use cases. Learn by example with comprehensive
-            documentation.
-          </p>
-        </div>
-
-        <!-- Feature: Ready Blocks -->
-        <div
-          class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 hover:bg-card/70 transition-colors"
-        >
-          <h3 class="text-xl font-bold">Ready Blocks</h3>
-          <p class="text-muted-foreground leading-tight">
-            Pre-built sections and layouts that you can copy and customize for
-            your specific needs. Speed up development with battle-tested
-            combinations.
-          </p>
-        </div>
-      </div>
-    </section>
+    <ComponentsOverview />
     <section class={separatorClass}></section>
-
-    <!-- Email Subscription Section -->
-    <section class="w-full py-16 text-center">
-      <div class="mx-auto max-w-md">
-        <h2 class="text-foreground mb-4 text-2xl font-semibold tracking-tight">
-          Stay Updated
-        </h2>
-        <p class="text-muted-foreground mb-6 text-sm">
-          Get notified about new components, updates, and releases.
-        </p>
-        <form class="flex items-center justify-center gap-2">
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            className="flex-1 max-w-xs"
-            required
-          />
-          <Button size="sm" type="submit" className="rounded-md">
-            Subscribe
-          </Button>
-        </form>
-      </div>
-    </section>
+    <Newsletter />
   </div>
 </RootLayout>
