@@ -193,12 +193,16 @@
   }
 
   /* Hide scrollbar while keeping scroll functionality */
-  .overflow-y-auto::-webkit-scrollbar {
+  .overflow-y-auto::-webkit-scrollbar,
+  .overflow-x-auto::-webkit-scrollbar,
+  .overflow-auto::-webkit-scrollbar {
     display: none;
   }
 
   /* Firefox */
-  .overflow-y-auto {
+  .overflow-y-auto,
+  .overflow-x-auto,
+  .overflow-auto {
     scrollbar-width: none;
   }
 }

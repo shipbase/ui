@@ -53,7 +53,7 @@ export function ComponentInstallCLI({ name }: Props) {
           detail.value as keyof typeof PACKAGE_MANAGER_COMMAND_MAP
         )
       }
-      className="w-full border bg-card"
+      className="w-full gap-0 border bg-card"
     >
       {/* Header with tabs */}
       <div className="flex items-center justify-between border-b bg-muted/30 px-4 py-2">
@@ -76,7 +76,7 @@ export function ComponentInstallCLI({ name }: Props) {
       {/* Command display using TabsContent */}
       {Object.keys(PACKAGE_MANAGER_COMMAND_MAP).map((key) => (
         <TabsContent key={key} value={key} className="m-0 bg-code p-4">
-          <pre className="text-foreground text-sm">
+          <pre className="overflow-x-auto text-foreground text-sm">
             <code>{command}</code>
           </pre>
         </TabsContent>
