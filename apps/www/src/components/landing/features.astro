@@ -1,9 +1,11 @@
 ---
-import AstroDark from "@/assets/logos/astro_dark.svg"
-import AstroLight from "@/assets/logos/astro_light.svg"
-import Nextjs from "@/assets/logos/nextjs.svg"
-import Nuxtjs from "@/assets/logos/nuxtjs.svg"
-import Svelte from "@/assets/logos/svelte.svg"
+import AstroDark from "@/assets/logos/astro-dark.svg"
+import AstroLight from "@/assets/logos/astro-light.svg"
+import NextjsDark from "@/assets/logos/nextjs-logotype-dark-background.svg"
+import NextjsLight from "@/assets/logos/nextjs-logotype-light-background.svg"
+import NuxtjsLight from "@/assets/logos/nuxtjs-black.svg"
+import NuxtjsDark from "@/assets/logos/nuxtjs-white.svg"
+import Svelte from "@/assets/logos/svelte_light.svg"
 import { cn } from "@/lib/utils"
 ---
 
@@ -19,96 +21,92 @@ import { cn } from "@/lib/utils"
 
     <!-- Meta-Framework logos -->
     <div class="flex items-center gap-4 overflow-x-auto">
-      <div class="flex items-center gap-2">
-        <Nextjs class="w-5 h-5" />
-        <span class="text-foreground font-medium">Next.js</span>
+      <div class="flex items-center justify-center p-2">
+        <NextjsDark height="24" class="dark:block hidden" />
+        <NextjsLight height="24" class="dark:hidden block" />
       </div>
 
-      <div class="flex items-center gap-2">
-        <Nuxtjs class="w-5 h-5" />
-        <span class="text-foreground font-medium">Nuxt</span>
+      <div class="flex items-center justify-center p-2">
+        <NuxtjsDark height="24" class="dark:block hidden" />
+        <NuxtjsLight height="24" class="dark:hidden block" />
       </div>
 
-      <div class="flex items-center gap-2">
-        <AstroDark class="w-5 h-5 dark:block hidden" />
-        <AstroLight class="w-5 h-5 dark:hidden block" />
-        <span class="text-foreground font-medium">Astro</span>
+      <div class="flex items-center justify-center p-2">
+        <AstroDark height="24" class="dark:block hidden" />
+        <AstroLight height="24" class="dark:hidden block" />
       </div>
 
-      <div class="flex items-center gap-2">
-        <Svelte class="w-5 h-5" />
-        <span class="text-foreground font-medium">SvelteKit</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Grid layout with separators for remaining features -->
-  <div class="grid grid-cols-1 gap-0">
-    <!-- Second row: 2 columns -->
-    <div
-      class="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-border/50"
-    >
-      <!-- Feature 2: Composition -->
-      <div
-        class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
-      >
-        <h3 class="text-xl font-bold">Composable Design</h3>
-        <p class="text-muted-foreground leading-tight">
-          Every component uses a common, composable interface. Build complex UIs
-          effortlessly with modular components that work seamlessly together.
-        </p>
-      </div>
-
-      <!-- Feature 3: Accessibility -->
-      <div
-        class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 hover:bg-card/70 transition-colors"
-      >
-        <h3 class="text-xl font-bold">Fully Accessible</h3>
-        <p class="text-muted-foreground leading-tight">
-          Screen reader tested. Keyboard navigation perfected. Built-in focus
-          management. Accessibility isn't an afterthought—it's the foundation.
-        </p>
-      </div>
-    </div>
-
-    <!-- Third row: 3 columns -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
-      <!-- Feature 4: Beautiful Defaults -->
-      <div
-        class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
-      >
-        <h3 class="text-xl font-bold">Beautiful Defaults</h3>
-        <p class="text-muted-foreground leading-tight">
-          Thoughtfully crafted default styles that look professional from day
-          one. Beautiful foundations, endless customization possibilities.
-        </p>
-      </div>
-
-      <!-- Feature 5: Code Ownership -->
-      <div
-        class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
-      >
-        <h3 class="text-xl font-bold">Code Ownership</h3>
-        <p class="text-muted-foreground leading-tight">
-          No vendor lock-in. No hidden dependencies. Install via CLI or
-          copy-paste. All components live in your repo — you own your codebase.
-        </p>
-      </div>
-
-      <!-- Feature 6: Open Source -->
-      <div
-        class={cn(
-          "group p-6 xs:p-8 flex flex-col gap-2 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-all duration-300",
-          "relative",
-          "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
-        )}
-      >
-        <h3 class="text-xl font-bold">Open Source</h3>
-        <p class="text-muted-foreground leading-tight">
-          MIT licensed. Transparent development. Community contributions
-          welcome. Built by developers, for developers, with developers.
-        </p>
+      <div class="flex items-center justify-center p-2">
+        <Svelte height="24" />
       </div>
     </div>
   </div>
 </section>
+
+<!-- Grid layout with separators for remaining features -->
+<div class="grid grid-cols-1 gap-0">
+  <!-- Second row: 2 columns -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-0 border-b border-border/50">
+    <!-- Feature 2: Composition -->
+    <div
+      class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
+    >
+      <h3 class="text-xl font-bold">Composable Design</h3>
+      <p class="text-muted-foreground leading-tight">
+        Every component uses a common, composable interface. Build complex UIs
+        effortlessly with modular components that work seamlessly together.
+      </p>
+    </div>
+
+    <!-- Feature 3: Accessibility -->
+    <div
+      class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 hover:bg-card/70 transition-colors"
+    >
+      <h3 class="text-xl font-bold">Fully Accessible</h3>
+      <p class="text-muted-foreground leading-tight">
+        Screen reader tested. Keyboard navigation perfected. Built-in focus
+        management. Accessibility isn't an afterthought—it's the foundation.
+      </p>
+    </div>
+  </div>
+
+  <!-- Third row: 3 columns -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0">
+    <!-- Feature 4: Beautiful Defaults -->
+    <div
+      class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
+    >
+      <h3 class="text-xl font-bold">Beautiful Defaults</h3>
+      <p class="text-muted-foreground leading-tight">
+        Thoughtfully crafted default styles that look professional from day one.
+        Beautiful foundations, endless customization possibilities.
+      </p>
+    </div>
+
+    <!-- Feature 5: Code Ownership -->
+    <div
+      class="p-6 xs:p-8 flex flex-col gap-2 bg-card/50 border-r hover:bg-card/70 transition-colors"
+    >
+      <h3 class="text-xl font-bold">Code Ownership</h3>
+      <p class="text-muted-foreground leading-tight">
+        No vendor lock-in. No hidden dependencies. Install via CLI or
+        copy-paste. All components live in your repo — you own your codebase.
+      </p>
+    </div>
+
+    <!-- Feature 6: Open Source -->
+    <div
+      class={cn(
+        "group p-6 xs:p-8 flex flex-col gap-2 bg-card/50 backdrop-blur-sm hover:bg-card/70 transition-all duration-300",
+        "relative",
+        "before:absolute before:inset-0 before:bg-gradient-to-br before:from-transparent before:to-primary/5 before:opacity-0 hover:before:opacity-100 before:transition-opacity before:duration-300"
+      )}
+    >
+      <h3 class="text-xl font-bold">Open Source</h3>
+      <p class="text-muted-foreground leading-tight">
+        MIT licensed. Transparent development. Community contributions welcome.
+        Built by developers, for developers, with developers.
+      </p>
+    </div>
+  </div>
+</div>

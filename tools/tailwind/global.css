@@ -191,4 +191,14 @@
   * {
     @apply border-border outline-ring/50;
   }
+
+  /* Hide scrollbar while keeping scroll functionality */
+  .overflow-y-auto::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Firefox */
+  .overflow-y-auto {
+    scrollbar-width: none;
+  }
 }

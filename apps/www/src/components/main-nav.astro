@@ -19,30 +19,30 @@ const pathname = Astro.url.pathname
         {siteConfig.name}
       </span>
     </span>
-    <nav class="flex items-center gap-4 text-sm lg:gap-6">
-      <a
-        href="/docs/introduction/"
-        class={cn(
-          "transition-colors hover:text-foreground/80",
-          pathname?.startsWith("/docs") &&
-            !pathname?.startsWith("/docs/components")
-            ? "text-foreground"
-            : "text-foreground/60"
-        )}
-      >
-        Docs
-      </a>
-      <a
-        href="/docs/components/accordion"
-        class={cn(
-          "transition-colors hover:text-foreground/80",
-          pathname?.startsWith("/docs/components")
-            ? "text-foreground"
-            : "text-foreground/60"
-        )}
-      >
-        Components
-      </a>
-    </nav>
   </a>
+  <nav class="flex items-center gap-4 text-sm lg:gap-6">
+    <a
+      href="/docs/introduction"
+      class={cn(
+        "transition-colors hover:text-foreground/80",
+        pathname?.startsWith("/docs") &&
+          !pathname?.startsWith("/docs/components")
+          ? "text-foreground"
+          : "text-foreground/60"
+      )}
+    >
+      Docs
+    </a>
+    <a
+      href="/docs/components/accordion"
+      class={cn(
+        "transition-colors hover:text-foreground/80",
+        pathname?.startsWith("/docs/components")
+          ? "text-foreground"
+          : "text-foreground/60"
+      )}
+    >
+      Components
+    </a>
+  </nav>
 </div>
