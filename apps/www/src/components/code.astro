@@ -8,14 +8,16 @@ import { CopyButton } from "./copy-button.tsx"
 interface Props {
   src: string
   lang?: string
+  meta?: string
   className?: string
   copy?: boolean
 }
 
-const { src, lang = "tsx", copy = true, className } = Astro.props
+const { src, lang = "text", meta, copy = true, className } = Astro.props
 
 const html = await codeToHtml(src, {
   lang,
+  meta: meta ? { __raw: meta } : undefined,
   themes: {
     dark: "github-dark",
     light: "github-light",

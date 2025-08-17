@@ -15,28 +15,23 @@ export function remarkCodeWrapper() {
       (node: Code, index: number | undefined, parent: Parent | undefined) => {
         if (!parent || index === undefined) return
 
-        const attributes: MdxJsxAttribute[] = [
-          {
-            type: "mdxJsxAttribute",
-            name: "src",
-            value: node.value,
-          },
-          {
-            type: "mdxJsxAttribute",
-            name: "lang",
-            value: node.lang || "text",
-          },
-          {
-            type: "mdxJsxAttribute",
-            name: "className",
-            value: "remark-code-wrapper",
-          },
-        ]
+        const attributes = [
+          ["src", node.value || ""],
+          ["lang", node.lang || "text"],
+          ["meta", node.meta || ""],
+          ["className", "remark-code-wrapper mt-4"],
+        ] as const
+
+        const mdxJSxAttribute = attributes.map(([name, value]) => ({
+          type: "mdxJsxAttribute",
+          name,
+          value,
+        })) satisfies MdxJsxAttribute[]
 
         const codeElement: MdxJsxFlowElement = {
           type: "mdxJsxFlowElement",
           name: "Code",
-          attributes,
+          attributes: mdxJSxAttribute,
           children: [],
         }
 

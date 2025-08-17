@@ -12,6 +12,7 @@
   --color-surface-foreground: var(--surface-foreground);
   --color-code: var(--code);
   --color-code-foreground: var(--code-foreground);
+  --color-code-highlight: var(--code-highlight);
 }
 
 :root {
@@ -19,6 +20,7 @@
   --surface-foreground: var(--foreground);
   --code: var(--surface);
   --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.96 0 0);
 }
 
 .dark {
@@ -26,6 +28,7 @@
   --surface-foreground: oklch(0.708 0 0);
   --code: var(--surface);
   --code-foreground: var(--surface-foreground);
+  --code-highlight: oklch(0.27 0 0);
 }
 
 @layer base {
@@ -43,15 +46,20 @@
   }
 
   .code-wrapper .shiki {
-    @apply px-4 text-sm leading-normal bg-code! overflow-auto font-mono;
+    @apply text-sm leading-normal bg-code rounded overflow-auto font-mono;
   }
-  .remark-code-wrapper {
-    @apply mt-4;
+  .code-wrapper .shiki .line {
+    @apply w-full px-4 inline-block;
+  }
+  .code-wrapper .shiki .line.highlighted {
+    @apply bg-code-highlight;
   }
 
-  html.dark .code-wrapper .shiki,
+  html.dark .code-wrapper .shiki {
+    @apply bg-code!;
+  }
   html.dark .code-wrapper .shiki span {
-    @apply bg-code! text-[var(--shiki-dark)]!;
+    @apply text-[var(--shiki-dark)]!;
   }
 }
 
