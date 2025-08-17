@@ -11,7 +11,6 @@ interface Props {
 
 export default function PreviewReact({ name }: Props) {
   const [key, setKey] = React.useState(0)
-  console.log(Examples)
   const Component = React.lazy(
     Examples[name] ?? (() => <NotFound component={name} />)
   )

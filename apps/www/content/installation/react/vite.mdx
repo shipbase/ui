@@ -1,6 +1,6 @@
 ---
-title: React/Vite
-description: Install and configure Vite.
+title: Vite
+description: Install and configure shadcn/ui for Vite.
 sidebar: false
 ---
 
@@ -8,20 +8,18 @@ sidebar: false
 
 ### Create project
 
-Start by creating a new React project using `vite`:
+Start by creating a new React project using `vite`. Select the **React + TypeScript** template:
 
-```bash
-npm create vite@latest
-```
+<PackageInstallBashCommand command="npm create vite@latest" />
 
-### Add Tailwind and its configuration
+### Add Tailwind CSS
 
-Install `tailwindcss` and its peer dependencies, then generate your `tailwind.config.js` and `postcss.config.js` files:
+<PackageInstallBashCommand command="npm install tailwindcss @tailwindcss/vite" />
 
-```bash
-npm install -D tailwindcss postcss autoprefixer
+Replace everything in `src/index.css` with the following:
 
-npx tailwindcss init -p
+```css title="src/index.css"
+@import "tailwindcss";
 ```
 
 ### Edit tsconfig.json file
@@ -30,7 +28,7 @@ The current version of Vite splits TypeScript configuration into three files, tw
 Add the `baseUrl` and `paths` properties to the `compilerOptions` section of the `tsconfig.json` and
 `tsconfig.app.json` files:
 
-```ts {11-16} showLineNumbers
+```ts {11-16}
 {
   "files": [],
   "references": [
@@ -54,7 +52,7 @@ Add the `baseUrl` and `paths` properties to the `compilerOptions` section of the
 
 Add the following code to the `tsconfig.app.json` file to resolve paths, for your IDE:
 
-```ts {4-9} showLineNumbers
+```ts title="tsconfig.app.json" {4-9}
 {
   "compilerOptions": {
     // ...
@@ -71,20 +69,19 @@ Add the following code to the `tsconfig.app.json` file to resolve paths, for you
 
 ### Update vite.config.ts
 
-Add the following code to the vite.config.ts so your app can resolve paths without error
+Add the following code to the vite.config.ts so your app can resolve paths without error:
 
-```bash
-# (so you can import "path" without error)
-npm i -D @types/node
-```
+<PackageInstallBashCommand command="npm install -D @types/node" />
 
-```typescript
+```typescript title="vite.config.ts" {1,2,8-13}
 import path from "path"
+import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 
+// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -95,48 +92,36 @@ export default defineConfig({
 
 ### Run the CLI
 
-Run the `shadcn-ui` init command to setup your project:
+Run the `shadcn` init command to setup your project:
 
-```bash
-npx shadcn-ui@latest init
+<PackageInstallBashCommand command="npx shadcn@latest init" />
+
+You will be asked a few questions to configure `components.json`.
+
+```txt
+Which color would you like to use as base color? › Neutral
 ```
 
-### Configure components.json
-
-You will be asked a few questions to configure `components.json`:
-
-```txt showLineNumbers
-Would you like to use TypeScript (recommended)? no / yes
-Which style would you like to use? › Default
-Which color would you like to use as base color? › Slate
-Where is your global CSS file? › › src/index.css
-Do you want to use CSS variables for colors? › no / yes
-Where is your tailwind.config.js located? › tailwind.config.js
-Configure the import alias for components: › @/components
-Configure the import alias for utils: › @/lib/utils
-Are you using React Server Components? › no / yes (no)
-```
-
-### That's it
+### Add Components
 
 You can now start adding components to your project.
 
-```bash
-npx shadcn-ui@latest add button
-```
+<PackageInstallBashCommand command="npx shadcn@latest add button" />
 
 The command above will add the `Button` component to your project. You can then import it like this:
 
-```tsx {1,6} showLineNumbers
+```tsx title="src/App.tsx"
 import { Button } from "@/components/ui/button"
 
-export default function Home() {
+function App() {
   return (
-    <div>
+    <div className="flex min-h-svh flex-col items-center justify-center">
       <Button>Click me</Button>
     </div>
   )
 }
+
+export default App
 ```
 
 </Steps>

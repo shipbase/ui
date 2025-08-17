@@ -57,5 +57,3 @@ Components are built on top of Ark UI, with primitive component, examples, stori
 ## Specific Rules
 
 ### Code Quality
-
-- use mcp__ide__getDiagnostics to diagnostics of every file edited.
