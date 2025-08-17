@@ -10,13 +10,12 @@
     "dev:storybook": "turbo run storybook",
     "test": "turbo test",
     "build": "turbo build",
-    "format": "biome check . --write --unsafe",
-    "check": "biome check . --fix --unsafe",
+    "format": "biome format . --write",
+    "check": "biome lint . --fix --unsafe",
     "sherif": "sherif --fix",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && git clean -xdf node_modules .turbo",
-    "version": "changeset version && pnpm run format",
-    "assets:generate": "tsx tools/assets/generate-icons.ts"
+    "version": "changeset version && pnpm run format"
   },
   "devDependencies": {
     "@biomejs/biome": "catalog:",
