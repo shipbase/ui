@@ -86,7 +86,7 @@ catalogs:
       version: 2.4.9
     '@typescript/native-preview':
       specifier: latest
-      version: 7.0.0-dev.20250803.1
+      version: 7.0.0-dev.20250816.1
     '@vitejs/plugin-react-swc':
       specifier: ^3.11.0
       version: 3.11.0
@@ -275,7 +275,7 @@ importers:
         version: 22.16.5
       '@typescript/native-preview':
         specifier: 'catalog:'
-        version: 7.0.0-dev.20250803.1
+        version: 7.0.0-dev.20250816.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -336,6 +336,9 @@ importers:
       '@fontsource-variable/geist-mono':
         specifier: ^5.2.6
         version: 5.2.6
+      '@lucide/astro':
+        specifier: ^0.539.0
+        version: 0.539.0(astro@5.12.3(@types/node@22.16.5)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.1.11(vite@6.3.5(@types/node@22.16.5)(jiti@2.4.2)(lightningcss@1.30.1)(tsx@4.20.3)(yaml@2.8.0))
@@ -1594,6 +1597,11 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
+  '@lucide/astro@0.539.0':
+    resolution: {integrity: sha512-PCAo48RsERkmyWX+bmssGlu0mb84cP8kLMyc1JuW5pRY4zkx7cnyZMr3RkfPFvDKJZf2/2KPoaZz8j6BjXaXcA==}
+    peerDependencies:
+      astro: ^4 || ^5
+
   '@manypkg/find-root@1.1.0':
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
 
@@ -2560,50 +2568,50 @@ packages:
   '@types/uuid@9.0.8':
     resolution: {integrity: sha512-jg+97EGIcY9AGHJJRaaPVgetKDsrTgbRjQ5Msgjh/DQKEFl0DtyRr/VCOyD1T2R1MNeWPK/u7JoGhlDZnKBAfA==}
 
-  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-TLiO7vm8SIOmVkNkZQG0lSgjsdUm/0Hv30dfGxzni0Avx8KZ1EcMieRUUYWYkMc6TkNe8AIOi5dwCPmHQZMLYA==}
+  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-JM+b5qXA1M9G/NFmytUatwEFQSKz1JQDZBsHCLxHbWaGazbg+yJPTzsxKfSz+DW72hyGTldiQqeIdJKwg3G5uQ==}
     engines: {node: '>=20.6.0'}
     cpu: [arm64]
     os: [darwin]
 
-  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-lFUUf/JORofb2bC9lUCKSHy45UD2Kl5R1XWlo+rX70aK5Qzh1iwFM8PhtC1ck6ORyT9vil4RoBQ/Yr6XFoCRNw==}
+  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-jwhb6osHxniK+gv23uSjalfTN2XoMiF7X8eIslIRKQ6ICqxf5k8XtOJY0v2lf/t3HxIQQdG962kDVwiGaN3K6w==}
     engines: {node: '>=20.6.0'}
     cpu: [x64]
     os: [darwin]
 
-  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-hbD6LbA23+jFlbzCpmTk0x20+2MmBPfYTw1YwK4AqtbNasvsO3US5TycShRhuKoQ8GyjLU/6gis8mFBRQ6cc0Q==}
+  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-e9YXa8QJ2kxBE/eIIci0n906crKxw+C9exAoWysjEsShIsXghIyP3BedMMVRhp2ZigjAPD6pa2ibE1R637C60g==}
     engines: {node: '>=20.6.0'}
     cpu: [arm64]
     os: [linux]
 
-  '@typescript/native-preview-linux-arm@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-gdkWyb/xMl+/xtZ1s2O2tQ0JFa7QVh67YsyBj/xQtBJBeQcU3IHGtwJOz8z+diuk9/KsiM5tyv3s1KooI7ZYfQ==}
+  '@typescript/native-preview-linux-arm@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-syEtVN8E5oOlTOm7CrE3vgoVveBPRKvBbkfShqzwlmq1mw51MWunwO3yDNB3tk9GC1w1VoISoYpe8xm/hUKqIQ==}
     engines: {node: '>=20.6.0'}
     cpu: [arm]
     os: [linux]
 
-  '@typescript/native-preview-linux-x64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-UCyi98outSNgB4Q/PrLqKK6P8OO5tjUXaOOOyy9spbvDzqvwZXhPC6humH8pih91yw345liwk7PwtMjM1qSV7Q==}
+  '@typescript/native-preview-linux-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-C1pGpcbR2KwAacOQ9e0pAEZeOIZOZ7+GGxQjFQBYxnFdZfT/AvrCP8rKbZhWUx0ghntskl4BejqhGGC3kTc8Cg==}
     engines: {node: '>=20.6.0'}
     cpu: [x64]
     os: [linux]
 
-  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-vrKG5jMyDc//ZkztBDyx6/bKKibyXdSbOSsxgsYEKIPtUxqK0FJJQxI/XZUo/ecMMKMGUTnre6Tt83Rao3aaGw==}
+  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-tHiD2c4/GQQeSl5kbnNMcjFx0JaC3blbKA9oPMH11hrio/eRnHVrvmatLe5Mo4KOuCS5EHgNUhUvhI43TD0lfw==}
     engines: {node: '>=20.6.0'}
     cpu: [arm64]
     os: [win32]
 
-  '@typescript/native-preview-win32-x64@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-G8bOPgqL1LruDAjaYCkmym15FXedcFNySf5CHJf2arXp7fOkZasRI12/Y0CChLh8Of8lJQq3dtU8hTdFuutblg==}
+  '@typescript/native-preview-win32-x64@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-4Gm8x1fjnPU441faBu9Mgf9xUWC/DTetulu1bXNcdcrmSkRCFNiIQFtM/IBz47ghDaec4+XiHlrYxkzcaN/avw==}
     engines: {node: '>=20.6.0'}
     cpu: [x64]
     os: [win32]
 
-  '@typescript/native-preview@7.0.0-dev.20250803.1':
-    resolution: {integrity: sha512-/lxLUxgYUcxb2fc2MSETYST9m5HuSn4hPQozdQrKVP0L0zsdkCNCVvTPq2FUlLkTV0Zsw+rjDJEaQPOBFDBQLw==}
+  '@typescript/native-preview@7.0.0-dev.20250816.1':
+    resolution: {integrity: sha512-du/e72VqzVXFQqbKuEc7W+W9pWvIgKg0SwydHxzvzQ6TiccBAP/Ar7FUBEuYkFGQ2rbo7pYLj/zkoUCy08QW5w==}
     engines: {node: '>=20.6.0'}
     hasBin: true
 
@@ -8075,6 +8083,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
+  '@lucide/astro@0.539.0(astro@5.12.3(@types/node@22.16.5)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0))':
+    dependencies:
+      astro: 5.12.3(@types/node@22.16.5)(jiti@2.4.2)(lightningcss@1.30.1)(rollup@4.41.1)(tsx@4.20.3)(typescript@5.8.3)(yaml@2.8.0)
+
   '@manypkg/find-root@1.1.0':
     dependencies:
       '@babel/runtime': 7.24.8
@@ -9074,36 +9086,36 @@ snapshots:
 
   '@types/uuid@9.0.8': {}
 
-  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-darwin-arm64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-darwin-x64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-linux-arm64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-linux-arm@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-linux-arm@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-linux-x64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-linux-x64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-win32-arm64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview-win32-x64@7.0.0-dev.20250803.1':
+  '@typescript/native-preview-win32-x64@7.0.0-dev.20250816.1':
     optional: true
 
-  '@typescript/native-preview@7.0.0-dev.20250803.1':
+  '@typescript/native-preview@7.0.0-dev.20250816.1':
     optionalDependencies:
-      '@typescript/native-preview-darwin-arm64': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-darwin-x64': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-linux-arm': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-linux-arm64': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-linux-x64': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-win32-arm64': 7.0.0-dev.20250803.1
-      '@typescript/native-preview-win32-x64': 7.0.0-dev.20250803.1
+      '@typescript/native-preview-darwin-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-darwin-x64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-arm': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-linux-x64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-win32-arm64': 7.0.0-dev.20250816.1
+      '@typescript/native-preview-win32-x64': 7.0.0-dev.20250816.1
 
   '@ungap/structured-clone@1.2.0': {}
 
