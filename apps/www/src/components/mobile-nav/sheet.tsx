@@ -1,7 +1,6 @@
 import { Button } from "@ui/react/button"
 import { Sheet, SheetContent, SheetTrigger } from "@ui/react/sheet"
-
-import { Menu } from "../icons"
+import { MenuIcon } from "lucide-react"
 
 export function MobileNavSheet({ children }: { children: React.ReactNode }) {
   return (
@@ -11,7 +10,7 @@ export function MobileNavSheet({ children }: { children: React.ReactNode }) {
           variant="ghost"
           className="mr-2 px-0 text-base hover:bg-transparent focus-visible:bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0 md:hidden"
         >
-          <Menu />
+          <MenuIcon />
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>

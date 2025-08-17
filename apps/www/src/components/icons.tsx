@@ -1,29 +1,5 @@
 type IconProps = React.HTMLAttributes<SVGElement>
 
-function Logo(props: IconProps) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 16 16"
-      x="80"
-      y="80"
-      alignment-baseline="middle"
-      style={{ color: "rgb(0, 0, 0)" }}
-      {...props}
-    >
-      <title>Logo</title>
-      <path
-        stroke="currentColor"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="1.5"
-        d="m9.25 1.75-6.5 6.5h4v6l6.5-6.5h-4v-6Z"
-      />
-    </svg>
-  )
-}
-
 function Spinner(props: IconProps) {
   return (
     <svg
@@ -80,4 +56,4 @@ function Menu(props: IconProps) {
   )
 }
 
-export { Logo, Spinner, Menu }
+export { Spinner, Menu }

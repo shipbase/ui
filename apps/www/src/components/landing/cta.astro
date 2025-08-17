@@ -8,8 +8,6 @@ import CVA from "@/assets/logos/cva.svg"
 import GitHubDark from "@/assets/logos/github_dark.svg"
 import GitHubLight from "@/assets/logos/github_light.svg"
 import React from "@/assets/logos/react_dark.svg"
-import ShadcnUIDark from "@/assets/logos/shadcn-ui_dark.svg"
-import ShadcnUI from "@/assets/logos/shadcn-ui_light.svg"
 import Solid from "@/assets/logos/solid.svg"
 import Svelte from "@/assets/logos/svelte.svg"
 import TailwindCSS from "@/assets/logos/tailwind.svg"
@@ -25,16 +23,31 @@ import Vue from "@/assets/logos/vue.svg"
     <span class="hidden md:inline"> </span>Multi Framework
   </h1>
   <p class="text-muted-foreground mb-8 text-lg">
-    A set of beautiful designed components you can customize, extend, and make your own. Multi Framework Support, Open Source.
+    A set of beautiful designed components you can customize, extend, and make
+    your own. Multi Framework Support, Open Source.
   </p>
   <div class="flex items-center justify-center gap-4">
     <a href="/docs/introduction">
       <Button size="sm" className="rounded-xs"> Get Started </Button>
     </a>
     <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
-      <Button size="sm" variant="ghost" className="rounded-xs flex items-center gap-2">
-        <GitHubLight width="16" height="16" fill="currentColor" class="dark:hidden" />
-        <GitHubDark width="16" height="16" fill="currentColor" class="hidden dark:block" />
+      <Button
+        size="sm"
+        variant="ghost"
+        className="rounded-xs flex items-center gap-2"
+      >
+        <GitHubLight
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="dark:hidden"
+        />
+        <GitHubDark
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="hidden dark:block"
+        />
         Star on GitHub
       </Button>
     </a>
@@ -54,11 +67,6 @@ import Vue from "@/assets/logos/vue.svg"
       <div class="flex items-center gap-2">
         <ArkUI width="24" height="24" />
         <span class="text-sm">Ark UI</span>
-      </div>
-      <div class="flex items-center gap-2">
-        <ShadcnUI class="dark:hidden" width="24" height="24" />
-        <ShadcnUIDark class="hidden dark:block" width="24" height="24" />
-        <span class="text-sm">shadcn/ui</span>
       </div>
       <div class="flex items-center gap-2">
         <TypeScript width="24" height="24" />

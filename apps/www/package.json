@@ -21,6 +21,7 @@
     "@astrojs/vue": "catalog:",
     "@fontsource-variable/geist": "^5.2.6",
     "@fontsource-variable/geist-mono": "^5.2.6",
+    "@lucide/astro": "^0.539.0",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-table": "^8.21.3",
     "@ui/lib": "workspace:*",
