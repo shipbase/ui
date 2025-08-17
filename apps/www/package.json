@@ -16,6 +16,7 @@
     "@ark-ui/react": "catalog:",
     "@ark-ui/vue": "catalog:",
     "@astrojs/check": "catalog:",
+    "@astrojs/cloudflare": "^12.6.4",
     "@astrojs/mdx": "catalog:",
     "@astrojs/react": "catalog:",
     "@astrojs/vue": "catalog:",

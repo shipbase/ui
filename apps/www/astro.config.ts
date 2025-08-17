@@ -1,6 +1,6 @@
+import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
-// import vue from "@astrojs/vue"
 import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 import inspect from "vite-plugin-inspect"
@@ -14,15 +14,21 @@ export default defineConfig({
     react(),
     // vue({ include: ["**/*.vue"] }),
   ],
+
   vite: {
     plugins: [inspect(), tailwindcss()],
   },
-  trailingSlash: "never",
+
+  trailingSlash: "always",
+
   redirects: {
     "/docs": "/docs/introduction",
     "/docs/components": "/docs/components/accordion",
   },
+
   devToolbar: {
     enabled: true,
   },
+
+  adapter: cloudflare(),
 })
