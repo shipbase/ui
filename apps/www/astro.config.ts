@@ -1,4 +1,3 @@
-import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
@@ -19,7 +18,7 @@ export default defineConfig({
     plugins: [inspect(), tailwindcss()],
   },
 
-  trailingSlash: "always",
+  trailingSlash: "ignore",
 
   redirects: {
     "/docs": "/docs/introduction",
@@ -30,5 +29,9 @@ export default defineConfig({
     enabled: true,
   },
 
-  adapter: cloudflare(),
+  experimental: {
+    clientPrerender: true,
+    contentIntellisense: true,
+    chromeDevtoolsWorkspace: true,
+  },
 })
