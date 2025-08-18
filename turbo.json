@@ -12,7 +12,7 @@
       "dependsOn": ["^stub"]
     },
     "build": {
-      "dependsOn": ["^stub"],
+      "dependsOn": ["^build"],
       "outputs": ["dist/**"]
     },
     "typecheck": {
