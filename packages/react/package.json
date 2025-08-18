@@ -20,9 +20,9 @@
     }
   },
   "scripts": {
-    "stub": "vite build --mode development",
+    "stub": "tsdown",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
-    "build": "vite build",
+    "build": "tsdown",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
@@ -61,6 +61,7 @@
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
     "tinyglobby": "catalog:",
+    "tsdown": "^0.14.1",
     "vite": "catalog:",
     "vite-plugin-inspect": "catalog:",
     "vite-tsconfig-paths": "catalog:"

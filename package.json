@@ -8,6 +8,7 @@
     "stub": "turbo run stub",
     "dev": "turbo watch dev",
     "dev:storybook": "turbo run storybook",
+    "deploy": "turbo run deploy",
     "test": "turbo test",
     "build": "turbo build",
     "format": "biome format . --write",
