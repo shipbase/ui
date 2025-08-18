@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "build:registry": "shadcn build",
     "typecheck": "astro check",
-    "test": "vitest run"
+    "test": "vitest run",
+    "deploy": "pnpm dlx wrangler deploy"
   },
   "dependencies": {
     "@ark-ui/react": "catalog:",

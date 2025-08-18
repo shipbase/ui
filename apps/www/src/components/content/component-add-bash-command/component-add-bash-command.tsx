@@ -1,5 +1,4 @@
 import { CopyButton } from "@/components/copy-button"
-import { usePackageManager } from "@/hooks/use-package-manager"
 import {
   type PackageManager,
   packageManagerAtom,
@@ -12,6 +11,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@ui/react/tabs"
+import { useAtom } from "@xstate/store/react"
 import { TerminalIcon } from "lucide-react"
 
 interface Props {
@@ -19,15 +19,15 @@ interface Props {
 }
 
 export function ComponentAddBashCommand({ commandMap }: Props) {
-  const packageManager = usePackageManager()
+  const packageManager = useAtom(packageManagerAtom)
   const command = commandMap[packageManager]
 
   return (
     <Tabs
       value={packageManager}
-      onValueChange={(detail) =>
+      onValueChange={(detail) => {
         packageManagerAtom.set(detail.value as PackageManager)
-      }
+      }}
       className="mt-4 w-full gap-0 border bg-card"
     >
       {/* Header with tabs */}
@@ -51,7 +51,7 @@ export function ComponentAddBashCommand({ commandMap }: Props) {
       {packageManagers.map((key) => (
         <TabsContent key={key} value={key} className="m-0 bg-code p-4">
           <pre className="overflow-x-auto text-foreground text-sm">
-            <code>{command}</code>
+            <code>{commandMap[key]}</code>
           </pre>
         </TabsContent>
       ))}

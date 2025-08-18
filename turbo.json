@@ -20,6 +20,7 @@
     },
     "test": {},
     "clean": {},
+    "deploy": {},
     "storybook": { "cache": false }
   }
 }

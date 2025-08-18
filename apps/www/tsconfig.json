@@ -4,6 +4,7 @@
     "verbatimModuleSyntax": true,
     "exactOptionalPropertyTypes": false,
     // react
+    "jsx": "react-jsx",
     "jsxImportSource": "react",
 
     // base
