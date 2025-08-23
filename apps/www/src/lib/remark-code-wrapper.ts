@@ -7,7 +7,7 @@ import { visit } from "unist-util-visit"
  *
  * @returns Transform function for the AST.
  */
-export function remarkCodeWrapper() {
+export function remarkPluginCodeWrapper() {
   return (tree: Root) => {
     visit(
       tree,
@@ -19,7 +19,7 @@ export function remarkCodeWrapper() {
           ["src", node.value || ""],
           ["lang", node.lang || "text"],
           ["meta", node.meta || ""],
-          ["className", "remark-code-wrapper mt-4"],
+          ["data-scope", "code-wrapper"],
         ] as const
 
         const mdxJSxAttribute = attributes.map(([name, value]) => ({
@@ -28,12 +28,12 @@ export function remarkCodeWrapper() {
           value,
         })) satisfies MdxJsxAttribute[]
 
-        const codeElement: MdxJsxFlowElement = {
+        const codeElement = {
           type: "mdxJsxFlowElement",
-          name: "Code",
+          name: "CodeWrapper",
           attributes: mdxJSxAttribute,
           children: [],
-        }
+        } satisfies MdxJsxFlowElement
 
         parent.children.splice(index, 1, codeElement)
       }

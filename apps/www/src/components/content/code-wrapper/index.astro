@@ -1,0 +1,20 @@
+---
+import Code from "@/components/code.astro"
+import { npmInstallBashRE, npxBashRE } from "@/store/atoms/package-manager"
+import BashCommand from "./bash-command.astro"
+
+interface Props {
+  src: string
+  lang?: string
+  meta?: string
+  className?: string
+  copy?: boolean
+}
+
+const props = Astro.props
+const { src } = props
+
+const isBashCommand = npmInstallBashRE.test(src) || npxBashRE.test(src)
+---
+
+{isBashCommand ? <BashCommand {...props} /> : <Code {...props} />}

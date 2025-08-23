@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { CopyButton } from "./copy-button.tsx"
 
 interface Props {
-  src: string
+  src?: string
   lang?: string
   meta?: string
   className?: string
@@ -14,6 +14,8 @@ interface Props {
 }
 
 const { src, lang = "text", meta, copy = true, className } = Astro.props
+
+if (!src) return null
 
 const html = await codeToHtml(src, {
   lang,
@@ -26,9 +28,7 @@ const html = await codeToHtml(src, {
 })
 ---
 
-<div
-  class={cn("code-wrapper relative bg-code rounded", className)}
->
+<div class={cn("code-wrapper relative bg-code rounded", className)}>
   {
     copy && (
       <CopyButton

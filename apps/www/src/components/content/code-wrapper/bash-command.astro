@@ -1,0 +1,56 @@
+---
+import Code from "@/components/code.astro"
+import { npmInstallBashRE, npxBashRE } from "@/store/atoms/package-manager"
+import { PackageManagerTabs } from "./package-manager-tabs"
+
+interface Props {
+  src: string
+  lang?: string
+  meta?: string
+  className?: string
+}
+
+const { src, ...props } = Astro.props
+
+function installCommand() {
+  return {
+    npm: src,
+    pnpm: src.replace(npmInstallBashRE, "pnpm add"),
+    yarn: src.replace(npmInstallBashRE, "yarn add"),
+    bun: src.replace(npmInstallBashRE, "bun add"),
+  }
+}
+
+function execCommand() {
+  return {
+    npm: src,
+    pnpm: src.replace(npxBashRE, "pnpm dlx"),
+    yarn: src.replace(npxBashRE, "yarn dlx"),
+    bun: src.replace(npxBashRE, "bunx --bun"),
+  }
+}
+
+const command = npmInstallBashRE.test(src)
+  ? installCommand()
+  : npxBashRE.test(src)
+    ? execCommand()
+    : undefined
+
+if (!command) return null
+const { npm, pnpm, yarn, bun } = command
+---
+
+<PackageManagerTabs command={command} client:visible>
+  <Fragment slot="npm">
+    <Code {...props} src={npm} copy={false} />
+  </Fragment>
+  <Fragment slot="pnpm">
+    <Code {...props} src={pnpm} copy={false} />
+  </Fragment>
+  <Fragment slot="yarn">
+    <Code {...props} src={yarn} copy={false} />
+  </Fragment>
+  <Fragment slot="bun">
+    <Code {...props} src={bun} copy={false} />
+  </Fragment>
+</PackageManagerTabs>

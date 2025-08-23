@@ -8,3 +8,6 @@ export type PackageManager = (typeof packageManagers)[number]
 export const PACKAGE_MANAGER_KEY_STORAGE_KEY = `${siteConfig.name}-package-manager`
 
 export const packageManagerAtom = createAtom<PackageManager>("pnpm")
+
+export const npmInstallBashRE = /^npm install/
+export const npxBashRE = /^npx/

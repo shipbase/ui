@@ -4,15 +4,11 @@ import tailwindcss from "@tailwindcss/vite"
 import { defineConfig } from "astro/config"
 import inspect from "vite-plugin-inspect"
 
-import { remarkCodeWrapper } from "./src/lib/remark-code-wrapper"
+import { remarkPluginCodeWrapper } from "./src/lib/remark-code-wrapper"
 
 // https://astro.build/configo
 export default defineConfig({
-  integrations: [
-    mdx({ remarkPlugins: [remarkCodeWrapper] }),
-    react(),
-    // vue({ include: ["**/*.vue"] }),
-  ],
+  integrations: [mdx({ remarkPlugins: [remarkPluginCodeWrapper] }), react()],
 
   vite: {
     plugins: [inspect(), tailwindcss()],

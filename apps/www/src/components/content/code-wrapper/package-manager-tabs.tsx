@@ -14,13 +14,12 @@ import {
 import { useAtom } from "@xstate/store/react"
 import { TerminalIcon } from "lucide-react"
 
-interface Props {
-  commandMap: Record<PackageManager, string>
+interface Props extends Partial<Record<PackageManager, React.ReactNode>> {
+  command: Record<PackageManager, string>
 }
 
-export function PackageInstallBashCommand({ commandMap }: Props) {
+export function PackageManagerTabs({ command, ...props }: Props) {
   const packageManager = useAtom(packageManagerAtom)
-  const command = commandMap[packageManager]
 
   return (
     <Tabs
@@ -31,7 +30,6 @@ export function PackageInstallBashCommand({ commandMap }: Props) {
       }
       className="mt-4 w-full gap-0 border bg-card"
     >
-      {/* Header with tabs */}
       <div className="flex items-center justify-between border-b bg-muted/30 px-4 py-2">
         <div className="flex items-center gap-1">
           <div className="flex h-6 w-6 items-center justify-center rounded bg-muted">
@@ -46,14 +44,12 @@ export function PackageInstallBashCommand({ commandMap }: Props) {
             <TabsIndicator className="h-7 rounded-md px-3 font-medium text-xs data-[selected]:bg-background data-[selected]:text-foreground" />
           </TabsList>
         </div>
-        <CopyButton value={command} />
+        <CopyButton value={command[packageManager]} />
       </div>
 
       {packageManagers.map((key) => (
-        <TabsContent key={key} value={key} className="m-0 bg-code p-4">
-          <pre className="overflow-x-auto text-foreground text-sm">
-            <code>{commandMap[key]}</code>
-          </pre>
+        <TabsContent key={key} value={key} className="m-0">
+          {props[key]}
         </TabsContent>
       ))}
     </Tabs>

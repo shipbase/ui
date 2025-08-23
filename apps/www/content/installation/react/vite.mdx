@@ -10,11 +10,15 @@ sidebar: false
 
 Start by creating a new React project using `vite`. Select the **React + TypeScript** template:
 
-<PackageInstallBashCommand command="npm create vite@latest" />
+```bash
+npm create vite@latest
+```
 
 ### Add Tailwind CSS
 
-<PackageInstallBashCommand command="npm install tailwindcss @tailwindcss/vite" />
+```bash
+npm install tailwindcss @tailwindcss/vite
+```
 
 Replace everything in `src/index.css` with the following:
 
@@ -71,7 +75,9 @@ Add the following code to the `tsconfig.app.json` file to resolve paths, for you
 
 Add the following code to the vite.config.ts so your app can resolve paths without error:
 
-<PackageInstallBashCommand command="npm install -D @types/node" />
+```bash
+npm install -D @types/node
+```
 
 ```typescript title="vite.config.ts" {1,2,8-13}
 import path from "path"
@@ -94,7 +100,9 @@ export default defineConfig({
 
 Run the `shadcn` init command to setup your project:
 
-<PackageInstallBashCommand command="npx shadcn@latest init" />
+```bash
+npx shadcn@latest init
+```
 
 You will be asked a few questions to configure `components.json`.
 
@@ -106,7 +114,9 @@ Which color would you like to use as base color? › Neutral
 
 You can now start adding components to your project.
 
-<PackageInstallBashCommand command="npx shadcn@latest add button" />
+```bash
+npx shadcn@latest add button
+```
 
 The command above will add the `Button` component to your project. You can then import it like this:
 
