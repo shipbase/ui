@@ -6,22 +6,22 @@ packages:
   - '!**/test/fixtures/**'
 
 catalog:
-  '@ark-ui/react': ^5.18.2
-  '@ark-ui/vue': ^5.18.2
+  '@ark-ui/react': 5.18.2
+  '@ark-ui/vue': ^5.20.0
   '@astrojs/check': ^0.9.4
-  '@astrojs/cloudflare': ^12.6.4
+  '@astrojs/cloudflare': ^12.6.5
   '@astrojs/mdx': 4.3.1
   '@astrojs/react': ^4.3.0
   '@astrojs/ts-plugin': ^1.10.4
   '@astrojs/vue': 5.1.0
   '@biomejs/biome': 1.9.4
   '@changesets/changelog-github': ^0.5.1
-  '@changesets/cli': ^2.29.5
+  '@changesets/cli': ^2.29.6
   '@chromatic-com/storybook': ^3.2.7
   '@fontsource-variable/geist': ^5.2.6
   '@fontsource-variable/geist-mono': ^5.2.6
   '@lucide/astro': ^0.539.0
-  '@shikijs/transformers': ^3.8.1
+  '@shikijs/transformers': ^3.11.0
   '@storybook/addon-essentials': ^8.6.14
   '@storybook/addon-interactions': ^8.6.14
   '@storybook/addon-links': ^8.6.14
@@ -33,18 +33,18 @@ catalog:
   '@storybook/test': ^8.6.14
   '@storybook/vue3': ^8.6.14
   '@storybook/vue3-vite': ^8.6.14
-  '@tailwindcss/vite': ^4.1.11
+  '@tailwindcss/vite': ^4.1.12
   '@tanstack/react-table': ^8.21.3
   '@types/mdast': ^4.0.4
-  '@types/node': ^22.16.5
+  '@types/node': ^22.17.2
   '@types/prompts': ^2.4.9
-  '@typescript/native-preview': latest
+  '@typescript/native-preview': 7.0.0-dev.20250824.1
   '@vitejs/plugin-react-swc': ^3.11.0
   '@vitejs/plugin-vue': ^6.0.1
   '@vitejs/plugin-vue-jsx': ^5.0.1
   '@vue/tsconfig': ^0.7.0
-  '@xstate/store': ^3.8.4
-  astro: ^5.13.0
+  '@xstate/store': ^3.9.2
+  astro: ^5.13.3
   autoprefixer: ^10.4.21
   cac: ^6.7.14
   class-variance-authority: ^0.7.1
@@ -53,11 +53,11 @@ catalog:
   dotenv: ^16.6.1
   gray-matter: ^4.0.3
   kleur: ^4.1.5
-  lint-staged: ^16.1.2
+  lint-staged: ^16.1.5
   lucide-react: ^0.515.0
   lucide-vue-next: ^0.515.0
   mdast-util-mdx-jsx: ^3.2.0
-  mlly: ^1.7.4
+  mlly: ^1.8.0
   nypm: ^0.6.0
   ora: ^8.2.0
   postcss: ^8.5.6
@@ -66,36 +66,37 @@ catalog:
   recharts: ^2.15.4
   rimraf: ^6.0.1
   scule: ^1.3.0
-  shadcn: ^2.9.3
+  shadcn: ^2.10.0
   sharp: ^0.34.3
-  sherif: latest
-  shiki: ^3.8.1
-  simple-git-hooks: ^2.13.0
+  sherif: ^1.6.1
+  shiki: ^3.11.0
+  simple-git-hooks: ^2.13.1
   storybook: ^8.6.14
   tailwind-merge: ^3.3.1
-  tailwindcss: ^4.1.11
+  tailwindcss: ^4.1.12
   tailwindcss-animate: ^1.0.7
-  taze: ^19.1.0
+  taze: ^19.3.0
   tinyglobby: ^0.2.14
   ts-morph: ^26.0.0
   tsup: ^8.5.0
-  tsx: ^4.20.3
-  turbo: ^2.5.5
-  tw-animate-css: ^1.3.6
-  typescript: ^5.8.3
+  tsx: ^4.20.5
+  turbo: ^2.5.6
+  tw-animate-css: ^1.3.7
+  typescript: ^5.9.2
   ufo: ^1.6.1
   unist-util-visit: ^5.0.0
   vite: ^7.0.6
   vite-plugin-inspect: 11.3.2
   vite-tsconfig-paths: ^5.1.4
-  vitest: ^4.0.0-beta.5
-  vue: ^3.5.18
+  vitest: 4.0.0-beta.8
+  vue: ^3.5.19
   vue-tsc: ^2.2.12
+  wrangler: ^3.114.14
   zod: ^3.25.76
 
 catalogs:
   react18:
-    '@types/react': ^18.3.23
+    '@types/react': ^18.3.24
     '@types/react-dom': ^18.3.7
     react: ^18.3.1
     react-dom: ^18.3.1
@@ -112,3 +113,4 @@ onlyBuiltDependencies:
   - esbuild
   - sharp
   - simple-git-hooks
+  - workerd

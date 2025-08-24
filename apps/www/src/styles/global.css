@@ -55,7 +55,7 @@
     @apply flex flex-col;
   }
   .code-wrapper .shiki .line {
-    @apply w-full px-4 block;
+    @apply w-full px-4 inline-block min-h-4;
   }
   .code-wrapper .shiki .line.highlighted {
     @apply bg-code-highlight;
