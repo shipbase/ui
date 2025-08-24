@@ -23,6 +23,7 @@
     "stub": "tsdown",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "tsdown",
+    "build:registry": "shadcn build --output ../../apps/www/public/r/react",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"
@@ -36,6 +37,7 @@
     "react": "catalog:react18",
     "react-dom": "catalog:react18",
     "recharts": "catalog:",
+    "shadcn": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss-animate": "catalog:",
     "tw-animate-css": "catalog:"

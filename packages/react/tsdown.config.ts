@@ -4,6 +4,7 @@ export default defineConfig({
   entry: ["src/**/*.{ts,tsx}", "!src/**/stories/**"],
   exports: false,
   unbundle: true,
+  logLevel: "error",
   loader: {
     ".jpg": "asset",
   },
