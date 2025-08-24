@@ -24,7 +24,8 @@ const components = defineCollection({
       "!components/toast.mdx",
     ],
     base: "./content",
-    generateId: ({ entry }) => entry.replace(/\/index\.mdx$|\.mdx$/, ""),
+    generateId: ({ entry }) =>
+      entry.replace(/^components\//, "").replace(/\/index\.mdx$|\.mdx$/, ""),
   }),
   schema: z.object({
     title: z.string(),
