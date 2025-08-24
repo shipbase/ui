@@ -1,3 +1,4 @@
+import cloudflare from "@astrojs/cloudflare"
 import mdx from "@astrojs/mdx"
 import react from "@astrojs/react"
 import tailwindcss from "@tailwindcss/vite"
@@ -8,6 +9,8 @@ import { remarkPluginCodeWrapper } from "./src/lib/remark-code-wrapper"
 
 // https://astro.build/configo
 export default defineConfig({
+  adapter: cloudflare(),
+
   integrations: [mdx({ remarkPlugins: [remarkPluginCodeWrapper] }), react()],
 
   vite: {
