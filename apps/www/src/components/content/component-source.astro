@@ -1,41 +1,39 @@
 ---
 import Code from "@/components/code.astro"
 import CodeCollapsible from "@/components/content/code-collapsible"
+import { getComponentPageParams } from "@/lib/docs"
 import { getComponentSource } from "@/lib/source"
-import { uiLibraries } from "@/store/atoms/ui-library"
 
 export interface Props {
   component: string
 }
 const { component } = Astro.props
 
-const frameworkSources = await Promise.all(
-  uiLibraries.map((uiLibrary) => getComponentSource(uiLibrary, component))
-)
+// Get current framework from type-safe params
+const { framework: currentFramework } = getComponentPageParams(Astro.params)
+
+// Only get source for current framework
+const frameworkSources = await getComponentSource(currentFramework, component)
 ---
 
-{
-  uiLibraries.map((uiLibrary, index) => (
-    <div data-ui-library={uiLibrary} class="mt-4" hidden>
-      {frameworkSources?.[index]?.length ? (
-        frameworkSources?.[index]?.map((src) => (
-          <Fragment>
-            {typeof frameworkSources?.[index]?.length === "number" &&
-            frameworkSources?.[index]?.length > 1 ? (
-              <p class="mb-2">{src.filename}</p>
-            ) : null}
-            <CodeCollapsible client:visible>
-              <Code
-                lang={src.lang}
-                src={src.source}
-                className="[&>pre]:pb-10"
-              />
-            </CodeCollapsible>
-          </Fragment>
-        ))
-      ) : (
-        <Code src={"Not Found"} />
-      )}
-    </div>
-  ))
-}
+<div class="mt-4">
+  {frameworkSources?.length ? (
+    frameworkSources?.map((src) => (
+      <Fragment>
+        {typeof frameworkSources?.length === "number" &&
+        frameworkSources?.length > 1 ? (
+          <p class="mb-2">{src.filename}</p>
+        ) : null}
+        <CodeCollapsible client:visible>
+          <Code
+            lang={src.lang}
+            src={src.source}
+            className="[&>pre]:pb-10"
+          />
+        </CodeCollapsible>
+      </Fragment>
+    ))
+  ) : (
+    <Code src={"Not Found"} />
+  )}
+</div>

@@ -1,17 +1,17 @@
 import fs from "node:fs/promises"
 import path from "node:path"
-import type { UiLibrary } from "@/store/atoms/ui-library"
+import type { Framework } from "@/constants/frameworks"
 import { safeReadFile } from "@ui/lib/utils/fs"
 import { safeResolvePath } from "@ui/lib/utils/mlly"
 import { findExports } from "mlly"
 import type { BuiltinLanguage } from "shiki"
 
 export const getExampleSource = async (
-  uiLibrary: UiLibrary,
+  framework: Framework,
   example: string
 ) => {
   const entryPath = await safeResolvePath(
-    `@ui/${uiLibrary}/examples/${example}`,
+    `@ui/${framework}/examples/${example}`,
     {
       conditions: ["source"],
     }
@@ -28,10 +28,10 @@ export const getExampleSource = async (
 }
 
 export const getComponentSource = async (
-  uiLibrary: UiLibrary,
+  framework: Framework,
   name: string
 ) => {
-  const entryPath = await safeResolvePath(`@ui/${uiLibrary}/${name}`, {
+  const entryPath = await safeResolvePath(`@ui/${framework}/${name}`, {
     conditions: ["source"],
   })
   if (!entryPath.success) return []

@@ -1,5 +1,6 @@
 ---
 import Code from "@/components/code.astro"
+import { getComponentPageParams } from "@/lib/docs"
 import { getExampleSource } from "@/lib/source"
 import { cn } from "@/lib/utils"
 import PreviewReact from "./preview"
@@ -11,7 +12,10 @@ export interface Props {
 }
 const { name, className } = Astro.props
 
-const { source, lang } = (await getExampleSource("react", name)) || {}
+// Get type-safe framework parameter
+const { framework } = getComponentPageParams(Astro.params)
+
+const { source, lang } = (await getExampleSource(framework, name)) || {}
 ---
 
 <div

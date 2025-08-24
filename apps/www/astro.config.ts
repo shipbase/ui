@@ -18,7 +18,7 @@ export default defineConfig({
 
   redirects: {
     "/docs": "/docs/introduction",
-    "/docs/components": "/docs/components/accordion",
+    "/docs/components": "/docs/components/react/accordion",
   },
 
   devToolbar: {

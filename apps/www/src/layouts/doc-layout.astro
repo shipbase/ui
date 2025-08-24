@@ -1,0 +1,57 @@
+---
+import type { MarkdownHeading } from "astro"
+
+import Sidebar from "@/components/sidebar.astro"
+import { TableOfContent } from "@/components/table-of-content"
+import { cn } from "@/lib/utils"
+
+export interface Props {
+  title: string
+  description?: string
+  headings: MarkdownHeading[]
+}
+
+const { title, description, headings } = Astro.props
+---
+
+<div
+  class="container md:grid md:grid-cols-[180px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[180px_minmax(0,1fr)] lg:gap-10"
+>
+  <aside
+    class="fixed top-14 z-30 -ml-2 hidden h-[calc(100vh-3.5rem)] w-full shrink-0 md:sticky md:block"
+  >
+    <div class="relative h-full py-6 pr-6 overflow-y-auto lg:py-8">
+      <div class="w-full">
+        <Sidebar />
+      </div>
+    </div>
+  </aside>
+  <main
+    class="relative py-6 lg:gap-10 lg:py-8 xl:grid xl:grid-cols-[1fr_200px]"
+  >
+    <div class="w-full min-w-0 mx-auto">
+      <div class="space-y-2">
+        <h1 class={cn("scroll-m-20 text-3xl font-bold tracking-tight")}>
+          {title}
+        </h1>
+        {
+          description && (
+            <p class="text-base text-muted-foreground">{description}</p>
+          )
+        }
+      </div>
+      <article
+        class="pt-8 pb-12"
+        id="content-container"
+        data-framework="react"
+      >
+        <slot />
+      </article>
+    </div>
+    <div class="hidden text-sm xl:block">
+      <div class="sticky top-16 -mt-10 h-[calc(100vh-3.5rem)] py-12">
+        <TableOfContent headings={headings} client:load />
+      </div>
+    </div>
+  </main>
+</div>

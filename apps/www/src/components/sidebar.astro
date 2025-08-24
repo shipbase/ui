@@ -1,6 +1,9 @@
 ---
-import { generateSideItems } from "@/lib/docs"
+import { generateComponentSideItems, getComponentPageParams } from "@/lib/docs"
 import { cn } from "@/lib/utils"
+
+// Get type-safe framework parameter with default fallback
+const { framework } = getComponentPageParams(Astro.params)
 
 const sidebarGroup = [
   {
@@ -16,7 +19,10 @@ const sidebarGroup = [
       },
     ],
   },
-  { title: "Components", items: await generateSideItems("components") },
+  {
+    title: "Components",
+    items: await generateComponentSideItems(framework),
+  },
 ]
 
 const pathname = Astro.url.pathname
@@ -25,9 +31,7 @@ const pathname = Astro.url.pathname
 {
   sidebarGroup.map((group) => (
     <div class="pb-4">
-      <h4 class="mb-1 px-2 py-1 text-sm font-semibold">
-        {group.title}
-      </h4>
+      <h4 class="mb-1 px-2 py-1 text-sm font-semibold">{group.title}</h4>
       <div class="flex flex-col text-sm">
         {group.items.map((item) => (
           <a

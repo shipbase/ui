@@ -1,18 +1,27 @@
-// @ts-nocheck
-
-import type { DataEntryMap } from "astro:content"
 import { getCollection } from "astro:content"
+import { type Framework, frameworks } from "@/constants/frameworks"
+import { z } from "zod"
 
-export const generateSideItems = async (name: keyof DataEntryMap) => {
-  const collection = await getCollection(name)
-  return collection
-    .filter(
-      (entry: DataEntryMap[keyof DataEntryMap]) =>
-        entry.data?.sidebar !== false && entry.data.visible !== false
-    )
+export const generateComponentSideItems = async (framework: Framework) => {
+  const components = await getCollection("components")
+  return components
+    .filter((entry) => entry.data?.sidebar !== false)
     .sort((a, b) => a.data.title.localeCompare(b.data.title))
-    .map((entry: DataEntryMap[keyof DataEntryMap]) => ({
+    .map((entry) => ({
       title: entry.data?.title,
-      href: `/docs/${entry.id}`,
+      href: `/docs/components/${framework}/${entry.id}`,
     }))
+}
+
+const componentPageParamsSchema = z.object({
+  framework: z.enum(frameworks).default("react"),
+  component: z.string().min(1, "Component name is required").optional(),
+})
+
+export type ComponentPageParams = z.infer<typeof componentPageParamsSchema>
+
+export function getComponentPageParams(
+  params: Record<string, string | undefined>
+): ComponentPageParams {
+  return componentPageParamsSchema.parse(params)
 }

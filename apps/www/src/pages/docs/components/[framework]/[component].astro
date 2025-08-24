@@ -3,18 +3,30 @@ import { getCollection, render } from "astro:content"
 import type { GetStaticPaths } from "astro"
 
 import { MDXComponents } from "@/components/content"
+import { frameworks } from "@/constants/frameworks"
 import DocLayout from "@/layouts/doc-layout.astro"
 import RootLayout from "@/layouts/root-layout.astro"
 
 export const getStaticPaths = (async () => {
-  const overview = await getCollection("overview")
-  return overview.map((entry) => ({
-    params: { slug: entry.id },
-    props: { entry },
-  }))
+  const components = await getCollection("components")
+
+  return frameworks.flatMap((framework) => {
+    return components.map((component) => {
+      return {
+        params: {
+          framework,
+          component: component.id,
+        },
+        props: {
+          entry: component,
+        },
+      }
+    })
+  })
 }) satisfies GetStaticPaths
 
 const { entry } = Astro.props
+
 const { Content, headings } = await render(entry)
 ---
 
