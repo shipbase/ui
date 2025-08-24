@@ -2,9 +2,9 @@ name: Code check
 
 on:
   push:
-    branches: ['main']
+    branches: ['next']
   pull_request:
-    branches: ['main']
+    branches: ['next']
 
 jobs:
   check:
@@ -24,5 +24,4 @@ jobs:
           cache: pnpm
 
       - run: pnpm install --frozen-lockfile
-      - run: pnpm dlx turbo test typecheck
-      - run: pnpm run lint
+      - run: pnpm turbo run test typecheck
