@@ -10,7 +10,7 @@ interface Props {
   className?: string
 }
 
-const { src, ...props } = Astro.props
+const { src, className, ...props } = Astro.props
 
 function installCommand() {
   return {
@@ -40,17 +40,17 @@ if (!command) return null
 const { npm, pnpm, yarn, bun } = command
 ---
 
-<PackageManagerTabs command={command} client:visible>
+<PackageManagerTabs command={command} client:visible className={className}>
   <Fragment slot="npm">
-    <Code {...props} src={npm} copy={false} />
+    <Code {...props} src={npm} copy={false} className="mt-0" />
   </Fragment>
   <Fragment slot="pnpm">
-    <Code {...props} src={pnpm} copy={false} />
+    <Code {...props} src={pnpm} copy={false} className="mt-0" />
   </Fragment>
   <Fragment slot="yarn">
-    <Code {...props} src={yarn} copy={false} />
+    <Code {...props} src={yarn} copy={false} className="mt-0" />
   </Fragment>
   <Fragment slot="bun">
-    <Code {...props} src={bun} copy={false} />
+    <Code {...props} src={bun} copy={false} className="mt-0" />
   </Fragment>
 </PackageManagerTabs>

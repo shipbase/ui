@@ -45,8 +45,11 @@
     @apply opacity-60 md:opacity-100;
   }
 
+  .code-wrapper {
+    @apply mt-4;
+  }
   .code-wrapper .shiki {
-    @apply text-sm py-4 leading-normal bg-code rounded overflow-auto font-mono;
+    @apply text-sm py-4 leading-normal rounded overflow-auto font-mono bg-code!;
   }
   .code-wrapper .shiki code {
     @apply flex flex-col;

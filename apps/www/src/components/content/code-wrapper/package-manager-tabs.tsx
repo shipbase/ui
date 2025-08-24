@@ -1,4 +1,5 @@
 import { CopyButton } from "@/components/copy-button"
+import { cn } from "@/lib/utils"
 import {
   type PackageManager,
   packageManagerAtom,
@@ -16,9 +17,10 @@ import { TerminalIcon } from "lucide-react"
 
 interface Props extends Partial<Record<PackageManager, React.ReactNode>> {
   command: Record<PackageManager, string>
+  className?: string
 }
 
-export function PackageManagerTabs({ command, ...props }: Props) {
+export function PackageManagerTabs({ command, className, ...props }: Props) {
   const packageManager = useAtom(packageManagerAtom)
 
   return (
@@ -28,7 +30,7 @@ export function PackageManagerTabs({ command, ...props }: Props) {
       onValueChange={(detail) =>
         packageManagerAtom.set(detail.value as PackageManager)
       }
-      className="mt-4 w-full gap-0 border bg-card"
+      className={cn("mt-4 w-full gap-0 border bg-card", className)}
     >
       <div className="flex items-center justify-between border-b bg-muted/30 px-4 py-2">
         <div className="flex items-center gap-1">
