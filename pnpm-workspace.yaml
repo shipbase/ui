@@ -2,27 +2,26 @@ packages:
   - apps/*
   - packages/*
   - tools/*
+  - examples/*
   - '!**/test/fixtures/**'
 
 catalog:
   '@ark-ui/react': ^5.18.2
   '@ark-ui/vue': ^5.18.2
   '@astrojs/check': ^0.9.4
+  '@astrojs/cloudflare': ^12.6.4
   '@astrojs/mdx': 4.3.1
   '@astrojs/react': ^4.3.0
-  '@astrojs/vue': 5.1.0
   '@astrojs/ts-plugin': ^1.10.4
-  '@astrojs/cloudflare': ^12.6.4
+  '@astrojs/vue': 5.1.0
   '@biomejs/biome': 1.9.4
   '@changesets/changelog-github': ^0.5.1
   '@changesets/cli': ^2.29.5
   '@chromatic-com/storybook': ^3.2.7
   '@fontsource-variable/geist': ^5.2.6
   '@fontsource-variable/geist-mono': ^5.2.6
-  '@shikijs/transformers': ^3.8.1
   '@lucide/astro': ^0.539.0
-  '@tanstack/react-table': ^8.21.3
-  '@xstate/store': ^3.8.4
+  '@shikijs/transformers': ^3.8.1
   '@storybook/addon-essentials': ^8.6.14
   '@storybook/addon-interactions': ^8.6.14
   '@storybook/addon-links': ^8.6.14
@@ -34,21 +33,26 @@ catalog:
   '@storybook/test': ^8.6.14
   '@storybook/vue3': ^8.6.14
   '@storybook/vue3-vite': ^8.6.14
+  '@tailwindcss/vite': ^4.1.11
+  '@tanstack/react-table': ^8.21.3
+  '@types/mdast': ^4.0.4
   '@types/node': ^22.16.5
   '@types/prompts': ^2.4.9
-  '@types/mdast': ^4.0.4
+  '@typescript/native-preview': latest
   '@vitejs/plugin-react-swc': ^3.11.0
   '@vitejs/plugin-vue': ^6.0.1
   '@vitejs/plugin-vue-jsx': ^5.0.1
   '@vue/tsconfig': ^0.7.0
+  '@xstate/store': ^3.8.4
   astro: ^5.13.0
   autoprefixer: ^10.4.21
   cac: ^6.7.14
   class-variance-authority: ^0.7.1
   clsx: ^2.1.1
+  cmdk: ^1.1.1
   dotenv: ^16.6.1
+  gray-matter: ^4.0.3
   kleur: ^4.1.5
-  tinyglobby: ^0.2.14
   lint-staged: ^16.1.2
   lucide-react: ^0.515.0
   lucide-vue-next: ^0.515.0
@@ -62,7 +66,9 @@ catalog:
   recharts: ^2.15.4
   rimraf: ^6.0.1
   scule: ^1.3.0
+  shadcn: ^2.9.3
   sharp: ^0.34.3
+  sherif: latest
   shiki: ^3.8.1
   simple-git-hooks: ^2.13.0
   storybook: ^8.6.14
@@ -70,10 +76,12 @@ catalog:
   tailwindcss: ^4.1.11
   tailwindcss-animate: ^1.0.7
   taze: ^19.1.0
+  tinyglobby: ^0.2.14
   ts-morph: ^26.0.0
   tsup: ^8.5.0
   tsx: ^4.20.3
   turbo: ^2.5.5
+  tw-animate-css: ^1.3.6
   typescript: ^5.8.3
   ufo: ^1.6.1
   unist-util-visit: ^5.0.0
@@ -84,13 +92,6 @@ catalog:
   vue: ^3.5.18
   vue-tsc: ^2.2.12
   zod: ^3.25.76
-  sherif: latest
-  '@typescript/native-preview': latest
-  tw-animate-css: ^1.3.6
-  '@tailwindcss/vite': ^4.1.11
-  gray-matter: ^4.0.3
-  shadcn: ^2.9.3
-  cmdk: ^1.1.1
 
 catalogs:
   react18:

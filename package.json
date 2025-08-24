@@ -27,14 +27,13 @@
     "dotenv": "catalog:",
     "lint-staged": "catalog:",
     "rimraf": "catalog:",
+    "sharp": "^0.33.5",
     "sherif": "catalog:",
     "simple-git-hooks": "catalog:",
     "taze": "catalog:",
     "tsx": "catalog:",
     "turbo": "catalog:",
-    "typescript": "catalog:",
-    "png-to-ico": "^2.1.7",
-    "sharp": "^0.33.5"
+    "typescript": "catalog:"
   },
   "packageManager": "pnpm@10.13.1",
   "simple-git-hooks": {

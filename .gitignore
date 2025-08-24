@@ -20,8 +20,17 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# deploy
+.vercel
+.wrangler
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# storybook
 *storybook.log
 storybook-static
-.vercel
 
+# turbo
 .turbo
