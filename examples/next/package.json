@@ -10,24 +10,24 @@
   },
   "dependencies": {
     "@ark-ui/react": "catalog:",
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.541.0",
+    "class-variance-authority": "catalog:",
+    "clsx": "catalog:",
+    "lucide-react": "catalog:",
     "next": "15.5.0",
-    "react": "19.1.1",
-    "react-dom": "19.1.1",
-    "tailwind-merge": "^3.3.1"
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "tailwind-merge": "catalog:"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3.3.1",
-    "@tailwindcss/postcss": "^4.1.12",
-    "@types/node": "catalog:",
-    "@types/react": "^19.1.11",
-    "@types/react-dom": "^19.1.7",
-    "eslint": "^9.34.0",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
     "eslint-config-next": "15.5.0",
-    "tailwindcss": "^4.1.12",
-    "tw-animate-css": "^1.3.7",
-    "typescript": "^5.9.2"
+    "tailwindcss": "^4",
+    "tw-animate-css": "catalog:",
+    "typescript": "^5"
   }
 }
