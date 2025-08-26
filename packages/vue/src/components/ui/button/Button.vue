@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils"
-import { ark } from "@ark-ui/vue/factory"
+import { type PolymorphicProps, ark } from "@ark-ui/vue/factory"
 import type { HTMLAttributes } from "vue"
-import { type ButtonVariants, buttonVariants } from "."
+import { type ButtonVariants, type buttonVariants, parts } from "."
 
-interface Props {
+interface Props extends PolymorphicProps {
   variant?: ButtonVariants["variant"]
   size?: ButtonVariants["size"]
   class?: HTMLAttributes["class"]
-  asChild?: boolean
 }
 
 const props = defineProps<Props>()
@@ -16,9 +15,7 @@ const props = defineProps<Props>()
 
 <template>
   <ark.button
-    :as-child="asChild"
+    v-bind="{ ...parts.root.attrs, ...props }"
     :class="cn(buttonVariants({ variant, size }), props.class)"
-  >
-    <slot />
-  </ark.button>
+  />
 </template>

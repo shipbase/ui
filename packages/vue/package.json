@@ -72,7 +72,14 @@
     "tailwindcss": "catalog:",
     "tinyglobby": "catalog:",
     "vite": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "vite-tsconfig-paths": "catalog:",
-    "vue-tsc": "catalog:"
+    "@ui/tailwind": "workspace:*",
+    "vue-tsc": "catalog:",
+    "vite-plugin-inspect": "catalog:"
+  },
+  "dependencies": {
+    "@vueuse/core": "^13.7.0",
+    "vue": "catalog:"
   }
 }
