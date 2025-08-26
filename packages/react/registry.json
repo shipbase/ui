@@ -6,16 +6,36 @@
     {
       "name": "accordion",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/accordion.tsx",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "css": {
+        "@keyframes accordion-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--height)"
+          }
+        },
+        "@keyframes accordion-up": {
+          "from": {
+            "height": "var(--height)"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
+      }
     },
     {
       "name": "avatar",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/avatar.tsx",
@@ -26,6 +46,7 @@
     {
       "name": "badge",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "./src/components/ui/badge.tsx",
@@ -36,6 +57,7 @@
     {
       "name": "button",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "./src/components/ui/button.tsx",
@@ -46,6 +68,7 @@
     {
       "name": "card",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/card.tsx",
@@ -56,6 +79,7 @@
     {
       "name": "checkbox",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/checkbox.tsx",
@@ -66,6 +90,7 @@
     {
       "name": "collapsible",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/collapsible.tsx",
@@ -76,6 +101,7 @@
     {
       "name": "combobox",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/combobox.tsx",
@@ -86,6 +112,7 @@
     {
       "name": "dialog",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/dialog.tsx",
@@ -96,6 +123,7 @@
     {
       "name": "hover-card",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/hover-card.tsx",
@@ -106,6 +134,7 @@
     {
       "name": "input",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/input.tsx",
@@ -116,6 +145,7 @@
     {
       "name": "label",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/label.tsx",
@@ -126,6 +156,7 @@
     {
       "name": "menu",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/menu.tsx",
@@ -136,6 +167,7 @@
     {
       "name": "number-input",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/number-input.tsx",
@@ -146,6 +178,11 @@
     {
       "name": "pagination",
       "type": "registry:ui",
+      "dependencies": [
+        "@ark-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "./src/components/ui/pagination.tsx",
@@ -156,6 +193,7 @@
     {
       "name": "pin-input",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/pin-input.tsx",
@@ -166,6 +204,7 @@
     {
       "name": "popover",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/popover.tsx",
@@ -176,6 +215,7 @@
     {
       "name": "progress",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/progress.tsx",
@@ -186,6 +226,7 @@
     {
       "name": "radio-group",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/radio-group.tsx",
@@ -196,6 +237,7 @@
     {
       "name": "rating-group",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/rating-group.tsx",
@@ -206,6 +248,7 @@
     {
       "name": "select",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/select.tsx",
@@ -216,6 +259,7 @@
     {
       "name": "sheet",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/sheet.tsx",
@@ -226,6 +270,7 @@
     {
       "name": "slider",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/slider.tsx",
@@ -236,6 +281,7 @@
     {
       "name": "switch",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/switch.tsx",
@@ -246,6 +292,7 @@
     {
       "name": "tabs",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/tabs.tsx",
@@ -256,6 +303,7 @@
     {
       "name": "tags-input",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
       "files": [
         {
           "path": "./src/components/ui/tags-input.tsx",
@@ -266,6 +314,7 @@
     {
       "name": "textarea",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/textarea.tsx",
@@ -276,6 +325,11 @@
     {
       "name": "toast",
       "type": "registry:ui",
+      "dependencies": [
+        "@ark-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
       "files": [
         {
           "path": "./src/components/ui/toast.tsx",
@@ -286,6 +340,7 @@
     {
       "name": "toggle",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "./src/components/ui/toggle.tsx",
@@ -296,6 +351,7 @@
     {
       "name": "toggle-group",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "./src/components/ui/toggle-group.tsx",
@@ -306,6 +362,7 @@
     {
       "name": "tooltip",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/tooltip.tsx",
@@ -316,6 +373,7 @@
     {
       "name": "tree-view",
       "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
       "files": [
         {
           "path": "./src/components/ui/tree-view.tsx",

@@ -2,6 +2,9 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "progress",
   "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
   "files": [
     {
       "path": "./src/components/ui/progress.tsx",
