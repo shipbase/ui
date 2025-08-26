@@ -1,4 +1,3 @@
-import avatar from "@/assets/avatar-40-01.jpg"
 import { Button } from "@/components/ui/button"
 import {
   HoverCard,
@@ -16,7 +15,12 @@ export default function Component() {
           asChild
         >
           <a href="https://github.com/shipbase/ui">
-            <img src={avatar} width={40} height={40} alt="Avatar" />
+            <img
+              src={"https://ui.shipbase.xyz/apple-touch-icon.png"}
+              width={40}
+              height={40}
+              alt="Avatar"
+            />
           </a>
         </Button>
       </HoverCardTrigger>
@@ -24,7 +28,7 @@ export default function Component() {
         <div className="flex items-start gap-3">
           <img
             className="shrink-0 rounded-full"
-            src={avatar}
+            src={"https://ui.shipbase.xyz/apple-touch-icon.png"}
             width={40}
             height={40}
             alt="Avatar"
@@ -32,7 +36,7 @@ export default function Component() {
           <div className="space-y-1">
             <p className="font-medium text-sm">shipbase/ui</p>
             <p className="text-muted-foreground text-sm">
-              Beautiful UI components built with Tailwind CSS and Next.js.
+              Beautiful UI components built with Tailwind CSS and Ark UI.
             </p>
           </div>
         </div>
