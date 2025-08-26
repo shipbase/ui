@@ -7,7 +7,7 @@ import {
   PinInputSeparator,
 } from "@/components/ui/pin-input"
 
-export default function PinInputDemo() {
+export default function Component() {
   return (
     <PinInput className="flex max-w-fit flex-col gap-2">
       <PinInputLabel>Label</PinInputLabel>

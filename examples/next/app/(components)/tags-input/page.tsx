@@ -12,7 +12,7 @@ import {
   TagsInputLabel,
 } from "@/components/ui/tags-input"
 
-export default function TagsInputDemo() {
+export default function Component() {
   return (
     <TagsInput className="w-full *:not-first:mt-2">
       <TagsInputLabel>TagsInput</TagsInputLabel>
