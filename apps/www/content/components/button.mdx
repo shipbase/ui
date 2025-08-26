@@ -43,20 +43,18 @@ import { Button } from "@/components/ui/button"
 
 ## Link
 
-You can use the `buttonVariants` helper to create a link that looks like a button.
+You can use the `asChild` prop to make another component look like a button. Here's an example of a link that looks like a button.
 
 ```tsx
-import { buttonVariants } from "@/components/ui/button"
-```
+import { Link } from "next/link"
 
-```tsx
-<Link className={buttonVariants({ variant: "outline" })}>Click here</Link>
-```
+import { Button } from "@/components/ui/button"
 
-Alternatively, you can set the `asChild` parameter and nest the link component.
-
-```tsx
-<Button asChild>
-  <Link href="/login">Login</Link>
-</Button>
+export function LinkAsButton() {
+  return (
+    <Button asChild>
+      <Link href="/login">Login</Link>
+    </Button>
+  )
+}
 ```

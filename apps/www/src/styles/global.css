@@ -49,7 +49,7 @@
     @apply mt-4;
   }
   .code-wrapper .shiki {
-    @apply text-sm py-4 leading-normal rounded overflow-auto font-mono bg-code!;
+    @apply text-sm py-4 leading-normal rounded overflow-auto font-mono bg-code! h-full;
   }
   .code-wrapper .shiki code {
     @apply flex flex-col;
