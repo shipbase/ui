@@ -7,6 +7,9 @@
     "class-variance-authority",
     "lucide-react"
   ],
+  "registryDependencies": [
+    "https://ui.shipbase.xyz/r/react/button.json"
+  ],
   "files": [
     {
       "path": "./src/components/ui/pagination.tsx",
