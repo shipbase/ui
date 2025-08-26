@@ -96,7 +96,25 @@
           "path": "./src/components/ui/collapsible.tsx",
           "type": "registry:ui"
         }
-      ]
+      ],
+      "css": {
+        "@keyframes collapsible-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--height)"
+          }
+        },
+        "@keyframes collapsible-up": {
+          "from": {
+            "height": "var(--height)"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
+      }
     },
     {
       "name": "combobox",

@@ -57,6 +57,22 @@
       height: 0;
     }
   }
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--height);
+    }
+  }
+  @keyframes collapsible-up {
+    from {
+      height: var(--height);
+    }
+    to {
+      height: 0;
+    }
+  }
 }
 
 :root {
