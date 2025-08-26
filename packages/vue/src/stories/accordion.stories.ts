@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/vue3"
-
-import { default as Accordion } from "../examples/accordion-demo.vue"
+import { defineAsyncComponent } from "vue"
 
 export default {
   title: "Components/Accordion",
 } satisfies Meta
 
-type Story = StoryObj<typeof Accordion>
-export const Usage: Story = {
-  render: () => ({
-    components: { Accordion },
-    template: "<Accordion />",
-  }),
-}
+export const Accordion01 = () => ({
+  components: {
+    Accordion01: defineAsyncComponent(
+      () => import("@/examples/Accordion01.vue")
+    ),
+  },
+  template: "<Accordion01 />",
+})
