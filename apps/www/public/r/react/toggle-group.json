@@ -6,6 +6,9 @@
     "@ark-ui/react",
     "class-variance-authority"
   ],
+  "registryDependencies": [
+    "https://ui.shipbase.xyz/r/react/toggle.json"
+  ],
   "files": [
     {
       "path": "./src/components/ui/toggle-group.tsx",
