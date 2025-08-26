@@ -4,9 +4,9 @@ import * as React from "react"
 
 import { Combobox as ComboboxPrimitive } from "@ark-ui/react/combobox"
 import { Portal } from "@ark-ui/react/portal"
+import { CheckIcon, ChevronsUpDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
-import { CheckIcon, ChevronsUpDownIcon } from "lucide-react"
 
 const Combobox = React.forwardRef(
   <T extends ComboboxPrimitive.CollectionItem>(

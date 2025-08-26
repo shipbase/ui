@@ -32,7 +32,7 @@ export default function Component() {
           <div className="space-y-1">
             <p className="font-medium text-sm">shipbase/ui</p>
             <p className="text-muted-foreground text-sm">
-              Beautiful UI components built with Tailwind CSS and Next.js.
+              Beautiful UI components built with Tailwind CSS and Ark UI.
             </p>
           </div>
         </div>

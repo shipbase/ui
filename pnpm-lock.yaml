@@ -130,10 +130,10 @@ catalogs:
       specifier: ^6.7.14
       version: 6.7.14
     class-variance-authority:
-      specifier: ^0.7.1
+      specifier: 0.7.1
       version: 0.7.1
     clsx:
-      specifier: ^2.1.1
+      specifier: 2.1.1
       version: 2.1.1
     cmdk:
       specifier: ^1.1.1
@@ -151,7 +151,7 @@ catalogs:
       specifier: ^16.1.5
       version: 16.1.5
     lucide-react:
-      specifier: ^0.515.0
+      specifier: 0.515.0
       version: 0.515.0
     lucide-vue-next:
       specifier: ^0.515.0
@@ -205,7 +205,7 @@ catalogs:
       specifier: ^8.6.14
       version: 8.6.14
     tailwind-merge:
-      specifier: ^3.3.1
+      specifier: 3.3.1
       version: 3.3.1
     tailwindcss:
       specifier: ^4.1.12
@@ -232,7 +232,7 @@ catalogs:
       specifier: ^2.5.6
       version: 2.5.6
     tw-animate-css:
-      specifier: ^1.3.7
+      specifier: 1.3.7
       version: 1.3.7
     typescript:
       specifier: ^5.9.2
@@ -495,7 +495,7 @@ importers:
     dependencies:
       '@ark-ui/react':
         specifier: 'catalog:'
-        version: 5.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 5.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       class-variance-authority:
         specifier: 'catalog:'
         version: 0.7.1
@@ -504,16 +504,16 @@ importers:
         version: 2.1.1
       lucide-react:
         specifier: 'catalog:'
-        version: 0.515.0(react@19.1.0)
+        version: 0.515.0(react@18.3.1)
       next:
         specifier: 15.5.0
-        version: 15.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.5.0(@babel/core@7.28.3)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react:
-        specifier: 19.1.0
-        version: 19.1.0
+        specifier: catalog:react18
+        version: 18.3.1
       react-dom:
-        specifier: 19.1.0
-        version: 19.1.0(react@19.1.0)
+        specifier: catalog:react18
+        version: 18.3.1(react@18.3.1)
       tailwind-merge:
         specifier: 'catalog:'
         version: 3.3.1
@@ -525,14 +525,14 @@ importers:
         specifier: ^4
         version: 4.1.12
       '@types/node':
-        specifier: ^20
-        version: 20.19.11
+        specifier: 'catalog:'
+        version: 22.17.2
       '@types/react':
-        specifier: ^19
-        version: 19.1.11
+        specifier: catalog:react18
+        version: 18.3.23
       '@types/react-dom':
-        specifier: ^19
-        version: 19.1.7(@types/react@19.1.11)
+        specifier: catalog:react18
+        version: 18.3.7(@types/react@18.3.23)
       eslint:
         specifier: ^9
         version: 9.34.0(jiti@2.5.1)
@@ -540,8 +540,11 @@ importers:
         specifier: 15.5.0
         version: 15.5.0(eslint@9.34.0(jiti@2.5.1))(typescript@5.9.2)
       tailwindcss:
-        specifier: ^4
-        version: 4.1.12
+        specifier: 'catalog:'
+        version: 4.1.11
+      tailwindcss-animate:
+        specifier: 'catalog:'
+        version: 1.0.7(tailwindcss@4.1.11)
       tw-animate-css:
         specifier: 'catalog:'
         version: 1.3.7
@@ -3350,11 +3353,6 @@ packages:
     peerDependencies:
       '@types/react': ^18.0.0
 
-  '@types/react-dom@19.1.7':
-    resolution: {integrity: sha512-i5ZzwYpqjmrKenzkoLM2Ibzt6mAsM7pxB6BCIouEVVmgiqaMj1TjaK7hnA36hbW5aZv20kx7Lw6hWzPWg0Rurw==}
-    peerDependencies:
-      '@types/react': ^19.0.0
-
   '@types/react-reconciler@0.28.9':
     resolution: {integrity: sha512-HHM3nxyUZ3zAylX8ZEyrDNd2XZOnQ0D5XfunJF5FLQnZbHHYq4UWvW1QfelQNXv1ICNkwYhfxjwfnqivYB6bFg==}
     peerDependencies:
@@ -3362,9 +3360,6 @@ packages:
 
   '@types/react@18.3.23':
     resolution: {integrity: sha512-/LDXMQh55EzZQ0uVAZmKKhfENivEvWz6E+EYzh+/MCjMhNsotd+ZHhBGIjFDTi6+fz0OhQQQLbTgdQIxxCsC0w==}
-
-  '@types/react@19.1.11':
-    resolution: {integrity: sha512-lr3jdBw/BGj49Eps7EvqlUaoeA0xpj3pc0RoJkHpYaCHkVK7i28dKyImLQb3JVlqs3aYSXf7qYuWOW/fgZnTXQ==}
 
   '@types/resolve@1.20.6':
     resolution: {integrity: sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ==}
@@ -7281,10 +7276,10 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-dom@19.1.0:
-    resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
+  react-dom@19.1.1:
+    resolution: {integrity: sha512-Dlq/5LAZgF0Gaz6yiqZCf6VCcZs1ghAJyrsu84Q/GT0gV+mCxbfmKNoGRKBYMJ8IEdGPqu49YWXD02GCknEDkw==}
     peerDependencies:
-      react: ^19.1.0
+      react: ^19.1.1
 
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -7365,8 +7360,8 @@ packages:
     resolution: {integrity: sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==}
     engines: {node: '>=0.10.0'}
 
-  react@19.1.0:
-    resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
+  react@19.1.1:
+    resolution: {integrity: sha512-w8nqGImo45dmMIfljjMwOGtbmC/mk4CMYhWIicdSflH91J9TyCyczcPFXJzrZ/ZXcgGRFeP6BU0BEJTw6tZdfQ==}
     engines: {node: '>=0.10.0'}
 
   read-yaml-file@1.1.0:
@@ -9110,71 +9105,6 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@ark-ui/react@5.20.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@internationalized/date': 3.8.2
-      '@zag-js/accordion': 1.21.7
-      '@zag-js/anatomy': 1.21.7
-      '@zag-js/angle-slider': 1.21.7
-      '@zag-js/auto-resize': 1.21.7
-      '@zag-js/avatar': 1.21.7
-      '@zag-js/carousel': 1.21.7
-      '@zag-js/checkbox': 1.21.7
-      '@zag-js/clipboard': 1.21.7
-      '@zag-js/collapsible': 1.21.7
-      '@zag-js/collection': 1.21.7
-      '@zag-js/color-picker': 1.21.7
-      '@zag-js/color-utils': 1.21.7
-      '@zag-js/combobox': 1.21.7
-      '@zag-js/core': 1.21.7
-      '@zag-js/date-picker': 1.21.7(@internationalized/date@3.8.2)
-      '@zag-js/date-utils': 1.21.7(@internationalized/date@3.8.2)
-      '@zag-js/dialog': 1.21.7
-      '@zag-js/dom-query': 1.21.7
-      '@zag-js/editable': 1.21.7
-      '@zag-js/file-upload': 1.21.7
-      '@zag-js/file-utils': 1.21.7
-      '@zag-js/floating-panel': 1.21.7
-      '@zag-js/focus-trap': 1.21.7
-      '@zag-js/highlight-word': 1.21.7
-      '@zag-js/hover-card': 1.21.7
-      '@zag-js/i18n-utils': 1.21.7
-      '@zag-js/json-tree-utils': 1.21.7
-      '@zag-js/listbox': 1.21.7
-      '@zag-js/menu': 1.21.7
-      '@zag-js/number-input': 1.21.7
-      '@zag-js/pagination': 1.21.7
-      '@zag-js/password-input': 1.21.7
-      '@zag-js/pin-input': 1.21.7
-      '@zag-js/popover': 1.21.7
-      '@zag-js/presence': 1.21.7
-      '@zag-js/progress': 1.21.7
-      '@zag-js/qr-code': 1.21.7
-      '@zag-js/radio-group': 1.21.7
-      '@zag-js/rating-group': 1.21.7
-      '@zag-js/react': 1.21.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
-      '@zag-js/scroll-area': 1.21.7
-      '@zag-js/select': 1.21.7
-      '@zag-js/signature-pad': 1.21.7
-      '@zag-js/slider': 1.21.7
-      '@zag-js/splitter': 1.21.7
-      '@zag-js/steps': 1.21.7
-      '@zag-js/switch': 1.21.7
-      '@zag-js/tabs': 1.21.7
-      '@zag-js/tags-input': 1.21.7
-      '@zag-js/time-picker': 1.21.7(@internationalized/date@3.8.2)
-      '@zag-js/timer': 1.21.7
-      '@zag-js/toast': 1.21.7
-      '@zag-js/toggle': 1.21.7
-      '@zag-js/toggle-group': 1.21.7
-      '@zag-js/tooltip': 1.21.7
-      '@zag-js/tour': 1.21.7
-      '@zag-js/tree-view': 1.21.7
-      '@zag-js/types': 1.21.7
-      '@zag-js/utils': 1.21.7
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-
   '@ark-ui/vue@5.18.2(vue@3.5.19(typescript@5.9.2))':
     dependencies:
       '@internationalized/date': 3.8.2
@@ -10612,11 +10542,11 @@ snapshots:
       - acorn
       - supports-color
 
-  '@mdx-js/react@3.0.1(@types/react@18.3.23)(react@19.1.0)':
+  '@mdx-js/react@3.0.1(@types/react@18.3.23)(react@19.1.1)':
     dependencies:
       '@types/mdx': 2.0.13
       '@types/react': 18.3.23
-      react: 19.1.0
+      react: 19.1.1
 
   '@modelcontextprotocol/sdk@1.17.0':
     dependencies:
@@ -11173,12 +11103,12 @@ snapshots:
 
   '@storybook/addon-docs@8.6.14(@types/react@18.3.23)(storybook@8.6.14(prettier@3.3.3))':
     dependencies:
-      '@mdx-js/react': 3.0.1(@types/react@18.3.23)(react@19.1.0)
-      '@storybook/blocks': 8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.3.3))
+      '@mdx-js/react': 3.0.1(@types/react@18.3.23)(react@19.1.1)
+      '@storybook/blocks': 8.6.14(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(storybook@8.6.14(prettier@3.3.3))
       '@storybook/csf-plugin': 8.6.14(storybook@8.6.14(prettier@3.3.3))
-      '@storybook/react-dom-shim': 8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.3.3))
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      '@storybook/react-dom-shim': 8.6.14(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(storybook@8.6.14(prettier@3.3.3))
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
       storybook: 8.6.14(prettier@3.3.3)
       ts-dedent: 2.2.0
     transitivePeerDependencies:
@@ -11261,14 +11191,14 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/blocks@8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.3.3))':
+  '@storybook/blocks@8.6.14(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(storybook@8.6.14(prettier@3.3.3))':
     dependencies:
-      '@storybook/icons': 1.2.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      '@storybook/icons': 1.2.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       storybook: 8.6.14(prettier@3.3.3)
       ts-dedent: 2.2.0
     optionalDependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   '@storybook/builder-vite@8.6.14(storybook@8.6.14(prettier@3.3.3))(vite@7.1.3(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)(tsx@4.20.5)(yaml@2.8.1))':
     dependencies:
@@ -11315,10 +11245,10 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@storybook/icons@1.2.12(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
+  '@storybook/icons@1.2.12(react-dom@19.1.1(react@19.1.1))(react@19.1.1)':
     dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
 
   '@storybook/instrumenter@8.6.14(storybook@8.6.14(prettier@3.3.3))':
     dependencies:
@@ -11340,10 +11270,10 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       storybook: 8.6.14(prettier@3.3.3)
 
-  '@storybook/react-dom-shim@8.6.14(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@8.6.14(prettier@3.3.3))':
+  '@storybook/react-dom-shim@8.6.14(react-dom@19.1.1(react@19.1.1))(react@19.1.1)(storybook@8.6.14(prettier@3.3.3))':
     dependencies:
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
+      react: 19.1.1
+      react-dom: 19.1.1(react@19.1.1)
       storybook: 8.6.14(prettier@3.3.3)
 
   '@storybook/react-vite@8.6.14(@storybook/test@8.6.14(storybook@8.6.14(prettier@3.3.3)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(rollup@4.48.0)(storybook@8.6.14(prettier@3.3.3))(typescript@5.9.2)(vite@7.1.3(@types/node@24.3.0)(jiti@2.5.1)(lightningcss@1.30.1)(tsx@4.20.5)(yaml@2.8.1))':
@@ -11763,7 +11693,7 @@ snapshots:
 
   '@types/fontkit@2.0.8':
     dependencies:
-      '@types/node': 20.19.11
+      '@types/node': 24.3.0
 
   '@types/hast@3.0.4':
     dependencies:
@@ -11798,11 +11728,10 @@ snapshots:
   '@types/node@24.3.0':
     dependencies:
       undici-types: 7.10.0
-    optional: true
 
   '@types/prompts@2.4.9':
     dependencies:
-      '@types/node': 20.19.11
+      '@types/node': 24.3.0
       kleur: 3.0.3
 
   '@types/prop-types@15.7.12': {}
@@ -11811,10 +11740,6 @@ snapshots:
     dependencies:
       '@types/react': 18.3.23
 
-  '@types/react-dom@19.1.7(@types/react@19.1.11)':
-    dependencies:
-      '@types/react': 19.1.11
-
   '@types/react-reconciler@0.28.9(@types/react@18.3.23)':
     dependencies:
       '@types/react': 18.3.23
@@ -11822,10 +11747,6 @@ snapshots:
   '@types/react@18.3.23':
     dependencies:
       '@types/prop-types': 15.7.12
-      csstype: 3.1.3
-
-  '@types/react@19.1.11':
-    dependencies:
       csstype: 3.1.3
 
   '@types/resolve@1.20.6': {}
@@ -13068,15 +12989,6 @@ snapshots:
       '@zag-js/utils': 1.21.7
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-
-  '@zag-js/react@1.21.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)':
-    dependencies:
-      '@zag-js/core': 1.21.7
-      '@zag-js/store': 1.21.7
-      '@zag-js/types': 1.21.7
-      '@zag-js/utils': 1.21.7
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
 
   '@zag-js/rect-utils@1.21.0': {}
 
@@ -15853,10 +15765,6 @@ snapshots:
     dependencies:
       react: 18.3.1
 
-  lucide-react@0.515.0(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-
   lucide-vue-next@0.515.0(vue@3.5.19(typescript@5.9.2)):
     dependencies:
       vue: 3.5.19(typescript@5.9.2)
@@ -16566,30 +16474,6 @@ snapshots:
     transitivePeerDependencies:
       - '@babel/core'
       - babel-plugin-macros
-    optional: true
-
-  next@15.5.0(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
-    dependencies:
-      '@next/env': 15.5.0
-      '@swc/helpers': 0.5.15
-      caniuse-lite: 1.0.30001718
-      postcss: 8.4.31
-      react: 19.1.0
-      react-dom: 19.1.0(react@19.1.0)
-      styled-jsx: 5.1.6(react@19.1.0)
-    optionalDependencies:
-      '@next/swc-darwin-arm64': 15.5.0
-      '@next/swc-darwin-x64': 15.5.0
-      '@next/swc-linux-arm64-gnu': 15.5.0
-      '@next/swc-linux-arm64-musl': 15.5.0
-      '@next/swc-linux-x64-gnu': 15.5.0
-      '@next/swc-linux-x64-musl': 15.5.0
-      '@next/swc-win32-arm64-msvc': 15.5.0
-      '@next/swc-win32-x64-msvc': 15.5.0
-      sharp: 0.34.3
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
 
   nlcst-to-string@4.0.0:
     dependencies:
@@ -17144,9 +17028,9 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
-  react-dom@19.1.0(react@19.1.0):
+  react-dom@19.1.1(react@19.1.1):
     dependencies:
-      react: 19.1.0
+      react: 19.1.1
       scheduler: 0.26.0
 
   react-is@16.13.1: {}
@@ -17234,7 +17118,7 @@ snapshots:
     dependencies:
       loose-envify: 1.4.0
 
-  react@19.1.0: {}
+  react@19.1.1: {}
 
   read-yaml-file@1.1.0:
     dependencies:
@@ -18121,12 +18005,6 @@ snapshots:
       react: 18.3.1
     optionalDependencies:
       '@babel/core': 7.28.3
-    optional: true
-
-  styled-jsx@5.1.6(react@19.1.0):
-    dependencies:
-      client-only: 0.0.1
-      react: 19.1.0
 
   sucrase@3.35.0:
     dependencies:
@@ -18471,8 +18349,7 @@ snapshots:
 
   undici-types@6.21.0: {}
 
-  undici-types@7.10.0:
-    optional: true
+  undici-types@7.10.0: {}
 
   undici@7.15.0: {}
 
