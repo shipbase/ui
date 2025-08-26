@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/collapsible"
 import { ChevronsUpDown } from "lucide-react"
 
-export default function CollapsibleDemo() {
+export default function Component() {
   const [isOpen, setIsOpen] = React.useState(true)
 
   return (
