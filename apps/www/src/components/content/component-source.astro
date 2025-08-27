@@ -24,7 +24,7 @@ const frameworkSources = await getComponentSource(currentFramework, component)
         frameworkSources?.length > 1 ? (
           <p class="mb-2">{src.filename}</p>
         ) : null}
-        <CodeCollapsible client:visible>
+        <CodeCollapsible client:load>
           <Code
             lang={src.lang}
             src={src.source}

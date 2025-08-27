@@ -10,16 +10,16 @@ import { CardsTeamMembers } from "./team-members"
 
 <section class="grid gap-4 grid-cols-1 md:grid-cols-12">
   <div class="md:col-span-4 space-y-6">
-    <CardsCreateAccount client:visible />
-    <!-- <CardsReportIssue client:visible /> -->
-    <CardsBillingUpgrade client:visible />
-    <!-- <CardsForms client:visible /> -->
+    <CardsCreateAccount client:load />
+    <!-- <CardsReportIssue client:load /> -->
+    <CardsBillingUpgrade client:load />
+    <!-- <CardsForms client:load /> -->
   </div>
 
   <div class="md:col-span-8 flex flex-col gap-6">
-    <CardsTeamMembers client:visible />
-    <CardsCookieSettings client:visible />
-    <CardsShare client:visible />
-    <CardsChat client:visible />
+    <CardsTeamMembers client:load />
+    <CardsCookieSettings client:load />
+    <CardsShare client:load />
+    <CardsChat client:load />
   </div>
 </section>

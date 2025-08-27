@@ -4,7 +4,7 @@ import Sidebar from "../sidebar.astro"
 import { MobileNavSheet } from "./sheet"
 ---
 
-<MobileNavSheet client:visible>
+<MobileNavSheet client:load>
   <Fragment>
     <a href="/" class="flex items-center">
       <span class="font-bold">{siteConfig.name}</span>

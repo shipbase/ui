@@ -24,12 +24,12 @@ const { source, lang } = (await getExampleSource(framework, name)) || {}
     className
   )}
 >
-  <Tabs client:visible>
+  <Tabs client:load>
     <Fragment slot="preview">
       <div
         class="relative flex h-[450px] w-full flex-col items-center justify-center rounded border"
       >
-        <PreviewReact client:visible name={name} />
+        <PreviewReact client:load name={name} />
       </div>
     </Fragment>
     <Fragment slot="code">
