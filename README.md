@@ -1,6 +1,6 @@
 # shipbase/ui
 
-<p align="center"><a href="https://github.com/shipbase/ui"><img src="https://ui.shipbase.xyz/og-image.png" alt="shipbase/ui" height="128" /></a></p>
+<a href="https://github.com/shipbase/ui"><img src="https://ui.shipbase.xyz/og-image.png" alt="shipbase/ui" height="128" /></a>
 
 Beautifully designed components that you can copy and paste into your apps. 
 **Framework agnostic. Accessible. Customizable.** 
