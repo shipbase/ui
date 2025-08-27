@@ -49,13 +49,13 @@
     @apply mt-4;
   }
   .code-wrapper .shiki {
-    @apply text-sm py-4 leading-normal rounded overflow-auto font-mono bg-code! h-full;
+    @apply text-sm leading-normal rounded overflow-auto font-mono bg-code! h-full no-scrollbar;
   }
   .code-wrapper .shiki code {
     @apply flex flex-col;
   }
   .code-wrapper .shiki .line {
-    @apply w-full px-4 inline-block min-h-4;
+    @apply w-full inline-block min-h-4;
   }
   .code-wrapper .shiki .line.highlighted {
     @apply bg-code-highlight;
@@ -80,6 +80,15 @@
   &:before {
     @apply text-muted-foreground right-0 mr-2 hidden size-7 items-center justify-center rounded-full text-center -indent-px font-mono text-sm font-medium md:absolute;
     content: counter(step);
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
