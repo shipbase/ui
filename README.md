@@ -7,7 +7,7 @@ Inspired by [shadcn/ui](https://ui.shadcn.com/) style.
 
 ## Documentation
 
-Visit http://ui.shipbase.xyz to view the documentation.
+Visit https://ui.shipbase.xyz to view the documentation.
 
 ## License
 
