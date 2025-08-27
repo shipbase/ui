@@ -18,7 +18,7 @@ export default function PreviewReact({ name }: Props) {
   return (
     <div
       key={key}
-      className="relative flex size-full flex-1 items-center justify-center p-4 md:p-10"
+      className="relative flex size-full h-[450px] w-full items-center justify-center rounded border p-4 md:p-10"
     >
       <Button
         onClick={() => setKey((prev) => prev + 1)}
@@ -27,16 +27,18 @@ export default function PreviewReact({ name }: Props) {
       >
         <RotateCcw aria-label="restart-btn" size={16} />
       </Button>
-      <React.Suspense
-        fallback={
-          <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
-            <Spinner className="mr-2 h-4 w-4 animate-spin" />
-            Loading...
-          </div>
-        }
-      >
-        <Component />
-      </React.Suspense>
+      <div className="flex size-full max-w-8/12 flex-1 items-center justify-center ">
+        <React.Suspense
+          fallback={
+            <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
+              <Spinner className="mr-2 h-4 w-4 animate-spin" />
+              Loading...
+            </div>
+          }
+        >
+          <Component />
+        </React.Suspense>
+      </div>
     </div>
   )
 }

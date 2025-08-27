@@ -11,7 +11,7 @@ import {
 
 export default function Component() {
   return (
-    <NumberInput className="w-80 space-y-2">
+    <NumberInput className="w-full max-w-64 space-y-2">
       <NumberInputLabel>Number input with plus/minus buttons</NumberInputLabel>
       <NumberInputControl>
         <NumberInputDecrementTrigger className="-ms-px me-0 mt-0 aspect-square h-[inherit] w-max flex-none rounded-s-md">
