@@ -55,9 +55,11 @@
     "@storybook/test": "catalog:",
     "@storybook/vue3": "catalog:",
     "@storybook/vue3-vite": "catalog:",
+    "@tailwindcss/vite": "catalog:",
     "@types/react": "catalog:react18",
     "@types/react-dom": "catalog:react18",
     "@ui/lib": "workspace:*",
+    "@ui/tailwind": "workspace:*",
     "@ui/typescript": "workspace:*",
     "@vitejs/plugin-vue": "catalog:",
     "@vitejs/plugin-vue-jsx": "catalog:",
@@ -72,11 +74,9 @@
     "tailwindcss": "catalog:",
     "tinyglobby": "catalog:",
     "vite": "catalog:",
-    "@tailwindcss/vite": "catalog:",
+    "vite-plugin-inspect": "catalog:",
     "vite-tsconfig-paths": "catalog:",
-    "@ui/tailwind": "workspace:*",
-    "vue-tsc": "catalog:",
-    "vite-plugin-inspect": "catalog:"
+    "vue-tsc": "catalog:"
   },
   "dependencies": {
     "@vueuse/core": "^13.7.0",

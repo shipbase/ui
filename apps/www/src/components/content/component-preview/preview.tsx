@@ -1,5 +1,5 @@
 import { RotateCcw } from "lucide-react"
-import * as React from "react"
+import { Suspense, useEffect, useState } from "react"
 
 import { Button } from "@ui/react/button"
 import Examples from "@ui/react/examples"
@@ -10,16 +10,15 @@ interface Props {
 }
 
 export default function PreviewReact({ name }: Props) {
-  const [key, setKey] = React.useState(0)
-  const Component = React.lazy(
-    Examples[name] ?? (() => <NotFound component={name} />)
-  )
+  const [key, setKey] = useState(0)
+  const Component = Examples[name] ?? (() => <NotFound component={name} />)
+
+  useEffect(() => {
+    setKey((prev) => prev + 1)
+  }, [])
 
   return (
-    <div
-      key={key}
-      className="relative flex size-full h-[450px] w-full items-center justify-center rounded border p-4 md:p-10"
-    >
+    <>
       <Button
         onClick={() => setKey((prev) => prev + 1)}
         variant="ghost"
@@ -27,8 +26,11 @@ export default function PreviewReact({ name }: Props) {
       >
         <RotateCcw aria-label="restart-btn" size={16} />
       </Button>
-      <div className="flex size-full max-w-8/12 flex-1 items-center justify-center ">
-        <React.Suspense
+      <div
+        key={key}
+        className="flex size-full max-w-8/12 flex-1 items-center justify-center "
+      >
+        <Suspense
           fallback={
             <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
               <Spinner className="mr-2 h-4 w-4 animate-spin" />
@@ -37,9 +39,9 @@ export default function PreviewReact({ name }: Props) {
           }
         >
           <Component />
-        </React.Suspense>
+        </Suspense>
       </div>
-    </div>
+    </>
   )
 }
 

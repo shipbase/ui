@@ -2,7 +2,7 @@ name: Workers Deployment
 
 on:
   pull_request:
-    branches: ['main']
+    branches: ['main','next']
   push: 
     branches: ['next']
 

@@ -3,7 +3,7 @@ import Code from "@/components/code.astro"
 import { getComponentPageParams } from "@/lib/docs"
 import { getExampleSource } from "@/lib/source"
 import { cn } from "@/lib/utils"
-import PreviewReact from "./preview"
+import Preview from "./preview"
 import Tabs from "./tabs"
 
 export interface Props {
@@ -26,7 +26,11 @@ const { source, lang } = (await getExampleSource(framework, name)) || {}
 >
   <Tabs client:load>
     <Fragment slot="preview">
-      <PreviewReact client:load name={name} />
+      <div
+        class="relative flex size-full h-[450px] w-full items-center justify-center rounded border p-4 md:p-10"
+      >
+        <Preview client:only="react" name={name} />
+      </div>
     </Fragment>
     <Fragment slot="code">
       {
