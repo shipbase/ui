@@ -10,8 +10,8 @@ const { name } = Astro.props
 
 const frameworkSources = await Promise.all(
   frameworks.map(async (framework) => {
-    const { source, lang } = (await getExampleSource(framework, name)) || {}
-    return { framework, source, lang }
+    const { content, lang } = (await getExampleSource(framework, name)) || {}
+    return { framework, content, lang }
   })
 )
 ---
@@ -21,15 +21,11 @@ const frameworkSources = await Promise.all(
     const source = frameworkSources[index];
     return (
       <div data-framework={framework} class="hidden">
-        {source ? (
-          <Code
-            className="mt-0 h-[450px] overflow-y-auto"
-            lang={source.lang}
-            src={source.source}
-          />
-        ) : (
-          <Code src={"Not Found"} />
-        )}
+        <Code
+          className="mt-0 h-[450px] overflow-y-auto"
+          lang={source?.lang}
+          src={source?.content || "Not Found"}
+        />
       </div>
     );
   })

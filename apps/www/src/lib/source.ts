@@ -22,7 +22,7 @@ export const getExampleSource = async (
   const entryFileInfo = extractFileInfo(entryPath.result)
   return {
     filename: `${entryFileInfo[1]}.${entryFileInfo[2]}`,
-    source: entryFile.result,
+    content: entryFile.result,
     lang: entryFileInfo[2] as BuiltinLanguage,
   }
 }

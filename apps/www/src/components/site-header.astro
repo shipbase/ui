@@ -28,7 +28,7 @@ import MobileNav from "./mobile-nav/index.astro"
         <!-- <CommandMenu /> -->
       </div>
       <nav class="flex items-center gap-2">
-        <FrameworkSelect client:load />
+        <FrameworkSelect client:only="react" />
         <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
           <Button variant="ghost" className="size-8 p-0">
             <GitHubLight

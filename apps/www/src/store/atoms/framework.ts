@@ -1,23 +1,34 @@
 import { siteConfig } from "@/config/site"
-import { type Framework, frameworks } from "@/constants/frameworks"
-import { createAtom } from "@xstate/store"
+import type { Framework } from "@/constants/frameworks"
+import { type Subscription, createAtom } from "@xstate/store"
+
+export const frameworkAtom = createAtom<Framework>("react")
 
 export const FRAMEWORK_STORAGE_KEY = `${siteConfig.name}-framework`
 
-// Get initial value from localStorage or default to "react"
-const getInitialFramework = (): Framework => {
-  if (typeof window === "undefined") return "react"
-  const stored = localStorage.getItem(FRAMEWORK_STORAGE_KEY)
-  return stored && frameworks.includes(stored as Framework)
-    ? (stored as Framework)
-    : "react"
+// for ui display
+let subscription: Subscription
+
+const handler = () => {
+  for (const element of document.querySelectorAll("[data-framework]")) {
+    if (element.getAttribute("data-framework") === frameworkAtom.get()) {
+      element.classList.remove("hidden")
+    } else {
+      element.classList.add("hidden")
+    }
+  }
+
+  localStorage.setItem(FRAMEWORK_STORAGE_KEY, frameworkAtom.get())
 }
 
-export const frameworkAtom = createAtom<Framework>(getInitialFramework())
+document.addEventListener("astro:page-load", () => {
+  subscription?.unsubscribe()
 
-// Subscribe to atom changes and persist to localStorage
-if (typeof window !== "undefined") {
-  frameworkAtom.subscribe((framework) => {
-    localStorage.setItem(FRAMEWORK_STORAGE_KEY, framework)
-  })
-}
+  // sync state in client
+  frameworkAtom.set(
+    (localStorage.getItem(FRAMEWORK_STORAGE_KEY) as Framework) || "react"
+  )
+
+  handler()
+  subscription = frameworkAtom.subscribe(handler)
+})
