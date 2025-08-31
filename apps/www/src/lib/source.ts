@@ -22,7 +22,7 @@ export const getExampleSource = async (
   const entryFileInfo = extractFileInfo(entryPath.result)
   return {
     filename: `${entryFileInfo[1]}.${entryFileInfo[2]}`,
-    source: entryFile.result,
+    content: entryFile.result,
     lang: entryFileInfo[2] as BuiltinLanguage,
   }
 }
@@ -48,7 +48,7 @@ export const getComponentSource = async (
 
         return {
           filename: `${name}.${lang}`,
-          source: await fs.readFile(
+          content: await fs.readFile(
             // biome-ignore lint/style/noNonNullAssertion: <explanation>
             path.resolve(path.dirname(entryPath.result), exp.specifier!),
             "utf-8"
@@ -63,7 +63,7 @@ export const getComponentSource = async (
     ...sources,
     {
       filename: `${entryFileInfo[1]}.${entryFileInfo[2]}`,
-      source: entryFile.result,
+      content: entryFile.result,
       lang: entryFileInfo[2] as BuiltinLanguage,
     },
   ]

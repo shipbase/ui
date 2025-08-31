@@ -1,8 +1,0 @@
----
-import { getComponentPageParams } from "@/lib/docs"
-import { FrameworkSelect } from "./select"
-
-const { framework } = getComponentPageParams(Astro.params)
----
-
-{framework ? <FrameworkSelect framework={framework} client:load /> : null}

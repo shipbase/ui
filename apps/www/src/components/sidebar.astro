@@ -1,9 +1,6 @@
 ---
-import { generateComponentSideItems, getComponentPageParams } from "@/lib/docs"
+import { generateComponentSideItems } from "@/lib/docs"
 import { cn } from "@/lib/utils"
-
-// Get type-safe framework parameter with default fallback
-const { framework } = getComponentPageParams(Astro.params)
 
 const sidebarGroup = [
   {
@@ -17,7 +14,7 @@ const sidebarGroup = [
   },
   {
     title: "Components",
-    items: await generateComponentSideItems(framework),
+    items: await generateComponentSideItems(),
   },
 ]
 

@@ -6,6 +6,8 @@
       "**/.turbo/**",
       "**/.astro/**",
       "**/public/**",
+      "**/.wrangler/**",
+      "**/.next/**",
       "packages.json"
     ]
   },

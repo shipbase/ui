@@ -1,0 +1,32 @@
+---
+import Code from "@/components/code.astro"
+import { frameworks } from "@/constants/frameworks"
+import { getExampleSource } from "@/lib/source"
+
+export interface Props {
+  name: string
+}
+const { name } = Astro.props
+
+const frameworkSources = await Promise.all(
+  frameworks.map(async (framework) => {
+    const { content, lang } = (await getExampleSource(framework, name)) || {}
+    return { framework, content, lang }
+  })
+)
+---
+
+{
+  frameworks.map((framework, index) => {
+    const source = frameworkSources[index];
+    return (
+      <div data-framework={framework} class="hidden">
+        <Code
+          className="mt-0 h-[450px] overflow-y-auto"
+          lang={source?.lang}
+          src={source?.content || "Not supported yet"}
+        />
+      </div>
+    );
+  })
+}

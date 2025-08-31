@@ -1,5 +1,6 @@
 import type { Framework } from "@/constants/frameworks"
 import { frameworks } from "@/constants/frameworks"
+import { frameworkAtom } from "@/store/atoms/framework"
 import {
   Select,
   SelectContent,
@@ -10,12 +11,8 @@ import {
   SelectValueText,
   createListCollection,
 } from "@ui/react/select"
-import { useState } from "react"
+import { useAtom } from "@xstate/store/react"
 import { pascalCase } from "scule"
-
-interface Props {
-  framework: Framework
-}
 
 const frameworksCollection = createListCollection({
   items: frameworks.map((framework) => ({
@@ -24,18 +21,16 @@ const frameworksCollection = createListCollection({
   })),
 })
 
-export function FrameworkSelect({ framework }: Props) {
-  const [currentFramework, setCurrentFramework] = useState(framework)
+export function FrameworkSelect() {
+  const framework = useAtom(frameworkAtom)
 
   return (
     <Select
       className="w-20"
-      value={[currentFramework]}
+      value={[framework]}
       onValueChange={(details) => {
         const newFramework = details.value[0] as Framework
-        setCurrentFramework(newFramework)
-        const newUrl = window.location.pathname.replace(framework, newFramework)
-        window.location.href = newUrl
+        frameworkAtom.set(newFramework)
       }}
       collection={frameworksCollection}
       positioning={{ sameWidth: true }}
