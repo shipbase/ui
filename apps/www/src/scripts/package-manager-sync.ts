@@ -1,17 +1,12 @@
-import {
-  PACKAGE_MANAGER_KEY_STORAGE_KEY,
-  packageManagerAtom,
-} from "@/store/atoms/package-manager"
-import type { PackageManager } from "@/store/atoms/package-manager"
+import type { PackageManager } from "@/constants/package-managers"
+import { PACKAGE_MANAGER_STORAGE_KEY } from "@/constants/storage-keys"
+import { packageManagerAtom } from "@/store/atoms"
 import type { Subscription } from "@xstate/store"
 
 let subscription: Subscription
 
 const handler = () => {
-  localStorage.setItem(
-    PACKAGE_MANAGER_KEY_STORAGE_KEY,
-    packageManagerAtom.get()
-  )
+  localStorage.setItem(PACKAGE_MANAGER_STORAGE_KEY, packageManagerAtom.get())
 }
 
 document.addEventListener("astro:page-load", () => {
@@ -19,7 +14,7 @@ document.addEventListener("astro:page-load", () => {
 
   // sync state in client
   packageManagerAtom.set(
-    (localStorage.getItem(PACKAGE_MANAGER_KEY_STORAGE_KEY) as PackageManager) ||
+    (localStorage.getItem(PACKAGE_MANAGER_STORAGE_KEY) as PackageManager) ||
       "pnpm"
   )
 

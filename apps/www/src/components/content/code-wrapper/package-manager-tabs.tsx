@@ -1,10 +1,10 @@
 import { CopyButton } from "@/components/copy-button"
-import { cn } from "@/lib/utils"
 import {
   type PackageManager,
-  packageManagerAtom,
   packageManagers,
-} from "@/store/atoms/package-manager"
+} from "@/constants/package-managers"
+import { cn } from "@/lib/utils"
+import { packageManagerAtom } from "@/store/atoms"
 import {
   Tabs,
   TabsContent,

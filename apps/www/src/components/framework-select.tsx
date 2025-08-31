@@ -1,6 +1,6 @@
 import type { Framework } from "@/constants/frameworks"
 import { frameworks } from "@/constants/frameworks"
-import { frameworkAtom } from "@/store/atoms/framework"
+import { frameworkAtom } from "@/store/atoms"
 import {
   Select,
   SelectContent,

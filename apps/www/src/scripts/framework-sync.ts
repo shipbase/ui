@@ -1,5 +1,6 @@
 import type { Framework } from "@/constants/frameworks"
-import { FRAMEWORK_STORAGE_KEY, frameworkAtom } from "@/store/atoms/framework"
+import { FRAMEWORK_STORAGE_KEY } from "@/constants/storage-keys"
+import { frameworkAtom } from "@/store/atoms"
 import type { Subscription } from "@xstate/store"
 
 let subscription: Subscription
