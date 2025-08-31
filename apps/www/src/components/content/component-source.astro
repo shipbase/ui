@@ -19,20 +19,24 @@ const frameworkSources = await Promise.all(
     const sources = frameworkSources[index];
     return (
       <div data-framework={framework} class="hidden">
-        {sources?.map((source) => (
-          <Fragment>
-            {typeof sources?.length === "number" && sources?.length > 1 ? (
-              <p class="mb-2">{source.filename}</p>
-            ) : null}
-            <CodeCollapsible client:load>
-              <Code
-                lang={source.lang}
-                src={source.content}
-                className="[&>pre]:pb-10"
-              />
-            </CodeCollapsible>
-          </Fragment>
-        ))}
+        {sources?.length && sources.length > 0 ? (
+          sources?.map((source) => (
+            <Fragment>
+              {typeof sources?.length === "number" && sources?.length > 1 ? (
+                <p class="mb-2">{source.filename}</p>
+              ) : null}
+              <CodeCollapsible client:load>
+                <Code
+                  lang={source.lang}
+                  src={source.content}
+                  className="[&>pre]:pb-10"
+                />
+              </CodeCollapsible>
+            </Fragment>
+          ))
+        ) : (
+          <Code src="Not supported yet" className="[&>pre]:pb-10" />
+        )}
       </div>
     );
   })
