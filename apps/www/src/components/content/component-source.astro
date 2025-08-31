@@ -1,39 +1,39 @@
 ---
 import Code from "@/components/code.astro"
 import CodeCollapsible from "@/components/content/code-collapsible"
-import { getComponentPageParams } from "@/lib/docs"
+import { frameworks } from "@/constants/frameworks"
 import { getComponentSource } from "@/lib/source"
 
 export interface Props {
-  component: string
+  name: string
 }
-const { component } = Astro.props
+const { name } = Astro.props
 
-// Get current framework from type-safe params
-const { framework: currentFramework } = getComponentPageParams(Astro.params)
-
-// Only get source for current framework
-const frameworkSources = await getComponentSource(currentFramework, component)
+const frameworkSources = await Promise.all(
+  frameworks.map((framework) => getComponentSource(framework, name))
+)
 ---
 
-<div class="mt-4">
-  {frameworkSources?.length ? (
-    frameworkSources?.map((src) => (
-      <Fragment>
-        {typeof frameworkSources?.length === "number" &&
-        frameworkSources?.length > 1 ? (
-          <p class="mb-2">{src.filename}</p>
-        ) : null}
-        <CodeCollapsible client:load>
-          <Code
-            lang={src.lang}
-            src={src.source}
-            className="[&>pre]:pb-10"
-          />
-        </CodeCollapsible>
-      </Fragment>
-    ))
-  ) : (
-    <Code src={"Not Found"} />
-  )}
-</div>
+{
+  frameworks?.map((framework, index) => {
+    const sources = frameworkSources[index];
+    return (
+      <div data-framework={framework} class="hidden">
+        {sources?.map((source) => (
+          <Fragment>
+            {typeof sources?.length === "number" && sources?.length > 1 ? (
+              <p class="mb-2">{source.filename}</p>
+            ) : null}
+            <CodeCollapsible client:load>
+              <Code
+                lang={source.lang}
+                src={source.content}
+                className="[&>pre]:pb-10"
+              />
+            </CodeCollapsible>
+          </Fragment>
+        ))}
+      </div>
+    );
+  })
+}
