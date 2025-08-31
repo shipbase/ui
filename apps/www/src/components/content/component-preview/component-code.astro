@@ -1,0 +1,27 @@
+---
+import Code from "@/components/code.astro"
+import { getComponentPageParams } from "@/lib/docs"
+import { getExampleSource } from "@/lib/source"
+
+export interface Props {
+  name: string
+}
+const { name } = Astro.props
+
+// Get type-safe framework parameter
+const { framework } = getComponentPageParams(Astro.params)
+
+const { source, lang } = (await getExampleSource(framework, name)) || {}
+---
+
+{
+  source ? (
+    <Code
+      className="mt-0 h-[450px] overflow-y-auto"
+      lang={lang}
+      src={source}
+    />
+  ) : (
+    <Code src={"Not Found"} />
+  )
+}

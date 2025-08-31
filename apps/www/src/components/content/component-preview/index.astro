@@ -1,8 +1,6 @@
 ---
-import Code from "@/components/code.astro"
-import { getComponentPageParams } from "@/lib/docs"
-import { getExampleSource } from "@/lib/source"
 import { cn } from "@/lib/utils"
+import ComponentCode from "./component-code.astro"
 import Preview from "./preview"
 import Tabs from "./tabs"
 
@@ -12,10 +10,10 @@ export interface Props {
 }
 const { name, className } = Astro.props
 
-// Get type-safe framework parameter
-const { framework } = getComponentPageParams(Astro.params)
+// // Get type-safe framework parameter
+// const { framework } = getComponentPageParams(Astro.params)
 
-const { source, lang } = (await getExampleSource(framework, name)) || {}
+// const { source, lang } = (await getExampleSource(framework, name)) || {}
 ---
 
 <div
@@ -33,7 +31,7 @@ const { source, lang } = (await getExampleSource(framework, name)) || {}
       </div>
     </Fragment>
     <Fragment slot="code">
-      {
+      <!-- {
         source ? (
           <Code
             className="mt-0 h-[450px] overflow-y-auto"
@@ -43,7 +41,8 @@ const { source, lang } = (await getExampleSource(framework, name)) || {}
         ) : (
           <Code src={"Not Found"} />
         )
-      }
+      } -->
+      <ComponentCode server:defer name={name} />
     </Fragment>
   </Tabs>
 </div>
