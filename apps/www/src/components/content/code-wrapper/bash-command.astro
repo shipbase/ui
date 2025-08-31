@@ -40,7 +40,7 @@ if (!command) return null
 const { npm, pnpm, yarn, bun } = command
 ---
 
-<PackageManagerTabs command={command} client:load className={className}>
+<PackageManagerTabs command={command} client:only="react" className={className}>
   <Fragment slot="npm">
     <Code {...props} src={npm} copy={false} className="mt-0" />
   </Fragment>
