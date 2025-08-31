@@ -11,7 +11,7 @@ interface Props {
 
 export default function PreviewReact({ name }: Props) {
   const [key, setKey] = useState(0)
-  const Component = Examples[name] ?? (() => <NotFound component={name} />)
+  const Component = Examples[name] ?? (() => <NotFound name={name} />)
 
   useEffect(() => {
     setKey((prev) => prev + 1)
@@ -45,12 +45,12 @@ export default function PreviewReact({ name }: Props) {
   )
 }
 
-function NotFound({ component }: { component: string }) {
+function NotFound({ name }: { name: string }) {
   return (
     <p className="text-muted-foreground text-sm">
       Component
       <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-        {component}
+        {name}
       </code>
       not found in registry.
     </p>
