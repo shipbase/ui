@@ -23,7 +23,7 @@
     "stub": "vite build",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "vite build",
-    "build:registry": "shadcn build --output ../../apps/www/public/r/react",
+    "build:registry": "shadcn build --output ../../apps/www/public/r/react && cp registry.json ../../apps/www/public/r/react/",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build:storybook": "storybook build"

@@ -1,0 +1,417 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "shipbase/ui",
+  "homepage": "https://ui.shipbase.xyz",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@keyframes accordion-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--height)"
+          }
+        },
+        "@keyframes accordion-up": {
+          "from": {
+            "height": "var(--height)"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "./src/components/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "./src/components/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@keyframes collapsible-down": {
+          "from": {
+            "height": "0"
+          },
+          "to": {
+            "height": "var(--height)"
+          }
+        },
+        "@keyframes collapsible-up": {
+          "from": {
+            "height": "var(--height)"
+          },
+          "to": {
+            "height": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menu",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "number-input",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/number-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "dependencies": [
+        "@ark-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": ["https://ui.shipbase.xyz/r/react/button.json"],
+      "files": [
+        {
+          "path": "./src/components/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pin-input",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/pin-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "css": {
+        "@keyframes in-out": {
+          "from": {
+            "opacity": "var(--tw-enter-opacity, 1)",
+            "transform": "translate3d(var(--tw-enter-translate-x, 0), var(--tw-enter-translate-y, 0), 0) scale3d(var(--tw-enter-scale, 1), var(--tw-enter-scale, 1), var(--tw-enter-scale, 1)) rotate(var(--tw-enter-rotate, 0))"
+          },
+          "to": {
+            "opacity": "var(--tw-exit-opacity, 1)",
+            "transform": "translate3d(var(--tw-exit-translate-x, 0), var(--tw-exit-translate-y, 0), 0) scale3d(var(--tw-exit-scale, 1), var(--tw-exit-scale, 1), var(--tw-exit-scale, 1)) rotate(var(--tw-exit-rotate, 0))"
+          }
+        }
+      }
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "rating-group",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/rating-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tags-input",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "./src/components/ui/tags-input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "dependencies": [
+        "@ark-ui/react",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "files": [
+        {
+          "path": "./src/components/ui/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
+      "files": [
+        {
+          "path": "./src/components/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react", "class-variance-authority"],
+      "registryDependencies": ["https://ui.shipbase.xyz/r/react/toggle.json"],
+      "files": [
+        {
+          "path": "./src/components/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tree-view",
+      "type": "registry:ui",
+      "dependencies": ["@ark-ui/react"],
+      "files": [
+        {
+          "path": "./src/components/ui/tree-view.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
