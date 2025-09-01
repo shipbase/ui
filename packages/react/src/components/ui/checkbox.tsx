@@ -37,6 +37,7 @@ const CheckboxControl = React.forwardRef<
     <CheckboxPrimitive.HiddenInput />
   </>
 ))
+CheckboxControl.displayName = "CheckboxControl"
 
 const CheckboxGroup = CheckboxPrimitive.Group
 
@@ -53,6 +54,7 @@ const CheckboxLabel = React.forwardRef<
     {...props}
   />
 ))
+CheckboxLabel.displayName = "CheckboxLabel"
 
 export {
   Checkbox,

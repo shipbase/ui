@@ -18,6 +18,8 @@ const Combobox = React.forwardRef(
     React.RefAttributes<React.ElementRef<typeof ComboboxPrimitive.Root>>
 ) => JSX.Element
 
+Object.defineProperty(Combobox, "displayName", { value: "Combobox" })
+
 const ComboboxClearTrigger = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.ClearTrigger>,
   ComboboxPrimitive.ClearTriggerProps
@@ -31,6 +33,7 @@ const ComboboxClearTrigger = React.forwardRef<
     {...props}
   />
 ))
+ComboboxClearTrigger.displayName = "ComboboxClearTrigger"
 
 const ComboboxContent = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Content>,
@@ -49,6 +52,7 @@ const ComboboxContent = React.forwardRef<
     </ComboboxPrimitive.Positioner>
   </Portal>
 ))
+ComboboxContent.displayName = "ComboboxContent"
 
 const ComboboxContext = ComboboxPrimitive.Context
 
@@ -65,6 +69,7 @@ const ComboboxControl = React.forwardRef<
     {...props}
   />
 ))
+ComboboxControl.displayName = "ComboboxControl"
 
 const ComboboxInput = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Input>,
@@ -79,6 +84,7 @@ const ComboboxInput = React.forwardRef<
     {...props}
   />
 ))
+ComboboxInput.displayName = "ComboboxInput"
 
 const ComboboxItem = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.Item>,
@@ -100,6 +106,7 @@ const ComboboxItem = React.forwardRef<
     <ComboboxPrimitive.ItemText>{children}</ComboboxPrimitive.ItemText>
   </ComboboxPrimitive.Item>
 ))
+ComboboxItem.displayName = "ComboboxItem"
 
 const ComboboxItemContext = ComboboxPrimitive.ItemContext
 
@@ -113,6 +120,7 @@ const ComboboxItemGroup = React.forwardRef<
     {...props}
   />
 ))
+ComboboxItemGroup.displayName = "ComboboxItemGroup"
 
 const ComboboxItemGroupLabel = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.ItemGroupLabel>,
@@ -127,6 +135,7 @@ const ComboboxItemGroupLabel = React.forwardRef<
     {...props}
   />
 ))
+ComboboxItemGroupLabel.displayName = "ComboboxItemGroupLabel"
 
 const ComboboxItemText = ComboboxPrimitive.ItemText
 
@@ -143,6 +152,7 @@ const ComboboxLabel = React.forwardRef<
     {...props}
   />
 ))
+ComboboxLabel.displayName = "ComboboxLabel"
 
 const ComboboxList = ComboboxPrimitive.List
 
@@ -154,6 +164,7 @@ const ComboboxTrigger = React.forwardRef<
     <ChevronsUpDownIcon className="size-4 shrink-0 in-aria-invalid:text-destructive/80 text-muted-foreground/80" />
   </ComboboxPrimitive.Trigger>
 ))
+ComboboxTrigger.displayName = "ComboboxTrigger"
 
 export {
   Combobox,
