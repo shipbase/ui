@@ -8,7 +8,6 @@
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "astro build",
     "preview": "astro preview",
-    "build:registry": "shadcn build --output ./public/r/react",
     "typecheck": "astro check",
     "test": "vitest run"
   },
