@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { Dialog as SheetPrimitive, dialogAnatomy } from "@ark-ui/react/dialog"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { Portal } from "@ark-ui/react/portal"
 import { XIcon } from "lucide-react"
 
@@ -102,30 +98,28 @@ const SheetDescription = React.forwardRef<
 ))
 SheetDescription.displayName = "SheetDescription"
 
-const SheetFooter = React.forwardRef<
-  HTMLDivElement,
-  PolymorphicProps & HTMLProps<"div">
->(({ className, ...props }, ref) => (
-  <ark.div
-    ref={ref}
-    {...parts.footer.attrs}
-    className={cn("mt-auto flex flex-col gap-2 p-4", className)}
-    {...props}
-  />
-))
+const SheetFooter = React.forwardRef<HTMLDivElement, HTMLArkProps<"div">>(
+  ({ className, ...props }, ref) => (
+    <ark.div
+      ref={ref}
+      {...parts.footer.attrs}
+      className={cn("mt-auto flex flex-col gap-2 p-4", className)}
+      {...props}
+    />
+  )
+)
 SheetFooter.displayName = "SheetFooter"
 
-const SheetHeader = React.forwardRef<
-  HTMLDivElement,
-  PolymorphicProps & HTMLProps<"div">
->(({ className, ...props }, ref) => (
-  <ark.div
-    ref={ref}
-    {...parts.header.attrs}
-    className={cn("flex flex-col gap-1.5 p-4", className)}
-    {...props}
-  />
-))
+const SheetHeader = React.forwardRef<HTMLDivElement, HTMLArkProps<"div">>(
+  ({ className, ...props }, ref) => (
+    <ark.div
+      ref={ref}
+      {...parts.header.attrs}
+      className={cn("flex flex-col gap-1.5 p-4", className)}
+      {...props}
+    />
+  )
+)
 SheetHeader.displayName = "SheetHeader"
 
 const SheetTitle = React.forwardRef<

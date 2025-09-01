@@ -2,11 +2,7 @@
 
 import * as React from "react"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { Menu as MenuPrimitive, menuAnatomy } from "@ark-ui/react/menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
@@ -152,22 +148,21 @@ const MenuSeparator = React.forwardRef<
 ))
 MenuSeparator.displayName = "MenuSeparator"
 
-const MenuShortcut = React.forwardRef<
-  HTMLSpanElement,
-  PolymorphicProps & HTMLProps<"span">
->(({ className, ...props }, ref) => {
-  return (
-    <ark.span
-      ref={ref}
-      {...parts.shortcut.attrs}
-      className={cn(
-        "ml-auto text-muted-foreground text-xs tracking-widest",
-        className
-      )}
-      {...props}
-    />
-  )
-})
+const MenuShortcut = React.forwardRef<HTMLSpanElement, HTMLArkProps<"span">>(
+  ({ className, ...props }, ref) => {
+    return (
+      <ark.span
+        ref={ref}
+        {...parts.shortcut.attrs}
+        className={cn(
+          "ml-auto text-muted-foreground text-xs tracking-widest",
+          className
+        )}
+        {...props}
+      />
+    )
+  }
+)
 MenuShortcut.displayName = "MenuShortcut"
 
 const MenuTrigger = MenuPrimitive.Trigger

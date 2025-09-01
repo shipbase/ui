@@ -1,10 +1,6 @@
 "use client"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import {
   Pagination as PaginationPrimitive,
   paginationAnatomy,
@@ -35,7 +31,7 @@ Pagination.displayName = "Pagination"
 
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
-  PolymorphicProps & HTMLProps<"ul">
+  HTMLArkProps<"ul">
 >(({ className, ...props }, ref) => (
   <ark.ul
     ref={ref}

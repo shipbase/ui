@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { createAnatomy } from "@ark-ui/react/anatomy"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 
 import { cn } from "@/lib/utils"
 
@@ -16,7 +12,7 @@ const parts = anatomy.build()
 
 const Textarea = React.forwardRef<
   HTMLTextAreaElement,
-  PolymorphicProps & HTMLProps<"textarea">
+  HTMLArkProps<"textarea">
 >(({ className, ...props }, ref) => {
   return (
     <ark.textarea

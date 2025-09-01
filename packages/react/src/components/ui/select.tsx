@@ -2,11 +2,7 @@
 
 import * as React from "react"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { Portal } from "@ark-ui/react/portal"
 import { Select as SelectPrimitive, selectAnatomy } from "@ark-ui/react/select"
 import { CheckIcon, ChevronDownIcon } from "lucide-react"
@@ -165,17 +161,16 @@ SelectList.displayName = "SelectList"
 
 const SelectRootProvider = SelectPrimitive.RootProvider
 
-const SelectSeparator = React.forwardRef<
-  HTMLHRElement,
-  PolymorphicProps & HTMLProps<"hr">
->(({ className, ...props }, ref) => (
-  <ark.hr
-    ref={ref}
-    {...parts.separator.attrs}
-    className={cn("-mx-1 my-1 h-px bg-border", className)}
-    {...props}
-  />
-))
+const SelectSeparator = React.forwardRef<HTMLHRElement, HTMLArkProps<"hr">>(
+  ({ className, ...props }, ref) => (
+    <ark.hr
+      ref={ref}
+      {...parts.separator.attrs}
+      className={cn("-mx-1 my-1 h-px bg-border", className)}
+      {...props}
+    />
+  )
+)
 SelectSeparator.displayName = "SelectSeparator"
 
 const SelectTrigger = React.forwardRef<
