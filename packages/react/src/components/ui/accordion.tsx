@@ -21,6 +21,7 @@ const AccordionItem = React.forwardRef<
     {...props}
   />
 ))
+AccordionItem.displayName = "AccordionItem"
 
 const AccordionItemContent = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.ItemContent>,
@@ -34,6 +35,7 @@ const AccordionItemContent = React.forwardRef<
     <div className={cn("pt-0 pb-4", className)}>{children}</div>
   </AccordionPrimitive.ItemContent>
 ))
+AccordionItemContent.displayName = "AccordionItemContent"
 
 const AccordionItemContext = AccordionPrimitive.ItemContext
 
@@ -55,6 +57,7 @@ const AccordionItemTrigger = React.forwardRef<
     </AccordionPrimitive.ItemIndicator>
   </AccordionPrimitive.ItemTrigger>
 ))
+AccordionItemTrigger.displayName = "AccordionItemTrigger"
 
 export {
   Accordion,
