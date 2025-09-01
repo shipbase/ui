@@ -7,9 +7,7 @@ interface Props {
 
 const { name } = Astro.props
 
-// TODO replace this with env or global config
-const HOST = "https://ui.shipbase.xyz"
-const src = `npx shadcn@latest add ${HOST}/r/react/${name}.json`
+const src = `npx shadcn@latest add @shipbase/${name}`
 ---
 
 <BashCommand src={src} lang="bash" className="mt-0" />
