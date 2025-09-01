@@ -8,17 +8,19 @@ import { CheckIcon, ChevronsUpDownIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
-const Combobox = React.forwardRef(
+const ComboboxComponent = React.forwardRef(
   <T extends ComboboxPrimitive.CollectionItem>(
     props: ComboboxPrimitive.RootProps<T>,
     ref: React.Ref<HTMLDivElement>
   ) => <ComboboxPrimitive.Root ref={ref} {...props} />
-) as <T extends ComboboxPrimitive.CollectionItem>(
+)
+ComboboxComponent.displayName = "Combobox"
+const Combobox = ComboboxComponent as <
+  T extends ComboboxPrimitive.CollectionItem,
+>(
   props: ComboboxPrimitive.RootProps<T> &
     React.RefAttributes<React.ElementRef<typeof ComboboxPrimitive.Root>>
-) => JSX.Element
-
-Object.defineProperty(Combobox, "displayName", { value: "Combobox" })
+) => React.JSX.Element
 
 const ComboboxClearTrigger = React.forwardRef<
   React.ElementRef<typeof ComboboxPrimitive.ClearTrigger>,
