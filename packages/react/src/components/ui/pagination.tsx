@@ -31,6 +31,7 @@ const Pagination = React.forwardRef<
     {...props}
   />
 ))
+Pagination.displayName = "Pagination"
 
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
@@ -43,6 +44,7 @@ const PaginationContent = React.forwardRef<
     {...props}
   />
 ))
+PaginationContent.displayName = "PaginationContent"
 
 const PaginationContext = PaginationPrimitive.Context
 
@@ -62,6 +64,7 @@ const PaginationEllipsis = React.forwardRef<
     </PaginationPrimitive.Ellipsis>
   </ark.li>
 ))
+PaginationEllipsis.displayName = "PaginationEllipsis"
 
 export interface PaginationItemProps
   extends PaginationPrimitive.ItemProps,
@@ -79,6 +82,7 @@ const PaginationItem = React.forwardRef<
     />
   </ark.li>
 ))
+PaginationItem.displayName = "PaginationItem"
 
 export interface PaginationNextTriggerProps
   extends PaginationPrimitive.NextTriggerProps,
@@ -97,6 +101,7 @@ const PaginationNextTrigger = React.forwardRef<
     />
   </ark.li>
 ))
+PaginationNextTrigger.displayName = "PaginationNextTrigger"
 
 export interface PaginationPrevTriggerProps
   extends PaginationPrimitive.PrevTriggerProps,
@@ -115,6 +120,7 @@ const PaginationPrevTrigger = React.forwardRef<
     />
   </ark.li>
 ))
+PaginationPrevTrigger.displayName = "PaginationPrevTrigger"
 
 const PaginationRootProvider = PaginationPrimitive.RootProvider
 

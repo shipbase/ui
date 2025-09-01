@@ -21,6 +21,7 @@ const CollapsibleContent = React.forwardRef<
     {...props}
   />
 ))
+CollapsibleContent.displayName = "CollapsibleContent"
 
 const CollapsibleContext = CollapsiblePrimitive.Context
 

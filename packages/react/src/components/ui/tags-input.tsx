@@ -24,6 +24,7 @@ const TagsInputClearTrigger = React.forwardRef<
     <XIcon size={14} aria-hidden="true" />
   </TagsInputPrimitive.ClearTrigger>
 ))
+TagsInputClearTrigger.displayName = "TagsInputClearTrigger"
 
 const TagsInputContext = TagsInputPrimitive.Context
 
@@ -50,6 +51,7 @@ const TagsInputControl = React.forwardRef<
     )}
   </TagsInputContext>
 ))
+TagsInputControl.displayName = "TagsInputControl"
 
 const TagsInputInput = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.Input>,
@@ -72,6 +74,7 @@ const TagsInputInput = React.forwardRef<
     )}
   </TagsInputContext>
 ))
+TagsInputInput.displayName = "TagsInputInput"
 
 const TagsInputItem = TagsInputPrimitive.Item
 
@@ -90,6 +93,7 @@ const TagsInputItemDeleteTrigger = React.forwardRef<
     <XIcon size={14} aria-hidden="true" />
   </TagsInputPrimitive.ItemDeleteTrigger>
 ))
+TagsInputItemDeleteTrigger.displayName = "TagsInputItemDeleteTrigger"
 
 const TagsInputItemInput = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.ItemInput>,
@@ -104,6 +108,7 @@ const TagsInputItemInput = React.forwardRef<
     {...props}
   />
 ))
+TagsInputItemInput.displayName = "TagsInputItemInput"
 
 const TagsInputItemPreview = React.forwardRef<
   React.ElementRef<typeof TagsInputPrimitive.ItemPreview>,
@@ -118,6 +123,7 @@ const TagsInputItemPreview = React.forwardRef<
     {...props}
   />
 ))
+TagsInputItemPreview.displayName = "TagsInputItemPreview"
 
 const TagsInputItemText = TagsInputPrimitive.ItemText
 
@@ -134,6 +140,7 @@ const TagsInputLabel = React.forwardRef<
     {...props}
   />
 ))
+TagsInputLabel.displayName = "TagsInputLabel"
 
 export {
   TagsInput,

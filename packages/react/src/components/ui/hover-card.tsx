@@ -23,6 +23,7 @@ const HoverCardArrow = React.forwardRef<
     <HoverCardPrimitive.ArrowTip className="border-t border-l" />
   </HoverCardPrimitive.Arrow>
 ))
+HoverCardArrow.displayName = "HoverCardArrow"
 
 const HoverCardContent = React.forwardRef<
   React.ElementRef<typeof HoverCardPrimitive.Content>,
@@ -39,6 +40,7 @@ const HoverCardContent = React.forwardRef<
     />
   </HoverCardPrimitive.Positioner>
 ))
+HoverCardContent.displayName = "HoverCardContent"
 
 const HoverCardContext = HoverCardPrimitive.Context
 

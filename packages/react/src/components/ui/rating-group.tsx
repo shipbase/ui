@@ -26,7 +26,7 @@ const RatingGroupLabel = React.forwardRef<
     {...props}
   />
 ))
-RatingGroupLabel.displayName = RatingGroupPrimitive.Label.displayName
+RatingGroupLabel.displayName = "RatingGroupLabel"
 
 const RatingGroupControl = React.forwardRef<
   React.ElementRef<typeof RatingGroupPrimitive.Control>,
@@ -41,7 +41,7 @@ const RatingGroupControl = React.forwardRef<
     {children}
   </RatingGroupPrimitive.Control>
 ))
-RatingGroupControl.displayName = RatingGroupPrimitive.Control.displayName
+RatingGroupControl.displayName = "RatingGroupControl"
 
 const RatingGroupItem = React.forwardRef<
   React.ElementRef<typeof RatingGroupPrimitive.Item>,
@@ -58,7 +58,7 @@ const RatingGroupItem = React.forwardRef<
     <StarIcon />
   </RatingGroupPrimitive.Item>
 ))
-RatingGroupItem.displayName = RatingGroupPrimitive.Item.displayName
+RatingGroupItem.displayName = "RatingGroupItem"
 
 export {
   RatingGroup,

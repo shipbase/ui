@@ -21,6 +21,7 @@ const NumberInputControl = React.forwardRef<
     {...props}
   />
 ))
+NumberInputControl.displayName = "NumberInputControl"
 
 const NumberInputIncrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.IncrementTrigger>,
@@ -37,6 +38,7 @@ const NumberInputIncrementTrigger = React.forwardRef<
     {children}
   </NumberInputPrimitive.IncrementTrigger>
 ))
+NumberInputIncrementTrigger.displayName = "NumberInputIncrementTrigger"
 
 const NumberInputDecrementTrigger = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.DecrementTrigger>,
@@ -53,6 +55,7 @@ const NumberInputDecrementTrigger = React.forwardRef<
     {children}
   </NumberInputPrimitive.DecrementTrigger>
 ))
+NumberInputDecrementTrigger.displayName = "NumberInputDecrementTrigger"
 
 const NumberInputInput = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Input>,
@@ -67,6 +70,7 @@ const NumberInputInput = React.forwardRef<
     {...props}
   />
 ))
+NumberInputInput.displayName = "NumberInputInput"
 
 const NumberInputLabel = React.forwardRef<
   React.ElementRef<typeof NumberInputPrimitive.Label>,
@@ -81,6 +85,7 @@ const NumberInputLabel = React.forwardRef<
     {...props}
   />
 ))
+NumberInputLabel.displayName = "NumberInputLabel"
 
 export {
   NumberInput,

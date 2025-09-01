@@ -16,6 +16,7 @@ const RadioGroup = React.forwardRef<
     {...props}
   />
 ))
+RadioGroup.displayName = "RadioGroup"
 
 const RadioGroupContext = RadioGroupPrimitive.Context
 
@@ -32,6 +33,7 @@ const RadioGroupIndicator = React.forwardRef<
     {...props}
   />
 ))
+RadioGroupIndicator.displayName = "RadioGroupIndicator"
 
 const RadioGroupItem = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Item>,
@@ -46,6 +48,7 @@ const RadioGroupItem = React.forwardRef<
     {children}
   </RadioGroupPrimitive.Item>
 ))
+RadioGroupItem.displayName = "RadioGroupItem"
 
 const RadioGroupItemContext = RadioGroupPrimitive.ItemContext
 
@@ -62,6 +65,7 @@ const RadioGroupItemControl = React.forwardRef<
     {...props}
   />
 ))
+RadioGroupItemControl.displayName = "RadioGroupItemControl"
 
 const RadioGroupItemText = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.ItemText>,
@@ -76,6 +80,7 @@ const RadioGroupItemText = React.forwardRef<
     {...props}
   />
 ))
+RadioGroupItemText.displayName = "RadioGroupItemText"
 
 const RadioGroupLabel = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Label>,
@@ -90,6 +95,7 @@ const RadioGroupLabel = React.forwardRef<
     {...props}
   />
 ))
+RadioGroupLabel.displayName = "RadioGroupLabel"
 
 const RadioGroupRootProvider = RadioGroupPrimitive.RootProvider
 

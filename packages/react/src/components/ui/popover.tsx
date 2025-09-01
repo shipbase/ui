@@ -26,6 +26,7 @@ const PopoverArrow = React.forwardRef<
     <PopoverPrimitive.ArrowTip className="border-t border-l" />
   </PopoverPrimitive.Arrow>
 ))
+PopoverArrow.displayName = "PopoverArrow"
 
 const PopoverCloseTrigger = PopoverPrimitive.CloseTrigger
 
@@ -46,6 +47,7 @@ const PopoverContent = React.forwardRef<
     </PopoverPrimitive.Positioner>
   </Portal>
 ))
+PopoverContent.displayName = "PopoverContent"
 
 const PopoverContext = PopoverPrimitive.Context
 
@@ -59,6 +61,7 @@ const PopoverDescription = React.forwardRef<
     {...props}
   />
 ))
+PopoverDescription.displayName = "PopoverDescription"
 
 const PopoverRootProvider = PopoverPrimitive.RootProvider
 
@@ -72,6 +75,7 @@ const PopoverTitle = React.forwardRef<
     {...props}
   />
 ))
+PopoverTitle.displayName = "PopoverTitle"
 
 const PopoverTrigger = PopoverPrimitive.Trigger
 

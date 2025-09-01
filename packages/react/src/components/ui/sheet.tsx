@@ -31,6 +31,7 @@ const SheetBackdrop = React.forwardRef<
     {...props}
   />
 ))
+SheetBackdrop.displayName = "SheetBackdrop"
 
 const SheetCloseTrigger = SheetPrimitive.CloseTrigger
 
@@ -68,6 +69,7 @@ const SheetContent = React.forwardRef<
     </SheetPrimitive.Positioner>
   </Portal>
 ))
+SheetContent.displayName = "SheetContent"
 
 const SheetContext = SheetPrimitive.Context
 
@@ -81,6 +83,7 @@ const SheetDescription = React.forwardRef<
     {...props}
   />
 ))
+SheetDescription.displayName = "SheetDescription"
 
 const SheetFooter = ({
   className,
@@ -103,6 +106,7 @@ const SheetHeader = React.forwardRef<
     {...props}
   />
 ))
+SheetHeader.displayName = "SheetHeader"
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,
@@ -114,6 +118,7 @@ const SheetTitle = React.forwardRef<
     {...props}
   />
 ))
+SheetTitle.displayName = "SheetTitle"
 
 const SheetTrigger = SheetPrimitive.Trigger
 

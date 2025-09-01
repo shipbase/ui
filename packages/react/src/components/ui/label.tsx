@@ -31,5 +31,6 @@ const Label = React.forwardRef<
     {children}
   </ark.label>
 ))
+Label.displayName = "Label"
 
 export { Label }

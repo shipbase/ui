@@ -31,6 +31,7 @@ const MenuArrow = React.forwardRef<
     <MenuPrimitive.ArrowTip className="border-t border-l" />
   </MenuPrimitive.Arrow>
 ))
+MenuArrow.displayName = "MenuArrow"
 
 const MenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.CheckboxItem>,
@@ -52,6 +53,7 @@ const MenuCheckboxItem = React.forwardRef<
     <MenuPrimitive.ItemText>{children}</MenuPrimitive.ItemText>
   </MenuPrimitive.CheckboxItem>
 ))
+MenuCheckboxItem.displayName = "MenuCheckboxItem"
 
 const MenuContent = React.forwardRef<
   React.ElementRef<typeof MenuPrimitive.Content>,
@@ -68,6 +70,7 @@ const MenuContent = React.forwardRef<
     />
   </MenuPrimitive.Positioner>
 ))
+MenuContent.displayName = "MenuContent"
 
 const MenuContextTrigger = MenuPrimitive.ContextTrigger
 
@@ -89,6 +92,7 @@ const MenuItem = React.forwardRef<
     {...props}
   />
 ))
+MenuItem.displayName = "MenuItem"
 
 const MenuItemGroup = MenuPrimitive.ItemGroup
 
@@ -108,6 +112,7 @@ const MenuItemGroupLabel = React.forwardRef<
     {...props}
   />
 ))
+MenuItemGroupLabel.displayName = "MenuItemGroupLabel"
 
 const MenuItemText = MenuPrimitive.ItemText
 
@@ -131,6 +136,7 @@ const MenuRadioItem = React.forwardRef<
     <MenuPrimitive.ItemText>{children}</MenuPrimitive.ItemText>
   </MenuPrimitive.RadioItem>
 ))
+MenuRadioItem.displayName = "MenuRadioItem"
 
 const MenuRadioItemGroup = MenuPrimitive.RadioItemGroup
 
@@ -144,6 +150,7 @@ const MenuSeparator = React.forwardRef<
     {...props}
   />
 ))
+MenuSeparator.displayName = "MenuSeparator"
 
 const MenuShortcut = React.forwardRef<
   HTMLSpanElement,
@@ -161,6 +168,7 @@ const MenuShortcut = React.forwardRef<
     />
   )
 })
+MenuShortcut.displayName = "MenuShortcut"
 
 const MenuTrigger = MenuPrimitive.Trigger
 
@@ -183,6 +191,7 @@ const MenuTriggerItem = React.forwardRef<
     <ChevronRightIcon className="ml-auto size-4 text-muted-foreground/80" />
   </MenuPrimitive.TriggerItem>
 ))
+MenuTriggerItem.displayName = "MenuTriggerItem"
 
 export {
   Menu,
