@@ -21,6 +21,7 @@ const Switch = React.forwardRef<
     {children}
   </SwitchPrimitive.Root>
 ))
+Switch.displayName = "Switch"
 
 const SwitchContext = SwitchPrimitive.Context
 
@@ -40,6 +41,7 @@ const SwitchControl = React.forwardRef<
     <SwitchPrimitive.HiddenInput />
   </SwitchPrimitive.Control>
 ))
+SwitchControl.displayName = "SwitchControl"
 
 const SwitchLabel = React.forwardRef<
   React.ElementRef<typeof SwitchPrimitive.Label>,
@@ -54,6 +56,7 @@ const SwitchLabel = React.forwardRef<
     {...props}
   />
 ))
+SwitchLabel.displayName = "SwitchLabel"
 
 const SwitchRootProvider = SwitchPrimitive.RootProvider
 
@@ -70,6 +73,7 @@ const SwitchThumb = React.forwardRef<
     {...props}
   />
 ))
+SwitchThumb.displayName = "SwitchThumb"
 
 export {
   Switch,

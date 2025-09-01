@@ -26,6 +26,7 @@ const PinInput = React.forwardRef<
     <PinInputPrimitive.HiddenInput />
   </PinInputPrimitive.Root>
 ))
+PinInput.displayName = "PinInput"
 
 const PinInputContext = PinInputPrimitive.Context
 
@@ -39,6 +40,7 @@ const PinInputControl = React.forwardRef<
     {...props}
   />
 ))
+PinInputControl.displayName = "PinInputControl"
 
 const PinInputGroup = React.forwardRef<
   React.ElementRef<"div">,
@@ -51,6 +53,7 @@ const PinInputGroup = React.forwardRef<
     {...props}
   />
 ))
+PinInputGroup.displayName = "PinInputGroup"
 
 const PinInputInput = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Input>,
@@ -67,6 +70,7 @@ const PinInputInput = React.forwardRef<
     {...props}
   />
 ))
+PinInputInput.displayName = "PinInputInput"
 
 const PinInputLabel = React.forwardRef<
   React.ElementRef<typeof PinInputPrimitive.Label>,
@@ -81,6 +85,7 @@ const PinInputLabel = React.forwardRef<
     {...props}
   />
 ))
+PinInputLabel.displayName = "PinInputLabel"
 
 const PinInputSeparator = React.forwardRef<
   React.ElementRef<"div">,
@@ -90,6 +95,7 @@ const PinInputSeparator = React.forwardRef<
     <MinusIcon />
   </ark.div>
 ))
+PinInputSeparator.displayName = "PinInputSeparator"
 
 export {
   PinInput,

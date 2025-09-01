@@ -23,6 +23,7 @@ const TooltipArrow = React.forwardRef<
     <TooltipPrimitive.ArrowTip className="border-t border-l" />
   </TooltipPrimitive.Arrow>
 ))
+TooltipArrow.displayName = "TooltipArrow"
 
 const TooltipContent = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
@@ -39,6 +40,7 @@ const TooltipContent = React.forwardRef<
     />
   </TooltipPrimitive.Positioner>
 ))
+TooltipContent.displayName = "TooltipContent"
 
 const TooltipContext = TooltipPrimitive.Context
 

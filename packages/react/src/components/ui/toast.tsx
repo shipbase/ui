@@ -38,6 +38,7 @@ const Toaster = React.forwardRef<
     {...props}
   />
 ))
+Toaster.displayName = "Toaster"
 
 const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
@@ -49,6 +50,7 @@ const Toast = React.forwardRef<
     {...props}
   />
 ))
+Toast.displayName = "Toast"
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Title>,
@@ -60,6 +62,7 @@ const ToastTitle = React.forwardRef<
     {...props}
   />
 ))
+ToastTitle.displayName = "ToastTitle"
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Description>,
@@ -71,6 +74,7 @@ const ToastDescription = React.forwardRef<
     {...props}
   />
 ))
+ToastDescription.displayName = "ToastDescription"
 
 const ToastActionTrigger = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.ActionTrigger>,
@@ -85,6 +89,7 @@ const ToastActionTrigger = React.forwardRef<
     {...props}
   />
 ))
+ToastActionTrigger.displayName = "ToastActionTrigger"
 
 const ToastCloseTrigger = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.CloseTrigger>,
@@ -101,6 +106,7 @@ const ToastCloseTrigger = React.forwardRef<
     <X className="h-4 w-4" />
   </ToastPrimitive.CloseTrigger>
 ))
+ToastCloseTrigger.displayName = "ToastCloseTrigger"
 
 export {
   createToaster,

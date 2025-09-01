@@ -15,15 +15,17 @@ import { cn } from "@/lib/utils"
 
 const parts = selectAnatomy.extendWith("separator").build()
 
-const Select = React.forwardRef(
+const SelectComponent = React.forwardRef(
   <T extends SelectPrimitive.CollectionItem>(
     props: SelectPrimitive.RootProps<T>,
     ref: React.Ref<HTMLDivElement>
   ) => <SelectPrimitive.Root ref={ref} {...props} />
-) as <T extends SelectPrimitive.CollectionItem>(
+)
+SelectComponent.displayName = "Select"
+const Select = SelectComponent as <T extends SelectPrimitive.CollectionItem>(
   props: SelectPrimitive.RootProps<T> &
     React.RefAttributes<React.ElementRef<typeof SelectPrimitive.Root>>
-) => JSX.Element
+) => React.JSX.Element
 
 const SelectClearTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.ClearTrigger>,
@@ -38,6 +40,7 @@ const SelectClearTrigger = React.forwardRef<
     {...props}
   />
 ))
+SelectClearTrigger.displayName = "SelectClearTrigger"
 
 const SelectContent = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Content>,
@@ -58,6 +61,7 @@ const SelectContent = React.forwardRef<
     </SelectPrimitive.Positioner>
   </Portal>
 ))
+SelectContent.displayName = "SelectContent"
 
 const SelectContext = SelectPrimitive.Context
 
@@ -74,6 +78,7 @@ const SelectControl = React.forwardRef<
     {...props}
   />
 ))
+SelectControl.displayName = "SelectControl"
 
 const SelectIndicator = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Indicator>,
@@ -83,6 +88,7 @@ const SelectIndicator = React.forwardRef<
     <ChevronDownIcon className="size-4 shrink-0 in-aria-invalid:text-destructive/80 text-muted-foreground/80" />
   </SelectPrimitive.Indicator>
 ))
+SelectIndicator.displayName = "SelectIndicator"
 
 const SelectItem = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Item>,
@@ -104,6 +110,7 @@ const SelectItem = React.forwardRef<
     <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>
   </SelectPrimitive.Item>
 ))
+SelectItem.displayName = "SelectItem"
 
 const SelectItemContext = SelectPrimitive.ItemContext
 
@@ -122,6 +129,7 @@ const SelectItemGroupLabel = React.forwardRef<
     {...props}
   />
 ))
+SelectItemGroupLabel.displayName = "SelectItemGroupLabel"
 
 const SelectItemText = SelectPrimitive.ItemText
 
@@ -138,6 +146,7 @@ const SelectLabel = React.forwardRef<
     {...props}
   />
 ))
+SelectLabel.displayName = "SelectLabel"
 
 const SelectList = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.List>,
@@ -152,6 +161,7 @@ const SelectList = React.forwardRef<
     {...props}
   />
 ))
+SelectList.displayName = "SelectList"
 
 const SelectRootProvider = SelectPrimitive.RootProvider
 
@@ -166,6 +176,7 @@ const SelectSeparator = React.forwardRef<
     {...props}
   />
 ))
+SelectSeparator.displayName = "SelectSeparator"
 
 const SelectTrigger = React.forwardRef<
   React.ElementRef<typeof SelectPrimitive.Trigger>,
@@ -180,6 +191,7 @@ const SelectTrigger = React.forwardRef<
     {...props}
   />
 ))
+SelectTrigger.displayName = "SelectTrigger"
 
 const SelectValueText = SelectPrimitive.ValueText
 

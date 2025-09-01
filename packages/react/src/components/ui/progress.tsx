@@ -18,6 +18,7 @@ const ProgressCircle = React.forwardRef<
     {...props}
   />
 ))
+ProgressCircle.displayName = "ProgressCircle"
 
 const ProgressCircleRange = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.CircleRange>,
@@ -29,6 +30,7 @@ const ProgressCircleRange = React.forwardRef<
     {...props}
   />
 ))
+ProgressCircleRange.displayName = "ProgressCircleRange"
 
 const ProgressCircleTrack = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.CircleTrack>,
@@ -40,6 +42,7 @@ const ProgressCircleTrack = React.forwardRef<
     {...props}
   />
 ))
+ProgressCircleTrack.displayName = "ProgressCircleTrack"
 
 const ProgressContext = ProgressPrimitive.Context
 
@@ -56,6 +59,7 @@ const ProgressLabel = React.forwardRef<
     {...props}
   />
 ))
+ProgressLabel.displayName = "ProgressLabel"
 
 const ProgressRange = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.Range>,
@@ -71,6 +75,7 @@ const ProgressRange = React.forwardRef<
     {...props}
   />
 ))
+ProgressRange.displayName = "ProgressRange"
 
 const ProgressRootProvider = ProgressPrimitive.RootProvider
 
@@ -89,6 +94,7 @@ const ProgressTrack = React.forwardRef<
     {...props}
   />
 ))
+ProgressTrack.displayName = "ProgressTrack"
 
 const ProgressValueText = React.forwardRef<
   React.ElementRef<typeof ProgressPrimitive.ValueText>,
@@ -100,6 +106,7 @@ const ProgressValueText = React.forwardRef<
     {...props}
   />
 ))
+ProgressValueText.displayName = "ProgressValueText"
 
 const ProgressView = ProgressPrimitive.View
 

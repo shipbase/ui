@@ -20,6 +20,7 @@ const SliderControl = React.forwardRef<
     {...props}
   />
 ))
+SliderControl.displayName = "SliderControl"
 
 const SliderDraggingIndicator = SliderPrimitive.DraggingIndicator
 
@@ -36,6 +37,7 @@ const SliderLabel = React.forwardRef<
     {...props}
   />
 ))
+SliderLabel.displayName = "SliderLabel"
 
 const SliderMarker = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Marker>,
@@ -47,6 +49,7 @@ const SliderMarker = React.forwardRef<
     {...props}
   />
 ))
+SliderMarker.displayName = "SliderMarker"
 
 const SliderMarkerGroup = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.MarkerGroup>,
@@ -58,6 +61,7 @@ const SliderMarkerGroup = React.forwardRef<
     {...props}
   />
 ))
+SliderMarkerGroup.displayName = "SliderMarkerGroup"
 
 const SliderRange = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Range>,
@@ -72,6 +76,7 @@ const SliderRange = React.forwardRef<
     {...props}
   />
 ))
+SliderRange.displayName = "SliderRange"
 
 const SliderRootProvider = SliderPrimitive.RootProvider
 
@@ -90,6 +95,7 @@ const SliderThumb = React.forwardRef<
     <SliderPrimitive.HiddenInput />
   </SliderPrimitive.Thumb>
 ))
+SliderThumb.displayName = "SliderThumb"
 
 const SliderTrack = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.Track>,
@@ -104,6 +110,7 @@ const SliderTrack = React.forwardRef<
     {...props}
   />
 ))
+SliderTrack.displayName = "SliderTrack"
 
 const SliderValueText = React.forwardRef<
   React.ElementRef<typeof SliderPrimitive.ValueText>,
@@ -115,6 +122,7 @@ const SliderValueText = React.forwardRef<
     {...props}
   />
 ))
+SliderValueText.displayName = "SliderValueText"
 
 export {
   Slider,

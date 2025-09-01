@@ -34,6 +34,7 @@ const ToggleGroup = React.forwardRef<
     </ToggleGroupVariantContext.Provider>
   </ToggleGroupPrimitive.Root>
 ))
+ToggleGroup.displayName = "ToggleGroup"
 
 const ToggleGroupContext = ToggleGroupPrimitive.Context
 
@@ -60,6 +61,7 @@ const ToggleGroupItem = React.forwardRef<
     />
   )
 })
+ToggleGroupItem.displayName = "ToggleGroupItem"
 
 const ToggleGroupRootProvider = ToggleGroupPrimitive.RootProvider
 

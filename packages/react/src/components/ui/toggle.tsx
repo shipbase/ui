@@ -39,6 +39,7 @@ const Toggle = React.forwardRef<
     {...props}
   />
 ))
+Toggle.displayName = "Toggle"
 
 const ToggleContext = TogglePrimitive.Context
 

@@ -28,6 +28,7 @@ const TreeViewBranch = React.forwardRef<
     {...props}
   />
 ))
+TreeViewBranch.displayName = "TreeViewBranch"
 
 const TreeViewBranchControl = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchControl>,
@@ -42,6 +43,7 @@ const TreeViewBranchControl = React.forwardRef<
     {...props}
   />
 ))
+TreeViewBranchControl.displayName = "TreeViewBranchControl"
 
 const TreeViewBranchTrigger = TreeViewPrimitive.BranchTrigger
 
@@ -62,6 +64,7 @@ const TreeViewBranchIndentGuide = React.forwardRef<
     {...props}
   />
 ))
+TreeViewBranchIndentGuide.displayName = "TreeViewBranchIndentGuide"
 
 const TreeViewBranchContent = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.BranchContent>,
@@ -73,6 +76,7 @@ const TreeViewBranchContent = React.forwardRef<
     {...props}
   />
 ))
+TreeViewBranchContent.displayName = "TreeViewBranchContent"
 
 const TreeViewItem = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Item>,
@@ -87,6 +91,7 @@ const TreeViewItem = React.forwardRef<
     {...props}
   />
 ))
+TreeViewItem.displayName = "TreeViewItem"
 
 const TreeViewLabel = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Label>,
@@ -98,6 +103,7 @@ const TreeViewLabel = React.forwardRef<
     {...props}
   />
 ))
+TreeViewLabel.displayName = "TreeViewLabel"
 
 const TreeViewItemText = TreeViewPrimitive.ItemText
 
