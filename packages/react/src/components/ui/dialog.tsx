@@ -30,6 +30,7 @@ const DialogBackdrop = React.forwardRef<
     {...props}
   />
 ))
+DialogBackdrop.displayName = "DialogBackdrop"
 
 const DialogCloseTrigger = DialogPrimitive.CloseTrigger
 
@@ -57,6 +58,7 @@ const DialogContent = React.forwardRef<
     </DialogPrimitive.Positioner>
   </Portal>
 ))
+DialogContent.displayName = "DialogContent"
 
 const DialogContext = DialogPrimitive.Context
 
@@ -70,6 +72,7 @@ const DialogDescription = React.forwardRef<
     {...props}
   />
 ))
+DialogDescription.displayName = "DialogDescription"
 
 const DialogFooter = ({
   className,
@@ -95,6 +98,7 @@ const DialogHeader = React.forwardRef<
     {...props}
   />
 ))
+DialogHeader.displayName = "DialogHeader"
 
 const DialogTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
@@ -106,6 +110,7 @@ const DialogTitle = React.forwardRef<
     {...props}
   />
 ))
+DialogTitle.displayName = "DialogTitle"
 
 const DialogTrigger = DialogPrimitive.Trigger
 
