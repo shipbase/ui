@@ -3,6 +3,9 @@
   "style": "new-york",
   "rsc": true,
   "tsx": true,
+  "registries": {
+    "@shipbase": "https://ui.shipbase.xyz/r/react/{name}.json"
+  },
   "tailwind": {
     "config": "",
     "css": "app/globals.css",
