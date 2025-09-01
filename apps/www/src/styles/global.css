@@ -45,7 +45,7 @@
     @apply opacity-60 md:opacity-100;
   }
 
-  .code-wrapper {
+  .code-wrapper + .code-wrapper {
     @apply mt-4;
   }
   .code-wrapper .shiki {
