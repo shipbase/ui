@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { createAnatomy } from "@ark-ui/react/anatomy"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { type VariantProps, cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -46,8 +42,7 @@ const buttonVariants = cva(
 )
 
 export interface ButtonProps
-  extends PolymorphicProps,
-    HTMLProps<"button">,
+  extends HTMLArkProps<"button">,
     VariantProps<typeof buttonVariants> {}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

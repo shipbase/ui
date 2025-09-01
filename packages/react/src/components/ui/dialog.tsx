@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { Dialog as DialogPrimitive, dialogAnatomy } from "@ark-ui/react/dialog"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { Portal } from "@ark-ui/react/portal"
 import { XIcon } from "lucide-react"
 
@@ -86,18 +82,16 @@ const DialogFooter = ({
     {...props}
   />
 )
-
-const DialogHeader = React.forwardRef<
-  HTMLDivElement,
-  PolymorphicProps & HTMLProps<"div">
->(({ className, ...props }, ref) => (
-  <ark.div
-    ref={ref}
-    {...parts.header.attrs}
-    className={cn("flex flex-col gap-1 text-center sm:text-left", className)}
-    {...props}
-  />
-))
+const DialogHeader = React.forwardRef<HTMLDivElement, HTMLArkProps<"div">>(
+  ({ className, ...props }, ref) => (
+    <ark.div
+      ref={ref}
+      {...parts.header.attrs}
+      className={cn("flex flex-col gap-1 text-center sm:text-left", className)}
+      {...props}
+    />
+  )
+)
 DialogHeader.displayName = "DialogHeader"
 
 const DialogTitle = React.forwardRef<

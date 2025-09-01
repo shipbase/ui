@@ -2,11 +2,7 @@
 
 import * as React from "react"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import {
   PinInput as PinInputPrimitive,
   pinInputAnatomy,
@@ -44,7 +40,7 @@ PinInputControl.displayName = "PinInputControl"
 
 const PinInputGroup = React.forwardRef<
   React.ElementRef<"div">,
-  HTMLProps<"div"> & PolymorphicProps
+  HTMLArkProps<"div">
 >(({ className, ...props }, ref) => (
   <ark.div
     ref={ref}
@@ -89,7 +85,7 @@ PinInputLabel.displayName = "PinInputLabel"
 
 const PinInputSeparator = React.forwardRef<
   React.ElementRef<"div">,
-  HTMLProps<"div"> & PolymorphicProps
+  HTMLArkProps<"div">
 >((props, ref) => (
   <ark.div ref={ref} {...parts.separator.attrs} {...props}>
     <MinusIcon />

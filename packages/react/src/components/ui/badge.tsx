@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { createAnatomy } from "@ark-ui/react/anatomy"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
 import { type VariantProps, cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -37,8 +33,7 @@ const badgeVariants = cva(
 )
 
 export interface BadgeProps
-  extends PolymorphicProps,
-    HTMLProps<"span">,
+  extends HTMLArkProps<"span">,
     VariantProps<typeof badgeVariants> {}
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
