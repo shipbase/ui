@@ -4,6 +4,7 @@ import CTA from "@/components/landing/cta.astro"
 import FeaturesSection from "@/components/landing/features.astro"
 import Newsletter from "@/components/landing/newsletter.astro"
 import Shadcn from "@/components/landing/shadcn.astro"
+import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 import { cn } from "@/lib/utils"
 
@@ -14,7 +15,27 @@ const separatorClass = cn(
 )
 ---
 
-<RootLayout title="Shadcn UI Components for Multi Framework ">
+<RootLayout
+  metadata={{
+    title: "Shadcn UI Components for Multi Framework",
+    description: siteConfig.description,
+    openGraph: {
+      type: "website",
+      title: "Shadcn UI Components for Multi Framework",
+      description: siteConfig.description,
+      url: String(Astro.url),
+      siteName: siteConfig.name,
+      image: { url: siteConfig.ogImage, alt: siteConfig.name },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Shadcn UI Components for Multi Framework",
+      description: siteConfig.description,
+      creator: siteConfig.creator,
+      image: { url: siteConfig.twitterImage, alt: siteConfig.name },
+    },
+  }}
+>
   <div>
     <CTA />
     <section class={separatorClass} />

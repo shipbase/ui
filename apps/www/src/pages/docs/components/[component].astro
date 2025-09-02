@@ -3,6 +3,7 @@ import { getCollection, render } from "astro:content"
 import type { GetStaticPaths } from "astro"
 
 import { MDXComponents } from "@/components/content"
+import { siteConfig } from "@/config/site"
 import DocLayout from "@/layouts/doc-layout.astro"
 import RootLayout from "@/layouts/root-layout.astro"
 
@@ -28,7 +29,27 @@ const { entry } = Astro.props
 const { Content, headings } = await render(entry)
 ---
 
-<RootLayout title={entry.data.title} description={entry.data.description}>
+<RootLayout
+  metadata={{
+    title: entry.data.title,
+    description: entry.data.description ?? siteConfig.description,
+    openGraph: {
+      type: "website",
+      title: entry.data.title,
+      description: entry.data.description ?? siteConfig.description,
+      url: String(Astro.url),
+      siteName: siteConfig.name,
+      image: { url: siteConfig.ogImage, alt: entry.data.title },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: entry.data.title,
+      description: entry.data.description ?? siteConfig.description,
+      creator: siteConfig.creator,
+      image: { url: siteConfig.twitterImage, alt: entry.data.title },
+    },
+  }}
+>
   <DocLayout
     title={entry.data.title}
     description={entry.data.description}

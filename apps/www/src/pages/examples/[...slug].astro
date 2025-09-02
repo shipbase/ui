@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content"
 import type { GetStaticPaths } from "astro"
 
+import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 
 export const getStaticPaths = (async () => {
@@ -14,7 +15,27 @@ export const getStaticPaths = (async () => {
 const { entry } = Astro.props
 ---
 
-<RootLayout title={`${entry.data.title} Examples`} description={entry.data.description}>
+<RootLayout
+  metadata={{
+    title: `${entry.data.title} Examples`,
+    description: entry.data.description ?? siteConfig.description,
+    openGraph: {
+      type: "website",
+      title: `${entry.data.title} Examples`,
+      description: entry.data.description ?? siteConfig.description,
+      url: String(Astro.url),
+      siteName: siteConfig.name,
+      image: { url: siteConfig.ogImage, alt: `${entry.data.title} Examples` },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${entry.data.title} Examples`,
+      description: entry.data.description ?? siteConfig.description,
+      creator: siteConfig.creator,
+      image: { url: siteConfig.twitterImage, alt: `${entry.data.title} Examples` },
+    },
+  }}
+>
   <div
     class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
   >

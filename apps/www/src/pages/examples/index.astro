@@ -1,8 +1,29 @@
 ---
+import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 ---
 
-<RootLayout>
+<RootLayout
+  metadata={{
+    title: "Examples",
+    description: siteConfig.description,
+    openGraph: {
+      type: "website",
+      title: "Examples",
+      description: siteConfig.description,
+      url: String(Astro.url),
+      siteName: siteConfig.name,
+      image: { url: siteConfig.ogImage, alt: "Examples" },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Examples",
+      description: siteConfig.description,
+      creator: siteConfig.creator,
+      image: { url: siteConfig.twitterImage, alt: "Examples" },
+    },
+  }}
+>
   <div
     class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
   >
