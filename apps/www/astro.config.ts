@@ -12,7 +12,10 @@ import { remarkPluginCodeWrapper } from "./src/lib/remark-code-wrapper"
 export default defineConfig({
   site: siteConfig.url,
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    cloudflareModules: true,
+    imageService: "compile",
+  }),
 
   integrations: [
     mdx({ remarkPlugins: [remarkPluginCodeWrapper] }),
