@@ -2,15 +2,14 @@ import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { siteConfig } from "@/config/site"
 import { Resvg, initWasm } from "@resvg/resvg-wasm"
+// @ts-ignore - resvg.wasm is a module
+import resvgwasm from "@resvg/resvg-wasm/index_bg.wasm"
 import type { APIRoute } from "astro"
 import type { ReactNode } from "react"
 import satori, { type Font, init } from "satori/wasm"
 import initYoga from "yoga-wasm-web"
-
 // @ts-ignore - yoga.wasm is a module
-import resvgWasm from "@/assets/wasm/resvg.wasm?url"
-// @ts-ignore - resvg.wasm is a module
-import yogaWasm from "@/assets/wasm/yoga.wasm?url"
+import yogaWasm from "yoga-wasm-web/dist/yoga.wasm"
 
 export const prerender = false
 
@@ -18,7 +17,7 @@ const WIDTH = 1200
 const HEIGHT = 630
 
 let fontsCache: Font[] | null = null
-const initResvgPromise: Promise<void> | null = initWasm(resvgWasm)
+const initResvgPromise: Promise<void> | null = initWasm(resvgwasm)
 const initYogaPromise = initYoga(yogaWasm).then((yoga) => init(yoga))
 
 async function loadFonts() {
