@@ -8,9 +8,9 @@ import satori, { type Font, init } from "satori/wasm"
 import initYoga from "yoga-wasm-web"
 
 // @ts-ignore - yoga.wasm is a module
-import resvgWasm from "@/assets/wasm/resvg.wasm"
+import resvgWasm from "@/assets/wasm/resvg.wasm?url"
 // @ts-ignore - resvg.wasm is a module
-import yogaWasm from "@/assets/wasm/yoga.wasm"
+import yogaWasm from "@/assets/wasm/yoga.wasm?url"
 
 export const prerender = false
 
