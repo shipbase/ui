@@ -1,10 +1,16 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { siteConfig } from "@/config/site"
-import * as resvg from "@resvg/resvg-wasm"
+import { Resvg, initWasm } from "@resvg/resvg-wasm"
 import type { APIRoute } from "astro"
 import type { ReactNode } from "react"
-import satori, { type Font } from "satori"
+import satori, { type Font, init } from "satori/wasm"
+import initYoga from "yoga-wasm-web"
+
+// @ts-ignore - yoga.wasm is a module
+import resvgWasm from "@/assets/wasm/resvg.wasm"
+// @ts-ignore - resvg.wasm is a module
+import yogaWasm from "@/assets/wasm/yoga.wasm"
 
 export const prerender = false
 
@@ -12,21 +18,8 @@ const WIDTH = 1200
 const HEIGHT = 630
 
 let fontsCache: Font[] | null = null
-let wasmInitPromise: Promise<void> | null = null
-
-async function initializeWasm() {
-  if (!wasmInitPromise) {
-    wasmInitPromise = (async () => {
-      const wasmPath = new URL(
-        "@resvg/resvg-wasm/index_bg.wasm",
-        import.meta.url
-      )
-      const response = await fetch(wasmPath)
-      await resvg.initWasm(response)
-    })()
-  }
-  return wasmInitPromise
-}
+const initResvgPromise: Promise<void> | null = initWasm(resvgWasm)
+const initYogaPromise = initYoga(yogaWasm).then((yoga) => init(yoga))
 
 async function loadFonts() {
   if (fontsCache) {
@@ -76,7 +69,7 @@ async function loadLogo(dark = true) {
 
 export const GET: APIRoute = async ({ url }) => {
   try {
-    await initializeWasm()
+    await Promise.all([initResvgPromise, initYogaPromise])
 
     const { searchParams } = new URL(url)
 
@@ -318,7 +311,7 @@ export const GET: APIRoute = async ({ url }) => {
       }
     )
 
-    const renderer = new resvg.Resvg(svg, {
+    const renderer = new Resvg(svg, {
       fitTo: {
         mode: "width",
         value: WIDTH,
