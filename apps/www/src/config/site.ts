@@ -3,12 +3,10 @@ export const siteConfig = {
   url: "https://ui.shipbase.xyz",
   author: "shipbase",
   creator: "shipbase",
-  // Dynamic OG images via Satori endpoint
-  // Route lives at /og (not /api/og)
-  ogImage: "/og",
-  twitterImage: "/og",
+  ogImage: "/og-image.png",
+  twitterImage: "/og-image.png",
   description:
-    "A set of beautiful designed components you can customize, extend, and make your own. Multi Framework Support, Open Source.",
+    "A set of beautiful designed components you can customize, extend, and make your own. Multi-Framework Support, Open Source.",
   links: {
     twitter: "https://x.com/shipba_se",
     github: "https://github.com/shipbase/ui",

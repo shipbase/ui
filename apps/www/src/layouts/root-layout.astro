@@ -75,7 +75,7 @@ const { metadata } = Astro.props as Props
     <meta name="twitter:image:alt" content={metadata.twitter.image.alt} />
     <meta name="twitter:creator" content={metadata.twitter.creator} />
 
-    <link rel="canonical" href={String(Astro.url)} />
+    <link rel="canonical" href={Astro.url.toString()} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -85,23 +85,23 @@ const { metadata } = Astro.props as Props
 
     <ClientRouter />
 
-    <script is:inline type="module">
-      import { META_THEME_COLORS } from '@/config/site'
+    <script is:inline>
+      import { META_THEME_COLORS } from "@/config/site";
 
       try {
         if (
-          localStorage.theme === 'dark' ||
-          ((!('theme' in localStorage) || localStorage.theme === 'system') &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches)
+          localStorage.theme === "dark" ||
+          ((!("theme" in localStorage) || localStorage.theme === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
           document
             .querySelector('meta[name="theme-color"]')
-            .setAttribute('content', META_THEME_COLORS.dark)
+            .setAttribute("content", META_THEME_COLORS.dark);
         }
         if (localStorage.layout) {
           document.documentElement.classList.add(
-            'layout-' + localStorage.layout
-          )
+            "layout-" + localStorage.layout
+          );
         }
       } catch (_) {}
     </script>
