@@ -1,10 +1,10 @@
 import { readFile } from "node:fs/promises"
 import path from "node:path"
 import { siteConfig } from "@/config/site"
+import * as resvg from "@resvg/resvg-wasm"
 import type { APIRoute } from "astro"
 import type { ReactNode } from "react"
 import satori, { type Font } from "satori"
-import sharp from "sharp"
 
 export const prerender = false
 
@@ -12,6 +12,21 @@ const WIDTH = 1200
 const HEIGHT = 630
 
 let fontsCache: Font[] | null = null
+let wasmInitPromise: Promise<void> | null = null
+
+async function initializeWasm() {
+  if (!wasmInitPromise) {
+    wasmInitPromise = (async () => {
+      const wasmPath = new URL(
+        "@resvg/resvg-wasm/index_bg.wasm",
+        import.meta.url
+      )
+      const response = await fetch(wasmPath)
+      await resvg.initWasm(response)
+    })()
+  }
+  return wasmInitPromise
+}
 
 async function loadFonts() {
   if (fontsCache) {
@@ -61,6 +76,8 @@ async function loadLogo(dark = true) {
 
 export const GET: APIRoute = async ({ url }) => {
   try {
+    await initializeWasm()
+
     const { searchParams } = new URL(url)
 
     const title = searchParams.get("title") ?? siteConfig.name
@@ -301,11 +318,16 @@ export const GET: APIRoute = async ({ url }) => {
       }
     )
 
-    const png = sharp(Buffer.from(svg)).png()
-    const response = await png.toBuffer()
-    const body = new Uint8Array(response)
+    const renderer = new resvg.Resvg(svg, {
+      fitTo: {
+        mode: "width",
+        value: WIDTH,
+      },
+    })
+    const image = renderer.render()
+    const pngBuffer = image.asPng()
 
-    return new Response(body, {
+    return new Response(new Uint8Array(pngBuffer), {
       status: 200,
       headers: {
         "Content-Type": "image/png",
