@@ -1,11 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Open Graph Image – Shipbase S Logo</title>
-  <desc id="desc">1200×630 image with dark background and the Shipbase S logo centered.</desc>
-  <rect width="1200" height="630" fill="#1f1f1f"/>
-  <!-- Center the 800×800 logo by scaling to 630 high (scale = 0.7875) and centering horizontally -->
-  <g transform="translate(285,0) scale(0.7875)">
+  <title id="title">Open Graph Image – shipbase/ui</title>
+  <desc id="desc">1200×630 image with dark background, shipbase logo on the left, and the project title and description on the right.</desc>
+
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b0b0d"/>
+      <stop offset="100%" stop-color="#131318"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Subtle border -->
+  <rect x="16" y="16" width="1168" height="598" rx="24" fill="none" stroke="#2a2a32" stroke-width="2"/>
+
+  <!-- Logo mark (scaled from 800×800) -->
+  <g transform="translate(120,115) scale(0.42)">
     <line x1="220" y1="287.4" x2="580" y2="188" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
     <line x1="220" y1="220" x2="580" y2="580" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
     <line x1="220" y1="612" x2="580" y2="512.6" stroke="#ffffff" stroke-width="100" stroke-linecap="square"/>
   </g>
+
+  <!-- Title & Description -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif">
+    <text x="520" y="280" font-size="64" font-weight="700" fill="#ffffff" letter-spacing="0.4">
+      shipbase/ui
+    </text>
+    <text x="520" y="340" font-size="24" font-weight="500" fill="#c8c8d0" letter-spacing="0.2">
+      <tspan x="520" dy="0">Beautifully designed components that you can copy</tspan>
+      <tspan x="520" dy="36">and paste into your apps.</tspan>
+      <tspan x="520" dy="36">Accessible. Customizable. Open Source.</tspan>
+    </text>
+  </g>
+
 </svg>

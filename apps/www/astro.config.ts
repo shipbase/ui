@@ -17,6 +17,9 @@ export default defineConfig({
     plugins: [inspect(), tailwindcss()],
   },
 
+  output: "server",
+  site: "https://ui.shipbase.xyz",
+
   trailingSlash: "ignore",
 
   redirects: {

@@ -4,25 +4,121 @@ import { ClientRouter } from "astro:transitions"
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
 import TailwindIndicator from "@/components/tailwind-indicator.astro"
+import { siteConfig } from "@/config/site"
 
 import "@/styles/global.css"
-
 import "@fontsource-variable/geist"
 import "@fontsource-variable/geist-mono"
+
+export interface Props {
+  title?: string
+  description?: string
+  image?: string
+}
+
+const { title, description, image } = Astro.props as Props
+
+const siteName = siteConfig.name
+const baseUrl = Astro.site?.toString().replace(/\/$/, "") ?? ""
+const path = Astro.url?.pathname ?? "/"
+const canonical = `${baseUrl}${path}`
+
+const pageTitle = title ? `${title} – ${siteName}` : siteName
+const pageDescription = description ?? siteConfig.description
+// Use dynamic OG generator by default
+const ogDynamic = `/og?title=${encodeURIComponent(title ?? siteName)}&description=${encodeURIComponent(pageDescription)}`
+const ogImage = image ?? (siteConfig.ogImage || ogDynamic)
+const ogImageAbs = ogImage.startsWith("http") ? ogImage : `${baseUrl}${ogImage}`
+const twitterImage = siteConfig.twitterImage || ogImage
+const twitterImageAbs = twitterImage.startsWith("http")
+  ? twitterImage
+  : `${baseUrl}${twitterImage}`
+const isLikelyPng =
+  /\.png($|\?)/.test(ogImageAbs) ||
+  ogImageAbs.includes("/api/og") ||
+  ogImageAbs.includes("/og")
+const ogImageType = isLikelyPng
+  ? "image/png"
+  : ogImageAbs.endsWith(".jpg") || ogImageAbs.endsWith(".jpeg")
+    ? "image/jpeg"
+    : undefined
+const ogImageWidth = 1200
+const ogImageHeight = 630
+const ogImageAlt = siteName
+const keywords = [
+  "Ark UI",
+  "Tailwind CSS",
+  "React",
+  "Vue",
+  "UI Components",
+  "Component Library",
+]
+  .filter(Boolean)
+  .join(", ")
+
+const twitterUrl: string | undefined = siteConfig.links.twitter
+const twitterCreator = (() => {
+  if (!twitterUrl) return undefined
+  const match = twitterUrl.match(
+    /^https?:\/\/(?:x\.com|twitter\.com)\/([^\/?#]+)/
+  )
+  return match?.[1] ? (`@${match[1]}` as const) : undefined
+})()
+const isHome = path === "/"
+
+const jsonLdWebsite = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: siteName,
+  url: baseUrl,
+}
+
+const segments = path.split("/").filter(Boolean)
+const breadcrumbItems = segments.map((seg, idx) => ({
+  "@type": "ListItem",
+  position: idx + 1,
+  name: seg,
+  item: `${baseUrl}/${segments.slice(0, idx + 1).join("/")}`,
+}))
+const jsonLdBreadcrumb = segments.length
+  ? {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: breadcrumbItems,
+    }
+  : null
+
+const isDoc = path.startsWith("/docs")
+const jsonLdArticle = title
+  ? {
+      "@context": "https://schema.org",
+      "@type": isDoc ? "TechArticle" : "Article",
+      headline: title,
+      description: pageDescription,
+      url: canonical,
+      mainEntityOfPage: canonical,
+      publisher: {
+        "@type": "Organization",
+        name: siteName,
+      },
+    }
+  : null
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>shipbase/ui</title>
+    <title>{pageTitle}</title>
 
-    <!-- <meta name="description" content={description} /> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="keywords"
-      content="ShipbaseUI,Tailwind,CSS,Ark UI,Components,Library,React,Solid,Vue"
-    />
+    <meta name="description" content={pageDescription} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={siteName} />
+    <meta name="creator" content={siteName} />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="canonical" href={canonical} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -30,6 +126,47 @@ import "@fontsource-variable/geist-mono"
     <link rel="manifest" href="/site.webmanifest" />
 
     <link rel="sitemap" href="/sitemap.xml" />
+
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content={isHome ? "website" : "article"} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageAbs} />
+    <meta property="og:image:alt" content={ogImageAlt} />
+    {ogImageType ? <meta property="og:image:type" content={ogImageType} /> : null}
+    <meta property="og:image:width" content={String(ogImageWidth)} />
+    <meta property="og:image:height" content={String(ogImageHeight)} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={twitterImageAbs} />
+    <meta name="twitter:image:alt" content={ogImageAlt} />
+    {twitterCreator ? <meta name="twitter:creator" content={twitterCreator} /> : null}
+
+    <script is:inline>
+      {`
+      try {
+        var light = '#ffffff';
+        var dark = '#09090b';
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var stored = localStorage.getItem('theme');
+        var isDark = stored === 'dark' || ((stored === null || stored === 'system') && prefersDark);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute('content', isDark ? dark : light);
+      } catch (_) {}
+      `}
+    </script>
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLdWebsite)} />
+    {jsonLdBreadcrumb ? (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLdBreadcrumb)} />
+    ) : null}
+    {jsonLdArticle ? (
+      <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLdArticle)} />
+    ) : null}
 
     <ClientRouter />
 

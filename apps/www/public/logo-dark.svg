@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img">
-  <title id="title">shipbase logo</title>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-labelledby="title">
+  <title id="title">shipbase logo (dark)</title>
   <rect width="800" height="800" fill="#000" />
   <line x1="220" y1="287.4" x2="580" y2="188" stroke="#fff" stroke-width="100" stroke-linecap="square" />
   <line x1="220" y1="220" x2="580" y2="580" stroke="#fff" stroke-width="100" stroke-linecap="square" />

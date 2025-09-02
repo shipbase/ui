@@ -1,7 +1,6 @@
 ---
 import { siteConfig } from "@/config/site"
 import { Button } from "@ui/react/button"
-import { Input } from "@ui/react/input"
 
 import ArkUI from "@/assets/logos/ark-ui.svg"
 import CVA from "@/assets/logos/cva.svg"
@@ -19,12 +18,11 @@ import Vue from "@/assets/logos/vue.svg"
   <h1
     class="font-heading text-foreground mb-4 text-3xl/[1.1] font-bold tracking-tight sm:text-4xl/[1.1] md:text-4xl/[1.1] lg:text-5xl/[1.1]"
   >
-    Beautiful Components for<br class="md:hidden" />
+    Shadcn UI Components for<br class="md:hidden" />
     <span class="hidden md:inline"> </span>Multi Framework
   </h1>
   <p class="text-muted-foreground mb-8 text-lg">
-    A set of beautiful designed components you can customize, extend, and make
-    your own. Multi Framework Support, Open Source.
+    {siteConfig.description}
   </p>
   <div class="flex items-center justify-center gap-4">
     <a href="/docs/introduction">
