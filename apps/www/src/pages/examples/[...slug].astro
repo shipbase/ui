@@ -5,6 +5,7 @@ import type { GetStaticPaths } from "astro"
 import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 
+export const prerender = true
 export const getStaticPaths = (async () => {
   const collections = await getCollection("components")
   return collections.flat(1).map((entry) => ({

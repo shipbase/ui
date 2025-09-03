@@ -7,7 +7,7 @@
     "dev": "astro dev",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler dev",
     "typecheck": "astro check",
     "test": "vitest run"
   },

@@ -13,7 +13,6 @@ export default defineConfig({
   site: siteConfig.url,
 
   adapter: cloudflare({
-    cloudflareModules: true,
     imageService: "compile",
   }),
 
@@ -25,6 +24,19 @@ export default defineConfig({
 
   vite: {
     plugins: [inspect(), tailwindcss()],
+    ssr: {
+      external: [
+        "node:path",
+        "node:fs",
+        "node:module",
+        "node:fs/promises",
+        "node:v8",
+        "node:url",
+        "node:process",
+        "node:assert",
+        "node:util",
+      ],
+    },
   },
 
   output: "server",
