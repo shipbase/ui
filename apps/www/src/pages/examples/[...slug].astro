@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content"
 import type { GetStaticPaths } from "astro"
 
-import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 
 export const prerender = true
@@ -14,26 +13,29 @@ export const getStaticPaths = (async () => {
   }))
 }) satisfies GetStaticPaths
 const { entry } = Astro.props
+
+const url = Astro.url
+const imageURL = new URL(
+  `/og?title=${encodeURIComponent(entry.data.title)}&description=${encodeURIComponent(entry.data.description)}`,
+  url.origin
+).toString()
 ---
 
 <RootLayout
   metadata={{
     title: `${entry.data.title} Examples`,
-    description: entry.data.description ?? siteConfig.description,
+    description: entry.data.description,
     openGraph: {
       type: "website",
       title: `${entry.data.title} Examples`,
-      description: entry.data.description ?? siteConfig.description,
-      url: String(Astro.url),
-      siteName: siteConfig.name,
-      image: { url: siteConfig.ogImage, alt: `${entry.data.title} Examples` },
+      description: entry.data.description,
+      image: { url: imageURL },
     },
     twitter: {
       card: "summary_large_image",
       title: `${entry.data.title} Examples`,
-      description: entry.data.description ?? siteConfig.description,
-      creator: siteConfig.creator,
-      image: { url: siteConfig.twitterImage, alt: `${entry.data.title} Examples` },
+      description: entry.data.description,
+      image: { url: imageURL },
     },
   }}
 >

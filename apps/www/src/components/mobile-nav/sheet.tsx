@@ -14,7 +14,7 @@ export function MobileNavSheet({ children }: { children: React.ReactNode }) {
           <span className="sr-only">Toggle Menu</span>
         </Button>
       </SheetTrigger>
-      <SheetContent className="pr-0" side="left">
+      <SheetContent className="z-[50] pr-0" side="left">
         {children}
       </SheetContent>
     </Sheet>

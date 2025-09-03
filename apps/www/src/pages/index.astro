@@ -8,31 +8,31 @@ import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 import { cn } from "@/lib/utils"
 
+const url = Astro.url
 const separatorClass = cn(
   "relative py-5",
   "before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] before:absolute before:-inset-x-32 before:top-0 before:h-px",
   "after:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:-inset-x-32 after:bottom-0 after:h-px"
 )
+
+const imageUrl = new URL(siteConfig.ogImage, url.origin).toString()
 ---
 
 <RootLayout
   metadata={{
-    title: "Shadcn UI Components for Multi-Framework",
+    title: siteConfig.title,
     description: siteConfig.description,
     openGraph: {
       type: "website",
-      title: "Shadcn UI Components for Multi-Framework",
+      title: siteConfig.title,
       description: siteConfig.description,
-      url: String(Astro.url),
-      siteName: siteConfig.name,
-      image: { url: siteConfig.ogImage, alt: siteConfig.name },
+      image: { url: imageUrl },
     },
     twitter: {
       card: "summary_large_image",
-      title: "Shadcn UI Components for Multi-Framework",
+      title: siteConfig.title,
       description: siteConfig.description,
-      creator: siteConfig.creator,
-      image: { url: siteConfig.twitterImage, alt: siteConfig.name },
+      image: { url: imageUrl },
     },
   }}
 >

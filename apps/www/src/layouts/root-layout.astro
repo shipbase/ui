@@ -18,27 +18,23 @@ export interface Props {
       type: "website" | "article" | "book" | "profile" | (string & {})
       title: string
       description: string
-      url: string
-      siteName: string
       image: {
         url: string
-        alt: string
       }
     }
     twitter: {
       card: "summary" | "summary_large_image" | "app" | "player"
       title: string
       description: string
-      creator: string
       image: {
         url: string
-        alt: string
       }
     }
   }
 }
 
 const { metadata } = Astro.props as Props
+const url = Astro.url
 ---
 
 <!doctype html>
@@ -58,22 +54,22 @@ const { metadata } = Astro.props as Props
     <meta name="theme-color" content={META_THEME_COLORS.light} />
     <meta name="robots" content="index,follow" />
 
-    <meta property="og:site_name" content={metadata.openGraph.siteName} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={url.toString()} />
     <meta property="og:type" content={metadata.openGraph.type} />
     <meta property="og:title" content={metadata.openGraph.title} />
     <meta property="og:description" content={metadata.openGraph.description} />
-    <meta property="og:url" content={metadata.openGraph.url} />
+    <meta property="og:site_name" content={siteConfig.name} />
     <meta property="og:image" content={metadata.openGraph.image.url} />
-    <meta property="og:image:alt" content={metadata.openGraph.image.alt} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:image:alt" content={siteConfig.name} />
 
     <meta name="twitter:site" content="@shipba_se" />
     <meta name="twitter:card" content={metadata.twitter.card} />
     <meta name="twitter:title" content={metadata.twitter.title} />
     <meta name="twitter:description" content={metadata.twitter.description} />
     <meta name="twitter:image" content={metadata.twitter.image.url} />
-    <meta name="twitter:image:alt" content={metadata.twitter.image.alt} />
-    <meta name="twitter:creator" content={metadata.twitter.creator} />
+    <meta name="twitter:image:alt" content={siteConfig.name} />
+    <meta name="twitter:creator" content={siteConfig.creator} />
 
     <link rel="canonical" href={Astro.url.toString()} />
 

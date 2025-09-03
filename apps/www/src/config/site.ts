@@ -5,6 +5,7 @@ export const siteConfig = {
   creator: "shipbase",
   ogImage: "/og-image.png",
   twitterImage: "/og-image.png",
+  title: "Shadcn UI Components for Multi-Framework",
   description:
     "A set of beautiful designed components you can customize, extend, and make your own. Multi-Framework Support, Open Source.",
   links: {

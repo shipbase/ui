@@ -1,6 +1,9 @@
 ---
 import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
+
+const url = Astro.url
+const imageUrl = new URL(siteConfig.ogImage, url.origin).toString()
 ---
 
 <RootLayout
@@ -11,16 +14,13 @@ import RootLayout from "@/layouts/root-layout.astro"
       type: "website",
       title: "Examples",
       description: siteConfig.description,
-      url: String(Astro.url),
-      siteName: siteConfig.name,
-      image: { url: siteConfig.ogImage, alt: "Examples" },
+      image: { url: imageUrl },
     },
     twitter: {
       card: "summary_large_image",
       title: "Examples",
       description: siteConfig.description,
-      creator: siteConfig.creator,
-      image: { url: siteConfig.twitterImage, alt: "Examples" },
+      image: { url: imageUrl },
     },
   }}
 >
