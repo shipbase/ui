@@ -4,41 +4,58 @@ import { Resvg, initWasm } from "@resvg/resvg-wasm"
 // @ts-ignore - resvg.wasm is a module
 import resvgwasm from "@resvg/resvg-wasm/index_bg.wasm"
 import type { APIRoute } from "astro"
-import satori, { type Font, init } from "satori/wasm"
+// use satori standalone version after https://github.com/vercel/satori/issues/693
+import satori, { init } from "satori/wasm"
 import initYoga from "yoga-wasm-web"
-// @ts-ignore - yoga.wasm is a module
+// @ts-ignore
 import yogaWasm from "yoga-wasm-web/dist/yoga.wasm"
 
 export const prerender = false
 
 const WIDTH = 1200
 const HEIGHT = 630
+const FONT_TEXT = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz/,-."
 
-let fontsCache: Font[] | null = null
 const initResvgPromise: Promise<void> | null = initWasm(resvgwasm)
 const initYogaPromise = initYoga(yogaWasm).then((yoga) => init(yoga))
 
-async function loadFonts(baseUrl: string) {
-  if (fontsCache) {
-    return fontsCache
+async function loadGoogleFont(font: string, text?: string) {
+  if (!font || !text) return
+  const API = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(
+    text
+  )}`
+  const css = await (
+    await fetch(API, {
+      headers: {
+        // Make sure it returns TTF.
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_8; de-at) AppleWebKit/533.21.1 (KHTML, like Gecko) Version/5.0.5 Safari/533.21.1",
+      },
+    })
+  ).text()
+  const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)
+  if (!resource || !resource[1])
+    throw new Error("Failed to download dynamic font")
+  const res = await fetch(resource[1])
+  if (!res.ok) {
+    throw new Error(`Failed to download dynamic font. Status: ${res.status}`)
   }
+  return res.arrayBuffer()
+}
+
+async function loadFonts() {
   const [geistRegularData, geistSemiBoldData, geistMonoData] =
     await Promise.all([
-      fetch(new URL("/fonts/Geist-Regular.ttf", baseUrl)).then((result) => {
-        return result.arrayBuffer()
-      }),
-      fetch(new URL("/fonts/Geist-SemiBold.ttf", baseUrl)).then((result) =>
-        result.arrayBuffer()
-      ),
-      fetch(new URL("/fonts/GeistMono-Regular.ttf", baseUrl)).then((result) =>
-        result.arrayBuffer()
-      ),
-    ]).catch((error) => {
-      console.error(error)
-      return []
-    })
+      loadGoogleFont("Geist", FONT_TEXT),
+      loadGoogleFont("Geist", FONT_TEXT),
+      loadGoogleFont("Geist Mono", FONT_TEXT),
+    ])
 
-  fontsCache = [
+  if (!geistRegularData || !geistSemiBoldData || !geistMonoData) {
+    throw new Error("Failed to load fonts")
+  }
+
+  return [
     {
       name: "Geist",
       data: geistRegularData,
@@ -58,28 +75,21 @@ async function loadFonts(baseUrl: string) {
       style: "normal" as const,
     },
   ]
-
-  return fontsCache
 }
 
 export const GET: APIRoute = async ({ url }) => {
   try {
+    const fonts = await loadFonts()
     const searchParams = url.searchParams
 
-    const [fonts] = await Promise.all([
-      loadFonts(url.origin),
-      initResvgPromise,
-      initYogaPromise,
-    ])
+    await Promise.all([initResvgPromise, initYogaPromise])
 
     const title = searchParams.get("title") ?? siteConfig.name
     const description =
       searchParams.get("description") ?? siteConfig.description
 
-    const logoSrc = new URL("/logo-dark.png", url.origin).toString()
-
     const svg = await satori(
-      OpenGraph({ width: WIDTH, height: HEIGHT, title, description, logoSrc }),
+      OpenGraph({ width: WIDTH, height: HEIGHT, title, description }),
       {
         width: WIDTH,
         height: HEIGHT,
@@ -96,11 +106,11 @@ export const GET: APIRoute = async ({ url }) => {
     const image = renderer.render()
     const pngBuffer = image.asPng()
 
-    return new Response(new Uint8Array(pngBuffer), {
+    return new Response(pngBuffer, {
       status: 200,
       headers: {
-        "Content-Type": "image/png",
-        "Cache-Control": "s-maxage=1, stale-while-revalidate=59",
+        "content-type": "image/png",
+        "cache-control": "public, immutable, no-transform, max-age=31536000",
       },
     })
   } catch (error) {

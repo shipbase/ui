@@ -3,7 +3,6 @@ type OpenGraphProps = {
   height: number
   title: string
   description: string
-  logoSrc: string
 }
 
 const DEFAULT_COLORS = {
@@ -19,17 +18,16 @@ export function OpenGraph({
   height,
   title,
   description,
-  logoSrc,
 }: OpenGraphProps) {
   const TITLE_FONT_SIZE = title && title.length > 20 ? 64 : 80
-  const LOGO_SIZE = 88
 
   const GUIDE_INSET = 64
-  const GUIDE_THICKNESS = 1
+  const GUIDE_THICKNESS = 3
   const CROSS_LENGTH = 48
   const CROSS_THICKNESS = 3
   const CROSS_HALF = CROSS_LENGTH / 2
   const CROSS_HALF_THICKNESS = Math.floor(CROSS_THICKNESS / 2)
+  const GUIDE_HALF_THICKNESS = Math.floor(GUIDE_THICKNESS / 2)
 
   return (
     <div
@@ -97,8 +95,8 @@ export function OpenGraph({
       <div
         style={{
           position: "absolute",
-          left: GUIDE_INSET - CROSS_HALF,
-          top: GUIDE_INSET - CROSS_HALF_THICKNESS,
+          left: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF,
+          top: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF_THICKNESS,
           width: CROSS_LENGTH,
           height: CROSS_THICKNESS,
           background: DEFAULT_COLORS.cross,
@@ -107,8 +105,8 @@ export function OpenGraph({
       <div
         style={{
           position: "absolute",
-          left: GUIDE_INSET - CROSS_HALF_THICKNESS,
-          top: GUIDE_INSET - CROSS_HALF,
+          left: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF_THICKNESS,
+          top: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF,
           width: CROSS_THICKNESS,
           height: CROSS_LENGTH,
           background: DEFAULT_COLORS.cross,
@@ -119,8 +117,8 @@ export function OpenGraph({
       <div
         style={{
           position: "absolute",
-          right: GUIDE_INSET - CROSS_HALF,
-          bottom: GUIDE_INSET - CROSS_HALF_THICKNESS,
+          right: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF,
+          bottom: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF_THICKNESS,
           width: CROSS_LENGTH,
           height: CROSS_THICKNESS,
           background: DEFAULT_COLORS.cross,
@@ -129,8 +127,8 @@ export function OpenGraph({
       <div
         style={{
           position: "absolute",
-          right: GUIDE_INSET - CROSS_HALF_THICKNESS,
-          bottom: GUIDE_INSET - CROSS_HALF,
+          right: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF_THICKNESS,
+          bottom: GUIDE_INSET + GUIDE_HALF_THICKNESS - CROSS_HALF,
           width: CROSS_THICKNESS,
           height: CROSS_LENGTH,
           background: DEFAULT_COLORS.cross,
@@ -161,13 +159,7 @@ export function OpenGraph({
           }}
         >
           {/* Logo */}
-          <img
-            src={logoSrc}
-            width={LOGO_SIZE}
-            height={LOGO_SIZE}
-            alt="shipbase/ui"
-            style={{ display: "block" }}
-          />
+          <Logo />
 
           {/* Title */}
           <div
@@ -201,6 +193,48 @@ export function OpenGraph({
         </div>
       </div>
     </div>
+  )
+}
+
+function Logo() {
+  const LOGO_SIZE = 88
+  return (
+    /** biome-ignore lint/a11y/noSvgWithoutTitle: svg logo */
+    <svg
+      width={LOGO_SIZE}
+      height={LOGO_SIZE}
+      viewBox="0 0 800 800"
+      role="img"
+      style={{ display: "block" }}
+    >
+      <line
+        x1="220"
+        y1="287.4"
+        x2="580"
+        y2="188"
+        stroke="#fff"
+        stroke-width="100"
+        stroke-linecap="square"
+      />
+      <line
+        x1="220"
+        y1="220"
+        x2="580"
+        y2="580"
+        stroke="#fff"
+        stroke-width="100"
+        stroke-linecap="square"
+      />
+      <line
+        x1="220"
+        y1="612"
+        x2="580"
+        y2="512.6"
+        stroke="#fff"
+        stroke-width="100"
+        stroke-linecap="square"
+      />
+    </svg>
   )
 }
 

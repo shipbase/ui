@@ -8,6 +8,7 @@
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "astro build",
     "preview": "wrangler dev",
+    "upload": "wrangler versions upload",
     "typecheck": "astro check",
     "test": "vitest run"
   },
@@ -41,7 +42,7 @@
     "react-dom": "catalog:react18",
     "react-scan": "catalog:",
     "recharts": "catalog:",
-    "satori": "^0.10.13",
+    "satori": "0.15.2",
     "scule": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
