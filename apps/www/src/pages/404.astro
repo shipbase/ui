@@ -8,25 +8,26 @@ const imageUrl = new URL(siteConfig.ogImage, url.origin).toString()
 
 <RootLayout
   metadata={{
-    title: "Examples",
+    title: "Page Not Found",
     description: siteConfig.description,
     openGraph: {
       type: "website",
-      title: "Examples",
+      title: "Page Not Found",
       description: siteConfig.description,
       image: { url: imageUrl },
     },
     twitter: {
       card: "summary_large_image",
-      title: "Examples",
+      title: "Page Not Found",
       description: siteConfig.description,
       image: { url: imageUrl },
     },
   }}
 >
-  <div
-    class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
-  >
-    <h1>Examples</h1>
+  <div class="container py-16 text-center">
+    <h1 class="text-4xl font-bold tracking-tight">404 – Page not found</h1>
+    <p class="mt-2 text-muted-foreground">
+      The page you’re looking for doesn’t exist.
+    </p>
   </div>
 </RootLayout>

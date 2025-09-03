@@ -7,7 +7,8 @@
     "dev": "astro dev",
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler dev",
+    "upload": "wrangler versions upload",
     "typecheck": "astro check",
     "test": "vitest run"
   },
@@ -18,10 +19,12 @@
     "@astrojs/cloudflare": "catalog:",
     "@astrojs/mdx": "catalog:",
     "@astrojs/react": "catalog:",
+    "@astrojs/sitemap": "^3.5.1",
     "@astrojs/vue": "catalog:",
     "@fontsource-variable/geist": "catalog:",
     "@fontsource-variable/geist-mono": "catalog:",
     "@lucide/astro": "catalog:",
+    "@resvg/resvg-wasm": "^2.6.2",
     "@tailwindcss/vite": "catalog:",
     "@tanstack/react-table": "catalog:",
     "@ui/lib": "workspace:*",
@@ -39,11 +42,13 @@
     "react-dom": "catalog:react18",
     "react-scan": "catalog:",
     "recharts": "catalog:",
+    "satori": "0.15.2",
     "scule": "catalog:",
-    "sharp": "catalog:",
     "tailwind-merge": "catalog:",
     "tailwindcss": "catalog:",
-    "tw-animate-css": "catalog:"
+    "tiny-invariant": "^1.3.3",
+    "tw-animate-css": "catalog:",
+    "yoga-wasm-web": "^0.3.3"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "catalog:",

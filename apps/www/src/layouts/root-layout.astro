@@ -4,37 +4,105 @@ import { ClientRouter } from "astro:transitions"
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
 import TailwindIndicator from "@/components/tailwind-indicator.astro"
+import { META_THEME_COLORS, siteConfig } from "@/config/site"
 
 import "@/styles/global.css"
-
 import "@fontsource-variable/geist"
 import "@fontsource-variable/geist-mono"
+
+export interface Props {
+  metadata: {
+    title: string
+    description: string
+    openGraph: {
+      type: "website" | "article" | "book" | "profile" | (string & {})
+      title: string
+      description: string
+      image: {
+        url: string
+      }
+    }
+    twitter: {
+      card: "summary" | "summary_large_image" | "app" | "player"
+      title: string
+      description: string
+      image: {
+        url: string
+      }
+    }
+  }
+}
+
+const { metadata } = Astro.props as Props
+const url = Astro.url
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <title>shipbase/ui</title>
+    <title>{metadata.title} – {siteConfig.name}</title>
 
-    <!-- <meta name="description" content={description} /> -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={metadata.description} />
     <meta
       name="keywords"
-      content="ShipbaseUI,Tailwind,CSS,Ark UI,Components,Library,React,Solid,Vue"
+      content="Ark UI, Tailwind CSS, Framework-agnostic, Components, shipbase/ui"
     />
+    <meta name="author" content={siteConfig.author} />
+    <meta name="creator" content={siteConfig.creator} />
+    <meta name="theme-color" content={META_THEME_COLORS.light} />
+    <meta name="robots" content="index,follow" />
+
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={url.toString()} />
+    <meta property="og:type" content={metadata.openGraph.type} />
+    <meta property="og:title" content={metadata.openGraph.title} />
+    <meta property="og:description" content={metadata.openGraph.description} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:image" content={metadata.openGraph.image.url} />
+    <meta property="og:image:alt" content={siteConfig.name} />
+
+    <meta name="twitter:site" content="@shipba_se" />
+    <meta name="twitter:card" content={metadata.twitter.card} />
+    <meta name="twitter:title" content={metadata.twitter.title} />
+    <meta name="twitter:description" content={metadata.twitter.description} />
+    <meta name="twitter:image" content={metadata.twitter.image.url} />
+    <meta name="twitter:image:alt" content={siteConfig.name} />
+    <meta name="twitter:creator" content={siteConfig.creator} />
+
+    <link rel="canonical" href={Astro.url.toString()} />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
 
-    <link rel="sitemap" href="/sitemap.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <ClientRouter />
 
-    <script src="@/scripts/framework-sync.ts" />
-    <script src="@/scripts/package-manager-sync.ts" />
+    <script is:inline>
+      import { META_THEME_COLORS } from "@/config/site";
+
+      try {
+        if (
+          localStorage.theme === "dark" ||
+          ((!("theme" in localStorage) || localStorage.theme === "system") &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document
+            .querySelector('meta[name="theme-color"]')
+            .setAttribute("content", META_THEME_COLORS.dark);
+        }
+        if (localStorage.layout) {
+          document.documentElement.classList.add(
+            "layout-" + localStorage.layout
+          );
+        }
+      } catch (_) {}
+    </script>
+    <script src="@/scripts/framework-sync.ts"></script>
+    <script src="@/scripts/package-manager-sync.ts"></script>
   </head>
   <body
     class="bg-background overscroll-none text-foreground font-sans antialiased"

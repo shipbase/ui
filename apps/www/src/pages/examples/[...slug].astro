@@ -4,6 +4,7 @@ import type { GetStaticPaths } from "astro"
 
 import RootLayout from "@/layouts/root-layout.astro"
 
+export const prerender = true
 export const getStaticPaths = (async () => {
   const collections = await getCollection("components")
   return collections.flat(1).map((entry) => ({
@@ -11,9 +12,33 @@ export const getStaticPaths = (async () => {
     props: { entry },
   }))
 }) satisfies GetStaticPaths
+const { entry } = Astro.props
+
+const url = Astro.url
+const imageURL = new URL(
+  `/og?title=${encodeURIComponent(entry.data.title)}&description=${encodeURIComponent(entry.data.description)}`,
+  url.origin
+).toString()
 ---
 
-<RootLayout>
+<RootLayout
+  metadata={{
+    title: `${entry.data.title} Examples`,
+    description: entry.data.description,
+    openGraph: {
+      type: "website",
+      title: `${entry.data.title} Examples`,
+      description: entry.data.description,
+      image: { url: imageURL },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${entry.data.title} Examples`,
+      description: entry.data.description,
+      image: { url: imageURL },
+    },
+  }}
+>
   <div
     class="container md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-10"
   >

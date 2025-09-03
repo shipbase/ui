@@ -4,26 +4,47 @@ import CTA from "@/components/landing/cta.astro"
 import FeaturesSection from "@/components/landing/features.astro"
 import Newsletter from "@/components/landing/newsletter.astro"
 import Shadcn from "@/components/landing/shadcn.astro"
+import { siteConfig } from "@/config/site"
 import RootLayout from "@/layouts/root-layout.astro"
 import { cn } from "@/lib/utils"
 
+const url = Astro.url
 const separatorClass = cn(
   "relative py-5",
   "before:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] before:absolute before:-inset-x-32 before:top-0 before:h-px",
   "after:bg-[linear-gradient(to_right,--theme(--color-border/.3),--theme(--color-border)_200px,--theme(--color-border)_calc(100%-200px),--theme(--color-border/.3))] after:absolute after:-inset-x-32 after:bottom-0 after:h-px"
 )
+
+const imageUrl = new URL(siteConfig.ogImage, url.origin).toString()
 ---
 
-<RootLayout>
+<RootLayout
+  metadata={{
+    title: siteConfig.title,
+    description: siteConfig.description,
+    openGraph: {
+      type: "website",
+      title: siteConfig.title,
+      description: siteConfig.description,
+      image: { url: imageUrl },
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: siteConfig.title,
+      description: siteConfig.description,
+      image: { url: imageUrl },
+    },
+  }}
+>
   <div>
     <CTA />
-    <section class={separatorClass}></section>
+    <section class={separatorClass} />
     <Shadcn />
-    <section class={separatorClass}></section>
+    <section class={separatorClass} />
     <FeaturesSection />
-    <section class={separatorClass}></section>
+    <section class={separatorClass} />
     <ComponentsOverview />
-    <section class={separatorClass}></section>
+    <section class={separatorClass} />
     <Newsletter />
   </div>
 </RootLayout>
