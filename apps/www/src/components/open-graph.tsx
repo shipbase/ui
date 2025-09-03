@@ -213,8 +213,8 @@ function Logo() {
         x2="580"
         y2="188"
         stroke="#fff"
-        stroke-width="100"
-        stroke-linecap="square"
+        strokeWidth="100"
+        strokeLinecap="square"
       />
       <line
         x1="220"
@@ -222,8 +222,8 @@ function Logo() {
         x2="580"
         y2="580"
         stroke="#fff"
-        stroke-width="100"
-        stroke-linecap="square"
+        strokeWidth="100"
+        strokeLinecap="square"
       />
       <line
         x1="220"
@@ -231,8 +231,8 @@ function Logo() {
         x2="580"
         y2="512.6"
         stroke="#fff"
-        stroke-width="100"
-        stroke-linecap="square"
+        strokeWidth="100"
+        strokeLinecap="square"
       />
     </svg>
   )
