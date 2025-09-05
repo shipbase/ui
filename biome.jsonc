@@ -8,6 +8,7 @@
       "**/public/**",
       "**/.wrangler/**",
       "**/.next/**",
+      "routeTree.gen.ts",
       "packages.json"
     ]
   },

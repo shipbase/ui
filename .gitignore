@@ -1,6 +1,11 @@
 # build output
 dist/
 .next
+.cache
+.vercel
+.output
+.nitro
+.tanstack
 # generated types
 .astro/
 
