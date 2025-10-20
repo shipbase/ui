@@ -106,7 +106,7 @@ export const GET: APIRoute = async ({ url }) => {
     const image = renderer.render()
     const pngBuffer = image.asPng()
 
-    return new Response(pngBuffer, {
+    return new Response(pngBuffer as BodyInit, {
       status: 200,
       headers: {
         "content-type": "image/png",
