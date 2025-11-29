@@ -1,67 +1,56 @@
-"use client"
+import { DynamicCodeBlock } from "fumadocs-ui/components/dynamic-codeblock"
 
-import { RotateCcw } from "lucide-react"
-import { Suspense, lazy, useEffect, useMemo, useState } from "react"
-
-import { Button } from "@ui/react/button"
-import Examples from "@ui/react/examples"
-import { ClientOnly } from "../client-only"
+import type { Framework } from "@/constants/frameworks"
+import { getExampleSource } from "@/lib/code-source"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@ui/react/tabs"
+import ExamplePreviewClient from "./example-preview.client"
 
 interface Props {
   name: string
+  framework?: Framework
 }
 
-export default function ExamplePreview({ name }: Props) {
-  const [key, setKey] = useState(0)
-  const Component = useMemo(
-    () => Examples[name] || <NotFound name={name} />,
-    [name]
-  )
+export default async function ExamplePreview({
+  name,
+  framework = "react",
+}: Props) {
+  const source = await getExampleSource(framework, name)
 
-  console.log(Examples)
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <ClientOnly>
-        <Component />
-      </ClientOnly>
-    </Suspense>
-  )
-
-  // return (
-  //   <>
-  //     <Button
-  //       onClick={() => setKey((prev) => prev + 1)}
-  //       variant="ghost"
-  //       className="absolute top-2 right-2"
-  //     >
-  //       <RotateCcw aria-label="restart-btn" size={16} />
-  //     </Button>
-  //     <div
-  //       key={key}
-  //       className="flex size-full max-w-8/12 flex-1 items-center justify-center "
-  //     >
-  //       <Suspense
-  //         fallback={
-  //           <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
-  //             Loading...
-  //           </div>
-  //         }
-  //       >
-  //         <Component />
-  //       </Suspense>
-  //     </div>
-  //   </>
-  // )
-}
-
-function NotFound({ name }: { name: string }) {
-  return (
-    <p className="text-muted-foreground text-sm">
-      Component
-      <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-        {name}
-      </code>
-      not found in registry.
-    </p>
+    <div className="relative my-4 flex flex-col space-y-2 lg:max-w-[120ch]">
+      <Tabs defaultValue="preview">
+        <TabsList className="justify-start bg-transparent">
+          <TabsTrigger
+            value="preview"
+            className="h-full font-semibold data-[selected]:text-foreground"
+          >
+            Preview
+          </TabsTrigger>
+          <TabsTrigger
+            value="code"
+            className="h-full font-semibold data-[selected]:text-foreground"
+          >
+            Code
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="preview">
+          <ExamplePreviewClient name={name} />
+        </TabsContent>
+        <TabsContent value="code">
+          {source ? (
+            <DynamicCodeBlock lang={source.lang} code={source.content} />
+          ) : (
+            <div className="rounded border p-4">
+              <p className="text-muted-foreground text-sm">
+                Failed to load source code for{" "}
+                <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
+                  {name}
+                </code>
+              </p>
+            </div>
+          )}
+        </TabsContent>
+      </Tabs>
+    </div>
   )
 }

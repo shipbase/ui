@@ -1,8 +1,13 @@
 import defaultMdxComponents from "fumadocs-ui/mdx"
-import type { MDXComponents as MDXComponentsType } from "mdx/types"
-import ExamplePreview from "./content/example-preview"
+import type { MDXComponents } from "mdx/types"
 
-export const MDXComponents: MDXComponentsType = {
-  ...(defaultMdxComponents as MDXComponentsType),
-  ExamplePreview,
+import ExamplePreview from "@/components/content/example-preview"
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  // @ts-expect-error
+  return {
+    ...defaultMdxComponents,
+    ...components,
+    ExamplePreview,
+  } as MDXComponents
 }

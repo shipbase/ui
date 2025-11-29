@@ -39,3 +39,6 @@ storybook-static
 
 # turbo
 .turbo
+
+# fumadocs generated
+apps/docs/.source
