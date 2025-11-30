@@ -1,32 +1,30 @@
-import fs from "node:fs/promises"
-import path from "node:path"
-
 import type { Framework } from "@/constants/frameworks"
+import { safeReadFile } from "@ui/lib/utils/fs"
+import { safeResolvePath } from "@ui/lib/utils/mlly"
+import type { BuiltinLanguage } from "shiki"
 
 export const getExampleSource = async (
   framework: Framework,
   example: string
 ) => {
-  try {
-    // Construct the path to the example file
-    const packagesPath = path.resolve(process.cwd(), "../../packages")
-    const examplePath = path.join(
-      packagesPath,
-      framework,
-      "src/examples",
-      `${example}.tsx`
-    )
-
-    const content = await fs.readFile(examplePath, "utf-8")
-    const [, name, lang] = examplePath.match(/([\w-]+)\.(tsx|ts|vue)$/) || []
-
-    return {
-      filename: `${name}.${lang}`,
-      content,
-      lang: lang as "tsx" | "ts" | "vue",
+  const entryPath = await safeResolvePath(
+    `@ui/${framework}/examples/${example}`,
+    {
+      conditions: ["source"],
     }
-  } catch (error) {
-    console.error(`Failed to load example source: ${example}`, error)
-    return null
+  )
+
+  if (!entryPath.success) return
+  const entryFile = await safeReadFile(entryPath.result)
+  if (!entryFile.success) return
+  const entryFileInfo = extractFileInfo(entryPath.result)
+  return {
+    filename: `${entryFileInfo[1]}.${entryFileInfo[2]}`,
+    content: entryFile.result,
+    lang: entryFileInfo[2] as BuiltinLanguage,
   }
+}
+
+export const extractFileInfo = (p: string) => {
+  return p.match(/([\w-]+)\.(vue|ts|tsx)$/) || []
 }
