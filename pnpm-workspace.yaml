@@ -3,47 +3,48 @@ packages:
   - packages/*
   - tools/*
   - examples/*
-  - '!**/test/fixtures/**'
+  - "!**/test/fixtures/**"
 
 catalog:
-  '@ark-ui/react': 5.20.0
-  '@ark-ui/vue': ^5.20.0
-  '@astrojs/check': ^0.9.4
-  '@astrojs/cloudflare': ^12.6.5
-  '@astrojs/mdx': 4.3.4
-  '@astrojs/react': ^4.3.0
-  '@astrojs/ts-plugin': ^1.10.4
-  '@astrojs/vue': 5.1.0
-  '@biomejs/biome': 1.9.4
-  '@changesets/changelog-github': ^0.5.1
-  '@changesets/cli': ^2.29.6
-  '@chromatic-com/storybook': ^3.2.7
-  '@fontsource-variable/geist': ^5.2.6
-  '@fontsource-variable/geist-mono': ^5.2.6
-  '@lucide/astro': ^0.539.0
-  '@shikijs/transformers': ^3.11.0
-  '@storybook/addon-essentials': ^8.6.14
-  '@storybook/addon-interactions': ^8.6.14
-  '@storybook/addon-links': ^8.6.14
-  '@storybook/addon-onboarding': ^8.6.14
-  '@storybook/addon-themes': ^8.6.14
-  '@storybook/blocks': ^8.6.14
-  '@storybook/react': ^8.6.14
-  '@storybook/react-vite': ^8.6.14
-  '@storybook/test': ^8.6.14
-  '@storybook/vue3': ^8.6.14
-  '@storybook/vue3-vite': ^8.6.14
-  '@tailwindcss/vite': ^4.1.12
-  '@tanstack/react-table': ^8.21.3
-  '@types/mdast': ^4.0.4
-  '@types/node': ^22.17.2
-  '@types/prompts': ^2.4.9
-  '@typescript/native-preview': 7.0.0-dev.20250824.1
-  '@vitejs/plugin-react-swc': ^3.11.0
-  '@vitejs/plugin-vue': ^6.0.1
-  '@vitejs/plugin-vue-jsx': ^5.0.1
-  '@vue/tsconfig': ^0.7.0
-  '@xstate/store': ^3.9.2
+  "@ark-ui/react": 5.20.0
+  "@ark-ui/vue": ^5.20.0
+  "@astrojs/check": ^0.9.4
+  "@astrojs/cloudflare": ^12.6.5
+  "@astrojs/mdx": 4.3.4
+  "@astrojs/react": ^4.3.0
+  "@astrojs/ts-plugin": ^1.10.4
+  "@astrojs/vue": 5.1.0
+  oxfmt: ^0.28.0
+  oxlint: ^1.46.0
+  "@changesets/changelog-github": ^0.5.1
+  "@changesets/cli": ^2.29.6
+  "@chromatic-com/storybook": ^3.2.7
+  "@fontsource-variable/geist": ^5.2.6
+  "@fontsource-variable/geist-mono": ^5.2.6
+  "@lucide/astro": ^0.539.0
+  "@shikijs/transformers": ^3.11.0
+  "@storybook/addon-essentials": ^8.6.14
+  "@storybook/addon-interactions": ^8.6.14
+  "@storybook/addon-links": ^8.6.14
+  "@storybook/addon-onboarding": ^8.6.14
+  "@storybook/addon-themes": ^8.6.14
+  "@storybook/blocks": ^8.6.14
+  "@storybook/react": ^8.6.14
+  "@storybook/react-vite": ^8.6.14
+  "@storybook/test": ^8.6.14
+  "@storybook/vue3": ^8.6.14
+  "@storybook/vue3-vite": ^8.6.14
+  "@tailwindcss/vite": ^4.1.12
+  "@tanstack/react-table": ^8.21.3
+  "@types/mdast": ^4.0.4
+  "@types/node": ^22.17.2
+  "@types/prompts": ^2.4.9
+  "@typescript/native-preview": 7.0.0-dev.20250824.1
+  "@vitejs/plugin-react-swc": ^3.11.0
+  "@vitejs/plugin-vue": ^6.0.1
+  "@vitejs/plugin-vue-jsx": ^5.0.1
+  "@vue/tsconfig": ^0.7.0
+  "@xstate/store": ^3.9.2
   astro: ^5.13.3
   autoprefixer: ^10.4.21
   cac: ^6.7.14
@@ -96,19 +97,19 @@ catalog:
 
 catalogs:
   react18:
-    '@types/react': ^18.3.24
-    '@types/react-dom': ^18.3.7
+    "@types/react": ^18.3.24
+    "@types/react-dom": ^18.3.7
     react: ^18.3.1
     react-dom: ^18.3.1
   react19:
-    '@types/react': ^19.1.11
-    '@types/react-dom': ^19.1.7
+    "@types/react": ^19.1.11
+    "@types/react-dom": ^19.1.7
     react: ^19.1.1
     react-dom: ^19.1.1
 
 onlyBuiltDependencies:
-  - '@biomejs/biome'
-  - '@tailwindcss/oxide'
+  - oxlint
+  - "@tailwindcss/oxide"
   - core-js-pure
   - esbuild
   - sharp

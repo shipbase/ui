@@ -1,0 +1,14 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "rules": {
+    "react/no-array-index-key": "off"
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/.turbo/**",
+    "**/.astro/**",
+    "**/public/**",
+    "**/.wrangler/**",
+    "**/.next/**"
+  ]
+}

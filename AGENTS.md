@@ -7,18 +7,19 @@ This is a monorepo for a UI component library similar to shadcn/ui, built with A
 ## Architecture
 
 ### Tech Stack
-  - pnpm for package management
-  - turborepo for monorepo tasks management
-  - biome for linting and formatting
-  - typescript for type checking
-  - vitest for testing
-  - changesets for version management
-  - ark-ui for primitive components
-  - tailwindcss v4 for styling
-  - lucide-react for icons
-  - xstate for state management
-  - astro for documentation site
-  - mdx for documentation
+
+- pnpm for package management
+- turborepo for monorepo tasks management
+- oxlint for linting, oxfmt for formatting
+- typescript for type checking
+- vitest for testing
+- changesets for version management
+- ark-ui for primitive components
+- tailwindcss v4 for styling
+- lucide-react for icons
+- xstate for state management
+- astro for documentation site
+- mdx for documentation
 
 ### Directory Structure
 
@@ -52,7 +53,7 @@ Components are built on top of Ark UI, with primitive component, examples, stori
 - !`pnpm run check` for linting.
 - !`pnpm run format` for formatting.
 
->  don't use any stub, dev to run this project for testing, the dev server is running before i work with you.
+> don't use any stub, dev to run this project for testing, the dev server is running before i work with you.
 
 ## Specific Rules
 

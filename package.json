@@ -1,8 +1,8 @@
 {
   "name": "ui",
-  "type": "module",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
     "bump": "taze -r -l",
     "stub": "turbo run stub",
@@ -11,21 +11,24 @@
     "deploy": "turbo run deploy",
     "test": "turbo test",
     "build": "turbo build",
-    "format": "biome format . --write",
-    "check": "biome lint . --fix --unsafe",
+    "format": "oxfmt .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "sherif": "sherif --fix",
     "typecheck": "turbo typecheck",
     "clean": "turbo clean && git clean -xdf node_modules .turbo",
     "version": "changeset version && pnpm run format"
   },
   "devDependencies": {
-    "@biomejs/biome": "catalog:",
     "@changesets/changelog-github": "catalog:",
     "@changesets/cli": "catalog:",
     "@types/node": "catalog:",
     "@typescript/native-preview": "catalog:",
     "dotenv": "catalog:",
     "lint-staged": "catalog:",
+    "oxfmt": "catalog:",
+    "oxlint": "catalog:",
     "rimraf": "catalog:",
     "sharp": "^0.33.5",
     "sherif": "catalog:",
@@ -35,13 +38,14 @@
     "turbo": "catalog:",
     "typescript": "catalog:"
   },
-  "packageManager": "pnpm@10.15.0",
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
     "*": [
-      "biome check --write --no-errors-on-unmatched --files-ignore-unknown=true"
+      "oxlint --fix",
+      "oxfmt"
     ]
-  }
+  },
+  "packageManager": "pnpm@10.15.0"
 }
