@@ -6,7 +6,6 @@ import {
   TreeViewBranchIndentGuide,
   TreeViewBranchIndicator,
   TreeViewBranchText,
-  TreeViewBranchTrigger,
   TreeViewItem,
   TreeViewItemText,
   TreeViewLabel,
@@ -69,10 +68,7 @@ export default function TreeViewDemo() {
   )
 }
 
-function TreeTreeNode({
-  node,
-  indexPath,
-}: TreeViewNodeProviderProps<TreeNode>) {
+function TreeTreeNode({ node, indexPath }: TreeViewNodeProviderProps<TreeNode>) {
   return (
     <TreeViewNodeProvider node={node} indexPath={indexPath}>
       {node.children ? (
@@ -87,11 +83,7 @@ function TreeTreeNode({
           <TreeViewBranchContent>
             <TreeViewBranchIndentGuide />
             {node.children.map((child, index) => (
-              <TreeTreeNode
-                key={child.id}
-                node={child}
-                indexPath={[...indexPath, index]}
-              />
+              <TreeTreeNode key={child.id} node={child} indexPath={[...indexPath, index]} />
             ))}
           </TreeViewBranchContent>
         </TreeViewBranch>

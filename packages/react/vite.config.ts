@@ -20,9 +20,7 @@ export default defineConfig({
         preserveModules: true,
         preserveModulesRoot: "src",
       },
-      external: Object.keys(pkg.peerDependencies).map(
-        (dep) => new RegExp(`^${dep}`)
-      ),
+      external: Object.keys(pkg.peerDependencies).map((dep) => new RegExp(`^${dep}`)),
     },
   },
 })

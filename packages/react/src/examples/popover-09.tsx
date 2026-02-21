@@ -1,12 +1,6 @@
 "use client"
 
-import {
-  ClubIcon,
-  DiamondIcon,
-  HeartIcon,
-  type LucideIcon,
-  SpadeIcon,
-} from "lucide-react"
+import { ClubIcon, DiamondIcon, HeartIcon, type LucideIcon, SpadeIcon } from "lucide-react"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -87,11 +81,7 @@ export default function Component() {
       >
         <div className="grid grid-cols-2 place-items-center gap-4">
           {tourSteps.map((step, index) => (
-            <Card
-              key={step.title}
-              number={index}
-              isActive={currentTip === index}
-            />
+            <Card key={step.title} number={index} isActive={currentTip === index} />
           ))}
         </div>
 
@@ -103,12 +93,8 @@ export default function Component() {
           <PopoverArrow />
           <div className="space-y-3">
             <div className="space-y-1">
-              <p className="font-medium text-[13px]">
-                {tourSteps[currentTip].title}
-              </p>
-              <p className="text-muted-foreground text-xs">
-                {tourSteps[currentTip].description}
-              </p>
+              <p className="font-medium text-[13px]">{tourSteps[currentTip].title}</p>
+              <p className="text-muted-foreground text-xs">{tourSteps[currentTip].description}</p>
             </div>
             <div className="flex items-center justify-between gap-2">
               <span className="text-muted-foreground text-xs">

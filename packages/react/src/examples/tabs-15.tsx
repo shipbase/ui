@@ -1,18 +1,8 @@
 import { BoxIcon, HouseIcon, PanelsTopLeftIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Component() {
   return (
@@ -26,9 +16,7 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Overview
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Overview</TooltipContent>
         </Tooltip>
         <Tooltip openDelay={0} closeDelay={0}>
           <TooltipTrigger asChild>
@@ -43,9 +31,7 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Projects
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Projects</TooltipContent>
         </Tooltip>
         <Tooltip openDelay={0} closeDelay={0}>
           <TooltipTrigger asChild>
@@ -55,26 +41,18 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Packages
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Packages</TooltipContent>
         </Tooltip>
         <TabsIndicator />
       </TabsList>
       <TabsContent value="tab-1">
-        <p className="p-4 text-center text-muted-foreground text-xs">
-          Content for Tab 1
-        </p>
+        <p className="p-4 text-center text-muted-foreground text-xs">Content for Tab 1</p>
       </TabsContent>
       <TabsContent value="tab-2">
-        <p className="p-4 text-center text-muted-foreground text-xs">
-          Content for Tab 2
-        </p>
+        <p className="p-4 text-center text-muted-foreground text-xs">Content for Tab 2</p>
       </TabsContent>
       <TabsContent value="tab-3">
-        <p className="p-4 text-center text-muted-foreground text-xs">
-          Content for Tab 3
-        </p>
+        <p className="p-4 text-center text-muted-foreground text-xs">Content for Tab 3</p>
       </TabsContent>
     </Tabs>
   )

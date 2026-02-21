@@ -4,11 +4,7 @@ import { safeResolveAndRead } from "@ui/lib/utils/mlly"
 import { cyan } from "kleur/colors"
 import ora from "ora"
 import prompts from "prompts"
-import {
-  type Config,
-  type UserConfig,
-  userConfigSchema,
-} from "../config/schema"
+import { type Config, type UserConfig, userConfigSchema } from "../config/schema"
 import {
   DEFAULT_COMPONENTS,
   DEFAULT_STYLE,
@@ -39,11 +35,7 @@ export async function init({ library }: { library?: Config["library"] }) {
     if (write) {
       const writeSpinner = ora("Writing components.json...").start()
       const targetPath = path.resolve(process.cwd(), "components.json")
-      await fs.writeFile(
-        targetPath,
-        JSON.stringify(userConfig, null, 2),
-        "utf8"
-      )
+      await fs.writeFile(targetPath, JSON.stringify(userConfig, null, 2), "utf8")
       writeSpinner.succeed()
     }
   } catch (error: unknown) {
@@ -58,15 +50,13 @@ export async function init({ library }: { library?: Config["library"] }) {
 
 async function validateFilePath(relative: string) {
   const file = await safeResolveAndRead(path.resolve(process.cwd(), relative))
-  if (!file.success)
-    return "File not found. Please check the path and try again."
+  if (!file.success) return "File not found. Please check the path and try again."
   return true
 }
 
 async function validateTailwindGlobalCss(relative: string) {
   const file = await safeResolveAndRead(path.resolve(process.cwd(), relative))
-  if (!file.success)
-    return "File not found. Please check the path and try again."
+  if (!file.success) return "File not found. Please check the path and try again."
   if (!file.result.includes("@tailwind base")) {
     return "The file does not include '@tailwind base'. Please ensure it contains the necessary Tailwind directives."
   }
@@ -127,9 +117,7 @@ async function promptConfig(defaultConfig: Partial<UserConfig>) {
       {
         type: null, // TODO: Implement text
         name: "tailwindPrefix",
-        message: `Are you using a custom ${cyan(
-          "tailwind prefix eg. tw-"
-        )}? (Leave blank if not)`,
+        message: `Are you using a custom ${cyan("tailwind prefix eg. tw-")}? (Leave blank if not)`,
         initial: "",
       },
       {
@@ -156,7 +144,7 @@ async function promptConfig(defaultConfig: Partial<UserConfig>) {
       onCancel: () => {
         throw new Error("✖ Operation cancelled")
       },
-    }
+    },
   )
 
   return userConfigSchema.parse({

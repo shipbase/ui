@@ -25,7 +25,7 @@ const toastVariants = cva(
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 )
 
 const Toaster = React.forwardRef<
@@ -44,11 +44,7 @@ const Toast = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Root>,
   ToastPrimitive.RootProps & VariantProps<typeof toastVariants>
 >(({ className, variant, ...props }, ref) => (
-  <ToastPrimitive.Root
-    ref={ref}
-    className={cn(toastVariants({ variant }), className)}
-    {...props}
-  />
+  <ToastPrimitive.Root ref={ref} className={cn(toastVariants({ variant }), className)} {...props} />
 ))
 Toast.displayName = "Toast"
 
@@ -56,11 +52,7 @@ const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Title>,
   ToastPrimitive.TitleProps
 >(({ className, ...props }, ref) => (
-  <ToastPrimitive.Title
-    ref={ref}
-    className={cn("font-semibold text-sm", className)}
-    {...props}
-  />
+  <ToastPrimitive.Title ref={ref} className={cn("font-semibold text-sm", className)} {...props} />
 ))
 ToastTitle.displayName = "ToastTitle"
 
@@ -84,7 +76,7 @@ const ToastActionTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-8 shrink-0 items-center justify-center rounded-md border bg-transparent px-3 font-medium text-sm ring-offset-background transition-colors hover:bg-secondary focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-[.destructive]:border-muted/40 group-[.destructive]:focus:ring-destructive group-[.destructive]:hover:border-destructive/30 group-[.destructive]:hover:bg-destructive group-[.destructive]:hover:text-destructive-foreground",
-      className
+      className,
     )}
     {...props}
   />
@@ -99,7 +91,7 @@ const ToastCloseTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "absolute top-2 right-2 rounded-md p-1 text-foreground/50 opacity-0 transition-opacity hover:text-foreground focus:opacity-100 focus:outline-none focus:ring-2 group-hover:opacity-100 group-[.destructive]:text-red-300 group-[.destructive]:focus:ring-red-400 group-[.destructive]:focus:ring-offset-red-600 group-[.destructive]:hover:text-red-50",
-      className
+      className,
     )}
     {...props}
   >

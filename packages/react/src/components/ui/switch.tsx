@@ -14,7 +14,7 @@ const Switch = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   >
@@ -33,7 +33,7 @@ const SwitchControl = React.forwardRef<
     ref={ref}
     className={cn(
       "inline-flex h-6 w-10 shrink-0 items-center rounded-full border-2 border-transparent outline-none transition-all focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input",
-      className
+      className,
     )}
     {...props}
   >
@@ -51,7 +51,7 @@ const SwitchLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
@@ -68,24 +68,13 @@ const SwitchThumb = React.forwardRef<
     ref={ref}
     className={cn(
       "data-[state=checked]:rtl:-translate-x-4 pointer-events-none block size-5 rounded-full bg-background shadow-xs ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0",
-      className
+      className,
     )}
     {...props}
   />
 ))
 SwitchThumb.displayName = "SwitchThumb"
 
-export {
-  Switch,
-  SwitchContext,
-  SwitchControl,
-  SwitchLabel,
-  SwitchRootProvider,
-  SwitchThumb,
-}
+export { Switch, SwitchContext, SwitchControl, SwitchLabel, SwitchRootProvider, SwitchThumb }
 
-export {
-  useSwitch,
-  useSwitchContext,
-  type SwitchCheckedChangeDetails,
-} from "@ark-ui/react/switch"
+export { useSwitch, useSwitchContext, type SwitchCheckedChangeDetails } from "@ark-ui/react/switch"

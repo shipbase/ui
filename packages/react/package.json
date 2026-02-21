@@ -1,21 +1,21 @@
 {
   "name": "@ui/react",
-  "type": "module",
   "private": true,
+  "type": "module",
   "exports": {
     "./examples": {
       "types": "./src/examples/index.ts",
       "default": "./dist/examples/index.js"
     },
     "./examples/*": {
-      "source": "./src/examples/*.tsx",
       "types": "./src/examples/*.tsx",
+      "source": "./src/examples/*.tsx",
       "default": "./dist/examples/*.js"
     },
     "./package.json": "./package.json",
     "./*": {
-      "source": "./src/components/ui/*.tsx",
       "types": "./src/components/ui/*.tsx",
+      "source": "./src/components/ui/*.tsx",
       "default": "./dist/components/ui/*.js"
     }
   },

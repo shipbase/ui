@@ -1,9 +1,5 @@
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Component() {
   return (
@@ -23,12 +19,10 @@ export default function Component() {
             alt="Dialog content"
           />
           <div className="space-y-1">
-            <p className="font-medium text-[13px]">
-              Tooltip with title and icon
-            </p>
+            <p className="font-medium text-[13px]">Tooltip with title and icon</p>
             <p className="text-muted-foreground text-xs">
-              Tooltips are made to be highly customizable, with features like
-              dynamic placement, rich content, and a robust API.
+              Tooltips are made to be highly customizable, with features like dynamic placement,
+              rich content, and a robust API.
             </p>
           </div>
         </div>

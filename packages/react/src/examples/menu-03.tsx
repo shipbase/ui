@@ -1,10 +1,4 @@
-import {
-  BoltIcon,
-  ChevronDownIcon,
-  CopyPlusIcon,
-  FilesIcon,
-  Layers2Icon,
-} from "lucide-react"
+import { BoltIcon, ChevronDownIcon, CopyPlusIcon, FilesIcon, Layers2Icon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Menu, MenuContent, MenuItem, MenuTrigger } from "@/components/ui/menu"
@@ -15,11 +9,7 @@ export default function Component() {
       <MenuTrigger asChild>
         <Button variant="outline">
           Menu with icons
-          <ChevronDownIcon
-            className="-me-1 opacity-60"
-            size={16}
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="-me-1 opacity-60" size={16} aria-hidden="true" />
         </Button>
       </MenuTrigger>
       <MenuContent className="min-w-(--reference-width)">

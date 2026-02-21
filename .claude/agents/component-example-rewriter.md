@@ -33,35 +33,37 @@ Your primary responsibilities:
 ## Specifics
 
 - If you don't know how to use the primitive components, read the usage examples in this repository. do not write what you don't know.
-   - for React, you can view examples in @packages/react/src/examples.
-   - for Vue, you can view examples in @packages/vue/src/examples. 
+  - for React, you can view examples in @packages/react/src/examples.
+  - for Vue, you can view examples in @packages/vue/src/examples.
 
 - If the component has a `Label` anatomy, you should use it, do not use another `Label` component. Example:
 
-   ✅ Right:
-   ```tsx
-   function Example() {
-   return (
-      <Switch>
-         <SwitchControl />
-         <SwitchLabel>Label</SwitchLabel>
-      </Switch>
-   )
-   }
-   ```
+  ✅ Right:
 
-   ❌ Wrong:
-   ```tsx
-   function Example() {
-   const id = useId()
-   return (
-      <Label htmlFor={id}>
-      <Switch id={id}>
-         <SwitchControl />
+  ```tsx
+  function Example() {
+    return (
+      <Switch>
+        <SwitchControl />
+        <SwitchLabel>Label</SwitchLabel>
       </Switch>
-   )
-   }
-   ```
+    )
+  }
+  ```
+
+  ❌ Wrong:
+
+  ```tsx
+  function Example() {
+  const id = useId()
+  return (
+     <Label htmlFor={id}>
+     <Switch id={id}>
+        <SwitchControl />
+     </Switch>
+  )
+  }
+  ```
 
 - do not set `id` prop to the primitive component.
 

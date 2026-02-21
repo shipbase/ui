@@ -21,7 +21,7 @@ const RatingGroupLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "font-medium text-sm leading-none data-[disabled]:cursor-not-allowed data-[disabled]:opacity-70",
-      className
+      className,
     )}
     {...props}
   />
@@ -51,7 +51,7 @@ const RatingGroupItem = React.forwardRef<
     ref={ref}
     className={cn(
       "cursor-pointer transition-all data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 *:data-[highlighted]:fill-current",
-      className
+      className,
     )}
     {...props}
   >

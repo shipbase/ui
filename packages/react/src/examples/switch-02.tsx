@@ -1,9 +1,4 @@
-import {
-  Switch,
-  SwitchControl,
-  SwitchLabel,
-  SwitchThumb,
-} from "@/components/ui/switch"
+import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from "@/components/ui/switch"
 
 export default function Component() {
   return (

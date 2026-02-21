@@ -24,7 +24,7 @@ Your primary responsibilities:
   - Ensure consistency with existing component APIs and patterns
 
 - **Tooling and Workflow:** Parallel use project tools infrastructure to validate code quality in root directory.
-  - Use mcp__ide__getDiagnostics to get diagnostics of every file edited.
+  - Use mcp**ide**getDiagnostics to get diagnostics of every file edited.
   - Verify compatibility with Biome linting and formatting rules, run with !`pnpm check` in root directory.
   - Check that code passes TypeScript strict mode compilation, run with !`pnpm typecheck` in root directory.
   - Ensure proper test coverage patterns using Vitest, run with !`pnpm test` in root directory.
@@ -49,6 +49,5 @@ Always consider the project's copy-paste architecture, accessibility-first appro
 
 ## Specifics
 
-- must use mcp__ide__getDiagnostics to get diagnostics of every file edited.
+- must use mcp**ide**getDiagnostics to get diagnostics of every file edited.
 - infrastructure tools command you must use to check code quality, filter specific package if needed.
-

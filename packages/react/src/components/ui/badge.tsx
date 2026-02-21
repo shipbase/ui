@@ -16,25 +16,21 @@ const badgeVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
+        default: "border-transparent bg-primary text-primary-foreground [a&]:hover:bg-primary/90",
         secondary:
           "border-transparent bg-secondary text-secondary-foreground [a&]:hover:bg-secondary/90",
         destructive:
           "border-transparent bg-destructive text-white [a&]:hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
-        outline:
-          "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
+        outline: "text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
       },
     },
     defaultVariants: {
       variant: "default",
     },
-  }
+  },
 )
 
-export interface BadgeProps
-  extends HTMLArkProps<"span">,
-    VariantProps<typeof badgeVariants> {}
+export interface BadgeProps extends HTMLArkProps<"span">, VariantProps<typeof badgeVariants> {}
 
 const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({ className, variant, ...props }, ref) => {
@@ -46,7 +42,7 @@ const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
         {...props}
       />
     )
-  }
+  },
 )
 Badge.displayName = "Badge"
 

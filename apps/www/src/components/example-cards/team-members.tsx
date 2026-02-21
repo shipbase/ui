@@ -2,13 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@ui/react/avatar"
 import { Button } from "@ui/react/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@ui/react/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@ui/react/card"
 import {
   Command,
   CommandEmpty,
@@ -65,35 +59,24 @@ export function CardsTeamMembers() {
     <Card>
       <CardHeader>
         <CardTitle>Team Members</CardTitle>
-        <CardDescription>
-          Invite your team members to collaborate.
-        </CardDescription>
+        <CardDescription>Invite your team members to collaborate.</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-6">
         {teamMembers.map((member) => (
-          <div
-            key={member.name}
-            className="flex items-center justify-between gap-4"
-          >
+          <div key={member.name} className="flex items-center justify-between gap-4">
             <div className="flex items-center gap-4">
               <Avatar className="border">
                 <AvatarImage src={member.avatar} alt="Image" />
                 <AvatarFallback>{member.name.charAt(0)}</AvatarFallback>
               </Avatar>
               <div className="flex flex-col gap-0.5">
-                <p className="font-medium text-sm leading-none">
-                  {member.name}
-                </p>
+                <p className="font-medium text-sm leading-none">{member.name}</p>
                 <p className="text-muted-foreground text-xs">{member.email}</p>
               </div>
             </div>
             <Popover positioning={{ placement: "bottom-end" }}>
               <PopoverTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="ml-auto shadow-none"
-                >
+                <Button variant="outline" size="sm" className="ml-auto shadow-none">
                   {member.role} <ChevronDown />
                 </Button>
               </PopoverTrigger>
@@ -107,9 +90,7 @@ export function CardsTeamMembers() {
                         <CommandItem key={role.name}>
                           <div className="flex flex-col">
                             <p className="font-medium text-sm">{role.name}</p>
-                            <p className="text-muted-foreground">
-                              {role.description}
-                            </p>
+                            <p className="text-muted-foreground">{role.description}</p>
                           </div>
                         </CommandItem>
                       ))}

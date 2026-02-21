@@ -21,9 +21,7 @@ export function CardsCreateAccount({ className }: CardsCreateAccountProps) {
     <Card className={className}>
       <CardHeader>
         <CardTitle className="text-2xl">Create an account</CardTitle>
-        <CardDescription>
-          Enter your email below to create your account
-        </CardDescription>
+        <CardDescription>Enter your email below to create your account</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         <div className="grid grid-cols-2 gap-6">
@@ -53,18 +51,12 @@ export function CardsCreateAccount({ className }: CardsCreateAccountProps) {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">
-              Or continue with
-            </span>
+            <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
           </div>
         </div>
         <div className="flex flex-col gap-3">
           <Label htmlFor="email-create-account">Email</Label>
-          <Input
-            id="email-create-account"
-            type="email"
-            placeholder="m@example.com"
-          />
+          <Input id="email-create-account" type="email" placeholder="m@example.com" />
         </div>
         <div className="flex flex-col gap-3">
           <Label htmlFor="password-create-account">Password</Label>

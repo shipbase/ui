@@ -26,7 +26,7 @@ export const toggleVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 )
 
 const Toggle = React.forwardRef<
@@ -46,7 +46,4 @@ const ToggleIndicator = TogglePrimitive.Indicator
 
 export { Toggle, ToggleContext, ToggleIndicator }
 
-export {
-  useToggle,
-  useToggleContext,
-} from "@ark-ui/react/toggle"
+export { useToggle, useToggleContext } from "@ark-ui/react/toggle"

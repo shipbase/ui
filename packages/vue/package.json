@@ -4,28 +4,28 @@
   "type": "module",
   "exports": {
     "./accordion": {
-      "source": "./src/components/ui/accordion/index.ts",
       "types": "./src/components/ui/accordion/index.ts",
+      "source": "./src/components/ui/accordion/index.ts",
       "default": "./dist/components/ui/accordion/index.js"
     },
     "./avatar": {
-      "source": "./src/components/ui/avatar/index.ts",
       "types": "./src/components/ui/avatar/index.ts",
+      "source": "./src/components/ui/avatar/index.ts",
       "default": "./dist/components/ui/avatar/index.js"
     },
     "./button": {
-      "source": "./src/components/ui/button/index.ts",
       "types": "./src/components/ui/button/index.ts",
+      "source": "./src/components/ui/button/index.ts",
       "default": "./dist/components/ui/button/index.js"
     },
     "./checkbox": {
-      "source": "./src/components/ui/checkbox/index.ts",
       "types": "./src/components/ui/checkbox/index.ts",
+      "source": "./src/components/ui/checkbox/index.ts",
       "default": "./dist/components/ui/checkbox/index.js"
     },
     "./collapsible": {
-      "source": "./src/components/ui/collapsible/index.ts",
       "types": "./src/components/ui/collapsible/index.ts",
+      "source": "./src/components/ui/collapsible/index.ts",
       "default": "./dist/components/ui/collapsible/index.js"
     },
     "./examples": {
@@ -33,8 +33,8 @@
       "default": "./dist/examples/index.js"
     },
     "./examples/*": {
-      "source": "./src/examples/*.vue",
       "types": "./src/examples/*.vue",
+      "source": "./src/examples/*.vue",
       "default": "./dist/examples/*.js"
     }
   },
@@ -42,6 +42,10 @@
     "clean": "git clean -xdf node_modules .astro .turbo dist",
     "storybook": "storybook dev -p 6007",
     "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "@vueuse/core": "^13.7.0",
+    "vue": "catalog:"
   },
   "devDependencies": {
     "@ark-ui/vue": "catalog:",
@@ -77,9 +81,5 @@
     "vite-plugin-inspect": "catalog:",
     "vite-tsconfig-paths": "catalog:",
     "vue-tsc": "catalog:"
-  },
-  "dependencies": {
-    "@vueuse/core": "^13.7.0",
-    "vue": "catalog:"
   }
 }

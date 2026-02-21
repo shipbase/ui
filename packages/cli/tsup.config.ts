@@ -1,4 +1,3 @@
-import path from "node:path"
 import { defineConfig } from "tsup"
 import pkg from "./package.json"
 

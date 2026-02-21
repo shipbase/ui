@@ -5,11 +5,7 @@ import { useState } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 
 const initialNotifications = [
   {
@@ -93,29 +89,22 @@ export default function Component() {
       notifications.map((notification) => ({
         ...notification,
         unread: false,
-      }))
+      })),
     )
   }
 
   const handleNotificationClick = (id: number) => {
     setNotifications(
       notifications.map((notification) =>
-        notification.id === id
-          ? { ...notification, unread: false }
-          : notification
-      )
+        notification.id === id ? { ...notification, unread: false } : notification,
+      ),
     )
   }
 
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <Button
-          size="icon"
-          variant="outline"
-          className="relative"
-          aria-label="Open notifications"
-        >
+        <Button size="icon" variant="outline" className="relative" aria-label="Open notifications">
           <BellIcon size={16} aria-hidden="true" />
           {unreadCount > 0 && (
             <Badge className="-top-2 -translate-x-1/2 absolute left-full min-w-5 px-1">
@@ -137,10 +126,7 @@ export default function Component() {
             </button>
           )}
         </div>
-        <div
-          className="-mx-1 my-1 h-px bg-border"
-          aria-orientation="horizontal"
-        />
+        <div className="-mx-1 my-1 h-px bg-border" aria-orientation="horizontal" />
         {notifications.map((notification) => (
           <div
             key={notification.id}
@@ -169,9 +155,7 @@ export default function Component() {
                   </span>
                   .
                 </button>
-                <div className="text-muted-foreground text-xs">
-                  {notification.timestamp}
-                </div>
+                <div className="text-muted-foreground text-xs">{notification.timestamp}</div>
               </div>
               {notification.unread && (
                 <div className="absolute end-0 self-center">

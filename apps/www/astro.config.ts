@@ -16,11 +16,7 @@ export default defineConfig({
     imageService: "compile",
   }),
 
-  integrations: [
-    mdx({ remarkPlugins: [remarkPluginCodeWrapper] }),
-    react(),
-    sitemap(),
-  ],
+  integrations: [mdx({ remarkPlugins: [remarkPluginCodeWrapper] }), react(), sitemap()],
 
   vite: {
     plugins: [inspect(), tailwindcss()],

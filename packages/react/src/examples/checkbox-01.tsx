@@ -1,8 +1,4 @@
-import {
-  Checkbox,
-  CheckboxControl,
-  CheckboxLabel,
-} from "@/components/ui/checkbox"
+import { Checkbox, CheckboxControl, CheckboxLabel } from "@/components/ui/checkbox"
 
 export default function Component() {
   return (

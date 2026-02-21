@@ -17,7 +17,7 @@ const TagsInputClearTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "absolute end-0 top-0 flex size-9 items-center justify-center rounded-md border border-transparent text-muted-foreground/80 outline-none transition-[color,box-shadow] hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
-      className
+      className,
     )}
     {...props}
   >
@@ -41,7 +41,7 @@ const TagsInputControl = React.forwardRef<
           {
             "p-1": !context.empty,
           },
-          className
+          className,
         )}
         {...props}
       >
@@ -67,7 +67,7 @@ const TagsInputInput = React.forwardRef<
             "px-3 py-2": context.empty,
             "ml-1 h-7": !context.empty,
           },
-          className
+          className,
         )}
         {...props}
       />
@@ -86,7 +86,7 @@ const TagsInputItemDeleteTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "-inset-y-px -end-px absolute flex size-7 items-center justify-center rounded-e-md border border-transparent p-0 text-muted-foreground/80 outline-none outline-hidden transition-[color,box-shadow] hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
-      className
+      className,
     )}
     {...props}
   >
@@ -103,7 +103,7 @@ const TagsInputItemInput = React.forwardRef<
     ref={ref}
     className={cn(
       "h-7 flex-1 bg-transparent outline-hidden placeholder:text-muted-foreground/70 disabled:cursor-not-allowed",
-      className
+      className,
     )}
     {...props}
   />
@@ -118,7 +118,7 @@ const TagsInputItemPreview = React.forwardRef<
     ref={ref}
     className={cn(
       "relative inline-flex h-7 animate-fadeIn cursor-default items-center rounded-md border bg-background ps-2 pe-7 pl-2 font-medium text-secondary-foreground text-xs transition-all hover:bg-background disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 data-fixed:pe-2",
-      className
+      className,
     )}
     {...props}
   />
@@ -135,7 +135,7 @@ const TagsInputLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />

@@ -1,12 +1,6 @@
 "use client"
 
-import {
-  ArchiveRestoreIcon,
-  ChevronDownIcon,
-  PlusIcon,
-  Share2Icon,
-  TrashIcon,
-} from "lucide-react"
+import { ArchiveRestoreIcon, ChevronDownIcon, PlusIcon, Share2Icon, TrashIcon } from "lucide-react"
 import { useState } from "react"
 
 import { Button } from "@/components/ui/button"
@@ -34,11 +28,7 @@ export default function Component() {
       <MenuTrigger asChild>
         <Button variant="outline">
           Rich menu with icons
-          <ChevronDownIcon
-            className="-me-1 opacity-60"
-            size={16}
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="-me-1 opacity-60" size={16} aria-hidden="true" />
         </Button>
       </MenuTrigger>
       <MenuContent>
@@ -54,10 +44,7 @@ export default function Component() {
           <Menu>
             <MenuTriggerItem>Framework</MenuTriggerItem>
             <MenuContent>
-              <MenuRadioItemGroup
-                value={framework}
-                onValueChange={(e) => setFramework(e.value)}
-              >
+              <MenuRadioItemGroup value={framework} onValueChange={(e) => setFramework(e.value)}>
                 <MenuRadioItem value="nextjs">Next.js</MenuRadioItem>
                 <MenuRadioItem value="sveltekit" disabled>
                   SvelteKit
@@ -94,11 +81,7 @@ export default function Component() {
             <span>Share</span>
           </MenuItem>
           <MenuItem value="archive">
-            <ArchiveRestoreIcon
-              size={16}
-              className="opacity-60"
-              aria-hidden="true"
-            />
+            <ArchiveRestoreIcon size={16} className="opacity-60" aria-hidden="true" />
             <span>Archive</span>
           </MenuItem>
         </MenuItemGroup>

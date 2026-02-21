@@ -36,7 +36,7 @@ export default function Component() {
               ) : (
                 /* Ellipsis */
                 <PaginationEllipsis key={index} index={index} />
-              )
+              ),
             )}
 
             {/* Next page button */}

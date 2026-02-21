@@ -21,9 +21,7 @@ const initYogaPromise = initYoga(yogaWasm).then((yoga) => init(yoga))
 
 async function loadGoogleFont(font: string, text?: string) {
   if (!font || !text) return
-  const API = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(
-    text
-  )}`
+  const API = `https://fonts.googleapis.com/css2?family=${font}&text=${encodeURIComponent(text)}`
   const css = await (
     await fetch(API, {
       headers: {
@@ -34,8 +32,7 @@ async function loadGoogleFont(font: string, text?: string) {
     })
   ).text()
   const resource = css.match(/src: url\((.+)\) format\('(opentype|truetype)'\)/)
-  if (!resource || !resource[1])
-    throw new Error("Failed to download dynamic font")
+  if (!resource || !resource[1]) throw new Error("Failed to download dynamic font")
   const res = await fetch(resource[1])
   if (!res.ok) {
     throw new Error(`Failed to download dynamic font. Status: ${res.status}`)
@@ -44,12 +41,11 @@ async function loadGoogleFont(font: string, text?: string) {
 }
 
 async function loadFonts() {
-  const [geistRegularData, geistSemiBoldData, geistMonoData] =
-    await Promise.all([
-      loadGoogleFont("Geist", FONT_TEXT),
-      loadGoogleFont("Geist", FONT_TEXT),
-      loadGoogleFont("Geist Mono", FONT_TEXT),
-    ])
+  const [geistRegularData, geistSemiBoldData, geistMonoData] = await Promise.all([
+    loadGoogleFont("Geist", FONT_TEXT),
+    loadGoogleFont("Geist", FONT_TEXT),
+    loadGoogleFont("Geist Mono", FONT_TEXT),
+  ])
 
   if (!geistRegularData || !geistSemiBoldData || !geistMonoData) {
     throw new Error("Failed to load fonts")
@@ -85,17 +81,13 @@ export const GET: APIRoute = async ({ url }) => {
     await Promise.all([initResvgPromise, initYogaPromise])
 
     const title = searchParams.get("title") ?? siteConfig.name
-    const description =
-      searchParams.get("description") ?? siteConfig.description
+    const description = searchParams.get("description") ?? siteConfig.description
 
-    const svg = await satori(
-      OpenGraph({ width: WIDTH, height: HEIGHT, title, description }),
-      {
-        width: WIDTH,
-        height: HEIGHT,
-        fonts,
-      }
-    )
+    const svg = await satori(OpenGraph({ width: WIDTH, height: HEIGHT, title, description }), {
+      width: WIDTH,
+      height: HEIGHT,
+      fonts,
+    })
 
     const renderer = new Resvg(svg, {
       fitTo: {
@@ -114,8 +106,7 @@ export const GET: APIRoute = async ({ url }) => {
       },
     })
   } catch (error) {
-    const message =
-      error instanceof Error ? error.message : "OG image generation failed"
+    const message = error instanceof Error ? error.message : "OG image generation failed"
     return new Response(`Error ${message}`, {
       status: 500,
       headers: { "Content-Type": "text/plain; charset=utf-8" },

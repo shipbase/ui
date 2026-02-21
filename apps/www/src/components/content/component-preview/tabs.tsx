@@ -1,12 +1,6 @@
 import type * as React from "react"
 
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@ui/react/tabs"
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@ui/react/tabs"
 
 interface Props {
   preview?: React.ReactNode
@@ -23,10 +17,7 @@ export default function ComponentPreviewTabs({ preview, code }: Props) {
         >
           Preview
         </TabsTrigger>
-        <TabsTrigger
-          value="code"
-          className="h-full font-semibold data-[selected]:text-foreground"
-        >
+        <TabsTrigger value="code" className="h-full font-semibold data-[selected]:text-foreground">
           Code
         </TabsTrigger>
         <TabsIndicator className="bg-muted shadow-none" />

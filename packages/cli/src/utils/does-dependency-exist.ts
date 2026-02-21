@@ -2,10 +2,7 @@ import { createRequire } from "node:module"
 import type { OperationOptions } from "nypm"
 import { withTrailingSlash } from "ufo"
 
-export function doesDependencyInstalled(
-  name: string,
-  options: Pick<OperationOptions, "cwd"> = {}
-) {
+export function doesDependencyInstalled(name: string, options: Pick<OperationOptions, "cwd"> = {}) {
   const { cwd = process.cwd() } = options
 
   const require = createRequire(withTrailingSlash(cwd))

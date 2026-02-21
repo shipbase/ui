@@ -2,7 +2,6 @@
 
 import { cac } from "cac"
 import { init } from "./commands/init"
-import { DEFAULT_LIBRARY } from "./constants/config"
 
 const cli = cac("shipbase-ui")
 

@@ -35,12 +35,10 @@ export default function Component() {
             <CircleAlertIcon className="opacity-80" size={16} />
           </div>
           <DialogHeader>
-            <DialogTitle className="sm:text-center">
-              Final confirmation
-            </DialogTitle>
+            <DialogTitle className="sm:text-center">Final confirmation</DialogTitle>
             <DialogDescription className="sm:text-center">
-              This action cannot be undone. To confirm, please enter the project
-              name <span className="text-foreground">shipbase/ui</span>.
+              This action cannot be undone. To confirm, please enter the project name{" "}
+              <span className="text-foreground">shipbase/ui</span>.
             </DialogDescription>
           </DialogHeader>
         </div>
@@ -62,11 +60,7 @@ export default function Component() {
                 Cancel
               </Button>
             </DialogCloseTrigger>
-            <Button
-              type="button"
-              className="flex-1"
-              disabled={inputValue !== PROJECT_NAME}
-            >
+            <Button type="button" className="flex-1" disabled={inputValue !== PROJECT_NAME}>
               Delete
             </Button>
           </DialogFooter>

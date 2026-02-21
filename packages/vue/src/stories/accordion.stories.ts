@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/vue3"
+import type { Meta } from "@storybook/vue3"
 import { defineAsyncComponent } from "vue"
 
 export default {
@@ -7,9 +7,7 @@ export default {
 
 export const Accordion01 = () => ({
   components: {
-    Accordion01: defineAsyncComponent(
-      () => import("@/examples/Accordion01.vue")
-    ),
+    Accordion01: defineAsyncComponent(() => import("@/examples/Accordion01.vue")),
   },
   template: "<Accordion01 />",
 })

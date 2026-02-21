@@ -10,9 +10,7 @@ type SafeReadFileResult =
       error: Error
     }
 
-export const safeReadFile = async (
-  filePath: string
-): Promise<SafeReadFileResult> => {
+export const safeReadFile = async (filePath: string): Promise<SafeReadFileResult> => {
   try {
     const file = await fs.readFile(filePath, "utf-8")
     return {

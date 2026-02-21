@@ -13,7 +13,7 @@ type SafeResult<T> =
 
 export const safeResolvePath = async (
   id: string,
-  options?: ResolveOptions
+  options?: ResolveOptions,
 ): Promise<SafeResult<string>> => {
   try {
     return {
@@ -30,7 +30,7 @@ export const safeResolvePath = async (
 
 export const safeResolveAndRead = async (
   id: string,
-  options?: ResolveOptions
+  options?: ResolveOptions,
 ): Promise<SafeResult<string>> => {
   try {
     const filePath = await resolvePath(id, options)

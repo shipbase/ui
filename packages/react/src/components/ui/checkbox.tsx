@@ -14,20 +14,17 @@ const CheckboxContext = CheckboxPrimitive.Context
 const CheckboxControl = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Control>,
   CheckboxPrimitive.ControlProps
->(({ className, children, ...props }, ref) => (
+>(({ className, children: _children, ...props }, ref) => (
   <>
     <CheckboxPrimitive.Control
       ref={ref}
       className={cn(
         "peer flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input shadow-xs outline-none transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-500 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:aria-invalid:ring-destructive/40",
-        className
+        className,
       )}
       {...props}
     >
-      <CheckboxPrimitive.Indicator
-        className="grid place-content-center text-current"
-        indeterminate
-      >
+      <CheckboxPrimitive.Indicator className="grid place-content-center text-current" indeterminate>
         <MinusIcon className="size-4" />
       </CheckboxPrimitive.Indicator>
       <CheckboxPrimitive.Indicator className="grid place-content-center text-current">
@@ -49,17 +46,11 @@ const CheckboxLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
 ))
 CheckboxLabel.displayName = "CheckboxLabel"
 
-export {
-  Checkbox,
-  CheckboxContext,
-  CheckboxControl,
-  CheckboxGroup,
-  CheckboxLabel,
-}
+export { Checkbox, CheckboxContext, CheckboxControl, CheckboxGroup, CheckboxLabel }

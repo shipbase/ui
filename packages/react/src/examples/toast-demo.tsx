@@ -33,9 +33,7 @@ export default function ToastDemo() {
           <Toast key={id} className="min-w-max">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastActionTrigger>Undo</ToastActionTrigger>
             <ToastCloseTrigger />

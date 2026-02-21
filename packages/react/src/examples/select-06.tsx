@@ -47,11 +47,7 @@ export default function Component() {
           ))}
         </SelectItemGroup>
       </SelectContent>
-      <p
-        className="mt-2 text-destructive text-xs"
-        role="alert"
-        aria-live="polite"
-      >
+      <p className="mt-2 text-destructive text-xs" role="alert" aria-live="polite">
         Selected option is invalid
       </p>
     </Select>

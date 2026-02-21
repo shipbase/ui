@@ -21,9 +21,7 @@ document.addEventListener("astro:page-load", () => {
   subscription?.unsubscribe()
 
   // sync state in client
-  frameworkAtom.set(
-    (localStorage.getItem(FRAMEWORK_STORAGE_KEY) as Framework) || "react"
-  )
+  frameworkAtom.set((localStorage.getItem(FRAMEWORK_STORAGE_KEY) as Framework) || "react")
 
   handler()
   subscription = frameworkAtom.subscribe(handler)

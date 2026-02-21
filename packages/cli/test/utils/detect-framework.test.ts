@@ -7,7 +7,7 @@ describe("detect framework", () => {
     expect(
       await detectFramework({
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-nextjs"),
-      })
+      }),
     ).toMatchObject(FRAMEWORKS.next)
   })
 
@@ -15,7 +15,7 @@ describe("detect framework", () => {
     expect(
       await detectFramework({
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-vite"),
-      })
+      }),
     ).toMatchObject(FRAMEWORKS.vite)
   })
 
@@ -23,7 +23,7 @@ describe("detect framework", () => {
     expect(
       await detectFramework({
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-astro"),
-      })
+      }),
     ).toMatchObject(FRAMEWORKS.astro)
   })
 })

@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { createAnatomy } from "@ark-ui/react/anatomy"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLProps, type PolymorphicProps, ark } from "@ark-ui/react/factory"
 import { type VariantProps, cva } from "class-variance-authority"
 
 import { cn } from "@/lib/utils"
@@ -20,14 +16,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
+        default: "bg-primary text-primary-foreground shadow-sm hover:bg-primary/90",
         destructive:
           "bg-destructive text-white shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         outline:
           "border border-input bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
+        secondary: "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
@@ -42,13 +36,11 @@ const buttonVariants = cva(
       variant: "default",
       size: "default",
     },
-  }
+  },
 )
 
 export interface ButtonProps
-  extends PolymorphicProps,
-    HTMLProps<"button">,
-    VariantProps<typeof buttonVariants> {}
+  extends PolymorphicProps, HTMLProps<"button">, VariantProps<typeof buttonVariants> {}
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, ...props }, ref) => {
@@ -60,7 +52,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       />
     )
-  }
+  },
 )
 
 export { Button, buttonVariants }

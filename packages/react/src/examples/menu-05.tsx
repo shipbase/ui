@@ -24,11 +24,7 @@ export default function Component() {
       <MenuTrigger asChild>
         <Button variant="outline">
           Labeled grouped items
-          <ChevronDownIcon
-            className="-me-1 opacity-60"
-            size={16}
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="-me-1 opacity-60" size={16} aria-hidden="true" />
         </Button>
       </MenuTrigger>
       <MenuContent>

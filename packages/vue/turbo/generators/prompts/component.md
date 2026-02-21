@@ -1,6 +1,7 @@
 You are a Frontend Developer that provides expert-level insights and solutions, and expert in React, Vue, TypeScript, and Tailwind CSS. And you have a lot of experience in building Styled Components based on Headless UI Component.
 Your task is to transform React Component to Vue Component. The React Component is based on @ark-ui/react, so the Vue Component should be based on @ark-ui/vue.
 Here are some rules to transform React Component to Vue Component:
+
 1. The Vue Component should be a SFC component.
 2. The Vue Component should match the React Component's API.
 3. All Vue Components must reexport in the `index.ts` file.
@@ -28,11 +29,7 @@ const AccordionItem = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => (
-  <AccordionPrimitive.Item
-    ref={ref}
-    className={cn("border-b", className)}
-    {...props}
-  />
+  <AccordionPrimitive.Item ref={ref} className={cn("border-b", className)} {...props} />
 ))
 AccordionItem.displayName = "AccordionItem"
 
@@ -44,7 +41,7 @@ const AccordionItemTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline data[-state=open]:rotate-180",
-      className
+      className,
     )}
     {...props}
   >
@@ -89,9 +86,7 @@ import { type HTMLAttributes, computed } from "vue"
 
 import { AccordionItem, type AccordionItemProps } from "@ark-ui/vue/accordion"
 
-const props = defineProps<
-  AccordionItemProps & { class?: HTMLAttributes["class"] }
->()
+const props = defineProps<AccordionItemProps & { class?: HTMLAttributes["class"] }>()
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props
@@ -101,10 +96,7 @@ const delegatedProps = computed(() => {
 </script>
 
 <template>
-  <AccordionItem
-    v-bind="delegatedProps"
-    :class="cn('border-b', props.class)"
-  >
+  <AccordionItem v-bind="delegatedProps" :class="cn('border-b', props.class)">
     <slot />
   </AccordionItem>
 </template>
@@ -117,20 +109,20 @@ const delegatedProps = computed(() => {
 import { cn } from "@/lib/utils"
 import type { HTMLAttributes } from "vue"
 
-import {
-  AccordionItemContent,
-  type AccordionItemContentProps,
-} from "@ark-ui/vue/accordion"
+import { AccordionItemContent, type AccordionItemContentProps } from "@ark-ui/vue/accordion"
 
-const props = defineProps<
-  AccordionItemContentProps & { class?: HTMLAttributes["class"] }
->()
+const props = defineProps<AccordionItemContentProps & { class?: HTMLAttributes["class"] }>()
 </script>
 
 <template>
   <AccordionItemContent
     v-bind="props"
-    :class="cn('overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down', props.class)"
+    :class="
+      cn(
+        'overflow-hidden text-sm transition-all data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down',
+        props.class,
+      )
+    "
   >
     <div :class="cn('pt-0 pb-4', props.class)">
       <slot />
@@ -153,15 +145,18 @@ import {
   type AccordionItemTriggerProps,
 } from "@ark-ui/vue/accordion"
 
-const props = defineProps<
-  AccordionItemTriggerProps & { class?: HTMLAttributes["class"] }
->()
+const props = defineProps<AccordionItemTriggerProps & { class?: HTMLAttributes["class"] }>()
 </script>
 
 <template>
   <AccordionItemTrigger
     v-bind="props"
-    :class="cn('flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline data[-state=open]:rotate-180', props.class)"
+    :class="
+      cn(
+        'flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:underline data[-state=open]:rotate-180',
+        props.class,
+      )
+    "
   >
     <slot />
     <AccordionItemIndicator>

@@ -28,16 +28,13 @@ const anatomy = createAnatomy("command", [
 ])
 const parts = anatomy.build()
 
-function Command({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive>) {
+function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
   return (
     <CommandPrimitive
       {...parts.root.attrs}
       className={cn(
         "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",
-        className
+        className,
       )}
       {...props}
     />
@@ -75,16 +72,13 @@ function CommandInput({
   ...props
 }: React.ComponentProps<typeof CommandPrimitive.Input>) {
   return (
-    <div
-      {...parts["input-wrapper"].attrs}
-      className="flex h-9 items-center gap-2 border-b px-3"
-    >
+    <div {...parts["input-wrapper"].attrs} className="flex h-9 items-center gap-2 border-b px-3">
       <SearchIcon className="size-4 shrink-0 opacity-50" />
       <CommandPrimitive.Input
         {...parts.input.attrs}
         className={cn(
           "flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-hidden placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50",
-          className
+          className,
         )}
         {...props}
       />
@@ -92,25 +86,17 @@ function CommandInput({
   )
 }
 
-function CommandList({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.List>) {
+function CommandList({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.List>) {
   return (
     <CommandPrimitive.List
       {...parts.list.attrs}
-      className={cn(
-        "max-h-[300px] scroll-py-1 overflow-y-auto overflow-x-hidden",
-        className
-      )}
+      className={cn("max-h-[300px] scroll-py-1 overflow-y-auto overflow-x-hidden", className)}
       {...props}
     />
   )
 }
 
-function CommandEmpty({
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Empty>) {
+function CommandEmpty({ ...props }: React.ComponentProps<typeof CommandPrimitive.Empty>) {
   return (
     <CommandPrimitive.Empty
       {...parts.empty.attrs}
@@ -129,7 +115,7 @@ function CommandGroup({
       {...parts.group.attrs}
       className={cn(
         "overflow-hidden p-1 text-foreground [&_[cmdk-group-heading]]:px-2 [&_[cmdk-group-heading]]:py-1.5 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group-heading]]:text-xs",
-        className
+        className,
       )}
       {...props}
     />
@@ -149,33 +135,24 @@ function CommandSeparator({
   )
 }
 
-function CommandItem({
-  className,
-  ...props
-}: React.ComponentProps<typeof CommandPrimitive.Item>) {
+function CommandItem({ className, ...props }: React.ComponentProps<typeof CommandPrimitive.Item>) {
   return (
     <CommandPrimitive.Item
       {...parts.item.attrs}
       className={cn(
         "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden data-[disabled=true]:pointer-events-none data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg:not([class*='text-'])]:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0",
-        className
+        className,
       )}
       {...props}
     />
   )
 }
 
-function CommandShortcut({
-  className,
-  ...props
-}: React.ComponentProps<"span">) {
+function CommandShortcut({ className, ...props }: React.ComponentProps<"span">) {
   return (
     <span
       {...parts.shortcut.attrs}
-      className={cn(
-        "ml-auto text-muted-foreground text-xs tracking-widest",
-        className
-      )}
+      className={cn("ml-auto text-muted-foreground text-xs tracking-widest", className)}
       {...props}
     />
   )

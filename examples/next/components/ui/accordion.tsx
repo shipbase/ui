@@ -45,7 +45,7 @@ const AccordionItemTrigger = React.forwardRef<
     ref={ref}
     className={cn(
       "flex w-full flex-1 items-center justify-between gap-4 rounded-md py-4 text-left font-semibold text-sm outline-none transition-all hover:underline focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50",
-      className
+      className,
     )}
     {...props}
   >

@@ -20,18 +20,11 @@ export default function Component() {
       <MenuTrigger asChild>
         <Button variant="outline">
           Radio items
-          <ChevronDownIcon
-            className="-me-1 opacity-60"
-            size={16}
-            aria-hidden="true"
-          />
+          <ChevronDownIcon className="-me-1 opacity-60" size={16} aria-hidden="true" />
         </Button>
       </MenuTrigger>
       <MenuContent>
-        <MenuRadioItemGroup
-          value={framework}
-          onValueChange={(e) => setFramework(e.value)}
-        >
+        <MenuRadioItemGroup value={framework} onValueChange={(e) => setFramework(e.value)}>
           <MenuRadioItem value="nextjs">Next.js</MenuRadioItem>
           <MenuRadioItem value="sveltekit" disabled>
             SvelteKit

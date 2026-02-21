@@ -1,4 +1,3 @@
-import { Button, buttonVariants } from "@/components/ui/button"
 import {
   PaginationContent,
   PaginationNextTrigger,

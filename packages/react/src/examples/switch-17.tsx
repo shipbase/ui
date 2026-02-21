@@ -1,9 +1,4 @@
-import {
-  Switch,
-  SwitchControl,
-  SwitchLabel,
-  SwitchThumb,
-} from "@/components/ui/switch"
+import { Switch, SwitchControl, SwitchLabel, SwitchThumb } from "@/components/ui/switch"
 
 export default function Component() {
   return (
@@ -70,9 +65,7 @@ export default function Component() {
               (Sublabel)
             </span>
           </SwitchLabel>
-          <p className="text-muted-foreground text-xs">
-            A short description goes here.
-          </p>
+          <p className="text-muted-foreground text-xs">A short description goes here.</p>
         </div>
       </div>
     </Switch>

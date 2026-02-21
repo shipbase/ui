@@ -8,12 +8,7 @@ import {
   PaginationNextTrigger,
   PaginationPrevTrigger,
 } from "@/components/ui/pagination"
-import {
-  ChevronFirstIcon,
-  ChevronLastIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-} from "lucide-react"
+import { ChevronFirstIcon, ChevronLastIcon, ChevronLeftIcon, ChevronRightIcon } from "lucide-react"
 
 export default function Component() {
   return (
@@ -54,7 +49,7 @@ export default function Component() {
               ) : (
                 /* Ellipsis */
                 <PaginationEllipsis key={index} index={index} />
-              )
+              ),
             )}
 
             {/* Next page button */}

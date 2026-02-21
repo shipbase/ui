@@ -4,12 +4,7 @@ import { doesDependencyInstalled } from "../../src/utils/does-dependency-exist"
 
 describe("ensure dependency installed", () => {
   beforeAll(async () => {
-    for (const pkg of [
-      "project-astro",
-      "project-nextjs",
-      "project-pnpm",
-      "project-vite",
-    ]) {
+    for (const pkg of ["project-astro", "project-nextjs", "project-pnpm", "project-vite"]) {
       execSync("pnpm install --ignore-workspace", {
         cwd: path.resolve(import.meta.dirname, `../fixtures/${pkg}`),
       })
@@ -28,25 +23,25 @@ describe("ensure dependency installed", () => {
     expect(
       doesDependencyInstalled("tailwindcss", {
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-npm"),
-      })
+      }),
     ).toBe(false)
 
     expect(
       doesDependencyInstalled("tailwindcss", {
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-pnpm"),
-      })
+      }),
     ).toBe(true)
 
     expect(
       doesDependencyInstalled("tailwindcss", {
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-vite"),
-      })
+      }),
     ).toBe(true)
 
     expect(
       doesDependencyInstalled("tailwindcss", {
         cwd: path.resolve(import.meta.dirname, "../fixtures/project-nextjs"),
-      })
+      }),
     ).toBe(true)
   })
 })

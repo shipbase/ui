@@ -3,9 +3,7 @@ import { detectPackageManager } from "nypm"
 
 test("detect package manager", async () => {
   expect(
-    await detectPackageManager(
-      path.resolve(__dirname, "../fixtures/project-yarn")
-    )
+    await detectPackageManager(path.resolve(__dirname, "../fixtures/project-yarn")),
   ).toMatchObject({
     name: "yarn",
     command: "yarn",
@@ -13,9 +11,7 @@ test("detect package manager", async () => {
   })
 
   expect(
-    await detectPackageManager(
-      path.resolve(__dirname, "../fixtures/project-npm")
-    )
+    await detectPackageManager(path.resolve(__dirname, "../fixtures/project-npm")),
   ).toMatchObject({
     name: "npm",
     command: "npm",
@@ -23,9 +19,7 @@ test("detect package manager", async () => {
   })
 
   expect(
-    await detectPackageManager(
-      path.resolve(__dirname, "../fixtures/project-pnpm")
-    )
+    await detectPackageManager(path.resolve(__dirname, "../fixtures/project-pnpm")),
   ).toMatchObject({
     name: "pnpm",
     command: "pnpm",
@@ -33,9 +27,7 @@ test("detect package manager", async () => {
   })
 
   expect(
-    await detectPackageManager(
-      path.resolve(__dirname, "../fixtures/project-bun")
-    )
+    await detectPackageManager(path.resolve(__dirname, "../fixtures/project-bun")),
   ).toMatchObject({
     name: "bun",
     command: "bun",

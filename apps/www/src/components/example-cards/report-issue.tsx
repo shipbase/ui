@@ -49,9 +49,7 @@ const securityLevelOptions = createListCollection({
 
 export function CardsReportIssue() {
   const [selectedArea, setSelectedArea] = React.useState(["billing"])
-  const [selectedSecurityLevel, setSelectedSecurityLevel] = React.useState([
-    "2",
-  ])
+  const [selectedSecurityLevel, setSelectedSecurityLevel] = React.useState(["2"])
   const subjectId = useId()
   const descriptionId = useId()
 
@@ -59,9 +57,7 @@ export function CardsReportIssue() {
     <Card>
       <CardHeader>
         <CardTitle>Report an issue</CardTitle>
-        <CardDescription>
-          What area are you having problems with?
-        </CardDescription>
+        <CardDescription>What area are you having problems with?</CardDescription>
       </CardHeader>
       <CardContent className="grid gap-6">
         <div className="grid grid-cols-2 gap-4">
@@ -94,9 +90,7 @@ export function CardsReportIssue() {
             <Select
               collection={securityLevelOptions}
               value={selectedSecurityLevel}
-              onValueChange={(details) =>
-                setSelectedSecurityLevel(details.value)
-              }
+              onValueChange={(details) => setSelectedSecurityLevel(details.value)}
               positioning={{ sameWidth: true }}
             >
               <SelectLabel>Security Level</SelectLabel>

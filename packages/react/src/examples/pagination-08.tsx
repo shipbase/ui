@@ -37,7 +37,7 @@ export default function Component() {
                   variant="outline"
                   className={cn(
                     "rounded-none shadow-none focus-visible:z-10",
-                    pagination.page === page.value && "bg-accent"
+                    pagination.page === page.value && "bg-accent",
                   )}
                 >
                   {page.value}
@@ -51,10 +51,10 @@ export default function Component() {
                     buttonVariants({
                       variant: "outline",
                     }),
-                    "pointer-events-none rounded-none shadow-none"
+                    "pointer-events-none rounded-none shadow-none",
                   )}
                 />
-              )
+              ),
             )}
 
             {/* Next page button */}

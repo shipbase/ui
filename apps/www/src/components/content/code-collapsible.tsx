@@ -4,11 +4,7 @@ import { useRef, useState } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "@ui/react/button"
 
-export default function CodeCollapsible({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function CodeCollapsible({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -39,7 +35,7 @@ export default function CodeCollapsible({
         size="sm"
         onClick={handleToggle}
         className={cn(
-          "absolute inset-x-0 bottom-0 z-10 h-12 rounded-none border-0 bg-gradient-to-t from-background to-transparent text-muted-foreground transition-all duration-300 hover:bg-transparent"
+          "absolute inset-x-0 bottom-0 z-10 h-12 rounded-none border-0 bg-gradient-to-t from-background to-transparent text-muted-foreground transition-all duration-300 hover:bg-transparent",
         )}
       >
         {isOpen ? "Collapse" : "Expand"}

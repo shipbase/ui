@@ -5,7 +5,6 @@ import {
   SliderRange,
   SliderThumb,
   SliderTrack,
-  SliderValueText,
 } from "@/components/ui/slider"
 
 export default function Component() {

@@ -1,8 +1,4 @@
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from "@/components/ui/hover-card"
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
 
 export default function HoverCardDemo() {
   return (
@@ -42,8 +38,7 @@ export default function HoverCardDemo() {
             </div>
           </div>
           <p className="text-muted-foreground text-sm">
-            Designer at{" "}
-            <strong className="font-medium text-foreground">@Origin UI</strong>.
+            Designer at <strong className="font-medium text-foreground">@Origin UI</strong>.
             Crafting web experiences with Tailwind CSS.
           </p>
           <div className="flex items-center gap-2">
@@ -70,9 +65,7 @@ export default function HoverCardDemo() {
                 alt="Friend 03"
               />
             </div>
-            <div className="text-muted-foreground text-xs">
-              3 mutual friends
-            </div>
+            <div className="text-muted-foreground text-xs">3 mutual friends</div>
           </div>
         </div>
       </HoverCardContent>

@@ -24,16 +24,13 @@ export default function Component() {
             timeZoneName: "shortOffset",
           })
           const parts = formatter.formatToParts(new Date())
-          const offset =
-            parts.find((part) => part.type === "timeZoneName")?.value || ""
+          const offset = parts.find((part) => part.type === "timeZoneName")?.value || ""
           const modifiedOffset = offset === "GMT" ? "GMT+0" : offset
 
           return {
             value: timezone,
             label: `(${modifiedOffset}) ${timezone.replace(/_/g, " ")}`,
-            numericOffset: Number.parseInt(
-              offset.replace("GMT", "").replace("+", "") || "0"
-            ),
+            numericOffset: Number.parseInt(offset.replace("GMT", "").replace("+", "") || "0"),
           }
         })
         .sort((a, b) => a.numericOffset - b.numericOffset),

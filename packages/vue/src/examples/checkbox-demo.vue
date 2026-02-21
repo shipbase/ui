@@ -1,9 +1,5 @@
 <script setup lang="ts">
-import {
-  Checkbox,
-  CheckboxLabel,
-  CheckboxTrigger,
-} from "@/components/ui/checkbox"
+import { Checkbox, CheckboxLabel, CheckboxTrigger } from "@/components/ui/checkbox"
 </script>
 
 <template>
@@ -14,4 +10,3 @@ import {
     </CheckboxLabel>
   </Checkbox>
 </template>
-

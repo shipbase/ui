@@ -10,11 +10,7 @@ const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,
   RadioGroupPrimitive.RootProps
 >(({ className, ...props }, ref) => (
-  <RadioGroupPrimitive.Root
-    ref={ref}
-    className={cn("grid gap-3", className)}
-    {...props}
-  />
+  <RadioGroupPrimitive.Root ref={ref} className={cn("grid gap-3", className)} {...props} />
 ))
 RadioGroup.displayName = "RadioGroup"
 
@@ -28,7 +24,7 @@ const RadioGroupIndicator = React.forwardRef<
     ref={ref}
     className={cn(
       "left-(--left) h-(--height) w-(--width) transition-[left,top,width,height,box-shadow]! peer-has-data-[focus-visible]:border-ring peer-has-data-[focus-visible]:ring-[3px] peer-has-data-[focus-visible]:ring-ring/50",
-      className
+      className,
     )}
     {...props}
   />
@@ -60,7 +56,7 @@ const RadioGroupItemControl = React.forwardRef<
     ref={ref}
     className={cn(
       "data-[state=checked]:-outline-offset-[5px] aspect-square size-4 shrink-0 rounded-full border border-input bg-transparent shadow-xs transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[disabled]:cursor-not-allowed data-[state=checked]:border-primary data-[state=checked]:bg-primary-foreground data-[disabled]:opacity-50 data-[state=checked]:outline-4 data-[state=checked]:outline-primary data-[state=checked]:outline-solid dark:aria-invalid:ring-destructive/40",
-      className
+      className,
     )}
     {...props}
   />
@@ -75,7 +71,7 @@ const RadioGroupItemText = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
@@ -90,7 +86,7 @@ const RadioGroupLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />

@@ -1,5 +1,3 @@
-import type { Config } from "./schema"
-
 export async function resolveConfig() {
   // return {
   //   framework: "react",

@@ -21,11 +21,7 @@ export default function Component() {
   })
 
   return (
-    <Select
-      className="*:not-first:mt-2"
-      defaultValue={["1"]}
-      collection={collection}
-    >
+    <Select className="*:not-first:mt-2" defaultValue={["1"]} collection={collection}>
       <SelectLabel>Select with auto-width</SelectLabel>
       <SelectControl className="min-w-48 max-w-fit">
         <SelectTrigger>

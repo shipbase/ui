@@ -26,10 +26,7 @@ export default function PreviewReact({ name }: Props) {
       >
         <RotateCcw aria-label="restart-btn" size={16} />
       </Button>
-      <div
-        key={key}
-        className="flex size-full max-w-8/12 flex-1 items-center justify-center "
-      >
+      <div key={key} className="flex size-full max-w-8/12 flex-1 items-center justify-center ">
         <Suspense
           fallback={
             <div className="flex w-full items-center justify-center text-muted-foreground text-sm">
@@ -49,9 +46,7 @@ function NotFound({ name }: { name: string }) {
   return (
     <p className="text-muted-foreground text-sm">
       Component
-      <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">
-        {name}
-      </code>
+      <code className="rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono text-sm">{name}</code>
       not found in registry.
     </p>
   )

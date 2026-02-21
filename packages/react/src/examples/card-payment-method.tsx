@@ -81,9 +81,7 @@ export function CardsPaymentMethod() {
     <Card>
       <CardHeader>
         <CardTitle>Payment Method</CardTitle>
-        <CardDescription>
-          Add a new payment method to your account.
-        </CardDescription>
+        <CardDescription>Add a new payment method to your account.</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
@@ -91,27 +89,19 @@ export function CardsPaymentMethod() {
           <Input id={nameId} placeholder="First Last" />
         </div>
         <fieldset className="flex flex-col gap-3">
-          <RadioGroupLabel className="font-medium text-sm">
-            Plan
-          </RadioGroupLabel>
+          <RadioGroupLabel className="font-medium text-sm">Plan</RadioGroupLabel>
           <p className="text-muted-foreground text-sm">
             Select the plan that best fits your needs.
           </p>
           <RadioGroup defaultValue="starter" className="grid gap-3">
             {plans.map((plan) => (
-              <RadioGroupItem
-                key={plan.id}
-                value={plan.id}
-                className="flex items-center space-x-2"
-              >
+              <RadioGroupItem key={plan.id} value={plan.id} className="flex items-center space-x-2">
                 <RadioGroupItemControl />
                 <div className="grid gap-1.5 leading-none">
                   <RadioGroupItemText className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                     {plan.name}
                   </RadioGroupItemText>
-                  <p className="text-muted-foreground text-xs">
-                    {plan.description}
-                  </p>
+                  <p className="text-muted-foreground text-xs">{plan.description}</p>
                 </div>
               </RadioGroupItem>
             ))}

@@ -56,9 +56,7 @@ export default function Component() {
         <SelectTrigger>
           <div className="flex items-center gap-2">
             <SelectContext<StatusOption>>
-              {(context) => (
-                <StatusDot className={context.selectedItems[0].color} />
-              )}
+              {(context) => <StatusDot className={context.selectedItems[0].color} />}
             </SelectContext>
             <SelectValueText placeholder="Select a framework" />
           </div>

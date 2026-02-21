@@ -1,12 +1,6 @@
 import { type Framework, frameworks } from "@/constants/frameworks"
 import { cn } from "@/lib/utils"
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@ui/react/tabs"
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@ui/react/tabs"
 import { TerminalIcon } from "lucide-react"
 import { upperFirst } from "scule"
 

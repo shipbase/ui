@@ -1,10 +1,5 @@
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipArrow,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipArrow, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Component() {
   return (

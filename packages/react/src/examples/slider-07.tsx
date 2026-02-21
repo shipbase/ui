@@ -31,12 +31,7 @@ export default function Component() {
             value={tick}
             className="flex w-0 flex-col items-center justify-center gap-2"
           >
-            <span
-              className={cn(
-                "h-1 w-px bg-muted-foreground/70",
-                i % step !== 0 && "h-0.5"
-              )}
-            />
+            <span className={cn("h-1 w-px bg-muted-foreground/70", i % step !== 0 && "h-0.5")} />
             <span className={cn(i % step !== 0 && "opacity-0")}>{i}</span>
           </SliderMarker>
         ))}

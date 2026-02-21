@@ -9,34 +9,30 @@ import { visit } from "unist-util-visit"
  */
 export function remarkPluginCodeWrapper() {
   return (tree: Root) => {
-    visit(
-      tree,
-      "code",
-      (node: Code, index: number | undefined, parent: Parent | undefined) => {
-        if (!parent || index === undefined) return
+    visit(tree, "code", (node: Code, index: number | undefined, parent: Parent | undefined) => {
+      if (!parent || index === undefined) return
 
-        const attributes = [
-          ["src", node.value || ""],
-          ["lang", node.lang || "text"],
-          ["meta", node.meta || ""],
-          ["data-scope", "code-wrapper"],
-        ] as const
+      const attributes = [
+        ["src", node.value || ""],
+        ["lang", node.lang || "text"],
+        ["meta", node.meta || ""],
+        ["data-scope", "code-wrapper"],
+      ] as const
 
-        const mdxJSxAttribute = attributes.map(([name, value]) => ({
-          type: "mdxJsxAttribute",
-          name,
-          value,
-        })) satisfies MdxJsxAttribute[]
+      const mdxJSxAttribute = attributes.map(([name, value]) => ({
+        type: "mdxJsxAttribute",
+        name,
+        value,
+      })) satisfies MdxJsxAttribute[]
 
-        const codeElement = {
-          type: "mdxJsxFlowElement",
-          name: "CodeWrapper",
-          attributes: mdxJSxAttribute,
-          children: [],
-        } satisfies MdxJsxFlowElement
+      const codeElement = {
+        type: "mdxJsxFlowElement",
+        name: "CodeWrapper",
+        attributes: mdxJSxAttribute,
+        children: [],
+      } satisfies MdxJsxFlowElement
 
-        parent.children.splice(index, 1, codeElement)
-      }
-    )
+      parent.children.splice(index, 1, codeElement)
+    })
   }
 }

@@ -36,14 +36,7 @@ import {
   MenuSeparator,
   MenuTrigger,
 } from "@ui/react/menu"
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@ui/react/table"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@ui/react/table"
 
 const data: Payment[] = [
   {
@@ -97,12 +90,9 @@ export const columns: ColumnDef<Payment>[] = [
     header: ({ table }) => (
       <Checkbox
         checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
+          table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")
         }
-        onCheckedChange={(details) =>
-          table.toggleAllPageRowsSelected(!!details.checked)
-        }
+        onCheckedChange={(details) => table.toggleAllPageRowsSelected(!!details.checked)}
       >
         <CheckboxControl aria-label="Select all" />
       </Checkbox>
@@ -121,9 +111,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "status",
     header: "Status",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("status")}</div>,
   },
   {
     accessorKey: "email",
@@ -162,10 +150,7 @@ export const columns: ColumnDef<Payment>[] = [
           <MenuContent>
             <MenuItemGroup>
               <MenuItemGroupLabel>Actions</MenuItemGroupLabel>
-              <MenuItem
-                value="copy-id"
-                onClick={() => navigator.clipboard.writeText(payment.id)}
-              >
+              <MenuItem value="copy-id" onClick={() => navigator.clipboard.writeText(payment.id)}>
                 Copy payment ID
               </MenuItem>
             </MenuItemGroup>
@@ -181,11 +166,8 @@ export const columns: ColumnDef<Payment>[] = [
 
 export function CardsPayments() {
   const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
-    []
-  )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
+  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>([])
+  const [columnVisibility, setColumnVisibility] = React.useState<VisibilityState>({})
   const [rowSelection, setRowSelection] = React.useState({})
 
   const table = useReactTable({
@@ -229,16 +211,13 @@ export function CardsPayments() {
                       <TableHead
                         key={header.id}
                         className={cn(
-                          "data-[name=actions]:w-10 data-[name=amount]:w-24 data-[name=select]:w-10 data-[name=status]:w-24 [&:has([role=checkbox])]:pl-3"
+                          "data-[name=actions]:w-10 data-[name=amount]:w-24 data-[name=select]:w-10 data-[name=status]:w-24 [&:has([role=checkbox])]:pl-3",
                         )}
                         data-name={header.id}
                       >
                         {header.isPlaceholder
                           ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                            )}
+                          : flexRender(header.column.columnDef.header, header.getContext())}
                       </TableHead>
                     )
                   })}
@@ -248,32 +227,23 @@ export function CardsPayments() {
             <TableBody>
               {table.getRowModel().rows?.length ? (
                 table.getRowModel().rows.map((row) => (
-                  <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                  >
+                  <TableRow key={row.id} data-state={row.getIsSelected() && "selected"}>
                     {row.getVisibleCells().map((cell) => (
                       <TableCell
                         key={cell.id}
                         className={cn(
-                          "data-[name=actions]:w-10 data-[name=amount]:w-24 data-[name=select]:w-10 data-[name=status]:w-24 [&:has([role=checkbox])]:pl-3"
+                          "data-[name=actions]:w-10 data-[name=amount]:w-24 data-[name=select]:w-10 data-[name=status]:w-24 [&:has([role=checkbox])]:pl-3",
                         )}
                         data-name={cell.column.id}
                       >
-                        {flexRender(
-                          cell.column.columnDef.cell,
-                          cell.getContext()
-                        )}
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
                     ))}
                   </TableRow>
                 ))
               ) : (
                 <TableRow>
-                  <TableCell
-                    colSpan={columns.length}
-                    className="h-24 text-center"
-                  >
+                  <TableCell colSpan={columns.length} className="h-24 text-center">
                     No results.
                   </TableCell>
                 </TableRow>

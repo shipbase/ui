@@ -41,9 +41,7 @@ export const Basic = () => {
           <Toast key={id} className="min-w-max">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastActionTrigger>Undo</ToastActionTrigger>
             <ToastCloseTrigger />
@@ -79,9 +77,7 @@ export const Simple = () => {
           <Toast key={id} className="min-w-max">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastCloseTrigger />
           </Toast>
@@ -117,9 +113,7 @@ export const WithTitle = () => {
           <Toast key={id} className="min-w-max">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastCloseTrigger />
           </Toast>
@@ -155,9 +149,7 @@ export const WithAction = () => {
           <Toast key={id} className="min-w-max">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastActionTrigger>Try again</ToastActionTrigger>
             <ToastCloseTrigger />
@@ -194,9 +186,7 @@ export const Destructive = () => {
           <Toast key={id} className="min-w-max" variant="destructive">
             <div className="grid gap-1">
               {title && <ToastTitle>{title}</ToastTitle>}
-              {description && (
-                <ToastDescription>{description}</ToastDescription>
-              )}
+              {description && <ToastDescription>{description}</ToastDescription>}
             </div>
             <ToastActionTrigger>Try again</ToastActionTrigger>
             <ToastCloseTrigger />

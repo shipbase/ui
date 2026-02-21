@@ -14,16 +14,14 @@ const RegistrySchema = z.object({
         z.object({
           path: z.string(),
           type: z.string(),
-        })
+        }),
       ),
-    })
+    }),
   ),
 })
 
 async function main() {
-  const registryPath = fileURLToPath(
-    new URL("../registry.json", import.meta.url)
-  )
+  const registryPath = fileURLToPath(new URL("../registry.json", import.meta.url))
 
   const rawData = await fs.readFile(registryPath, "utf8")
   const registryData = RegistrySchema.parse(JSON.parse(rawData))

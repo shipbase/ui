@@ -13,12 +13,7 @@ const DEFAULT_COLORS = {
   description: "#a8a29e",
 } as const
 
-export function OpenGraph({
-  width,
-  height,
-  title,
-  description,
-}: OpenGraphProps) {
+export function OpenGraph({ width, height, title, description }: OpenGraphProps) {
   const TITLE_FONT_SIZE = title && title.length > 20 ? 64 : 80
 
   const GUIDE_INSET = 64

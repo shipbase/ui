@@ -9,10 +9,7 @@ import {
 
 export default function Component() {
   return (
-    <Slider
-      defaultValue={[25]}
-      className="*:not-first:mt-4 **:data-[part=thumb]:bg-primary"
-    >
+    <Slider defaultValue={[25]} className="*:not-first:mt-4 **:data-[part=thumb]:bg-primary">
       <SliderLabel>Slider with solid thumb</SliderLabel>
       <SliderControl>
         <SliderTrack>

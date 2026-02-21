@@ -23,7 +23,7 @@ const SheetBackdrop = React.forwardRef<
     {...parts.backdrop.attrs}
     className={cn(
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-(--z-index) bg-black/80 data-[state=closed]:animate-out data-[state=open]:animate-in",
-      className
+      className,
     )}
     {...props}
   />
@@ -65,7 +65,7 @@ const SheetContent = React.forwardRef<
             "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
           side === "bottom" &&
             "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
-          className
+          className,
         )}
         {...props}
       >
@@ -106,7 +106,7 @@ const SheetFooter = React.forwardRef<HTMLDivElement, HTMLArkProps<"div">>(
       className={cn("mt-auto flex flex-col gap-2 p-4", className)}
       {...props}
     />
-  )
+  ),
 )
 SheetFooter.displayName = "SheetFooter"
 
@@ -118,7 +118,7 @@ const SheetHeader = React.forwardRef<HTMLDivElement, HTMLArkProps<"div">>(
       className={cn("flex flex-col gap-1.5 p-4", className)}
       {...props}
     />
-  )
+  ),
 )
 SheetHeader.displayName = "SheetHeader"
 
@@ -139,12 +139,7 @@ const SheetTrigger = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Trigger>,
   SheetPrimitive.TriggerProps
 >(({ className, ...props }, ref) => (
-  <SheetPrimitive.Trigger
-    ref={ref}
-    {...parts.trigger.attrs}
-    className={cn(className)}
-    {...props}
-  />
+  <SheetPrimitive.Trigger ref={ref} {...parts.trigger.attrs} className={cn(className)} {...props} />
 ))
 SheetTrigger.displayName = "SheetTrigger"
 

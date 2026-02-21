@@ -5,13 +5,7 @@ import * as React from "react"
 
 import { Avatar, AvatarFallback, AvatarImage } from "@ui/react/avatar"
 import { Button } from "@ui/react/button"
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@ui/react/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@ui/react/card"
 import { Input } from "@ui/react/input"
 import { Label } from "@ui/react/label"
 import {
@@ -61,9 +55,7 @@ const permissionCollection = createListCollection({
 
 export function CardsShare() {
   const [permissions, setPermissions] = React.useState<Record<string, string>>(
-    Object.fromEntries(
-      people.map((person) => [person.email, person.permission])
-    )
+    Object.fromEntries(people.map((person) => [person.email, person.permission])),
   )
 
   const handlePermissionChange = (email: string, permission: string[]) => {
@@ -77,19 +69,13 @@ export function CardsShare() {
     <Card>
       <CardHeader>
         <CardTitle>Share this document</CardTitle>
-        <CardDescription>
-          Anyone with the link can view this document.
-        </CardDescription>
+        <CardDescription>Anyone with the link can view this document.</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <Label htmlFor="link">Link</Label>
           <div className="flex gap-2">
-            <Input
-              id="link"
-              defaultValue="http://example.com/link/to/document"
-              readOnly
-            />
+            <Input id="link" defaultValue="http://example.com/link/to/document" readOnly />
             <Button variant="secondary" className="shrink-0">
               <CopyIcon className="size-4" />
               <span className="sr-only">Copy link</span>
@@ -101,9 +87,7 @@ export function CardsShare() {
             <span className="w-full border-t" />
           </div>
           <div className="relative flex justify-center text-xs uppercase">
-            <span className="bg-card px-2 text-muted-foreground">
-              People with access
-            </span>
+            <span className="bg-card px-2 text-muted-foreground">People with access</span>
           </div>
         </div>
         <div className="flex flex-col gap-4">
@@ -115,16 +99,12 @@ export function CardsShare() {
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-semibold">{person.name}</span>
-                <span className="truncate text-muted-foreground text-xs">
-                  {person.email}
-                </span>
+                <span className="truncate text-muted-foreground text-xs">{person.email}</span>
               </div>
               <Select
                 collection={permissionCollection}
                 value={[permissions[person.email] || "view"]}
-                onValueChange={(details) =>
-                  handlePermissionChange(person.email, details.value)
-                }
+                onValueChange={(details) => handlePermissionChange(person.email, details.value)}
               >
                 <SelectControl className="w-32">
                   <SelectTrigger>

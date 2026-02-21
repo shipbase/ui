@@ -51,7 +51,7 @@ const ProgressLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
@@ -66,7 +66,7 @@ const ProgressRange = React.forwardRef<
     className={cn(
       "h-full w-full flex-1 bg-primary transition-all",
       "data-[state=indeterminate]:repeat-infinite data-[state=indeterminate]:slide-in-from-left data-[state=indeterminate]:slide-out-to-right data-[state=indeterminate]:animate-[in-out_1s_ease-in-out]",
-      className
+      className,
     )}
     {...props}
   />
@@ -84,7 +84,7 @@ const ProgressTrack = React.forwardRef<
       "relative overflow-hidden rounded-full bg-primary/20",
       "data-[orientation=horizontal]:h-2 data-[orientation=horizontal]:w-full",
       "data-[orientation=vertical]:h-full data-[orientation=vertical]:w-2",
-      className
+      className,
     )}
     {...props}
   />

@@ -9,11 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  Checkbox,
-  CheckboxControl,
-  CheckboxLabel,
-} from "@/components/ui/checkbox"
+import { Checkbox, CheckboxControl, CheckboxLabel } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import {
@@ -75,9 +71,7 @@ export function CardsForms() {
           </div>
         </div>
         <fieldset className="space-y-4">
-          <RadioGroupLabel className="font-medium text-sm">
-            Choose your plan
-          </RadioGroupLabel>
+          <RadioGroupLabel className="font-medium text-sm">Choose your plan</RadioGroupLabel>
           <RadioGroup defaultValue="starter" className="space-y-2">
             {plans.map((plan) => (
               <RadioGroupItem
@@ -103,17 +97,12 @@ export function CardsForms() {
         </fieldset>
         <div className="grid gap-2">
           <Label htmlFor="notes">Notes</Label>
-          <Textarea
-            id="notes"
-            placeholder="Any additional notes about your upgrade..."
-          />
+          <Textarea id="notes" placeholder="Any additional notes about your upgrade..." />
         </div>
         <div className="space-y-2">
           <Checkbox className="flex items-center space-x-2">
             <CheckboxControl />
-            <CheckboxLabel className="text-sm">
-              I agree to the terms and conditions
-            </CheckboxLabel>
+            <CheckboxLabel className="text-sm">I agree to the terms and conditions</CheckboxLabel>
           </Checkbox>
           <Checkbox defaultChecked className="flex items-center space-x-2">
             <CheckboxControl />

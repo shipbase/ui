@@ -72,9 +72,7 @@ export function CardsForms() {
         </div>
         <fieldset className="space-y-4">
           <RadioGroup defaultValue="starter" className="space-y-2">
-            <RadioGroupLabel className="font-medium text-sm">
-              Choose your plan
-            </RadioGroupLabel>
+            <RadioGroupLabel className="font-medium text-sm">Choose your plan</RadioGroupLabel>
             {plans.map((plan) => (
               <div
                 key={plan.id}
@@ -100,17 +98,12 @@ export function CardsForms() {
         </fieldset>
         <div className="grid gap-2">
           <Label htmlFor="notes">Notes</Label>
-          <Textarea
-            id="notes"
-            placeholder="Any additional notes about your upgrade..."
-          />
+          <Textarea id="notes" placeholder="Any additional notes about your upgrade..." />
         </div>
         <div className="space-y-2">
           <Checkbox className="flex items-center space-x-2">
             <CheckboxControl id="terms" />
-            <CheckboxLabel className="text-sm">
-              I agree to the terms and conditions
-            </CheckboxLabel>
+            <CheckboxLabel className="text-sm">I agree to the terms and conditions</CheckboxLabel>
           </Checkbox>
           <Checkbox className="flex items-center space-x-2">
             <CheckboxControl id="newsletter" defaultChecked />

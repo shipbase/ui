@@ -102,9 +102,7 @@ export function CardsBillingUpgrade({ className }: CardsBillingUpgradeProps) {
       <CardContent className="flex flex-col gap-6">
         <fieldset className="flex flex-col gap-3">
           <RadioGroup defaultValue="starter" className="grid gap-3">
-            <RadioGroupLabel className="font-medium text-sm">
-              Choose Your Plan
-            </RadioGroupLabel>
+            <RadioGroupLabel className="font-medium text-sm">Choose Your Plan</RadioGroupLabel>
             <p className="text-muted-foreground text-sm">
               Select the plan that best fits your needs.
             </p>
@@ -120,16 +118,12 @@ export function CardsBillingUpgrade({ className }: CardsBillingUpgradeProps) {
                     <RadioGroupItemText className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
                       {plan.name}
                     </RadioGroupItemText>
-                    <p className="text-muted-foreground text-xs">
-                      {plan.description}
-                    </p>
+                    <p className="text-muted-foreground text-xs">{plan.description}</p>
                   </div>
                 </div>
                 <div className="text-right">
                   <div className="font-semibold text-sm">{plan.price}</div>
-                  <div className="text-muted-foreground text-xs">
-                    {plan.billing}
-                  </div>
+                  <div className="text-muted-foreground text-xs">{plan.billing}</div>
                 </div>
               </RadioGroupItem>
             ))}

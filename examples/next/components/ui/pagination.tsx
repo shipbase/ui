@@ -1,14 +1,7 @@
 "use client"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
-import {
-  Pagination as PaginationPrimitive,
-  paginationAnatomy,
-} from "@ark-ui/react/pagination"
+import { type HTMLProps, type PolymorphicProps, ark } from "@ark-ui/react/factory"
+import { Pagination as PaginationPrimitive, paginationAnatomy } from "@ark-ui/react/pagination"
 import type { VariantProps } from "class-variance-authority"
 import { MoreHorizontal } from "lucide-react"
 import * as React from "react"
@@ -24,25 +17,21 @@ const Pagination = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <PaginationPrimitive.Root
     ref={ref}
-    className={cn(
-      "mx-auto flex w-full flex-row items-center justify-center gap-1",
-      className
-    )}
+    className={cn("mx-auto flex w-full flex-row items-center justify-center gap-1", className)}
     {...props}
   />
 ))
 
-const PaginationContent = React.forwardRef<
-  HTMLUListElement,
-  PolymorphicProps & HTMLProps<"ul">
->(({ className, ...props }, ref) => (
-  <ark.ul
-    ref={ref}
-    {...parts.content.attrs}
-    className={cn("flex flex-row items-center gap-1", className)}
-    {...props}
-  />
-))
+const PaginationContent = React.forwardRef<HTMLUListElement, PolymorphicProps & HTMLProps<"ul">>(
+  ({ className, ...props }, ref) => (
+    <ark.ul
+      ref={ref}
+      {...parts.content.attrs}
+      className={cn("flex flex-row items-center gap-1", className)}
+      {...props}
+    />
+  ),
+)
 
 const PaginationContext = PaginationPrimitive.Context
 
@@ -64,8 +53,7 @@ const PaginationEllipsis = React.forwardRef<
 ))
 
 export interface PaginationItemProps
-  extends PaginationPrimitive.ItemProps,
-    VariantProps<typeof buttonVariants> {}
+  extends PaginationPrimitive.ItemProps, VariantProps<typeof buttonVariants> {}
 
 const PaginationItem = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.Item>,
@@ -81,8 +69,7 @@ const PaginationItem = React.forwardRef<
 ))
 
 export interface PaginationNextTriggerProps
-  extends PaginationPrimitive.NextTriggerProps,
-    VariantProps<typeof buttonVariants> {}
+  extends PaginationPrimitive.NextTriggerProps, VariantProps<typeof buttonVariants> {}
 
 const PaginationNextTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.NextTrigger>,
@@ -99,8 +86,7 @@ const PaginationNextTrigger = React.forwardRef<
 ))
 
 export interface PaginationPrevTriggerProps
-  extends PaginationPrimitive.PrevTriggerProps,
-    VariantProps<typeof buttonVariants> {}
+  extends PaginationPrimitive.PrevTriggerProps, VariantProps<typeof buttonVariants> {}
 
 const PaginationPrevTrigger = React.forwardRef<
   React.ElementRef<typeof PaginationPrimitive.PrevTrigger>,

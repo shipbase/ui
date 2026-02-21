@@ -2,11 +2,7 @@
 
 import * as React from "react"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLProps, type PolymorphicProps, ark } from "@ark-ui/react/factory"
 import { Menu as MenuPrimitive, menuAnatomy } from "@ark-ui/react/menu"
 import { CheckIcon, ChevronRightIcon, CircleIcon } from "lucide-react"
 
@@ -24,7 +20,7 @@ const MenuArrow = React.forwardRef<
     ref={ref}
     className={cn(
       "[--arrow-background:var(--popover)] [--arrow-size:calc(var(--spacing)*2)]",
-      className
+      className,
     )}
     {...props}
   >
@@ -40,7 +36,7 @@ const MenuCheckboxItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-      className
+      className,
     )}
     {...props}
   >
@@ -62,7 +58,7 @@ const MenuContent = React.forwardRef<
       ref={ref}
       className={cn(
         "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[placement=bottom]:slide-in-from-top-2 data-[placement=left]:slide-in-from-right-2 data-[placement=right]:slide-in-from-left-2 data-[placement=top]:slide-in-from-bottom-2 max-h-(--available-height) min-w-[8rem] max-w-(--available-width) origin-(--transform-origin) overflow-y-auto overflow-x-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md outline-none data-[state=closed]:animate-out data-[state=open]:animate-in",
-        className
+        className,
       )}
       {...props}
     />
@@ -84,7 +80,7 @@ const MenuItem = React.forwardRef<
     data-inset={inset}
     className={cn(
       "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[inset]:pl-8 data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-      className
+      className,
     )}
     {...props}
   />
@@ -101,10 +97,7 @@ const MenuItemGroupLabel = React.forwardRef<
   <MenuPrimitive.ItemGroupLabel
     ref={ref}
     data-inset={inset}
-    className={cn(
-      "px-2 py-1.5 font-medium text-sm data-[inset]:pl-8",
-      className
-    )}
+    className={cn("px-2 py-1.5 font-medium text-sm data-[inset]:pl-8", className)}
     {...props}
   />
 ))
@@ -119,7 +112,7 @@ const MenuRadioItem = React.forwardRef<
     ref={ref}
     className={cn(
       "relative flex cursor-default select-none items-center gap-2 rounded-sm py-1.5 pr-2 pl-8 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-      className
+      className,
     )}
     {...props}
   >
@@ -145,22 +138,18 @@ const MenuSeparator = React.forwardRef<
   />
 ))
 
-const MenuShortcut = React.forwardRef<
-  HTMLSpanElement,
-  PolymorphicProps & HTMLProps<"span">
->(({ className, ...props }, ref) => {
-  return (
-    <ark.span
-      ref={ref}
-      {...parts.shortcut.attrs}
-      className={cn(
-        "ml-auto text-muted-foreground text-xs tracking-widest",
-        className
-      )}
-      {...props}
-    />
-  )
-})
+const MenuShortcut = React.forwardRef<HTMLSpanElement, PolymorphicProps & HTMLProps<"span">>(
+  ({ className, ...props }, ref) => {
+    return (
+      <ark.span
+        ref={ref}
+        {...parts.shortcut.attrs}
+        className={cn("ml-auto text-muted-foreground text-xs tracking-widest", className)}
+        {...props}
+      />
+    )
+  },
+)
 
 const MenuTrigger = MenuPrimitive.Trigger
 
@@ -175,7 +164,7 @@ const MenuTriggerItem = React.forwardRef<
     data-inset={inset}
     className={cn(
       "relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[highlighted]:bg-accent data-[inset]:pl-8 data-[highlighted]:text-accent-foreground data-[disabled]:opacity-50 [&_svg:not([class*='size-'])]:size-4 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-      className
+      className,
     )}
     {...props}
   >

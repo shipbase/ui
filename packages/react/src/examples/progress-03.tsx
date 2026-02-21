@@ -1,11 +1,6 @@
 import * as React from "react"
 
-import {
-  Progress,
-  ProgressLabel,
-  ProgressRange,
-  ProgressTrack,
-} from "@/components/ui/progress"
+import { Progress, ProgressLabel, ProgressRange, ProgressTrack } from "@/components/ui/progress"
 
 export default function ProgressDemo() {
   const [progress, setProgress] = React.useState(13)

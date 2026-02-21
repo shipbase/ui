@@ -100,11 +100,7 @@ export function CardsChat() {
               <p className="text-muted-foreground text-xs">m@example.com</p>
             </div>
           </div>
-          <Tooltip
-            positioning={{ placement: "top" }}
-            openDelay={0}
-            closeDelay={0}
-          >
+          <Tooltip positioning={{ placement: "top" }} openDelay={0} closeDelay={0}>
             <TooltipTrigger asChild>
               <Button
                 size="icon"
@@ -116,9 +112,7 @@ export function CardsChat() {
                 <span className="sr-only">New message</span>
               </Button>
             </TooltipTrigger>
-            <TooltipContent className="px-2 py-1 text-xs">
-              New message
-            </TooltipContent>
+            <TooltipContent className="px-2 py-1 text-xs">New message</TooltipContent>
           </Tooltip>
         </CardHeader>
         <CardContent>
@@ -130,7 +124,7 @@ export function CardsChat() {
                   "flex w-max max-w-[75%] flex-col gap-2 rounded-lg px-3 py-2 text-sm",
                   message.role === "user"
                     ? "ml-auto bg-primary text-primary-foreground"
-                    : "bg-muted"
+                    : "bg-muted",
                 )}
               >
                 {message.content}
@@ -179,8 +173,7 @@ export function CardsChat() {
           <DialogHeader className="px-4 pt-5 pb-4">
             <DialogTitle>New message</DialogTitle>
             <DialogDescription>
-              Invite a user to this thread. This will create a new group
-              message.
+              Invite a user to this thread. This will create a new group message.
             </DialogDescription>
           </DialogHeader>
           <Command className="overflow-hidden rounded-t-none border-t bg-transparent">
@@ -196,16 +189,12 @@ export function CardsChat() {
                     onSelect={() => {
                       if (selectedUsers.includes(user)) {
                         return setSelectedUsers(
-                          selectedUsers.filter(
-                            (selectedUser) => selectedUser !== user
-                          )
+                          selectedUsers.filter((selectedUser) => selectedUser !== user),
                         )
                       }
 
                       return setSelectedUsers(
-                        [...users].filter((u) =>
-                          [...selectedUsers, user].includes(u)
-                        )
+                        [...users].filter((u) => [...selectedUsers, user].includes(u)),
                       )
                     }}
                   >
@@ -214,12 +203,8 @@ export function CardsChat() {
                       <AvatarFallback>{user.name[0]}</AvatarFallback>
                     </Avatar>
                     <div className="ml-2">
-                      <p className="font-medium text-sm leading-none">
-                        {user.name}
-                      </p>
-                      <p className="text-muted-foreground text-sm">
-                        {user.email}
-                      </p>
+                      <p className="font-medium text-sm leading-none">{user.name}</p>
+                      <p className="text-muted-foreground text-sm">{user.email}</p>
                     </div>
                     {selectedUsers.includes(user) ? (
                       <CheckIcon className="ml-auto flex size-4 text-primary" />
@@ -240,9 +225,7 @@ export function CardsChat() {
                 ))}
               </div>
             ) : (
-              <p className="text-muted-foreground text-sm">
-                Select users to add to this thread.
-              </p>
+              <p className="text-muted-foreground text-sm">Select users to add to this thread.</p>
             )}
             <Button
               disabled={selectedUsers.length < 2}

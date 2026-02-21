@@ -3,10 +3,7 @@
 import * as React from "react"
 
 import { type HTMLArkProps, ark } from "@ark-ui/react/factory"
-import {
-  PinInput as PinInputPrimitive,
-  pinInputAnatomy,
-} from "@ark-ui/react/pin-input"
+import { PinInput as PinInputPrimitive, pinInputAnatomy } from "@ark-ui/react/pin-input"
 import { MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -38,17 +35,16 @@ const PinInputControl = React.forwardRef<
 ))
 PinInputControl.displayName = "PinInputControl"
 
-const PinInputGroup = React.forwardRef<
-  React.ElementRef<"div">,
-  HTMLArkProps<"div">
->(({ className, ...props }, ref) => (
-  <ark.div
-    ref={ref}
-    {...parts.group.attrs}
-    className={cn("flex items-center", className)}
-    {...props}
-  />
-))
+const PinInputGroup = React.forwardRef<React.ElementRef<"div">, HTMLArkProps<"div">>(
+  ({ className, ...props }, ref) => (
+    <ark.div
+      ref={ref}
+      {...parts.group.attrs}
+      className={cn("flex items-center", className)}
+      {...props}
+    />
+  ),
+)
 PinInputGroup.displayName = "PinInputGroup"
 
 const PinInputInput = React.forwardRef<
@@ -61,7 +57,7 @@ const PinInputInput = React.forwardRef<
       "relative h-9 w-9 border-input border-y border-r text-center text-sm shadow-xs outline-none transition-all placeholder:text-center placeholder:text-muted-foreground/70 first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30",
       "focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
       "aria-invalid:border-destructive focus-visible:aria-invalid:ring-destructive/20 dark:focus-visible:aria-invalid:ring-destructive/40",
-      className
+      className,
     )}
     {...props}
   />
@@ -76,21 +72,20 @@ const PinInputLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />
 ))
 PinInputLabel.displayName = "PinInputLabel"
 
-const PinInputSeparator = React.forwardRef<
-  React.ElementRef<"div">,
-  HTMLArkProps<"div">
->((props, ref) => (
-  <ark.div ref={ref} {...parts.separator.attrs} {...props}>
-    <MinusIcon />
-  </ark.div>
-))
+const PinInputSeparator = React.forwardRef<React.ElementRef<"div">, HTMLArkProps<"div">>(
+  (props, ref) => (
+    <ark.div ref={ref} {...parts.separator.attrs} {...props}>
+      <MinusIcon />
+    </ark.div>
+  ),
+)
 PinInputSeparator.displayName = "PinInputSeparator"
 
 export {

@@ -22,11 +22,7 @@ const TreeViewBranch = React.forwardRef<
   React.ElementRef<typeof TreeViewPrimitive.Branch>,
   TreeViewPrimitive.BranchProps
 >(({ className, ...props }, ref) => (
-  <TreeViewPrimitive.Branch
-    ref={ref}
-    className={cn("", className)}
-    {...props}
-  />
+  <TreeViewPrimitive.Branch ref={ref} className={cn("", className)} {...props} />
 ))
 TreeViewBranch.displayName = "TreeViewBranch"
 
@@ -38,7 +34,7 @@ const TreeViewBranchControl = React.forwardRef<
     ref={ref}
     className={cn(
       "flex w-full items-center gap-2 rounded-md px-2 py-1 text-primary hover:bg-muted",
-      className
+      className,
     )}
     {...props}
   />
@@ -57,10 +53,7 @@ const TreeViewBranchIndentGuide = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <TreeViewPrimitive.BranchIndentGuide
     ref={ref}
-    className={cn(
-      "absolute top-0 left-2 h-full w-px rounded bg-border",
-      className
-    )}
+    className={cn("absolute top-0 left-2 h-full w-px rounded bg-border", className)}
     {...props}
   />
 ))
@@ -86,7 +79,7 @@ const TreeViewItem = React.forwardRef<
     ref={ref}
     className={cn(
       "flex w-full items-center gap-2 rounded-md px-2 py-1 text-primary hover:bg-muted",
-      className
+      className,
     )}
     {...props}
   />

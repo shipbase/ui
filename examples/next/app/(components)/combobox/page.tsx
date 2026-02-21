@@ -42,15 +42,12 @@ const frameworks = [
 
 export default function Component() {
   const [value, setValue] = React.useState<string[]>([])
-  const [collection, setCollection] = React.useState(
-    createListCollection({ items: frameworks })
-  )
+  const [collection, setCollection] = React.useState(createListCollection({ items: frameworks }))
   const handleInputChange = (details: ComboboxInputValueChangeDetails) => {
     const filtered = frameworks.filter((item) =>
-      item.label.toLowerCase().includes(details.inputValue.toLowerCase())
+      item.label.toLowerCase().includes(details.inputValue.toLowerCase()),
     )
-    if (filtered.length > 0)
-      setCollection(createListCollection({ items: filtered }))
+    if (filtered.length > 0) setCollection(createListCollection({ items: filtered }))
   }
 
   const handleOpenChange = () => {

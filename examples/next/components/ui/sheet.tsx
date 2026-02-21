@@ -3,11 +3,7 @@
 import * as React from "react"
 
 import { Dialog as SheetPrimitive, dialogAnatomy } from "@ark-ui/react/dialog"
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
+import { type HTMLProps, type PolymorphicProps, ark } from "@ark-ui/react/factory"
 import { Portal } from "@ark-ui/react/portal"
 import { XIcon } from "lucide-react"
 
@@ -26,7 +22,7 @@ const SheetBackdrop = React.forwardRef<
     ref={ref}
     className={cn(
       "data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80 data-[state=closed]:animate-out data-[state=open]:animate-in",
-      className
+      className,
     )}
     {...props}
   />
@@ -55,7 +51,7 @@ const SheetContent = React.forwardRef<
             "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
           side === "bottom" &&
             "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto border-t",
-          className
+          className,
         )}
         {...props}
       >
@@ -82,27 +78,20 @@ const SheetDescription = React.forwardRef<
   />
 ))
 
-const SheetFooter = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) => (
-  <div
-    className={cn("mt-auto flex flex-col gap-2 p-4", className)}
-    {...props}
-  />
+const SheetFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
+  <div className={cn("mt-auto flex flex-col gap-2 p-4", className)} {...props} />
 )
 
-const SheetHeader = React.forwardRef<
-  HTMLDivElement,
-  PolymorphicProps & HTMLProps<"div">
->(({ className, ...props }, ref) => (
-  <ark.div
-    ref={ref}
-    {...parts.header.attrs}
-    className={cn("flex flex-col gap-1.5 p-4", className)}
-    {...props}
-  />
-))
+const SheetHeader = React.forwardRef<HTMLDivElement, PolymorphicProps & HTMLProps<"div">>(
+  ({ className, ...props }, ref) => (
+    <ark.div
+      ref={ref}
+      {...parts.header.attrs}
+      className={cn("flex flex-col gap-1.5 p-4", className)}
+      {...props}
+    />
+  ),
+)
 
 const SheetTitle = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Title>,

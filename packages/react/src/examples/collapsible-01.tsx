@@ -1,11 +1,7 @@
 import * as React from "react"
 
 import { Button } from "@/components/ui/button"
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
 import { ChevronsUpDown } from "lucide-react"
 
 export default function CollapsibleDemo() {
@@ -26,16 +22,10 @@ export default function CollapsibleDemo() {
           </Button>
         </CollapsibleTrigger>
       </div>
-      <div className="rounded-md border px-4 py-3 font-mono text-sm">
-        @ark-ui/react
-      </div>
+      <div className="rounded-md border px-4 py-3 font-mono text-sm">@ark-ui/react</div>
       <CollapsibleContent className="space-y-2">
-        <div className="rounded-md border px-4 py-3 font-mono text-sm">
-          @ark-ui/solid
-        </div>
-        <div className="rounded-md border px-4 py-3 font-mono text-sm">
-          @ark-ui/vue
-        </div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">@ark-ui/solid</div>
+        <div className="rounded-md border px-4 py-3 font-mono text-sm">@ark-ui/vue</div>
       </CollapsibleContent>
     </Collapsible>
   )

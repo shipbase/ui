@@ -49,9 +49,11 @@ import { Button } from "@ui/react/button"
   window.localStorage.setItem("theme", theme)
 
   const setTheme = () => {
-    localStorage.getItem("theme") === "dark"
-      ? document.documentElement.classList.add("dark")
-      : document.documentElement.classList.remove("dark")
+    if (localStorage.getItem("theme") === "dark") {
+      document.documentElement.classList.add("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+    }
   }
   setTheme()
 

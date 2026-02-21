@@ -1,32 +1,14 @@
 import { BoxIcon, HouseIcon, PanelsTopLeftIcon } from "lucide-react"
 
 import { Badge } from "@/components/ui/badge"
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Component() {
   return (
-    <Tabs
-      defaultValue="tab-1"
-      orientation="vertical"
-      className="w-full flex-row"
-    >
+    <Tabs defaultValue="tab-1" orientation="vertical" className="w-full flex-row">
       <TabsList>
-        <Tooltip
-          positioning={{ placement: "right" }}
-          openDelay={0}
-          closeDelay={0}
-        >
+        <Tooltip positioning={{ placement: "right" }} openDelay={0} closeDelay={0}>
           <TooltipTrigger asChild>
             <span className="z-1">
               <TabsTrigger value="tab-1" className="py-3">
@@ -34,15 +16,9 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Overview
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Overview</TooltipContent>
         </Tooltip>
-        <Tooltip
-          positioning={{ placement: "right" }}
-          openDelay={0}
-          closeDelay={0}
-        >
+        <Tooltip positioning={{ placement: "right" }} openDelay={0} closeDelay={0}>
           <TooltipTrigger asChild>
             <span className="z-1">
               <TabsTrigger value="tab-2" className="group py-3">
@@ -55,15 +31,9 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Projects
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Projects</TooltipContent>
         </Tooltip>
-        <Tooltip
-          positioning={{ placement: "right" }}
-          openDelay={0}
-          closeDelay={0}
-        >
+        <Tooltip positioning={{ placement: "right" }} openDelay={0} closeDelay={0}>
           <TooltipTrigger asChild>
             <span className="z-1">
               <TabsTrigger value="tab-3" className="py-3">
@@ -71,27 +41,19 @@ export default function Component() {
               </TabsTrigger>
             </span>
           </TooltipTrigger>
-          <TooltipContent className="px-2 py-1 text-xs">
-            Packages
-          </TooltipContent>
+          <TooltipContent className="px-2 py-1 text-xs">Packages</TooltipContent>
         </Tooltip>
         <TabsIndicator />
       </TabsList>
       <div className="grow rounded-md border text-start">
         <TabsContent value="tab-1">
-          <p className="px-4 py-3 text-muted-foreground text-xs">
-            Content for Tab 1
-          </p>
+          <p className="px-4 py-3 text-muted-foreground text-xs">Content for Tab 1</p>
         </TabsContent>
         <TabsContent value="tab-2">
-          <p className="px-4 py-3 text-muted-foreground text-xs">
-            Content for Tab 2
-          </p>
+          <p className="px-4 py-3 text-muted-foreground text-xs">Content for Tab 2</p>
         </TabsContent>
         <TabsContent value="tab-3">
-          <p className="px-4 py-3 text-muted-foreground text-xs">
-            Content for Tab 3
-          </p>
+          <p className="px-4 py-3 text-muted-foreground text-xs">Content for Tab 3</p>
         </TabsContent>
       </div>
     </Tabs>

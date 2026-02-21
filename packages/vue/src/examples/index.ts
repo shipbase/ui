@@ -4,5 +4,5 @@ export default Object.fromEntries(
   Object.entries(examples).map(([path, module]) => {
     const name = path.match(/\.\/(.*)\.vue$/)?.[1]
     return [name, module]
-  })
+  }),
 )

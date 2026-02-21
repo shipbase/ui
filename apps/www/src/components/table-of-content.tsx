@@ -34,7 +34,7 @@ function useActiveItem(headings: MarkdownHeading[]) {
           }
         }
       },
-      { rootMargin: "0% 0% -80% 0%" }
+      { rootMargin: "0% 0% -80% 0%" },
     )
 
     for (const heading of headings) {
@@ -81,12 +81,7 @@ export function TableOfContent({ headings }: Props) {
     >
       <TreeViewTree>
         {collection.rootNode.children?.map((node, index) => (
-          <TreeTreeNode
-            key={node.id}
-            node={node}
-            indexPath={[index]}
-            activeId={activeId}
-          />
+          <TreeTreeNode key={node.id} node={node} indexPath={[index]} activeId={activeId} />
         ))}
       </TreeViewTree>
     </TreeView>
@@ -105,7 +100,7 @@ function TreeTreeNode({
           <TreeViewBranchControl
             className={cn(
               "max-w-fit hover:bg-transparent hover:underline",
-              activeId === node.slug && "font-medium"
+              activeId === node.slug && "font-medium",
             )}
           >
             <a href={`#${node.slug}`}>
@@ -128,7 +123,7 @@ function TreeTreeNode({
         <TreeViewItem
           className={cn(
             "hover:bg-transparent hover:underline",
-            activeId === node.slug && "font-medium"
+            activeId === node.slug && "font-medium",
           )}
         >
           <a href={`#${node.slug}`}>

@@ -30,16 +30,12 @@ export function CopyButton({ value, className, ...props }: CopyButtonProps) {
       className={cn(
         "copy-code-button",
         "size-7 bg-code hover:opacity-100 focus-visible:opacity-100",
-        className
+        className,
       )}
       onClick={handleCopy}
       {...props}
     >
-      {copied ? (
-        <CheckIcon className="check-icon" />
-      ) : (
-        <ClipboardIcon className="copy-icon" />
-      )}
+      {copied ? <CheckIcon className="check-icon" /> : <ClipboardIcon className="copy-icon" />}
       <span className="sr-only">Copy</span>
     </Button>
   )

@@ -2,15 +2,8 @@
 
 import * as React from "react"
 
-import {
-  type HTMLProps,
-  type PolymorphicProps,
-  ark,
-} from "@ark-ui/react/factory"
-import {
-  PinInput as PinInputPrimitive,
-  pinInputAnatomy,
-} from "@ark-ui/react/pin-input"
+import { type HTMLProps, type PolymorphicProps, ark } from "@ark-ui/react/factory"
+import { PinInput as PinInputPrimitive, pinInputAnatomy } from "@ark-ui/react/pin-input"
 import { MinusIcon } from "lucide-react"
 
 import { cn } from "@/lib/utils"
@@ -62,7 +55,7 @@ const PinInputInput = React.forwardRef<
       "relative h-9 w-9 border-input border-y border-r text-center text-sm shadow-xs outline-none transition-all placeholder:text-center placeholder:text-muted-foreground/70 first:rounded-l-md first:border-l last:rounded-r-md dark:bg-input/30",
       "focus-visible:z-10 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
       "aria-invalid:border-destructive focus-visible:aria-invalid:ring-destructive/20 dark:focus-visible:aria-invalid:ring-destructive/40",
-      className
+      className,
     )}
     {...props}
   />
@@ -76,7 +69,7 @@ const PinInputLabel = React.forwardRef<
     ref={ref}
     className={cn(
       "select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50",
-      className
+      className,
     )}
     {...props}
   />

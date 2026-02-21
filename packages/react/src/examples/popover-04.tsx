@@ -21,9 +21,8 @@ export default function Component() {
           <div className="space-y-1">
             <PopoverTitle>Popover with button</PopoverTitle>
             <PopoverDescription>
-              I am a popover that would like to look like a tooltip. I
-              can&lsquo;t be a tooltip because of the interactive element inside
-              me.
+              I am a popover that would like to look like a tooltip. I can&lsquo;t be a tooltip
+              because of the interactive element inside me.
             </PopoverDescription>
           </div>
           <PopoverCloseTrigger asChild>

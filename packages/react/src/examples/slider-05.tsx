@@ -13,7 +13,7 @@ export default function Component() {
     <Slider
       defaultValue={[25]}
       className={cn(
-        "*:not-first:mt-4 **:data-[part=thumb]:h-6 **:data-[part=thumb]:w-2.5 **:data-[part=thumb]:border-[3px] **:data-[part=thumb]:border-background **:data-[part=thumb]:bg-primary **:data-[part=thumb]:shadow-none **:data-[part=thumb]:ring-offset-0"
+        "*:not-first:mt-4 **:data-[part=thumb]:h-6 **:data-[part=thumb]:w-2.5 **:data-[part=thumb]:border-[3px] **:data-[part=thumb]:border-background **:data-[part=thumb]:bg-primary **:data-[part=thumb]:shadow-none **:data-[part=thumb]:ring-offset-0",
       )}
     >
       <SliderLabel>Slider with tiny thumb</SliderLabel>

@@ -1,10 +1,4 @@
-import {
-  Tabs,
-  TabsContent,
-  TabsIndicator,
-  TabsList,
-  TabsTrigger,
-} from "@ui/react/tabs"
+import { Tabs, TabsContent, TabsIndicator, TabsList, TabsTrigger } from "@ui/react/tabs"
 
 interface Props {
   manual?: React.ReactNode
@@ -15,10 +9,7 @@ export const ComponentInstallTabs = ({ manual, cli }: Props) => {
   return (
     <Tabs defaultValue="cli" className="relative mt-6 w-full">
       <TabsList className="mb-5 flex h-8 justify-start rounded-none border-b bg-transparent p-0">
-        <TabsTrigger
-          value="cli"
-          className="h-full font-semibold data-[selected]:text-foreground"
-        >
+        <TabsTrigger value="cli" className="h-full font-semibold data-[selected]:text-foreground">
           CLI
         </TabsTrigger>
         <TabsTrigger

@@ -8,11 +8,7 @@ import {
 export default function HoverCardDemo() {
   return (
     <div className="max-w-md text-sm">
-      <HoverCard
-        positioning={{ placement: "right" }}
-        openDelay={0}
-        closeDelay={0}
-      >
+      <HoverCard positioning={{ placement: "right" }} openDelay={0} closeDelay={0}>
         <HoverCardTrigger asChild>
           <a className="flex size-16 overflow-hidden rounded-md" href="#ui">
             <img
@@ -32,8 +28,8 @@ export default function HoverCardDemo() {
                 Building a Design System with Next.js and Tailwind CSS
               </h2>
               <p className="text-muted-foreground text-sm">
-                Learn how to build a comprehensive design system using Tailwind
-                CSS, including component architecture, and theme customization.
+                Learn how to build a comprehensive design system using Tailwind CSS, including
+                component architecture, and theme customization.
               </p>
             </div>
             <div className="flex items-center gap-2 text-muted-foreground text-xs">

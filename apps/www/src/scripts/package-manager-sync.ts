@@ -14,8 +14,7 @@ document.addEventListener("astro:page-load", () => {
 
   // sync state in client
   packageManagerAtom.set(
-    (localStorage.getItem(PACKAGE_MANAGER_STORAGE_KEY) as PackageManager) ||
-      "pnpm"
+    (localStorage.getItem(PACKAGE_MANAGER_STORAGE_KEY) as PackageManager) || "pnpm",
   )
 
   handler()

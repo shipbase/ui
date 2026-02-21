@@ -39,10 +39,7 @@ function TableBody({ className, ...props }: React.ComponentProps<"tbody">) {
   )
 }
 
-function TableCaption({
-  className,
-  ...props
-}: React.ComponentProps<"caption">) {
+function TableCaption({ className, ...props }: React.ComponentProps<"caption">) {
   return (
     <caption
       {...parts.caption.attrs}
@@ -58,7 +55,7 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
       {...parts.cell.attrs}
       className={cn(
         "whitespace-nowrap p-2 align-middle [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-        className
+        className,
       )}
       {...props}
     />
@@ -69,10 +66,7 @@ function TableFooter({ className, ...props }: React.ComponentProps<"tfoot">) {
   return (
     <tfoot
       {...parts.footer.attrs}
-      className={cn(
-        "border-t bg-muted/50 font-medium [&>tr]:last:border-b-0",
-        className
-      )}
+      className={cn("border-t bg-muted/50 font-medium [&>tr]:last:border-b-0", className)}
       {...props}
     />
   )
@@ -84,7 +78,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
       {...parts.head.attrs}
       className={cn(
         "h-10 whitespace-nowrap px-2 text-left align-middle font-medium text-foreground [&:has([role=checkbox])]:pr-0 [&>[role=checkbox]]:translate-y-[2px]",
-        className
+        className,
       )}
       {...props}
     />
@@ -92,13 +86,7 @@ function TableHead({ className, ...props }: React.ComponentProps<"th">) {
 }
 
 function TableHeader({ className, ...props }: React.ComponentProps<"thead">) {
-  return (
-    <thead
-      {...parts.header.attrs}
-      className={cn("[&_tr]:border-b", className)}
-      {...props}
-    />
-  )
+  return <thead {...parts.header.attrs} className={cn("[&_tr]:border-b", className)} {...props} />
 }
 
 function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
@@ -107,20 +95,11 @@ function TableRow({ className, ...props }: React.ComponentProps<"tr">) {
       {...parts.row.attrs}
       className={cn(
         "border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted",
-        className
+        className,
       )}
       {...props}
     />
   )
 }
 
-export {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-}
+export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow }

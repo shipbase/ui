@@ -8,7 +8,6 @@ import {
   SliderThumb,
   SliderTrack,
 } from "@/components/ui/slider"
-import { cn } from "@/lib/utils"
 
 export default function Component() {
   return (

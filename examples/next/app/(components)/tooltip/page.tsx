@@ -1,9 +1,5 @@
 import { Button } from "@/components/ui/button"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip"
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"
 
 export default function Component() {
   return (
@@ -13,9 +9,7 @@ export default function Component() {
           Tiny
         </Button>
       </TooltipTrigger>
-      <TooltipContent className="px-2 py-1 text-xs">
-        This is a simple tooltip
-      </TooltipContent>
+      <TooltipContent className="px-2 py-1 text-xs">This is a simple tooltip</TooltipContent>
     </Tooltip>
   )
 }

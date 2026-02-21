@@ -6,16 +6,10 @@ import { safeResolvePath } from "@ui/lib/utils/mlly"
 import { findExports } from "mlly"
 import type { BuiltinLanguage } from "shiki"
 
-export const getExampleSource = async (
-  framework: Framework,
-  example: string
-) => {
-  const entryPath = await safeResolvePath(
-    `@ui/${framework}/examples/${example}`,
-    {
-      conditions: ["source"],
-    }
-  )
+export const getExampleSource = async (framework: Framework, example: string) => {
+  const entryPath = await safeResolvePath(`@ui/${framework}/examples/${example}`, {
+    conditions: ["source"],
+  })
   if (!entryPath.success) return
   const entryFile = await safeReadFile(entryPath.result)
   if (!entryFile.success) return
@@ -27,10 +21,7 @@ export const getExampleSource = async (
   }
 }
 
-export const getComponentSource = async (
-  framework: Framework,
-  name: string
-) => {
+export const getComponentSource = async (framework: Framework, name: string) => {
   const entryPath = await safeResolvePath(`@ui/${framework}/${name}`, {
     conditions: ["source"],
   })
@@ -51,11 +42,11 @@ export const getComponentSource = async (
           content: await fs.readFile(
             // biome-ignore lint/style/noNonNullAssertion: <explanation>
             path.resolve(path.dirname(entryPath.result), exp.specifier!),
-            "utf-8"
+            "utf-8",
           ),
           lang: lang as BuiltinLanguage,
         }
-      })
+      }),
   )
 
   const entryFileInfo = extractFileInfo(entryPath.result)
