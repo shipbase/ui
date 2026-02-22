@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "input",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/input.tsx",
+      "content": "\"use client\";\n\nimport { createAnatomy } from \"@ark-ui/react/anatomy\";\nimport { ark, type HTMLArkProps } from \"@ark-ui/react/factory\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\nconst anatomy = createAnatomy(\"input\").parts(\"root\");\nconst parts = anatomy.build();\n\ntype InputProps = Omit<HTMLArkProps<\"input\">, \"size\"> & {\n  size?: \"sm\" | \"default\" | \"lg\";\n  unstyled?: boolean;\n};\n\nconst Input = React.forwardRef<HTMLInputElement, InputProps>(\n  (\n    { className, type = \"text\", size = \"default\", unstyled = false, ...props },\n    ref,\n  ) => {\n    return (\n      <ark.input\n        ref={ref}\n        {...parts.root.attrs}\n        className={cn(\n          !unstyled &&\n            \"flex w-full min-w-0 rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-xs outline-none transition-[color,box-shadow] file:inline-flex file:h-7 file:border-0 file:bg-transparent file:font-medium file:text-foreground file:text-sm placeholder:text-muted-foreground/70 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50\",\n          !unstyled &&\n            \"focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50\",\n          !unstyled &&\n            \"aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40\",\n          !unstyled && size === \"sm\" && \"h-8\",\n          !unstyled && size === \"default\" && \"h-9\",\n          !unstyled && size === \"lg\" && \"h-10\",\n          type === \"search\" &&\n            \"[&::-webkit-search-cancel-button]:appearance-none [&::-webkit-search-decoration]:appearance-none [&::-webkit-search-results-button]:appearance-none [&::-webkit-search-results-decoration]:appearance-none\",\n          type === \"file\" &&\n            \"p-0 pr-3 text-muted-foreground/70 italic file:me-3 file:h-full file:border-0 file:border-input file:border-r file:border-solid file:bg-transparent file:px-3 file:font-medium file:text-foreground file:text-sm file:not-italic\",\n          className,\n        )}\n        type={type}\n        {...props}\n      />\n    );\n  },\n);\nInput.displayName = \"Input\";\n\nexport { Input };\nexport type { InputProps };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

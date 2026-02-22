@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "label",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "@coss/render"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/label.tsx",
+      "content": "\"use client\";\n\nimport { mergeProps, useRender } from \"@/registry/default/lib/render\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\nfunction Label({\n  className,\n  render,\n  ...props\n}: useRender.ComponentProps<\"label\">) {\n  const defaultProps = {\n    className: cn(\n      \"inline-flex items-center gap-2 text-base/4.5 sm:text-sm/4 font-medium text-foreground\",\n      className,\n    ),\n    \"data-slot\": \"label\",\n  };\n\n  return useRender({\n    defaultTagName: \"label\",\n    props: mergeProps<\"label\">(defaultProps, props),\n    render,\n  });\n}\n\nexport { Label };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

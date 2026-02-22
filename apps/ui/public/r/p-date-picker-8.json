@@ -1,0 +1,31 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "p-date-picker-8",
+  "type": "registry:block",
+  "description": "Date picker with select-like trigger",
+  "dependencies": [
+    "date-fns",
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "@coss/calendar",
+    "@coss/popover",
+    "@coss/select"
+  ],
+  "files": [
+    {
+      "path": "registry/default/particles/p-date-picker-8.tsx",
+      "content": "\"use client\";\n\nimport { format } from \"date-fns\";\nimport { useState } from \"react\";\n\nimport { Calendar } from \"@/registry/default/ui/calendar\";\nimport {\n  Popover,\n  PopoverPopup,\n  PopoverTrigger,\n} from \"@/registry/default/ui/popover\";\nimport { SelectButton } from \"@/registry/default/ui/select\";\n\nexport default function Particle() {\n  const [date, setDate] = useState<Date | undefined>();\n\n  return (\n    <Popover>\n      <PopoverTrigger\n        render={<SelectButton data-placeholder={!date ? \"\" : undefined} />}\n      >\n        {date ? format(date, \"PPP\") : \"Pick a date\"}\n      </PopoverTrigger>\n      <PopoverPopup>\n        <Calendar\n          defaultMonth={date}\n          mode=\"single\"\n          onSelect={setDate}\n          selected={date}\n        />\n      </PopoverPopup>\n    </Popover>\n  );\n}\n",
+      "type": "registry:block"
+    }
+  ],
+  "meta": {
+    "className": "**:data-[slot=preview]:w-full **:data-[slot=preview]:max-w-64"
+  },
+  "categories": [
+    "date picker",
+    "calendar",
+    "popover",
+    "button"
+  ]
+}

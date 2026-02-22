@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "autocomplete",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "@coss/combobox"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/autocomplete.tsx",
+      "content": "\"use client\";\n\nimport {\n  Combobox as Autocomplete,\n  ComboboxClear as AutocompleteClear,\n  ComboboxCollection as AutocompleteCollection,\n  ComboboxEmpty as AutocompleteEmpty,\n  ComboboxGroup as AutocompleteGroup,\n  ComboboxGroupLabel as AutocompleteGroupLabel,\n  ComboboxInput as AutocompleteInput,\n  ComboboxItem as AutocompleteItem,\n  ComboboxList as AutocompleteList,\n  ComboboxPopup as AutocompletePopup,\n  ComboboxRow as AutocompleteRow,\n  ComboboxSeparator as AutocompleteSeparator,\n  ComboboxStatus as AutocompleteStatus,\n  ComboboxTrigger as AutocompleteTrigger,\n  ComboboxValue as AutocompleteValue,\n  useComboboxFilter as useAutocompleteFilter,\n} from \"@/registry/default/ui/combobox\";\n\nexport {\n  Autocomplete,\n  AutocompleteInput,\n  AutocompleteTrigger,\n  AutocompletePopup,\n  AutocompleteItem,\n  AutocompleteSeparator,\n  AutocompleteGroup,\n  AutocompleteGroupLabel,\n  AutocompleteEmpty,\n  AutocompleteValue,\n  AutocompleteList,\n  AutocompleteClear,\n  AutocompleteStatus,\n  AutocompleteRow,\n  AutocompleteCollection,\n  useAutocompleteFilter,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

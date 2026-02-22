@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/checkbox.tsx",
+      "content": "\"use client\";\n\nimport { Checkbox as CheckboxPrimitive } from \"@ark-ui/react/checkbox\";\nimport { CheckIcon, MinusIcon } from \"lucide-react\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\ntype CheckboxCompatProps = CheckboxPrimitive.RootProps & {\n  indeterminate?: boolean;\n  parent?: boolean;\n};\n\nfunction Checkbox({\n  parent: _parent,\n  indeterminate,\n  ...props\n}: CheckboxCompatProps) {\n  return (\n    <CheckboxPrimitive.Root\n      checked={indeterminate ? \"indeterminate\" : props.checked}\n      {...props}\n    />\n  );\n}\n\nconst CheckboxContext = CheckboxPrimitive.Context;\n\nconst CheckboxControl = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Control>,\n  CheckboxPrimitive.ControlProps\n>(({ className, children, ...props }, ref) => (\n  <>\n    <CheckboxPrimitive.Control\n      className={cn(\n        \"peer flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input shadow-xs outline-none transition-shadow focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-500 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground dark:aria-invalid:ring-destructive/40\",\n        className,\n      )}\n      ref={ref}\n      {...props}\n    >\n      <CheckboxPrimitive.Indicator\n        className=\"grid place-content-center text-current\"\n        indeterminate\n      >\n        <MinusIcon className=\"size-4\" />\n      </CheckboxPrimitive.Indicator>\n      <CheckboxPrimitive.Indicator className=\"grid place-content-center text-current\">\n        <CheckIcon className=\"size-4\" />\n      </CheckboxPrimitive.Indicator>\n    </CheckboxPrimitive.Control>\n    <CheckboxPrimitive.HiddenInput />\n  </>\n));\nCheckboxControl.displayName = \"CheckboxControl\";\n\nconst CheckboxGroup = CheckboxPrimitive.Group;\n\nconst CheckboxLabel = React.forwardRef<\n  React.ElementRef<typeof CheckboxPrimitive.Label>,\n  CheckboxPrimitive.LabelProps\n>(({ className, ...props }, ref) => (\n  <CheckboxPrimitive.Label\n    className={cn(\n      \"select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n      className,\n    )}\n    ref={ref}\n    {...props}\n  />\n));\nCheckboxLabel.displayName = \"CheckboxLabel\";\n\nexport {\n  Checkbox,\n  CheckboxContext,\n  CheckboxControl,\n  CheckboxGroup,\n  CheckboxLabel,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

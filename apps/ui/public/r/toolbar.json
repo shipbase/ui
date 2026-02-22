@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "toolbar",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "@coss/render"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/toolbar.tsx",
+      "content": "\"use client\";\n\nimport { mergeProps, useRender } from \"@/registry/default/lib/render\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\nfunction Toolbar({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\n        \"relative flex gap-2 rounded-xl border bg-card not-dark:bg-clip-padding p-1 text-card-foreground\",\n        className,\n      )}\n      data-slot=\"toolbar\"\n      role=\"toolbar\"\n      {...props}\n    />\n  );\n}\n\nfunction ToolbarButton({\n  className,\n  render,\n  ...props\n}: useRender.ComponentProps<\"button\">) {\n  const typeValue: React.ButtonHTMLAttributes<HTMLButtonElement>[\"type\"] =\n    render ? undefined : \"button\";\n\n  return useRender({\n    defaultTagName: \"button\",\n    props: mergeProps(\n      {\n        className: cn(className),\n        \"data-slot\": \"toolbar-button\",\n        type: typeValue,\n      },\n      props,\n    ),\n    render,\n  });\n}\n\nfunction ToolbarLink({\n  className,\n  render,\n  ...props\n}: useRender.ComponentProps<\"a\">) {\n  return useRender({\n    defaultTagName: \"a\",\n    props: mergeProps(\n      {\n        className: cn(className),\n        \"data-slot\": \"toolbar-link\",\n      },\n      props,\n    ),\n    render,\n  });\n}\n\nfunction ToolbarInput({ className, ...props }: React.ComponentProps<\"input\">) {\n  return (\n    <input className={cn(className)} data-slot=\"toolbar-input\" {...props} />\n  );\n}\n\nfunction ToolbarGroup({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div\n      className={cn(\"flex items-center gap-1\", className)}\n      data-slot=\"toolbar-group\"\n      role=\"group\"\n      {...props}\n    />\n  );\n}\n\nfunction ToolbarSeparator({\n  className,\n  orientation = \"vertical\",\n  ...props\n}: React.ComponentProps<\"div\"> & {\n  orientation?: \"horizontal\" | \"vertical\";\n}) {\n  return (\n    <div\n      className={cn(\n        \"shrink-0 bg-border data-[orientation=horizontal]:my-0.5 data-[orientation=vertical]:my-1.5 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch\",\n        className,\n      )}\n      data-orientation={orientation}\n      data-slot=\"toolbar-separator\"\n      {...props}\n    />\n  );\n}\n\nexport {\n  Toolbar,\n  ToolbarGroup,\n  ToolbarSeparator,\n  ToolbarButton,\n  ToolbarLink,\n  ToolbarInput,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

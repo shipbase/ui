@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fieldset",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/fieldset.tsx",
+      "content": "\"use client\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\nfunction Fieldset({ className, ...props }: React.ComponentProps<\"fieldset\">) {\n  return (\n    <fieldset\n      className={cn(\"flex w-full max-w-64 flex-col gap-6\", className)}\n      data-slot=\"fieldset\"\n      {...props}\n    />\n  );\n}\n\nfunction FieldsetLegend({\n  className,\n  ...props\n}: React.ComponentProps<\"legend\">) {\n  return (\n    <legend\n      className={cn(\"font-semibold text-foreground\", className)}\n      data-slot=\"fieldset-legend\"\n      {...props}\n    />\n  );\n}\n\nexport { Fieldset, FieldsetLegend };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

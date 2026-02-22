@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "checkbox-group",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/checkbox-group.tsx",
+      "content": "\"use client\";\n\nimport { Checkbox as CheckboxPrimitive } from \"@ark-ui/react/checkbox\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\ntype CheckboxGroupProps = Omit<\n  CheckboxPrimitive.GroupProps,\n  \"onValueChange\"\n> & {\n  allValues?: string[];\n  onValueChange?: (value: string[]) => void;\n};\n\nfunction CheckboxGroup({\n  className,\n  onValueChange,\n  allValues: _allValues,\n  ...props\n}: CheckboxGroupProps) {\n  const getNextValues = (details: unknown) => {\n    if (Array.isArray(details)) {\n      return details;\n    }\n\n    if (details && typeof details === \"object\") {\n      const valueDetails = details as { value?: string[]; values?: string[] };\n      return valueDetails.value ?? valueDetails.values ?? [];\n    }\n\n    return [];\n  };\n\n  return (\n    <CheckboxPrimitive.Group\n      className={cn(\"flex flex-col items-start gap-3\", className)}\n      data-slot=\"checkbox-group\"\n      onValueChange={(details) => onValueChange?.(getNextValues(details))}\n      {...props}\n    />\n  );\n}\n\nexport { CheckboxGroup };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

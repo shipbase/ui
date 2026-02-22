@@ -1,0 +1,24 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "field",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "@coss/form",
+    "@coss/render"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/field.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { useRender } from \"@/registry/default/lib/render\";\nimport { cn } from \"@/registry/default/lib/utils\";\nimport { useFormContext } from \"@/registry/default/ui/form\";\n\ntype FieldContextValue = {\n  disabled: boolean;\n  error?: string;\n  invalid: boolean;\n  name?: string;\n};\n\nconst FieldContext = React.createContext<FieldContextValue>({\n  disabled: false,\n  invalid: false,\n});\n\ntype FieldProps = React.ComponentProps<\"div\"> & {\n  disabled?: boolean;\n  name?: string;\n  render?:\n    | React.ReactElement\n    | ((props: React.ComponentProps<\"div\">) => React.ReactElement);\n};\n\nfunction getFirstError(\n  errors: Record<string, string | string[] | undefined>,\n  name?: string,\n) {\n  if (!name) {\n    return undefined;\n  }\n\n  const value = errors[name];\n  if (Array.isArray(value)) {\n    return value.find(Boolean);\n  }\n\n  return value;\n}\n\nfunction Field({\n  className,\n  disabled = false,\n  name,\n  render,\n  \"aria-invalid\": ariaInvalid,\n  ...props\n}: FieldProps) {\n  const { errors } = useFormContext();\n  const error = getFirstError(errors, name);\n  const invalid =\n    ariaInvalid === true || ariaInvalid === \"true\" || Boolean(error);\n\n  const rootProps: React.ComponentProps<\"div\"> = {\n    ...props,\n    \"aria-invalid\": invalid || undefined,\n    className: cn(\"flex flex-col items-start gap-2\", className),\n    \"data-disabled\": disabled ? \"true\" : undefined,\n    \"data-invalid\": invalid ? \"true\" : undefined,\n    \"data-slot\": \"field\",\n  };\n\n  const renderElement =\n    typeof render === \"function\" ? render(rootProps) : render;\n\n  const root = useRender({\n    defaultTagName: \"div\",\n    props: rootProps,\n    render: renderElement,\n  });\n\n  return (\n    <FieldContext.Provider value={{ disabled, error, invalid, name }}>\n      {root}\n    </FieldContext.Provider>\n  );\n}\n\nfunction FieldLabel({ className, ...props }: React.ComponentProps<\"label\">) {\n  const state = React.useContext(FieldContext);\n\n  return (\n    <label\n      className={cn(\n        \"inline-flex items-center gap-2 font-medium text-base/4.5 text-foreground sm:text-sm/4\",\n        className,\n      )}\n      data-disabled={state.disabled ? \"true\" : undefined}\n      data-slot=\"field-label\"\n      {...props}\n    />\n  );\n}\n\nfunction FieldItem({ className, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div className={cn(\"flex\", className)} data-slot=\"field-item\" {...props} />\n  );\n}\n\nfunction FieldDescription({ className, ...props }: React.ComponentProps<\"p\">) {\n  return (\n    <p\n      className={cn(\"text-muted-foreground text-xs\", className)}\n      data-slot=\"field-description\"\n      {...props}\n    />\n  );\n}\n\nfunction FieldError({\n  className,\n  children,\n  ...props\n}: React.ComponentProps<\"p\">) {\n  const state = React.useContext(FieldContext);\n  const content = children ?? state.error;\n\n  if (!content) {\n    return null;\n  }\n\n  return (\n    <p\n      className={cn(\"text-destructive-foreground text-xs\", className)}\n      data-slot=\"field-error\"\n      {...props}\n    >\n      {content}\n    </p>\n  );\n}\n\nfunction FieldControl({ children, ...props }: React.ComponentProps<\"div\">) {\n  return (\n    <div data-slot=\"field-control\" {...props}>\n      {children}\n    </div>\n  );\n}\n\nfunction FieldValidity({\n  children,\n}: {\n  children: React.ReactNode | ((state: FieldContextValue) => React.ReactNode);\n}) {\n  const state = React.useContext(FieldContext);\n\n  if (typeof children === \"function\") {\n    return <>{children(state)}</>;\n  }\n\n  return <>{children}</>;\n}\n\nexport {\n  Field,\n  FieldLabel,\n  FieldDescription,\n  FieldError,\n  FieldControl,\n  FieldItem,\n  FieldValidity,\n};\n",
+      "type": "registry:ui"
+    }
+  ],
+  "cssVars": {
+    "light": {
+      "destructive-foreground": "var(--color-red-700)"
+    },
+    "dark": {
+      "destructive-foreground": "var(--color-red-400)"
+    }
+  }
+}

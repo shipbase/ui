@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "separator",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/separator.tsx",
+      "content": "import { cn } from \"@/registry/default/lib/utils\";\n\nfunction Separator({\n  className,\n  orientation = \"horizontal\",\n  ...props\n}: React.ComponentProps<\"hr\"> & {\n  orientation?: \"horizontal\" | \"vertical\";\n}) {\n  return (\n    <hr\n      className={cn(\n        \"shrink-0 border-0 bg-border data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-auto data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px data-[orientation=vertical]:self-stretch\",\n        className,\n      )}\n      data-orientation={orientation}\n      data-slot=\"separator\"\n      {...props}\n    />\n  );\n}\n\nexport { Separator };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

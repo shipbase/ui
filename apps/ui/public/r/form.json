@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form",
+  "type": "registry:ui",
+  "files": [
+    {
+      "path": "registry/default/ui/form.tsx",
+      "content": "\"use client\";\n\nimport * as React from \"react\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\ntype FormErrors = Record<string, string | string[] | undefined>;\n\ntype FormContextValue = {\n  errors: FormErrors;\n};\n\nconst FormContext = React.createContext<FormContextValue>({\n  errors: {},\n});\n\ntype FormProps = React.ComponentProps<\"form\"> & {\n  errors?: FormErrors;\n};\n\nfunction Form({ className, errors, ...props }: FormProps) {\n  return (\n    <FormContext.Provider value={{ errors: errors ?? {} }}>\n      <form\n        className={cn(\"flex w-full flex-col gap-4\", className)}\n        data-slot=\"form\"\n        {...props}\n      />\n    </FormContext.Provider>\n  );\n}\n\nfunction useFormContext() {\n  return React.useContext(FormContext);\n}\n\nexport { Form, useFormContext, type FormErrors };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+"area:apps/ui":
+  - changed-files:
+      - any-glob-to-any-file: "apps/ui/**"
+
+"pkg:ui":
+  - changed-files:
+      - any-glob-to-any-file: "packages/ui/**"
+
+"pkg:tsconfig":
+  - changed-files:
+      - any-glob-to-any-file: "packages/typescript-config/**"
+
+"area:config":
+  - changed-files:
+      - any-glob-to-any-file: ".github/**"
+      - any-glob-to-any-file: "biome.json"
+      - any-glob-to-any-file: "turbo.json"
+      - any-glob-to-any-file: "tsconfig.json"
+      - any-glob-to-any-file: "bunfig.toml"
+      - any-glob-to-any-file: "lint-staged.config.mjs"
+
+"docs":
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
+
+"deps":
+  - changed-files:
+      - any-glob-to-any-file: "package.json"
+      - any-glob-to-any-file: "bun.lock"
+      - any-glob-to-any-file: "packages/**/package.json"

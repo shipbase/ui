@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "preview-card",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "registryDependencies": [
+    "@coss/render"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/preview-card.tsx",
+      "content": "\"use client\";\n\nimport { HoverCard as HoverCardPrimitive } from \"@ark-ui/react/hover-card\";\nimport type * as React from \"react\";\nimport { renderAsChild } from \"@/registry/default/lib/render\";\nimport { cn } from \"@/registry/default/lib/utils\";\n\nconst PreviewCard = HoverCardPrimitive.Root;\n\nfunction PreviewCardTrigger({\n  children,\n  render,\n  ...props\n}: HoverCardPrimitive.TriggerProps & { render?: React.ReactElement }) {\n  const { asChild, child } = renderAsChild({ children, render });\n\n  return (\n    <HoverCardPrimitive.Trigger\n      asChild={asChild}\n      data-slot=\"preview-card-trigger\"\n      {...props}\n    >\n      {child}\n    </HoverCardPrimitive.Trigger>\n  );\n}\n\nfunction PreviewCardPopup({\n  className,\n  children,\n  sideOffset = 4,\n  ...props\n}: HoverCardPrimitive.ContentProps & {\n  sideOffset?: number;\n}) {\n  return (\n    <HoverCardPrimitive.Positioner>\n      <HoverCardPrimitive.Content\n        className={cn(\n          \"relative z-50 flex w-64 text-balance rounded-lg border bg-popover p-4 text-popover-foreground text-sm shadow-lg/5\",\n          className,\n        )}\n        data-slot=\"preview-card-content\"\n        {...props}\n      >\n        <HoverCardPrimitive.Arrow\n          className=\"[--arrow-background:var(--popover)] [--arrow-size:calc(var(--spacing)*2)]\"\n          style={{ marginTop: sideOffset }}\n        >\n          <HoverCardPrimitive.ArrowTip className=\"border-t border-l\" />\n        </HoverCardPrimitive.Arrow>\n        {children}\n      </HoverCardPrimitive.Content>\n    </HoverCardPrimitive.Positioner>\n  );\n}\n\nexport {\n  PreviewCard,\n  PreviewCard as HoverCard,\n  PreviewCardTrigger,\n  PreviewCardTrigger as HoverCardTrigger,\n  PreviewCardPopup,\n  PreviewCardPopup as HoverCardContent,\n};\n",
+      "type": "registry:ui"
+    }
+  ]
+}

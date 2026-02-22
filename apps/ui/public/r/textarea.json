@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "textarea",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/textarea.tsx",
+      "content": "\"use client\";\n\nimport { createAnatomy } from \"@ark-ui/react/anatomy\";\nimport { ark, type HTMLArkProps } from \"@ark-ui/react/factory\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\nconst anatomy = createAnatomy(\"textarea\").parts(\"root\");\nconst parts = anatomy.build();\n\ntype TextareaProps = Omit<HTMLArkProps<\"textarea\">, \"size\"> & {\n  size?: \"sm\" | \"default\" | \"lg\";\n  unstyled?: boolean;\n};\n\nconst Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(\n  ({ className, size = \"default\", unstyled = false, ...props }, ref) => {\n    return (\n      <ark.textarea\n        ref={ref}\n        {...parts.root.attrs}\n        className={cn(\n          !unstyled &&\n            \"flex w-full rounded-md border border-input bg-transparent px-3 py-2 text-sm shadow-xs outline-none transition-[color,box-shadow] placeholder:text-muted-foreground/70 focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40\",\n          !unstyled && size === \"sm\" && \"min-h-16\",\n          !unstyled && size === \"default\" && \"min-h-19.5\",\n          !unstyled && size === \"lg\" && \"min-h-24\",\n          className,\n        )}\n        {...props}\n      />\n    );\n  },\n);\nTextarea.displayName = \"Textarea\";\n\nexport { Textarea };\nexport type { TextareaProps };\n",
+      "type": "registry:ui"
+    }
+  ]
+}

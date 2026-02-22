@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "switch",
+  "type": "registry:ui",
+  "dependencies": [
+    "@ark-ui/react"
+  ],
+  "files": [
+    {
+      "path": "registry/default/ui/switch.tsx",
+      "content": "\"use client\";\n\nimport { Switch as SwitchPrimitive } from \"@ark-ui/react/switch\";\nimport * as React from \"react\";\n\nimport { cn } from \"@/registry/default/lib/utils\";\n\nconst Switch = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Root>,\n  SwitchPrimitive.RootProps\n>(({ className, children, ...props }, ref) => (\n  <SwitchPrimitive.Root\n    className={cn(\n      \"inline-flex data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n      className,\n    )}\n    ref={ref}\n    {...props}\n  >\n    {children}\n  </SwitchPrimitive.Root>\n));\nSwitch.displayName = \"Switch\";\n\nconst SwitchContext = SwitchPrimitive.Context;\n\nconst SwitchControl = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Control>,\n  SwitchPrimitive.ControlProps\n>(({ className, children, ...props }, ref) => (\n  <SwitchPrimitive.Control\n    className={cn(\n      \"inline-flex h-6 w-10 shrink-0 items-center rounded-full border-2 border-transparent outline-none transition-all focus-visible:ring-[3px] focus-visible:ring-ring/50 data-[state=checked]:bg-primary data-[state=unchecked]:bg-input\",\n      className,\n    )}\n    ref={ref}\n    {...props}\n  >\n    {children}\n    <SwitchPrimitive.HiddenInput />\n  </SwitchPrimitive.Control>\n));\nSwitchControl.displayName = \"SwitchControl\";\n\nconst SwitchLabel = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Label>,\n  SwitchPrimitive.LabelProps\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitive.Label\n    className={cn(\n      \"select-none font-medium text-foreground text-sm leading-4 data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50\",\n      className,\n    )}\n    ref={ref}\n    {...props}\n  />\n));\nSwitchLabel.displayName = \"SwitchLabel\";\n\nconst SwitchRootProvider = SwitchPrimitive.RootProvider;\n\nconst SwitchThumb = React.forwardRef<\n  React.ElementRef<typeof SwitchPrimitive.Thumb>,\n  SwitchPrimitive.ThumbProps\n>(({ className, ...props }, ref) => (\n  <SwitchPrimitive.Thumb\n    className={cn(\n      \"data-[state=checked]:rtl:-translate-x-4 pointer-events-none block size-5 rounded-full bg-background shadow-xs ring-0 transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0\",\n      className,\n    )}\n    ref={ref}\n    {...props}\n  />\n));\nSwitchThumb.displayName = \"SwitchThumb\";\n\nexport {\n  Switch,\n  SwitchContext,\n  SwitchControl,\n  SwitchLabel,\n  SwitchRootProvider,\n  SwitchThumb,\n};\n\nexport {\n  type SwitchCheckedChangeDetails,\n  useSwitch,\n  useSwitchContext,\n} from \"@ark-ui/react/switch\";\n",
+      "type": "registry:ui"
+    }
+  ]
+}
