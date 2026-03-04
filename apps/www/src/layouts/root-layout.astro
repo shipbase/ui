@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions"
 
 import SiteFooter from "@/components/side-footer.astro"
 import SiteHeader from "@/components/site-header.astro"
+import StructuredData from "@/components/structured-data.astro"
 import TailwindIndicator from "@/components/tailwind-indicator.astro"
 import { META_THEME_COLORS, siteConfig } from "@/config/site"
 
@@ -14,6 +15,7 @@ export interface Props {
   metadata: {
     title: string
     description: string
+    robotsMeta?: string
     openGraph: {
       type: "website" | "article" | "book" | "profile" | (string & {})
       title: string
@@ -31,10 +33,24 @@ export interface Props {
       }
     }
   }
+  structuredData?: Record<string, unknown> | Record<string, unknown>[]
 }
 
-const { metadata } = Astro.props as Props
+const { metadata, structuredData } = Astro.props as Props
 const url = Astro.url
+const robotsMeta = metadata.robotsMeta ?? "index,follow"
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "shipbase",
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/logo.png`,
+  sameAs: [
+    siteConfig.links.twitter,
+    siteConfig.links.github,
+  ],
+}
 ---
 
 <!doctype html>
@@ -52,7 +68,7 @@ const url = Astro.url
     <meta name="author" content={siteConfig.author} />
     <meta name="creator" content={siteConfig.creator} />
     <meta name="theme-color" content={META_THEME_COLORS.light} />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content={robotsMeta} />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:url" content={url.toString()} />
@@ -78,6 +94,9 @@ const url = Astro.url
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <StructuredData data={organizationSchema} />
+    {structuredData && <StructuredData data={structuredData} />}
 
     <ClientRouter />
 

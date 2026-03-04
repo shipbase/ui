@@ -10,6 +10,7 @@ const imageUrl = new URL(siteConfig.ogImage, url.origin).toString()
   metadata={{
     title: "Page Not Found",
     description: siteConfig.description,
+    robotsMeta: "noindex,nofollow",
     openGraph: {
       type: "website",
       title: "Page Not Found",
