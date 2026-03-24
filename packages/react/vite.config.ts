@@ -14,7 +14,7 @@ export default defineConfig({
     },
     target: "esnext",
     minify: false,
-    rollupOptions: {
+    rolldownOptions: {
       output: {
         esModule: true,
         preserveModules: true,

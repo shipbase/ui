@@ -19,6 +19,7 @@ export default defineConfig({
   integrations: [mdx({ remarkPlugins: [remarkPluginCodeWrapper] }), react(), sitemap()],
 
   vite: {
+    // @ts-expect-error - Astro 5 internally depends on Vite 6 types, but the plugins work at runtime with Vite 8
     plugins: [inspect(), tailwindcss()],
     ssr: {
       external: [
